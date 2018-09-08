@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import GeoButton from './GeoButton';
@@ -8,6 +8,8 @@ import { fetchGeolocation } from '../../store/geolocation/actions';
 import { fetchCity } from '../../store/cities/actions';
 import { getIsGeolocationLoading, getGeolocationErrorMessage } from '../../store/rootSelectors';
 import { OWM_API_LATITUDE_QUERY_PARAM, OWM_API_LONGITUDE_QUERY_PARAM } from '../../config/weather';
+
+import { StyledGeolocation } from './styles';
 
 export class Geolocation extends Component {
   componentDidMount() {
@@ -34,11 +36,13 @@ export class Geolocation extends Component {
     const { isLoading, errorMessage } = this.props;
 
     return (
-      <Fragment>
-        <GeoButton disabled={isLoading} onClick={this.fetchGeolocation} />
-        {isLoading && <Loader text="fetching geolocation" />}
-        {errorMessage && <Error>{errorMessage}</Error>}
-      </Fragment>
+      <StyledGeolocation>
+        <div>
+          <GeoButton disabled={isLoading} onClick={this.fetchGeolocation} />
+          {isLoading && <Loader text="fetching geolocation" />}
+          {errorMessage && <Error>{errorMessage}</Error>}
+        </div>
+      </StyledGeolocation>
     );
   }
 }

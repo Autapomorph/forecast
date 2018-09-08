@@ -3,7 +3,6 @@ import keyBy from 'lodash/keyBy';
 
 import * as types from './actionTypes';
 import WeatherService from '../../services/weather';
-import { resetGeolocation } from '../geolocation/actions';
 import { getIsAnythingLoading } from '../rootSelectors';
 
 // city actions
@@ -31,7 +30,6 @@ export const fetchCity = searchParams => async (dispatch, getState) => {
   }
 
   dispatch(fetchCityRequest());
-  dispatch(resetGeolocation());
 
   try {
     const cityData = await WeatherService.fetchCity(searchParams);
@@ -66,7 +64,6 @@ export const fetchCititesByName = searchParams => async (dispatch, getState) => 
   }
 
   dispatch(fetchCitiesByNameRequest());
-  dispatch(resetGeolocation());
 
   try {
     const citiesData = await WeatherService.fetchCititesByName(searchParams);

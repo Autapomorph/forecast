@@ -1,10 +1,5 @@
 import * as types from './actionTypes';
 
-// reset actions
-export const resetGeolocation = () => ({
-  type: types.GEOLOCATION_RESET,
-});
-
 // geolocation actions
 export const fetchGeoLocationRequest = () => ({
   type: types.GEOLOCATION_FETCH_REQUEST,

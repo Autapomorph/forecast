@@ -10,15 +10,6 @@ export default (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case types.GEOLOCATION_RESET: {
-      return {
-        ...state,
-        data: null,
-        loading: false,
-        errorMessage: null,
-      };
-    }
-
     case types.GEOLOCATION_FETCH_REQUEST: {
       return {
         ...state,

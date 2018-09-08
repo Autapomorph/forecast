@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import Header from '../../Header';
 import Geolocation from '../../Geolocation';
@@ -6,17 +6,19 @@ import SelectedCity from '../../SelectedCity';
 import SearchResults from '../../SearchResults';
 import FeaturedCities from '../../FeaturedCities';
 
+import { StyledLayoutContainer, StyledLayoutContent } from './styles';
+
 const MainLayout = () => (
-  <Fragment>
+  <StyledLayoutContainer>
     <Header />
 
-    <main>
+    <StyledLayoutContent>
       <Geolocation />
       <SelectedCity />
       <SearchResults />
       <FeaturedCities />
-    </main>
-  </Fragment>
+    </StyledLayoutContent>
+  </StyledLayoutContainer>
 );
 
 export default MainLayout;

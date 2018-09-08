@@ -2,10 +2,12 @@ import React from 'react';
 
 import SearchBar from '../SearchBar';
 
+import { StyledHeader } from './styles';
+
 const Header = () => (
-  <div>
+  <StyledHeader>
     <SearchBar />
-  </div>
+  </StyledHeader>
 );
 
 export default Header;

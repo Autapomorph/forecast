@@ -15,6 +15,8 @@ import {
 } from '../../store/rootSelectors';
 import { OWM_API_CITY_ID_QUERY_PARAM } from '../../config/weather';
 
+import { StyledSelectedCity } from './styles';
+
 export class SelectedCity extends Component {
   fetchCity = cityId => {
     const { _fetchCity } = this.props;
@@ -52,12 +54,14 @@ export class SelectedCity extends Component {
     }
 
     return (
-      <City
-        city={city}
-        isFeatured={checkIfFeatured(city.id)}
-        addCityToFeatured={_addCityToFeatured}
-        removeCityFromFeatured={_removeCityFromFeatured}
-      />
+      <StyledSelectedCity>
+        <City
+          city={city}
+          isFeatured={checkIfFeatured(city.id)}
+          addCityToFeatured={_addCityToFeatured}
+          removeCityFromFeatured={_removeCityFromFeatured}
+        />
+      </StyledSelectedCity>
     );
   }
 }

@@ -6,6 +6,8 @@ import { fetchCity, removeCityFromFeatured, clearFeaturedCities } from '../../st
 import { getFeaturedCities } from '../../store/rootSelectors';
 import { OWM_API_CITY_ID_QUERY_PARAM } from '../../config/weather';
 
+import { StyledFeaturedCities } from './styles';
+
 export class FeaturedCities extends Component {
   fetchCity = cityId => {
     const { _fetchCity } = this.props;
@@ -23,12 +25,14 @@ export class FeaturedCities extends Component {
     }
 
     return (
-      <FeaturedCitiesList
-        cities={featuredCities}
-        fetchCity={this.fetchCity}
-        removeCityFromFeatured={_removeCityFromFeatured}
-        clearFeaturedCities={_clearFeaturedCities}
-      />
+      <StyledFeaturedCities>
+        <FeaturedCitiesList
+          cities={featuredCities}
+          fetchCity={this.fetchCity}
+          removeCityFromFeatured={_removeCityFromFeatured}
+          clearFeaturedCities={_clearFeaturedCities}
+        />
+      </StyledFeaturedCities>
     );
   }
 }
