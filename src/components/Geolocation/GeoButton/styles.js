@@ -4,12 +4,12 @@ import styled, { css } from 'styled-components';
 export const StyledGeoButton = styled.button.attrs({
   type: 'submit',
 })`
-  width: 80%;
-  background: var(--white);
-  color: var(--base-text-color);
+  width: 100%;
   padding: 5px 10px;
   border: 1px solid var(--gray);
   border-radius: 5px;
+  background: var(--white);
+  color: var(--base-text-color);
   font-size: 1.5rem;
   cursor: pointer;
 

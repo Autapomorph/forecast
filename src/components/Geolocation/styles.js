@@ -11,11 +11,7 @@ export const StyledGeolocation = styled.section`
   justify-content: center;
   align-items: center;
   min-width: 320px;
-
-  @media screen and (min-width: 500px) {
-    flex-direction: row;
-    justify-content: flex-start;
-  }
+  padding: 0 10px;
 `;
 
 export const StyledGeoError = styled(Error)`
@@ -23,19 +19,24 @@ export const StyledGeoError = styled(Error)`
   position: relative;
   height: 32px;
   padding: 5px;
-  margin-left: 20px;
+  padding-left: 15px;
+  margin-top: 10px;
+  border: 1px solid var(--border-error);
   border-radius: 0 5px 5px 0;
+  z-index: 10;
 
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: -16px;
-    width: 0;
-    height: 0;
-    border-top: 16px solid transparent;
-    border-bottom: 16px solid transparent;
-    border-right: 16px solid var(--bg-error);
+    width: 22px;
+    height: 22px;
+    top: 4px;
+    left: -12px;
+    background: var(--bg-error);
+    transform: rotate(-45deg);
+    border-top: 1px solid var(--border-error);
+    border-left: 1px solid var(--border-error);
+    z-index: 1;
   }
 
   ${StyledGeoButton}:hover ~ & {

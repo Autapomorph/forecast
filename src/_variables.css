@@ -26,6 +26,10 @@
   --success-text-color: #155724;
   --error-text-color: #721c24;
 
+  /* border colors */
+  --border-success: #155724;
+  --border-error: #721c24;
+
   /* shadow colors */
   --shadow-blue: rgba(91, 137, 164, 0.25);
   --shadow-light-blue: rgba(91, 137, 164, 0.1);

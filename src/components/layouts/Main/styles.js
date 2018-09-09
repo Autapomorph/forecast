@@ -9,8 +9,8 @@ export const StyledLayoutContainer = styled.div`
     'main';
   grid-gap: 20px;
 
-  max-width: 1000px;
   min-width: 320px;
+  max-width: 1000px;
   margin: 0 auto;
 `;
 
@@ -23,17 +23,4 @@ export const StyledLayoutContent = styled.main`
     'geolocation'
     'cities'
     'featured-cities';
-  grid-gap: 20px;
-
-  padding-left: 0;
-  padding-right: 0;
-
-  @media screen and (min-width: 340px) {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  @media screen and (min-width: 500px) {
-    padding: 0 35px;
-  }
 `;
