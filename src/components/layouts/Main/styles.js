@@ -18,7 +18,11 @@ export const StyledLayoutContent = styled.main`
   display: grid;
   grid-area: main;
   grid-template-columns: auto;
-  grid-template-rows: auto auto;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    'geolocation'
+    'cities'
+    'featured-cities';
   grid-gap: 20px;
 
   padding-left: 0;

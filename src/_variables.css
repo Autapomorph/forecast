@@ -14,12 +14,17 @@
   --dark-orange: #d64d08;
 
   /* background colors */
-  --background-light-blue: #f3f7fa;
+  --bg-light-blue: #f3f7fa;
+  --bg-success: #d4edda;
+  --bg-error: #f8d7da;
 
   /* text colors */
   --base-text-color: #4a4a4a;
   --secondary-text-color: #8b9497;
   --contrast-text-color: #ffffff;
+  --disabled-text-color: #8b9497;
+  --success-text-color: #155724;
+  --error-text-color: #721c24;
 
   /* shadow colors */
   --shadow-blue: rgba(91, 137, 164, 0.25);

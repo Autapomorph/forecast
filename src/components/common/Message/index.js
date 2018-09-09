@@ -1,9 +1,11 @@
-import * as React from 'react';
+import React from 'react';
 
-const Message = ({ children }) => (
-  <div>
-    <span>{children}</span>
-  </div>
+import { StyledMessageContainer, StyledMessageContent } from './styles';
+
+const Message = ({ children, success, error, ...props }) => (
+  <StyledMessageContainer success={success} error={error} {...props}>
+    <StyledMessageContent>{children}</StyledMessageContent>
+  </StyledMessageContainer>
 );
 
 export default Message;

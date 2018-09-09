@@ -3,17 +3,21 @@ import { connect } from 'react-redux';
 
 import CitiesList from './CitiesList';
 import EmptyResult from './EmptyResult';
-import Loader from '../common/Loader';
-import Error from '../common/Error';
-import { fetchCity, addCityToFeatured, removeCityFromFeatured } from '../../store/cities/actions';
+import Loader from '../../common/Loader';
+import Error from '../../common/Error';
+import {
+  fetchCity,
+  addCityToFeatured,
+  removeCityFromFeatured,
+} from '../../../store/cities/actions';
 import {
   getCities,
   getIsCitiesActive,
   getIsCitiesLoading,
   getCitiesErrorMessage,
   getIsFeaturedCity,
-} from '../../store/rootSelectors';
-import { OWM_API_CITY_ID_QUERY_PARAM } from '../../config/weather';
+} from '../../../store/rootSelectors';
+import { OWM_API_CITY_ID_QUERY_PARAM } from '../../../config/weather';
 
 import { StyledSearchResults } from './styles';
 

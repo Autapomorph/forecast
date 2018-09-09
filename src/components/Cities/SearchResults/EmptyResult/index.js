@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Message from '../../common/Message';
+import Message from '../../../common/Message';
 
 const EmptyResult = () => (
   <Message>

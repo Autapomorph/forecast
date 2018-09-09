@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import faSearch from '@fortawesome/fontawesome-free-solid/faSearch';
 
 import { fetchCititesByName } from '../../store/cities/actions';
 import { OWM_API_CITY_NAME_QUERY_PARAM } from '../../config/weather';
+
+import { StyledSearchInput, StyledSearchButton } from './styles';
 
 export class SearchBar extends Component {
   state = {
@@ -56,15 +60,14 @@ export class SearchBar extends Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
+        <StyledSearchInput
           placeholder="Введите город"
           value={cityName}
           onChange={this.handleChange}
         />
-        <button type="submit" disabled={isSubmitDisabled} onClick={this.handleSubmit}>
-          Узнать погоду
-        </button>
+        <StyledSearchButton disabled={isSubmitDisabled} onClick={this.handleSubmit}>
+          <FontAwesomeIcon icon={faSearch} />
+        </StyledSearchButton>
       </form>
     );
   }

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 // eslint-disable-next-line import/prefer-default-export
-export const StyledSelectedCity = styled.section`
+export const StyledSearchResults = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

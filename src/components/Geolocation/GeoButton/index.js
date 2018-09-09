@@ -1,9 +1,11 @@
 import React from 'react';
 
-const GeoButton = ({ disabled, onClick }) => (
-  <button type="button" disabled={disabled} onClick={onClick}>
-    Мое местоположение
-  </button>
+import { StyledGeoButton } from './styles';
+
+const GeoButton = ({ isLoading, onClick }) => (
+  <StyledGeoButton disabled={isLoading} onClick={onClick}>
+    {isLoading ? 'fetching geolocation' : 'Мое местоположение'}
+  </StyledGeoButton>
 );
 
 export default GeoButton;

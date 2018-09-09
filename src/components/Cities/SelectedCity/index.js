@@ -2,18 +2,22 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import City from './City';
-import Loader from '../common/Loader';
-import Error from '../common/Error';
-import { fetchCity, addCityToFeatured, removeCityFromFeatured } from '../../store/cities/actions';
-import { fetchGeolocation } from '../../store/geolocation/actions';
+import Loader from '../../common/Loader';
+import Error from '../../common/Error';
+import {
+  fetchCity,
+  addCityToFeatured,
+  removeCityFromFeatured,
+} from '../../../store/cities/actions';
+import { fetchGeolocation } from '../../../store/geolocation/actions';
 import {
   getSelectedCity,
   getIsSelectedCityActive,
   getIsSelectedCityLoading,
   getSelectedCityErrorMessage,
   getIsFeaturedCity,
-} from '../../store/rootSelectors';
-import { OWM_API_CITY_ID_QUERY_PARAM } from '../../config/weather';
+} from '../../../store/rootSelectors';
+import { OWM_API_CITY_ID_QUERY_PARAM } from '../../../config/weather';
 
 import { StyledSelectedCity } from './styles';
 
