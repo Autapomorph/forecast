@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import FeaturedCitiesList from './FeaturedCitiesList';
@@ -24,14 +24,24 @@ export class FeaturedCities extends Component {
       return null;
     }
 
+    const isEmpty = !Object.keys(featuredCities).length;
+
     return (
       <StyledFeaturedCities>
-        <FeaturedCitiesList
-          cities={featuredCities}
-          fetchCity={this.fetchCity}
-          removeCityFromFeatured={_removeCityFromFeatured}
-          clearFeaturedCities={_clearFeaturedCities}
-        />
+        <h3>FEATURED CITIES</h3>
+        {!isEmpty && (
+          <Fragment>
+            <button type="button" onClick={_clearFeaturedCities}>
+              Очистить список избранного
+            </button>
+
+            <FeaturedCitiesList
+              cities={featuredCities}
+              fetchCity={this.fetchCity}
+              removeCityFromFeatured={_removeCityFromFeatured}
+            />
+          </Fragment>
+        )}
       </StyledFeaturedCities>
     );
   }

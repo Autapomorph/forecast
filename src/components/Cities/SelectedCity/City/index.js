@@ -1,7 +1,13 @@
 import React from 'react';
 
+import { StyledCity } from './styles';
+
 const City = ({ city, isFeatured, addCityToFeatured, removeCityFromFeatured }) => (
-  <div>
+  <StyledCity>
+    <h3>
+      {city.name}, {city.country}
+    </h3>
+
     <table>
       <tbody>
         <tr>
@@ -92,7 +98,7 @@ const City = ({ city, isFeatured, addCityToFeatured, removeCityFromFeatured }) =
         </button>
       )}
     </p>
-  </div>
+  </StyledCity>
 );
 
 export default City;

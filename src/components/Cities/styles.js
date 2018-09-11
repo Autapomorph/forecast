@@ -4,4 +4,5 @@ import styled from 'styled-components';
 export const StyledCities = styled.section`
   grid-area: cities;
   min-width: 320px;
+  padding: 0 10px;
 `;

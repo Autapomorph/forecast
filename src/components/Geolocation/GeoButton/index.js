@@ -4,7 +4,7 @@ import { StyledGeoButton } from './styles';
 
 const GeoButton = ({ isLoading, onClick }) => (
   <StyledGeoButton disabled={isLoading} onClick={onClick}>
-    {isLoading ? 'fetching geolocation' : 'Мое местоположение'}
+    {isLoading ? 'Подождите...' : 'Мое местоположение'}
   </StyledGeoButton>
 );
 
