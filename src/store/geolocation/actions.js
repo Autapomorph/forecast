@@ -1,4 +1,5 @@
 import * as types from './actionTypes';
+import IPGeolocationService from '../../services/ipgeolocation';
 
 // geolocation actions
 export const fetchGeoLocationRequest = () => ({
@@ -36,4 +37,20 @@ export const fetchGeolocation = (
       errorCallback(error);
     },
   );
+};
+
+export const fetchGeolocationByIP = (
+  successCallback = () => {},
+  errorCallback = () => {},
+) => async dispatch => {
+  dispatch(fetchGeoLocationRequest());
+
+  try {
+    const geoData = await IPGeolocationService.fetchGeolocationByIP();
+    dispatch(fetchGeoLocationSuccess(geoData));
+    successCallback(geoData);
+  } catch (error) {
+    dispatch(fetchGeoLocationFailure(error));
+    errorCallback(error);
+  }
 };

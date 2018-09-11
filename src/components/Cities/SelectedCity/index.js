@@ -9,7 +9,6 @@ import {
   addCityToFeatured,
   removeCityFromFeatured,
 } from '../../../store/cities/actions';
-import { fetchGeolocation } from '../../../store/geolocation/actions';
 import {
   getSelectedCity,
   getIsSelectedCityActive,
@@ -77,7 +76,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   _fetchCity: fetchCity,
-  _fetchGeolocation: fetchGeolocation,
   _addCityToFeatured: addCityToFeatured,
   _removeCityFromFeatured: removeCityFromFeatured,
 };

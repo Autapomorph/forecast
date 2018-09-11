@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import GeoButton from './GeoButton';
-import { fetchGeolocation } from '../../store/geolocation/actions';
+import { fetchGeolocation, fetchGeolocationByIP } from '../../store/geolocation/actions';
 import { fetchCity } from '../../store/cities/actions';
 import { getIsGeolocationLoading, getGeolocationErrorMessage } from '../../store/rootSelectors';
 import { OWM_API_LATITUDE_QUERY_PARAM, OWM_API_LONGITUDE_QUERY_PARAM } from '../../config/weather';
@@ -11,13 +11,19 @@ import { StyledGeolocation, StyledGeoError } from './styles';
 
 export class Geolocation extends Component {
   componentDidMount() {
-    this.fetchGeolocation();
+    this.fetchGeolocationByIP();
   }
 
   fetchGeolocation = () => {
     const { _fetchGeolocation } = this.props;
 
     _fetchGeolocation(this.geoLocationSuccess);
+  };
+
+  fetchGeolocationByIP = () => {
+    const { _fetchGeolocationByIP } = this.props;
+
+    _fetchGeolocationByIP(this.geoLocationSuccess);
   };
 
   geoLocationSuccess = geoData => {
@@ -50,6 +56,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   _fetchGeolocation: fetchGeolocation,
+  _fetchGeolocationByIP: fetchGeolocationByIP,
   _fetchCity: fetchCity,
 };
 
