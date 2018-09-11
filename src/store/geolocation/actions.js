@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import IPGeolocationService from '../../services/ipgeolocation';
+import GeolocationService from '../../services/geolocation';
 
 // geolocation actions
 export const fetchGeoLocationRequest = () => ({
@@ -27,7 +27,7 @@ export const fetchGeolocation = (
 ) => dispatch => {
   dispatch(fetchGeoLocationRequest());
 
-  navigator.geolocation.getCurrentPosition(
+  GeolocationService.fetchGeolocation(
     geoData => {
       dispatch(fetchGeoLocationSuccess(geoData));
       successCallback(geoData);
@@ -46,7 +46,7 @@ export const fetchGeolocationByIP = (
   dispatch(fetchGeoLocationRequest());
 
   try {
-    const geoData = await IPGeolocationService.fetchGeolocationByIP();
+    const geoData = await GeolocationService.fetchGeolocationByIP();
     dispatch(fetchGeoLocationSuccess(geoData));
     successCallback(geoData);
   } catch (error) {
