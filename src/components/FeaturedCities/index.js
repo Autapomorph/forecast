@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import faTrashAlt from '@fortawesome/fontawesome-free-solid/faTrashAlt';
 
 import FeaturedCitiesList from './FeaturedCitiesList';
+import TrashButton from '../common/TrashButton';
 import { fetchCity, removeCityFromFeatured, clearFeaturedCities } from '../../store/cities/actions';
 import { getFeaturedCities } from '../../store/rootSelectors';
 import { OWM_API_CITY_ID_QUERY_PARAM } from '../../config/weather';
@@ -33,11 +32,7 @@ export class FeaturedCities extends Component {
         <h3>
           FEATURED CITIES
           <span>&nbsp;</span>
-          {!isEmpty && (
-            <button type="button" onClick={_clearFeaturedCities}>
-              <FontAwesomeIcon icon={faTrashAlt} />
-            </button>
-          )}
+          <TrashButton isEmpty={isEmpty} onClick={_clearFeaturedCities} />
         </h3>
         {!isEmpty && (
           <FeaturedCitiesList

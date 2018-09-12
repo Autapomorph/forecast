@@ -1,13 +1,13 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import FeaturedButton from '../../common/FeaturedButton';
 
 const FeaturedCitiesItem = ({ city, fetchCity, removeCityFromFeatured }) => (
-  <Fragment>
-    <h3 onClick={() => fetchCity(city.id)}>
+  <h3>
+    <span onClick={() => fetchCity(city.id)}>
       {city.name}, {city.country}
-      <span>&nbsp;</span>
-    </h3>
+    </span>
+    <span>&nbsp;</span>
 
     <span>
       <a
@@ -23,7 +23,7 @@ const FeaturedCitiesItem = ({ city, fetchCity, removeCityFromFeatured }) => (
     </span>
 
     <FeaturedButton isFeatured onRemove={() => removeCityFromFeatured(city.id)} />
-  </Fragment>
+  </h3>
 );
 
 export default FeaturedCitiesItem;
