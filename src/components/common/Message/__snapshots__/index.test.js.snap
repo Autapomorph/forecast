@@ -8,51 +8,144 @@ ShallowWrapper {
     "batchedUpdates": [Function],
     "getNode": [Function],
     "render": [Function],
+    "simulateError": [Function],
     "simulateEvent": [Function],
     "unmount": [Function],
   },
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "function",
     "props": Object {
-      "children": <span />,
+      "children": <Unknown />,
+      "error": undefined,
+      "success": undefined,
     },
     "ref": null,
     "rendered": Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "function",
       "props": Object {
         "children": undefined,
       },
       "ref": null,
       "rendered": null,
-      "type": "span",
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": undefined,
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-bwzfXH",
+          "isStatic": true,
+          "rules": Array [
+            "
+  text-align: center;
+  font-size: 1.5rem;
+",
+          ],
+        },
+        "displayName": "styled.span",
+        "render": [Function],
+        "styledComponentId": "sc-bwzfXH",
+        "target": "span",
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      },
     },
-    "type": "div",
+    "type": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": undefined,
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": false,
+        "rules": Array [
+          "
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  ",
+          [Function],
+          ";
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "div",
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    },
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "function",
       "props": Object {
-        "children": <span />,
+        "children": <Unknown />,
+        "error": undefined,
+        "success": undefined,
       },
       "ref": null,
       "rendered": Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "host",
+        "nodeType": "function",
         "props": Object {
           "children": undefined,
         },
         "ref": null,
         "rendered": null,
-        "type": "span",
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": undefined,
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bwzfXH",
+            "isStatic": true,
+            "rules": Array [
+              "
+  text-align: center;
+  font-size: 1.5rem;
+",
+            ],
+          },
+          "displayName": "styled.span",
+          "render": [Function],
+          "styledComponentId": "sc-bwzfXH",
+          "target": "span",
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        },
       },
-      "type": "div",
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": undefined,
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-bdVaJa",
+          "isStatic": false,
+          "rules": Array [
+            "
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  ",
+            [Function],
+            ";
+",
+          ],
+        },
+        "displayName": "styled.div",
+        "render": [Function],
+        "styledComponentId": "sc-bdVaJa",
+        "target": "div",
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      },
     },
   ],
   Symbol(enzyme.__options__): Object {

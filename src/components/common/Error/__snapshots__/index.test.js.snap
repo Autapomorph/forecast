@@ -8,6 +8,7 @@ ShallowWrapper {
     "batchedUpdates": [Function],
     "getNode": [Function],
     "render": [Function],
+    "simulateError": [Function],
     "simulateEvent": [Function],
     "unmount": [Function],
   },
@@ -17,6 +18,7 @@ ShallowWrapper {
     "nodeType": "function",
     "props": Object {
       "children": undefined,
+      "error": true,
     },
     "ref": null,
     "rendered": null,
@@ -29,6 +31,7 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": undefined,
+        "error": true,
       },
       "ref": null,
       "rendered": null,

@@ -1,5 +1,7 @@
 import Message from '.';
 
+import { StyledMessageContent } from './styles';
+
 describe('Message tests', () => {
   it('renders properly', () => {
     const wrapper = shallow(<Message />);
@@ -11,6 +13,6 @@ describe('Message tests', () => {
     const text = 'text';
     const wrapper = shallow(<Message>{text}</Message>);
 
-    expect(wrapper.find('span').text()).toEqual(text);
+    expect(wrapper.find(StyledMessageContent).text()).toEqual(text);
   });
 });
