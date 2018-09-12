@@ -4,5 +4,5 @@ import styled from 'styled-components';
 export const StyledTitle = styled.h3`
   color: var(--base-text-color);
   font-size: 1.3rem;
-  font-weight: 'bold';
+  font-weight: bold;
 `;
