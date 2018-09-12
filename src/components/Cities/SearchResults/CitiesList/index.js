@@ -9,22 +9,19 @@ const CitiesList = ({
   addCityToFeatured,
   removeCityFromFeatured,
 }) => (
-  <div>
-    <h3>SEARCH RESULTS</h3>
-    <ul>
-      {Object.values(cities).map(city => (
-        <li key={city.id}>
-          <CitiesItem
-            city={city}
-            isFeatured={checkIfFeatured(city.id)}
-            fetchCity={fetchCity}
-            addCityToFeatured={addCityToFeatured}
-            removeCityFromFeatured={removeCityFromFeatured}
-          />
-        </li>
-      ))}
-    </ul>
-  </div>
+  <ul>
+    {Object.values(cities).map(city => (
+      <li key={city.id}>
+        <CitiesItem
+          city={city}
+          isFeatured={checkIfFeatured(city.id)}
+          fetchCity={fetchCity}
+          addCityToFeatured={addCityToFeatured}
+          removeCityFromFeatured={removeCityFromFeatured}
+        />
+      </li>
+    ))}
+  </ul>
 );
 
 export default CitiesList;

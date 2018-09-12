@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import CitiesList from './CitiesList';
 import EmptyResult from './EmptyResult';
+import Title from '../../common/Title';
 import Loader from '../../common/Loader';
 import Error from '../../common/Error';
 import {
@@ -59,6 +60,8 @@ export class SearchResults extends Component {
 
     return (
       <StyledSearchResults>
+        <Title>SEARCH RESULTS</Title>
+
         <CitiesList
           cities={cities}
           checkIfFeatured={checkIfFeatured}

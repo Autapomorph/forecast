@@ -1,12 +1,13 @@
 import React from 'react';
 
+import Title from '../../../common/Title';
 import FeaturedButton from '../../../common/FeaturedButton';
 
 import { StyledCity } from './styles';
 
 const City = ({ city, isFeatured, addCityToFeatured, removeCityFromFeatured }) => (
   <StyledCity>
-    <h3>
+    <Title>
       {city.name}, {city.country}, {city.weather.timestamp}
       &nbsp;
       <a
@@ -31,7 +32,7 @@ const City = ({ city, isFeatured, addCityToFeatured, removeCityFromFeatured }) =
           })
         }
       />
-    </h3>
+    </Title>
 
     <table>
       <tbody>

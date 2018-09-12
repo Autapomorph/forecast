@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import FeaturedCitiesList from './FeaturedCitiesList';
+import Title from '../common/Title';
 import TrashButton from '../common/TrashButton';
 import { fetchCity, removeCityFromFeatured, clearFeaturedCities } from '../../store/cities/actions';
 import { getFeaturedCities } from '../../store/rootSelectors';
@@ -29,11 +30,12 @@ export class FeaturedCities extends Component {
 
     return (
       <StyledFeaturedCities>
-        <h3>
-          FEATURED CITIES
+        <Title>
+          <span>FEATURED CITIES</span>
           <span>&nbsp;</span>
           <TrashButton isEmpty={isEmpty} onClick={_clearFeaturedCities} />
-        </h3>
+        </Title>
+
         {!isEmpty && (
           <FeaturedCitiesList
             cities={featuredCities}
