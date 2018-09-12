@@ -1,5 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import faTrashAlt from '@fortawesome/fontawesome-free-solid/faTrashAlt';
 
 import FeaturedCitiesList from './FeaturedCitiesList';
 import { fetchCity, removeCityFromFeatured, clearFeaturedCities } from '../../store/cities/actions';
@@ -28,19 +30,21 @@ export class FeaturedCities extends Component {
 
     return (
       <StyledFeaturedCities>
-        <h3>FEATURED CITIES</h3>
-        {!isEmpty && (
-          <Fragment>
+        <h3>
+          FEATURED CITIES
+          <span>&nbsp;</span>
+          {!isEmpty && (
             <button type="button" onClick={_clearFeaturedCities}>
-              Очистить список избранного
+              <FontAwesomeIcon icon={faTrashAlt} />
             </button>
-
-            <FeaturedCitiesList
-              cities={featuredCities}
-              fetchCity={this.fetchCity}
-              removeCityFromFeatured={_removeCityFromFeatured}
-            />
-          </Fragment>
+          )}
+        </h3>
+        {!isEmpty && (
+          <FeaturedCitiesList
+            cities={featuredCities}
+            fetchCity={this.fetchCity}
+            removeCityFromFeatured={_removeCityFromFeatured}
+          />
         )}
       </StyledFeaturedCities>
     );

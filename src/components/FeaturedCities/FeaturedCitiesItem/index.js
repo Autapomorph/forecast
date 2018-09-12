@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+
+import FeaturedButton from '../../common/FeaturedButton';
 
 const FeaturedCitiesItem = ({ city, fetchCity, removeCityFromFeatured }) => (
-  <div>
-    <p>
-      <span onClick={() => fetchCity(city.id)}>
-        {city.name}, {city.country}
-        &nbsp;
-      </span>
+  <Fragment>
+    <h3 onClick={() => fetchCity(city.id)}>
+      {city.name}, {city.country}
+      <span>&nbsp;</span>
+    </h3>
+
+    <span>
       <a
         href={`https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&zoom=12&lat=${
           city.coords.lat
@@ -16,14 +19,11 @@ const FeaturedCitiesItem = ({ city, fetchCity, removeCityFromFeatured }) => (
       >
         [{city.coords.lat}, {city.coords.lon}]
       </a>
-    </p>
+      <span>&nbsp;</span>
+    </span>
 
-    <p>
-      <button type="button" onClick={() => removeCityFromFeatured(city.id)}>
-        Удалить из избранного
-      </button>
-    </p>
-  </div>
+    <FeaturedButton isFeatured onRemove={() => removeCityFromFeatured(city.id)} />
+  </Fragment>
 );
 
 export default FeaturedCitiesItem;

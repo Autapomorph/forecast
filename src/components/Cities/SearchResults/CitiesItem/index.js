@@ -1,18 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+
+import FeaturedButton from '../../../common/FeaturedButton';
 
 const CitiesItem = ({ city, isFeatured, fetchCity, addCityToFeatured, removeCityFromFeatured }) => (
-  <div>
-    <p onClick={() => fetchCity(city.id)}>
-      {city.name}, {city.country} {city.weather.description}
-    </p>
-
-    <p>
-      {city.weather.temp}
-      &#8451;, wind {city.weather.windSpeed} m/s, cloudiness {city.weather.cloudiness}%
-    </p>
-
-    <p>
-      Geo coords &nbsp;
+  <Fragment>
+    <h3>
+      <span onClick={() => fetchCity(city.id)}>
+        {city.name}, {city.country}, {city.weather.timestamp}
+      </span>
+      <span>&nbsp;</span>
       <a
         href={`https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&zoom=12&lat=${
           city.coords.lat
@@ -22,32 +18,26 @@ const CitiesItem = ({ city, isFeatured, fetchCity, addCityToFeatured, removeCity
       >
         [{city.coords.lat}, {city.coords.lon}]
       </a>
-    </p>
+      <span>&nbsp;</span>
+      <FeaturedButton
+        isFeatured={isFeatured}
+        onRemove={() => removeCityFromFeatured(city.id)}
+        onAdd={() =>
+          addCityToFeatured({
+            id: city.id,
+            name: city.name,
+            country: city.country,
+            coords: city.coords,
+          })
+        }
+      />
+    </h3>
 
     <p>
-      {isFeatured && (
-        <button type="button" onClick={() => removeCityFromFeatured(city.id)}>
-          Удалить из избранного
-        </button>
-      )}
-
-      {!isFeatured && (
-        <button
-          type="button"
-          onClick={() =>
-            addCityToFeatured({
-              id: city.id,
-              name: city.name,
-              country: city.country,
-              coords: city.coords,
-            })
-          }
-        >
-          В избранное
-        </button>
-      )}
+      {city.weather.temp}
+      &#8451;, wind {city.weather.windSpeed} m/s, cloudiness {city.weather.cloudiness}%
     </p>
-  </div>
+  </Fragment>
 );
 
 export default CitiesItem;
