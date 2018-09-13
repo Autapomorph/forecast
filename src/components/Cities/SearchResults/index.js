@@ -60,7 +60,7 @@ export class SearchResults extends Component {
 
     return (
       <StyledSearchResults>
-        <Title>SEARCH RESULTS</Title>
+        <Title>Результаты поиска</Title>
 
         <CitiesList
           cities={cities}

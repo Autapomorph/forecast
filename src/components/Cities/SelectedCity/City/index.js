@@ -37,12 +37,12 @@ const City = ({ city, isFeatured, addCityToFeatured, removeCityFromFeatured }) =
     <table>
       <tbody>
         <tr>
-          <td>description</td>
+          <td>Описание</td>
           <td>{city.weather.description}</td>
         </tr>
 
         <tr>
-          <td>temp</td>
+          <td>Температура</td>
           <td>
             {city.weather.temp}
             &#8451;
@@ -50,30 +50,29 @@ const City = ({ city, isFeatured, addCityToFeatured, removeCityFromFeatured }) =
         </tr>
 
         <tr>
-          <td>cloudiness</td>
+          <td>Облачность</td>
           <td>{city.weather.cloudiness}%</td>
         </tr>
 
         <tr>
-          <td>wind</td>
-          <td>{city.weather.windSpeed} m/s</td>
-        </tr>
-
-        <tr>
-          <td>pressure</td>
+          <td>Ветер</td>
           <td>
-            {city.weather.pressure}
-            mmHg
+            {city.weather.windSpeed} м/с, {city.weather.windCardDir}
           </td>
         </tr>
 
         <tr>
-          <td>humidity</td>
+          <td>Давление</td>
+          <td>{city.weather.pressure} мм рт. ст.</td>
+        </tr>
+
+        <tr>
+          <td>Влажность</td>
           <td>{city.weather.humidity}%</td>
         </tr>
 
         <tr>
-          <td>sun day</td>
+          <td>День</td>
           <td>
             {city.weather.sunrise} &mdash; {city.weather.sunset}
           </td>

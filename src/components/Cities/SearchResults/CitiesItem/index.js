@@ -34,8 +34,14 @@ const CitiesItem = ({ city, isFeatured, fetchCity, addCityToFeatured, removeCity
     </h3>
 
     <p>
-      {city.weather.temp}
-      &#8451;, wind {city.weather.windSpeed} m/s, cloudiness {city.weather.cloudiness}%
+      <span>{city.weather.description},</span>
+      <span>&nbsp;</span>
+      <span>
+        {city.weather.temp}
+        &#8451;,
+      </span>
+      <span>&nbsp;</span>
+      <span>ветер {city.weather.windSpeed} м/с</span>
     </p>
   </Fragment>
 );

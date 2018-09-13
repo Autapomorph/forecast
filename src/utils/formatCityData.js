@@ -1,5 +1,6 @@
 import moment from 'moment';
 
+import mapDegToCardDir from './mapDegToCardDir';
 import { pascalToHg } from './pressureConverter';
 
 export default function formatCityData(cityData) {
@@ -29,6 +30,7 @@ export default function formatCityData(cityData) {
 
       windSpeed: cityData.wind && cityData.wind.speed,
       windDeg: cityData.wind && cityData.wind.deg,
+      windCardDir: cityData.wind && cityData.wind.deg && mapDegToCardDir(cityData.wind.deg),
 
       pressure: pascalToHg(cityData.main.pressure),
       pressureSeaLevel: pascalToHg(cityData.main.sea_level),
