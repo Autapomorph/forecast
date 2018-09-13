@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const StyledTrashButton = styled.span`
   color: var(--red);
   border: 0;
+  cursor: pointer;
 
   &:hover {
     color: var(--dark-red);

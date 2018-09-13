@@ -2,8 +2,10 @@ import React from 'react';
 
 import FeaturedCitiesItem from '../FeaturedCitiesItem';
 
+import { StyledFeaturedList } from './styles';
+
 const FeaturedCitiesList = ({ cities, fetchCity, removeCityFromFeatured }) => (
-  <ul>
+  <StyledFeaturedList>
     {cities &&
       Object.values(cities)
         .sort((cityA, cityB) => cityA.timestamp - cityB.timestamp)
@@ -16,7 +18,7 @@ const FeaturedCitiesList = ({ cities, fetchCity, removeCityFromFeatured }) => (
             />
           </li>
         ))}
-  </ul>
+  </StyledFeaturedList>
 );
 
 export default FeaturedCitiesList;

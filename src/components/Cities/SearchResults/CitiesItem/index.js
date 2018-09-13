@@ -6,19 +6,12 @@ const CitiesItem = ({ city, isFeatured, fetchCity, addCityToFeatured, removeCity
   <Fragment>
     <h3>
       <span onClick={() => fetchCity(city.id)}>
-        {city.name}, {city.country}, {city.weather.timestamp}
+        <span>{city.name}</span>
+        <span>&nbsp;</span>
+        <span>[{city.country}]</span>
+        <span>&nbsp;</span>
       </span>
-      <span>&nbsp;</span>
-      <a
-        href={`https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&zoom=12&lat=${
-          city.coords.lat
-        }&lon=${city.coords.lon}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        [{city.coords.lat}, {city.coords.lon}]
-      </a>
-      <span>&nbsp;</span>
+
       <FeaturedButton
         isFeatured={isFeatured}
         onRemove={() => removeCityFromFeatured(city.id)}

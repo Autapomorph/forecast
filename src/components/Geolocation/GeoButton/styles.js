@@ -6,7 +6,7 @@ export const StyledGeoButton = styled.button.attrs({
 })`
   width: 100%;
   padding: 5px 10px;
-  border: 1px solid var(--gray);
+  border: 1px solid var(--light-gray);
   border-radius: 5px;
   background: var(--white);
   color: var(--base-text-color);

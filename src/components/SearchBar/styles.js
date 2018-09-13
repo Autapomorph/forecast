@@ -12,9 +12,10 @@ export const StyledSearchInput = styled.input.attrs({
   flex-grow: 1;
   background: var(--white);
   padding: 5px;
-  border: 1px solid var(--gray);
+  border: 1px solid var(--light-gray);
   border-radius: 5px 0 0 5px;
   font-size: 1.5rem;
+  line-height: 1;
   outline: none;
 `;
 
@@ -23,23 +24,21 @@ export const StyledSearchButton = styled.button.attrs({
 })`
   flex-shrink: 0;
   padding: 5px 10px;
-  border: 1px solid var(--gray);
+  border: 1px solid var(--light-gray);
   border-left: 0;
   border-radius: 0 5px 5px 0;
-  background: var(--white);
+  background: var(--light-gray);
   color: var(--base-text-color);
   font-size: 1.5rem;
   cursor: pointer;
 
   &:hover {
-    background: var(--light-gray);
-    color: var(--base-text-color);
+    color: var(--disabled-text-color);
   }
 
   ${({ disabled }) =>
     disabled &&
     css`
-      background: var(--light-gray);
       color: var(--disabled-text-color);
       cursor: default;
 

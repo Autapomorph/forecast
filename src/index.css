@@ -3,7 +3,7 @@
 *,
 *:before,
 *:after {
-  font-size: 100%;
+  font-size: 1rem;
   font: inherit;
   box-sizing: inherit;
 }
@@ -18,4 +18,5 @@ body {
   color: var(--base-text-color);
   font-family: Open Sans, Helvetica, Verdana, Arial, sans-serif;
   font-size: 1rem;
+  line-height: 1;
 }

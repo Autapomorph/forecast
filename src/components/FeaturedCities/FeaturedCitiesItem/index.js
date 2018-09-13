@@ -2,28 +2,19 @@ import React from 'react';
 
 import FeaturedButton from '../../common/FeaturedButton';
 
-const FeaturedCitiesItem = ({ city, fetchCity, removeCityFromFeatured }) => (
-  <h3>
-    <span onClick={() => fetchCity(city.id)}>
-      {city.name}, {city.country}
-    </span>
-    <span>&nbsp;</span>
+import { StyledFeaturedCityContainer, StyledFeaturedCityTitle } from './styles';
 
-    <span>
-      <a
-        href={`https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&zoom=12&lat=${
-          city.coords.lat
-        }&lon=${city.coords.lon}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        [{city.coords.lat}, {city.coords.lon}]
-      </a>
+const FeaturedCitiesItem = ({ city, fetchCity, removeCityFromFeatured }) => (
+  <StyledFeaturedCityContainer onClick={() => fetchCity(city.id)}>
+    <StyledFeaturedCityTitle>
+      <span>{city.name}</span>
       <span>&nbsp;</span>
-    </span>
+      <span>[{city.country}]</span>
+      <span>&nbsp;</span>
+    </StyledFeaturedCityTitle>
 
     <FeaturedButton isFeatured onRemove={() => removeCityFromFeatured(city.id)} />
-  </h3>
+  </StyledFeaturedCityContainer>
 );
 
 export default FeaturedCitiesItem;

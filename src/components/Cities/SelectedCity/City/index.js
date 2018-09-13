@@ -3,23 +3,22 @@ import React from 'react';
 import Title from '../../../common/Title';
 import FeaturedButton from '../../../common/FeaturedButton';
 
-import { StyledCity } from './styles';
+import { StyledCityContainer, StyledCityHeader } from './styles';
 
 const City = ({ city, isFeatured, addCityToFeatured, removeCityFromFeatured }) => (
-  <StyledCity>
-    <Title>
-      {city.name}, {city.country}, {city.weather.timestamp}
-      &nbsp;
-      <a
-        href={`https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&zoom=12&lat=${
-          city.coords.lat
-        }&lon=${city.coords.lon}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        [{city.coords.lat}, {city.coords.lon}]
-      </a>
-      <span>&nbsp;</span>
+  <StyledCityContainer>
+    <StyledCityHeader>
+      <Title>
+        <span>
+          <span>{city.name}</span>
+          <span>&nbsp;</span>
+          <span>[{city.country}]</span>
+          <span>,&nbsp;</span>
+          <span>{city.weather.timestamp}</span>
+          <span>&nbsp;</span>
+        </span>
+      </Title>
+
       <FeaturedButton
         isFeatured={isFeatured}
         onRemove={() => removeCityFromFeatured(city.id)}
@@ -32,7 +31,7 @@ const City = ({ city, isFeatured, addCityToFeatured, removeCityFromFeatured }) =
           })
         }
       />
-    </Title>
+    </StyledCityHeader>
 
     <table>
       <tbody>
@@ -79,7 +78,7 @@ const City = ({ city, isFeatured, addCityToFeatured, removeCityFromFeatured }) =
         </tr>
       </tbody>
     </table>
-  </StyledCity>
+  </StyledCityContainer>
 );
 
 export default City;

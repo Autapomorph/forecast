@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
-// eslint-disable-next-line import/prefer-default-export
-export const StyledCity = styled.div`
+export const StyledCityContainer = styled.div`
   padding-top: 20px;
+`;
+
+export const StyledCityHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
