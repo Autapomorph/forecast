@@ -6,7 +6,7 @@ export const StyledFeaturedCityContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   background: var(--white);
-  padding: 15px 5px;
+  padding: 15px 10px;
   margin: 15px 0;
   border: 1px solid var(--light-gray);
   border-radius: 5px;

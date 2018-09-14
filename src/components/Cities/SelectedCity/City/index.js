@@ -2,6 +2,7 @@ import React from 'react';
 
 import Title from '../../../common/Title';
 import FeaturedButton from '../../../common/FeaturedButton';
+import WeatherIcon from '../../../common/WeatherIcon';
 
 import { StyledCityContainer, StyledCityHeader } from './styles';
 
@@ -37,7 +38,9 @@ const City = ({ city, isFeatured, addCityToFeatured, removeCityFromFeatured }) =
       <tbody>
         <tr>
           <td>Описание</td>
-          <td>{city.weather.description}</td>
+          <td>
+            {city.weather.description} <WeatherIcon icon={city.weather.weatherIcon} />
+          </td>
         </tr>
 
         <tr>
@@ -56,7 +59,8 @@ const City = ({ city, isFeatured, addCityToFeatured, removeCityFromFeatured }) =
         <tr>
           <td>Ветер</td>
           <td>
-            {city.weather.windSpeed} м/с, {city.weather.windCardDir}
+            {city.weather.windSpeed} м/с, {city.weather.windCardDir}{' '}
+            <WeatherIcon wind icon={city.weather.windIcon} />
           </td>
         </tr>
 

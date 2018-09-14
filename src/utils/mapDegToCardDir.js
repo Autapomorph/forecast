@@ -1,21 +1,4 @@
-const cardDirMap = {
-  N: 'С',
-  NNE: 'ССВ',
-  NE: 'СВ',
-  ENE: 'ВСВ',
-  E: 'В',
-  ESE: 'ВЮВ',
-  SE: 'ЮВ',
-  SSE: 'ЮЮВ',
-  S: 'Ю',
-  SSW: 'ЮЮЗ',
-  SW: 'ЮЗ',
-  WSW: 'ЗЮЗ',
-  W: 'З',
-  WNW: 'ЗСЗ',
-  NW: 'СЗ',
-  NNW: 'ССЗ',
-};
+import { cardDirMapRu as cardDirMap } from '../config/weather/wind';
 
 export default function mapDegToCardDir(deg) {
   if (deg === undefined || deg === null || Number.isNaN(deg)) return null;
