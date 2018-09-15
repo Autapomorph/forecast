@@ -13,7 +13,7 @@ const WeatherIcon = ({
   className,
 }) => {
   const classNames = ['wi'];
-  if (/^wi-/i.test(icon)) {
+  if (wind || /^wi-/i.test(icon)) {
     classNames.push(icon);
   } else {
     classNames.push(`wi-${icon}`);

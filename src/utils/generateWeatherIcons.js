@@ -17,7 +17,7 @@ export function generateWeatherIcon(weatherTypeId, sunriseUnix, sunsetUnix) {
 }
 
 export function generateWindIcon(windDir, towards = false) {
-  let weatherIcon = 'wi-';
+  let weatherIcon = '';
 
   if (typeof windDir === 'number') {
     const formattedWindDir = Math.round(windDir);

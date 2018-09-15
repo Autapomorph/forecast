@@ -5,14 +5,19 @@ import mapDegToCardDir from './mapDegToCardDir';
 import { pascalToHg } from './pressureConverter';
 
 export default function formatCityData(cityData) {
+  const timestampMoment = moment.unix(cityData.dt);
   const sunriseMoment = moment.unix(cityData.sys.sunrise);
   const sunsetMoment = moment.unix(cityData.sys.sunset);
+
+  const timestamp = timestampMoment.format('HH:mm');
   const sunrise = sunriseMoment.format('HH:mm');
   const sunset = sunsetMoment.format('HH:mm');
+
+  const timestampUnix = timestampMoment.valueOf();
   const sunriseUnix = sunriseMoment.valueOf();
   const sunsetUnix = sunsetMoment.valueOf();
 
-  const windDeg = cityData.wind && cityData.wind.speed;
+  const windDeg = cityData.wind && cityData.wind.deg;
   const windCardDir = windDeg && mapDegToCardDir(cityData.wind.deg);
 
   const weatherTypeId = cityData.weather[0].id;
@@ -28,7 +33,8 @@ export default function formatCityData(cityData) {
       lat: cityData.coord.lat,
     },
     weather: {
-      timestamp: moment.unix(cityData.dt).format('HH:mm'),
+      timestamp,
+      timestampUnix,
       id: weatherTypeId,
       main: cityData.weather[0].main,
       description: cityData.weather[0].description,
