@@ -1,4 +1,6 @@
-import { cardDirMapRu as cardDirMap } from '../config/weather/wind';
+import cardDirMap from '../config/weather/wind';
+import store from '../store';
+import { getCurrentLanguage } from '../store/rootSelectors';
 
 export default function mapDegToCardDir(deg) {
   if (deg === undefined || deg === null || Number.isNaN(deg)) return null;
@@ -9,37 +11,40 @@ export default function mapDegToCardDir(deg) {
     deg = deg / rate - 360;
   }
 
-  if ((deg >= 0 && deg <= 11.25) || (deg >= 348.75 && deg <= 360)) return cardDirMap.N;
+  const currentLanguage = getCurrentLanguage(store.getState());
+  const cardDirMapLocalized = cardDirMap[currentLanguage];
 
-  if (deg >= 11.25 && deg <= 33.75) return cardDirMap.NNE;
+  if ((deg >= 0 && deg <= 11.25) || (deg >= 348.75 && deg <= 360)) return cardDirMapLocalized.N;
 
-  if (deg >= 33.75 && deg <= 56.25) return cardDirMap.NE;
+  if (deg >= 11.25 && deg <= 33.75) return cardDirMapLocalized.NNE;
 
-  if (deg >= 56.25 && deg <= 78.75) return cardDirMap.ENE;
+  if (deg >= 33.75 && deg <= 56.25) return cardDirMapLocalized.NE;
 
-  if (deg >= 78.75 && deg <= 101.25) return cardDirMap.E;
+  if (deg >= 56.25 && deg <= 78.75) return cardDirMapLocalized.ENE;
 
-  if (deg >= 101.25 && deg <= 123.75) return cardDirMap.ESE;
+  if (deg >= 78.75 && deg <= 101.25) return cardDirMapLocalized.E;
 
-  if (deg >= 123.75 && deg <= 146.25) return cardDirMap.SE;
+  if (deg >= 101.25 && deg <= 123.75) return cardDirMapLocalized.ESE;
 
-  if (deg >= 146.25 && deg <= 168.75) return cardDirMap.SSE;
+  if (deg >= 123.75 && deg <= 146.25) return cardDirMapLocalized.SE;
 
-  if (deg >= 168.75 && deg <= 191.25) return cardDirMap.S;
+  if (deg >= 146.25 && deg <= 168.75) return cardDirMapLocalized.SSE;
 
-  if (deg >= 191.25 && deg <= 213.75) return cardDirMap.SSW;
+  if (deg >= 168.75 && deg <= 191.25) return cardDirMapLocalized.S;
 
-  if (deg >= 213.75 && deg <= 236.25) return cardDirMap.SW;
+  if (deg >= 191.25 && deg <= 213.75) return cardDirMapLocalized.SSW;
 
-  if (deg >= 236.25 && deg <= 258.75) return cardDirMap.WSW;
+  if (deg >= 213.75 && deg <= 236.25) return cardDirMapLocalized.SW;
 
-  if (deg >= 258.75 && deg <= 281.25) return cardDirMap.W;
+  if (deg >= 236.25 && deg <= 258.75) return cardDirMapLocalized.WSW;
 
-  if (deg >= 281.25 && deg <= 303.75) return cardDirMap.WNW;
+  if (deg >= 258.75 && deg <= 281.25) return cardDirMapLocalized.W;
 
-  if (deg >= 303.75 && deg <= 326.25) return cardDirMap.NW;
+  if (deg >= 281.25 && deg <= 303.75) return cardDirMapLocalized.WNW;
 
-  if (deg >= 326.25 && deg <= 348.75) return cardDirMap.NNW;
+  if (deg >= 303.75 && deg <= 326.25) return cardDirMapLocalized.NW;
 
-  return null;
+  if (deg >= 326.25 && deg <= 348.75) return cardDirMapLocalized.NNW;
+
+  throw new Error('Invalid wind direction');
 }

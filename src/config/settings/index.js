@@ -1,9 +1,9 @@
 export const languages = {
-  ENGLISH: 'en',
-  RUSSIAN: 'ru',
+  EN: 'en',
+  RU: 'ru',
 };
 
-export const defaultLanguage = languages.RUSSIAN;
+export const defaultLanguage = languages.RU;
 
 export const unitsFormats = {
   STANDART: 'standart',

@@ -17,15 +17,17 @@ export function generateWeatherIcon(weatherTypeId, sunriseUnix, sunsetUnix) {
 }
 
 export function generateWindIcon(windDir, towards = false) {
-  let weatherIcon = '';
-
-  if (typeof windDir === 'number') {
-    const formattedWindDir = Math.round(windDir);
-    weatherIcon += towards ? `towards-${formattedWindDir}-deg` : `from-${formattedWindDir}-deg`;
-  } else if (typeof windDir === 'string') {
-    const formattedWindDir = windDir.toLowerCase();
-    weatherIcon += towards ? `towards-${formattedWindDir}` : `from-${formattedWindDir}`;
+  if (
+    windDir === null ||
+    windDir === undefined ||
+    typeof windDir !== 'number' ||
+    Number.isNaN(windDir)
+  ) {
+    throw new Error('Invalid wind direction');
   }
+
+  const formattedWindDir = Math.round(windDir);
+  const weatherIcon = towards ? `towards-${formattedWindDir}-deg` : `from-${formattedWindDir}-deg`;
 
   return weatherIcon;
 }
