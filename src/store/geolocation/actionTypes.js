@@ -1,9 +1,4 @@
 /**
- * reset action types
- */
-export const GEOLOCATION_RESET = '@geolocation/GEOLOCATION_RESET';
-
-/**
  * fetch geolocation action types
  */
 export const GEOLOCATION_FETCH_REQUEST = '@geolocation/GEOLOCATION_FETCH_REQUEST';

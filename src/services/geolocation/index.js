@@ -16,7 +16,7 @@ export default class GeolocationService {
     const response = await fetch(IPAPI_API);
 
     if (!response.ok) {
-      throw new Error('IP geolocation failed');
+      throw new Error('GeoIP fetching failed');
     }
 
     const geolocationData = await response.json();
