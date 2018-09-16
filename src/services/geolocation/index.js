@@ -1,16 +1,10 @@
 import { IPAPI_API } from '../../config/geolocation';
 
 export default class GeolocationService {
-  static fetchGeolocation = (successCallback = () => {}, errorCallback = () => {}) => {
-    navigator.geolocation.getCurrentPosition(
-      geoData => {
-        successCallback(geoData);
-      },
-      error => {
-        errorCallback(error);
-      },
-    );
-  };
+  static fetchGeolocation = () =>
+    new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
 
   static fetchGeolocationByIP = async () => {
     const response = await fetch(IPAPI_API);

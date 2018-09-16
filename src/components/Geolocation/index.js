@@ -17,13 +17,17 @@ export class Geolocation extends Component {
   fetchGeolocation = () => {
     const { _fetchGeolocation } = this.props;
 
-    _fetchGeolocation(this.geoLocationSuccess);
+    _fetchGeolocation()
+      .then(this.geoLocationSuccess)
+      .catch(() => {});
   };
 
   fetchGeolocationByIP = () => {
     const { _fetchGeolocationByIP } = this.props;
 
-    _fetchGeolocationByIP(this.geoLocationSuccess);
+    _fetchGeolocationByIP()
+      .then(this.geoLocationSuccess)
+      .catch(() => {});
   };
 
   geoLocationSuccess = geoData => {

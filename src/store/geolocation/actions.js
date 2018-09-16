@@ -21,36 +21,28 @@ export const fetchGeoLocationFailure = error => ({
   },
 });
 
-export const fetchGeolocation = (
-  successCallback = () => {},
-  errorCallback = () => {},
-) => dispatch => {
+export const fetchGeolocation = () => async dispatch => {
   dispatch(fetchGeoLocationRequest());
 
-  GeolocationService.fetchGeolocation(
-    geoData => {
-      dispatch(fetchGeoLocationSuccess(geoData));
-      successCallback(geoData);
-    },
-    error => {
-      dispatch(fetchGeoLocationFailure(error));
-      errorCallback(error);
-    },
-  );
+  try {
+    const geoData = await GeolocationService.fetchGeolocation();
+    dispatch(fetchGeoLocationSuccess(geoData));
+    return geoData;
+  } catch (error) {
+    dispatch(fetchGeoLocationFailure(error));
+    throw new Error(error);
+  }
 };
 
-export const fetchGeolocationByIP = (
-  successCallback = () => {},
-  errorCallback = () => {},
-) => async dispatch => {
+export const fetchGeolocationByIP = () => async dispatch => {
   dispatch(fetchGeoLocationRequest());
 
   try {
     const geoData = await GeolocationService.fetchGeolocationByIP();
     dispatch(fetchGeoLocationSuccess(geoData));
-    successCallback(geoData);
+    return geoData;
   } catch (error) {
     dispatch(fetchGeoLocationFailure(error));
-    errorCallback(error);
+    throw new Error(error);
   }
 };
