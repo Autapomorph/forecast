@@ -1,31 +1,27 @@
-import moment from 'moment-timezone';
+import { DateTime } from 'luxon';
 
 import { generateWeatherIcon, generateWindIcon } from './generateWeatherIcons';
 import mapDegToCardDir from './mapDegToCardDir';
 import { pascalToHg } from './pressureConverter';
 
 export default function formatCityData(cityData, timezoneData) {
-  let timestampMoment = moment.unix(cityData.dt);
-  let sunriseMoment = moment.unix(cityData.sys.sunrise);
-  let sunsetMoment = moment.unix(cityData.sys.sunset);
+  let timestamp = DateTime.fromMillis(cityData.dt * 1000).setZone('utc');
+  let sunrise = DateTime.fromMillis(cityData.sys.sunrise * 1000).setZone('utc');
+  let sunset = DateTime.fromMillis(cityData.sys.sunset * 1000).setZone('utc');
 
   if (timezoneData) {
-    timestampMoment = timestampMoment.tz(timezoneData.zoneName);
-    sunriseMoment = sunriseMoment.tz(timezoneData.zoneName);
-    sunsetMoment = sunsetMoment.tz(timezoneData.zoneName);
-  } else {
-    timestampMoment = timestampMoment.utc();
-    sunriseMoment = sunriseMoment.utc();
-    sunsetMoment = sunsetMoment.utc();
+    timestamp = timestamp.setZone(timezoneData.zoneName);
+    sunrise = sunrise.setZone(timezoneData.zoneName);
+    sunset = sunset.setZone(timezoneData.zoneName);
   }
 
-  const timestamp = timestampMoment.format('HH:mm');
-  const sunrise = sunriseMoment.format('HH:mm');
-  const sunset = sunsetMoment.format('HH:mm');
+  const timestampLocalized = timestamp.toLocaleString(DateTime.TIME_SIMPLE);
+  const sunriseLocalized = sunrise.toLocaleString(DateTime.TIME_SIMPLE);
+  const sunsetLocalized = sunset.toLocaleString(DateTime.TIME_SIMPLE);
 
-  const timestampUnix = timestampMoment.valueOf();
-  const sunriseUnix = sunriseMoment.valueOf();
-  const sunsetUnix = sunsetMoment.valueOf();
+  const timestampUnix = timestamp.toMillis();
+  const sunriseUnix = sunrise.toMillis();
+  const sunsetUnix = sunset.toMillis();
 
   const windDeg = cityData.wind && cityData.wind.deg;
   const windCardDir = windDeg && mapDegToCardDir(cityData.wind.deg);
@@ -43,7 +39,7 @@ export default function formatCityData(cityData, timezoneData) {
       lat: cityData.coord.lat,
     },
     weather: {
-      timestamp,
+      timestamp: timestampLocalized,
       timestampUnix,
       id: weatherTypeId,
       main: cityData.weather[0].main,
@@ -74,8 +70,8 @@ export default function formatCityData(cityData, timezoneData) {
 
       humidity: cityData.main.humidity,
 
-      sunrise,
-      sunset,
+      sunrise: sunriseLocalized,
+      sunset: sunsetLocalized,
       sunriseUnix,
       sunsetUnix,
     },

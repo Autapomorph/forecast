@@ -1,15 +1,15 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
-import moment from 'moment';
-import 'moment/locale/ru';
+import { Settings } from 'luxon';
 
 import store, { persistor } from './store';
 
 import MainLayout from './components/layouts/Main';
 import Loader from './components/common/Loader';
+import { defaultLanguage } from './config/settings';
 
-moment.locale('ru-RU');
+Settings.defaultLocale = defaultLanguage;
 
 const App = () => (
   <Provider store={store}>
