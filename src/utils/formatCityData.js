@@ -1,13 +1,23 @@
-import moment from 'moment';
+import moment from 'moment-timezone';
 
 import { generateWeatherIcon, generateWindIcon } from './generateWeatherIcons';
 import mapDegToCardDir from './mapDegToCardDir';
 import { pascalToHg } from './pressureConverter';
 
-export default function formatCityData(cityData) {
-  const timestampMoment = moment.unix(cityData.dt);
-  const sunriseMoment = moment.unix(cityData.sys.sunrise);
-  const sunsetMoment = moment.unix(cityData.sys.sunset);
+export default function formatCityData(cityData, timezoneData) {
+  let timestampMoment = moment.unix(cityData.dt);
+  let sunriseMoment = moment.unix(cityData.sys.sunrise);
+  let sunsetMoment = moment.unix(cityData.sys.sunset);
+
+  if (timezoneData) {
+    timestampMoment = timestampMoment.tz(timezoneData.zoneName);
+    sunriseMoment = sunriseMoment.tz(timezoneData.zoneName);
+    sunsetMoment = sunsetMoment.tz(timezoneData.zoneName);
+  } else {
+    timestampMoment = timestampMoment.utc();
+    sunriseMoment = sunriseMoment.utc();
+    sunsetMoment = sunsetMoment.utc();
+  }
 
   const timestamp = timestampMoment.format('HH:mm');
   const sunrise = sunriseMoment.format('HH:mm');
@@ -41,15 +51,15 @@ export default function formatCityData(cityData) {
       weatherIcon,
 
       temp: Math.round(cityData.main.temp),
-      tempMin: cityData.main.temp_min,
-      tempMax: cityData.main.temp_max,
+      tempMin: Math.round(cityData.main.temp_min),
+      tempMax: Math.round(cityData.main.temp_max),
 
       visibility: cityData.visibility,
       cloudiness: cityData.clouds && cityData.clouds.all,
       rain: cityData.rain && cityData.rain['3h'],
       snow: cityData.snow && cityData.snow['3h'],
 
-      windSpeed: cityData.wind && cityData.wind.speed,
+      windSpeed: cityData.wind && Math.round(cityData.wind.speed),
       windDeg,
       windCardDir,
       windIcon,

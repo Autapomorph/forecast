@@ -1,6 +1,8 @@
 import store from '../../store';
 import { getCurrentLanguage, getCurrentUnitsFormat } from '../../store/rootSelectors';
+import TimezoneService from '../timezone';
 import combineQueryParams from '../../utils/combineQueryParams';
+import getCityCoords from '../../utils/getCityCoords';
 import formatCityData from '../../utils/formatCityData';
 import {
   OWM_API_WEATHER_CITY,
@@ -73,6 +75,10 @@ export default class WeatherService {
       throw new Error(weatherData.message);
     }
 
-    return formatCityData(weatherData);
+    const cityCoords = getCityCoords(weatherData);
+
+    const timezoneData = await TimezoneService.fetchTimezoneByCoords(cityCoords);
+
+    return formatCityData(weatherData, timezoneData);
   };
 }
