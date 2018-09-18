@@ -14,7 +14,11 @@ export const StyledLayoutWrapper = styled.div`
   margin: 0 auto;
 `;
 
-export const StyledLayoutContent = styled.main`
+export const StyledHeaderWrapper = styled.header`
+  grid-area: header;
+`;
+
+export const StyledContentWrapper = styled.main`
   display: grid;
   grid-area: main;
   grid-template-columns: auto;

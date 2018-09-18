@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 // eslint-disable-next-line import/prefer-default-export
-export const StyledHeader = styled.header`
-  grid-area: header;
+export const StyledHeader = styled.div`
   display: flex;
   justify-content: center;
   min-width: 320px;

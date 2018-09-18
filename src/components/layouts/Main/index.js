@@ -5,17 +5,19 @@ import Geolocation from '../../Geolocation';
 import Cities from '../../Cities';
 import FeaturedCities from '../../FeaturedCities';
 
-import { StyledLayoutWrapper, StyledLayoutContent } from './styles';
+import { StyledLayoutWrapper, StyledHeaderWrapper, StyledContentWrapper } from './styles';
 
 const MainLayout = () => (
   <StyledLayoutWrapper>
-    <Header />
+    <StyledHeaderWrapper>
+      <Header />
+    </StyledHeaderWrapper>
 
-    <StyledLayoutContent>
+    <StyledContentWrapper>
       <Geolocation />
       <Cities />
       <FeaturedCities />
-    </StyledLayoutContent>
+    </StyledContentWrapper>
   </StyledLayoutWrapper>
 );
 
