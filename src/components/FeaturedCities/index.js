@@ -8,7 +8,7 @@ import { fetchCity, removeCityFromFeatured, clearFeaturedCities } from '../../st
 import { getFeaturedCities } from '../../store/rootSelectors';
 import { OWM_API_CITY_ID_QUERY_PARAM } from '../../config/weather';
 
-import { StyledFeaturedCitiesWrapper, StyledFeaturedCitiesHeader } from './styles';
+import { StyledFeaturedCitiesSection, StyledFeaturedCitiesHeader } from './styles';
 
 export class FeaturedCities extends Component {
   fetchCity = cityId => {
@@ -29,7 +29,7 @@ export class FeaturedCities extends Component {
     const isEmpty = !Object.keys(featuredCities).length;
 
     return (
-      <StyledFeaturedCitiesWrapper>
+      <StyledFeaturedCitiesSection>
         <StyledFeaturedCitiesHeader>
           <Title>
             <span>Избранные города</span>
@@ -46,7 +46,7 @@ export class FeaturedCities extends Component {
             removeCityFromFeatured={_removeCityFromFeatured}
           />
         )}
-      </StyledFeaturedCitiesWrapper>
+      </StyledFeaturedCitiesSection>
     );
   }
 }

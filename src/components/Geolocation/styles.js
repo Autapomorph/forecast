@@ -4,7 +4,7 @@ import Error from '../common/Error';
 
 import { StyledGeoButton } from './GeoButton/styles';
 
-export const StyledGeolocation = styled.section`
+export const StyledGeolocationSection = styled.section`
   grid-area: geolocation;
   display: flex;
   flex-direction: column;

@@ -3,13 +3,13 @@ import React from 'react';
 import SelectedCity from './SelectedCity';
 import SearchResults from './SearchResults';
 
-import { StyledCities } from './styles';
+import { StyledCitiesSection } from './styles';
 
 const Cities = () => (
-  <StyledCities>
+  <StyledCitiesSection>
     <SelectedCity />
     <SearchResults />
-  </StyledCities>
+  </StyledCitiesSection>
 );
 
 export default Cities;
