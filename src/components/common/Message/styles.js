@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const StyledMessageContainer = styled.div`
+export const StyledMessageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

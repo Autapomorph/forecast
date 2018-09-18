@@ -5,10 +5,10 @@ import Geolocation from '../../Geolocation';
 import Cities from '../../Cities';
 import FeaturedCities from '../../FeaturedCities';
 
-import { StyledLayoutContainer, StyledLayoutContent } from './styles';
+import { StyledLayoutWrapper, StyledLayoutContent } from './styles';
 
 const MainLayout = () => (
-  <StyledLayoutContainer>
+  <StyledLayoutWrapper>
     <Header />
 
     <StyledLayoutContent>
@@ -16,7 +16,7 @@ const MainLayout = () => (
       <Cities />
       <FeaturedCities />
     </StyledLayoutContent>
-  </StyledLayoutContainer>
+  </StyledLayoutWrapper>
 );
 
 export default MainLayout;

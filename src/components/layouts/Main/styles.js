@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledLayoutContainer = styled.div`
+export const StyledLayoutWrapper = styled.div`
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto auto;

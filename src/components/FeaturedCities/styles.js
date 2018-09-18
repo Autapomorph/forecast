@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledFeaturedCitiesContainer = styled.section`
+export const StyledFeaturedCitiesWrapper = styled.section`
   grid-area: featured-cities;
   min-width: 320px;
   padding: 0 10px;

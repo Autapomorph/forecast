@@ -4,10 +4,10 @@ import Title from '../../../common/Title';
 import FeaturedButton from '../../../common/FeaturedButton';
 import WeatherIcon from '../../../common/WeatherIcon';
 
-import { StyledCityContainer, StyledCityHeader } from './styles';
+import { StyledCityWrapper, StyledCityHeader } from './styles';
 
 const City = ({ city, isFeatured, addCityToFeatured, removeCityFromFeatured }) => (
-  <StyledCityContainer>
+  <StyledCityWrapper>
     <StyledCityHeader>
       <Title>
         <span>
@@ -82,7 +82,7 @@ const City = ({ city, isFeatured, addCityToFeatured, removeCityFromFeatured }) =
         </tr>
       </tbody>
     </table>
-  </StyledCityContainer>
+  </StyledCityWrapper>
 );
 
 export default City;

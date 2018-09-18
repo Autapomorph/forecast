@@ -2,10 +2,10 @@ import React from 'react';
 
 import FeaturedButton from '../../common/FeaturedButton';
 
-import { StyledFeaturedCityContainer, StyledFeaturedCityTitle } from './styles';
+import { StyledFeaturedCityWrapper, StyledFeaturedCityTitle } from './styles';
 
 const FeaturedCitiesItem = ({ city, fetchCity, removeCityFromFeatured }) => (
-  <StyledFeaturedCityContainer onClick={() => fetchCity(city.id)}>
+  <StyledFeaturedCityWrapper onClick={() => fetchCity(city.id)}>
     <StyledFeaturedCityTitle>
       <span>{city.name}</span>
       <span>&nbsp;</span>
@@ -14,7 +14,7 @@ const FeaturedCitiesItem = ({ city, fetchCity, removeCityFromFeatured }) => (
     </StyledFeaturedCityTitle>
 
     <FeaturedButton isFeatured onRemove={() => removeCityFromFeatured(city.id)} />
-  </StyledFeaturedCityContainer>
+  </StyledFeaturedCityWrapper>
 );
 
 export default FeaturedCitiesItem;

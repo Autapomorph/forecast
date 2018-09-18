@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledCityContainer = styled.div`
+export const StyledCityWrapper = styled.div`
   padding-top: 20px;
 `;
 
