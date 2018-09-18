@@ -5,7 +5,7 @@ export const StyledGeoButton = styled.button.attrs({
   type: 'submit',
 })`
   width: 100%;
-  padding: 5px 10px;
+  padding: 10px;
   border: 1px solid var(--light-gray);
   border-radius: 5px;
   background: var(--white);

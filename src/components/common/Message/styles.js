@@ -5,6 +5,8 @@ export const StyledMessageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
+  padding: 10px;
+  border-radius: 5px;
 
   ${props =>
     props.error &&

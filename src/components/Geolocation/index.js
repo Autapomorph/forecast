@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import GeoButton from './GeoButton';
+import GeoError from './GeoError';
 import { fetchGeolocation, fetchGeolocationByIP } from '../../store/geolocation/actions';
 import { fetchCity } from '../../store/cities/actions';
 import { getIsGeolocationLoading, getGeolocationErrorMessage } from '../../store/rootSelectors';
 import { OWM_API_LATITUDE_QUERY_PARAM, OWM_API_LONGITUDE_QUERY_PARAM } from '../../config/weather';
 
-import { StyledGeolocationSection, StyledGeoError } from './styles';
+import { StyledGeolocationSection } from './styles';
 
 export class Geolocation extends Component {
   componentDidMount() {
@@ -47,7 +48,7 @@ export class Geolocation extends Component {
       <StyledGeolocationSection>
         <GeoButton isLoading={isLoading} onClick={this.fetchGeolocation} />
 
-        {errorMessage && <StyledGeoError>{errorMessage}</StyledGeoError>}
+        {errorMessage && <GeoError>{errorMessage}</GeoError>}
       </StyledGeolocationSection>
     );
   }
