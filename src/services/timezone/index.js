@@ -1,4 +1,4 @@
-import combineQueryParams from '../../utils/combineQueryParams';
+import combineQueryParams from '../../utils/url/combineQueryParams';
 import {
   TZDB_API_TIMEZONE,
   TZDB_API_KEY_QUERY_PARAM,

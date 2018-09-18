@@ -1,6 +1,6 @@
 import store from '../../store';
 import { getCurrentLanguage, getCurrentUnitsFormat } from '../../store/rootSelectors';
-import combineQueryParams from '../../utils/combineQueryParams';
+import combineQueryParams from '../../utils/url/combineQueryParams';
 import {
   OWM_API_WEATHER_CITY,
   OWM_API_WEATHER_SEARCH,

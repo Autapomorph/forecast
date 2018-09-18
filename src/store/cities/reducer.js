@@ -2,7 +2,7 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import * as types from './actionTypes';
-import removePropByKey from '../../utils/removePropByKey';
+import removePropByKey from '../../utils/common/removePropByKey';
 
 export const initialState = {
   selectedCity: {

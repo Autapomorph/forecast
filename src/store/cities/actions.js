@@ -4,8 +4,8 @@ import keyBy from 'lodash/keyBy';
 import * as types from './actionTypes';
 import WeatherService from '../../services/weather';
 import TimezoneService from '../../services/timezone';
-import formatCityData from '../../utils/formatCityData';
-import getCityCoords from '../../utils/getCityCoords';
+import formatCityData from '../../utils/cityData/formatCityData';
+import getCityCoords from '../../utils/cityData/getCityCoords';
 import { getIsAnythingLoading } from '../rootSelectors';
 
 // city actions
