@@ -3,6 +3,9 @@ import keyBy from 'lodash/keyBy';
 
 import * as types from './actionTypes';
 import WeatherService from '../../services/weather';
+import TimezoneService from '../../services/timezone';
+import formatCityData from '../../utils/formatCityData';
+import getCityCoords from '../../utils/getCityCoords';
 import { getIsAnythingLoading } from '../rootSelectors';
 
 // city actions
@@ -32,7 +35,10 @@ export const fetchCity = searchParams => async (dispatch, getState) => {
   dispatch(fetchCityRequest());
 
   try {
-    const cityData = await WeatherService.fetchCity(searchParams);
+    const rawCityData = await WeatherService.fetchCity(searchParams);
+    const timezoneData = await TimezoneService.fetchTimezoneByCoords(getCityCoords(rawCityData));
+
+    const cityData = formatCityData(rawCityData, timezoneData);
     dispatch(fetchCitySuccess(cityData));
   } catch (error) {
     dispatch(fetchCityFailure(error));
@@ -66,7 +72,8 @@ export const fetchCititesByName = searchParams => async (dispatch, getState) => 
   dispatch(fetchCitiesByNameRequest());
 
   try {
-    const citiesData = await WeatherService.fetchCititesByName(searchParams);
+    const rawCitiesData = await WeatherService.fetchCititesByName(searchParams);
+    const citiesData = rawCitiesData.list.map(cityData => formatCityData(cityData));
     const uniqCitiesById = uniqBy(citiesData, 'id');
     const citiesById = keyBy(uniqCitiesById, 'id');
     dispatch(fetchCitiesByNameSuccess(citiesById));

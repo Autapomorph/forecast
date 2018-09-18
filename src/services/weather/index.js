@@ -1,9 +1,6 @@
 import store from '../../store';
 import { getCurrentLanguage, getCurrentUnitsFormat } from '../../store/rootSelectors';
-import TimezoneService from '../timezone';
 import combineQueryParams from '../../utils/combineQueryParams';
-import getCityCoords from '../../utils/getCityCoords';
-import formatCityData from '../../utils/formatCityData';
 import {
   OWM_API_WEATHER_CITY,
   OWM_API_WEATHER_SEARCH,
@@ -57,7 +54,7 @@ export default class WeatherService {
       throw new Error(cititesData.message);
     }
 
-    return cititesData.list.map(cityData => formatCityData(cityData));
+    return cititesData;
   };
 
   static fetchCity = async searchParams => {
@@ -69,16 +66,12 @@ export default class WeatherService {
       throw new Error('Weather fetching failed');
     }
 
-    const weatherData = await response.json();
+    const cityData = await response.json();
 
-    if (Number(weatherData.cod) !== 200) {
-      throw new Error(weatherData.message);
+    if (Number(cityData.cod) !== 200) {
+      throw new Error(cityData.message);
     }
 
-    const cityCoords = getCityCoords(weatherData);
-
-    const timezoneData = await TimezoneService.fetchTimezoneByCoords(cityCoords);
-
-    return formatCityData(weatherData, timezoneData);
+    return cityData;
   };
 }
