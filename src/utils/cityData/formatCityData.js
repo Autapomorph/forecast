@@ -23,7 +23,7 @@ export default function formatCityData(cityData, timezoneData) {
   const sunriseUnix = sunrise.toMillis();
   const sunsetUnix = sunset.toMillis();
 
-  const windDeg = cityData.wind && cityData.wind.deg;
+  const windDeg = (cityData.wind && cityData.wind.deg) || 0;
   const windCardDir = windDeg && mapDegToCardDir(cityData.wind.deg);
 
   const weatherTypeId = cityData.weather[0].id;

@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Title from '../../../common/Title';
-import RetryButton from '../../../common/RetryButton';
-import FeaturedButton from '../../../common/FeaturedButton';
+import RetryButton from '../../../common/buttons/RetryButton';
+import FeaturedButton from '../../../common/buttons/FeaturedButton';
 import WeatherIcon from '../../../common/WeatherIcon';
 
 import { StyledCityWrapper, StyledCityHeader } from './styles';

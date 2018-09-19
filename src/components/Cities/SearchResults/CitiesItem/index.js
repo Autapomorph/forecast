@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-import FeaturedButton from '../../../common/FeaturedButton';
+import FeaturedButton from '../../../common/buttons/FeaturedButton';
 import WeatherIcon from '../../../common/WeatherIcon';
 
 const CitiesItem = ({ city, isFeatured, fetchCity, addCityToFeatured, removeCityFromFeatured }) => (

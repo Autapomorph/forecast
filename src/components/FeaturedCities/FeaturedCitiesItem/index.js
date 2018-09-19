@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FeaturedButton from '../../common/FeaturedButton';
+import FeaturedButton from '../../common/buttons/FeaturedButton';
 
 import { StyledFeaturedCityWrapper, StyledFeaturedCityTitle } from './styles';
 

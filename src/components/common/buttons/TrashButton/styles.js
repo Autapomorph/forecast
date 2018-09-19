@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
+import BaseIconButton from '../BaseIconButton';
+
 // eslint-disable-next-line import/prefer-default-export
-export const StyledTrashButton = styled.span`
+export const StyledTrashButton = styled(BaseIconButton)`
   color: var(--red);
-  border: 0;
-  cursor: pointer;
 
   &:hover {
     color: var(--dark-red);
