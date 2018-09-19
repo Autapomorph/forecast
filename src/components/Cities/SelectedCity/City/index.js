@@ -1,12 +1,13 @@
 import React from 'react';
 
 import Title from '../../../common/Title';
+import RetryButton from '../../../common/RetryButton';
 import FeaturedButton from '../../../common/FeaturedButton';
 import WeatherIcon from '../../../common/WeatherIcon';
 
 import { StyledCityWrapper, StyledCityHeader } from './styles';
 
-const City = ({ city, isFeatured, addCityToFeatured, removeCityFromFeatured }) => (
+const City = ({ city, isFeatured, refetchCity, addCityToFeatured, removeCityFromFeatured }) => (
   <StyledCityWrapper>
     <StyledCityHeader>
       <Title>
@@ -18,6 +19,7 @@ const City = ({ city, isFeatured, addCityToFeatured, removeCityFromFeatured }) =
           <span>{city.weather.timestamp}</span>
           <span>&nbsp;</span>
         </span>
+        <RetryButton onClick={refetchCity} />
       </Title>
 
       <FeaturedButton

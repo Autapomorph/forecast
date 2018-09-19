@@ -58,6 +58,7 @@ export class SelectedCity extends Component {
       <City
         city={city}
         isFeatured={checkIfFeatured(city.id)}
+        refetchCity={() => this.fetchCity(city.id)}
         addCityToFeatured={_addCityToFeatured}
         removeCityFromFeatured={_removeCityFromFeatured}
       />
