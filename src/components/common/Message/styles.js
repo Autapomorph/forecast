@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const StyledMessageWrapper = styled.div`
   display: flex;
@@ -7,13 +7,6 @@ export const StyledMessageWrapper = styled.div`
   height: 100%;
   padding: 10px;
   border-radius: 5px;
-
-  ${props =>
-    props.error &&
-    css`
-      background: var(--bg-error);
-      color: var(--error-text-color);
-    `};
 `;
 
 export const StyledMessageContent = styled.span`

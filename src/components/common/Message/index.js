@@ -2,8 +2,8 @@ import React from 'react';
 
 import { StyledMessageWrapper, StyledMessageContent } from './styles';
 
-const Message = ({ children, success, error, ...props }) => (
-  <StyledMessageWrapper success={success} error={error} {...props}>
+const Message = ({ children, ...props }) => (
+  <StyledMessageWrapper {...props}>
     <StyledMessageContent>{children}</StyledMessageContent>
   </StyledMessageWrapper>
 );

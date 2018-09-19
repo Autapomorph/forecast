@@ -1,11 +1,9 @@
 import React from 'react';
 
-import Message from '../Message';
+import { StyledErrorMessage } from './styles';
 
 const Error = ({ children, ...props }) => (
-  <Message error {...props}>
-    {children}
-  </Message>
+  <StyledErrorMessage {...props}>{children}</StyledErrorMessage>
 );
 
 export default Error;
