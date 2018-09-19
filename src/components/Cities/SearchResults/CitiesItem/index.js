@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 
+import CountryFlag from '../../../common/CountryFlag';
 import FeaturedButton from '../../../common/buttons/FeaturedButton';
 import WeatherIcon from '../../../common/WeatherIcon';
 
@@ -9,7 +10,7 @@ const CitiesItem = ({ city, isFeatured, fetchCity, addCityToFeatured, removeCity
       <span onClick={() => fetchCity(city.id)}>
         <span>{city.name}</span>
         <span>&nbsp;</span>
-        <span>[{city.country}]</span>
+        <CountryFlag country={city.country.toLowerCase()} />
         <span>&nbsp;</span>
       </span>
 

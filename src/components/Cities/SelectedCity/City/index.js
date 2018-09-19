@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Title from '../../../common/Title';
+import CountryFlag from '../../../common/CountryFlag';
 import RetryButton from '../../../common/buttons/RetryButton';
 import FeaturedButton from '../../../common/buttons/FeaturedButton';
 import WeatherIcon from '../../../common/WeatherIcon';
@@ -14,8 +15,8 @@ const City = ({ city, isFeatured, refetchCity, addCityToFeatured, removeCityFrom
         <span>
           <span>{city.name}</span>
           <span>&nbsp;</span>
-          <span>[{city.country}]</span>
-          <span>,&nbsp;</span>
+          <CountryFlag country={city.country.toLowerCase()} />
+          <span>&nbsp;</span>
           <span>{city.weather.timestamp}</span>
           <span>&nbsp;</span>
         </span>
