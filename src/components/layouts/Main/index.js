@@ -2,8 +2,9 @@ import React from 'react';
 
 import Header from '../../Header';
 import Geolocation from '../../Geolocation';
-import Cities from '../../Cities';
-import FeaturedCities from '../../FeaturedCities';
+import SelectedCity from '../../Cities/SelectedCity';
+import SearchResults from '../../Cities/SearchResults';
+import FeaturedCities from '../../Cities/FeaturedCities';
 
 import { StyledLayoutWrapper, StyledHeaderWrapper, StyledContentWrapper } from './styles';
 
@@ -15,7 +16,8 @@ const MainLayout = () => (
 
     <StyledContentWrapper>
       <Geolocation />
-      <Cities />
+      <SelectedCity />
+      <SearchResults />
       <FeaturedCities />
     </StyledContentWrapper>
   </StyledLayoutWrapper>

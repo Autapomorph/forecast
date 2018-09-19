@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import FeaturedCitiesList from './FeaturedCitiesList';
-import Title from '../common/Title';
-import TrashButton from '../common/buttons/TrashButton';
-import { fetchCity, removeCityFromFeatured, clearFeaturedCities } from '../../store/cities/actions';
-import { getFeaturedCities } from '../../store/rootSelectors';
-import { OWM_API_CITY_ID_QUERY_PARAM } from '../../config/weather';
+import Title from '../../common/Title';
+import TrashButton from '../../common/buttons/TrashButton';
+import {
+  fetchCity,
+  removeCityFromFeatured,
+  clearFeaturedCities,
+} from '../../../store/cities/actions';
+import { getFeaturedCities } from '../../../store/rootSelectors';
+import { OWM_API_CITY_ID_QUERY_PARAM } from '../../../config/weather';
 
 import { StyledFeaturedCitiesSection, StyledFeaturedCitiesHeader } from './styles';
 
