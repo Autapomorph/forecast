@@ -6,7 +6,7 @@ import { Settings } from 'luxon';
 import store, { persistor } from './store';
 
 import MainLayout from './components/layouts/Main';
-import Loader from './components/common/Loader';
+import Loader from './components/common/messages/Loader';
 import { defaultLanguage } from './config/settings';
 
 Settings.defaultLocale = defaultLanguage;

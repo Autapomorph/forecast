@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import City from './City';
-import Loader from '../../common/Loader';
-import Error from '../../common/Error';
+import Loader from '../../common/messages/Loader';
+import Error from '../../common/messages/Error';
 import {
   fetchCity,
   addCityToFeatured,

@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import CitiesList from './CitiesList';
 import EmptyResult from './EmptyResult';
 import Title from '../../common/Title';
-import Loader from '../../common/Loader';
-import Error from '../../common/Error';
+import Loader from '../../common/messages/Loader';
+import Error from '../../common/messages/Error';
 import {
   fetchCity,
   addCityToFeatured,

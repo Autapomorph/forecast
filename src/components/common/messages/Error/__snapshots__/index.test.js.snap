@@ -18,11 +18,30 @@ ShallowWrapper {
     "nodeType": "function",
     "props": Object {
       "children": undefined,
-      "error": true,
     },
     "ref": null,
     "rendered": null,
-    "type": [Function],
+    "type": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": undefined,
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-htpNat",
+        "isStatic": true,
+        "rules": Array [
+          "
+  background: var(--bg-error);
+  color: var(--error-text-color);
+",
+        ],
+      },
+      "displayName": "Styled(Message)",
+      "render": [Function],
+      "styledComponentId": "sc-htpNat",
+      "target": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+      Symbol(Symbol.hasInstance): [Function],
+    },
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -31,11 +50,30 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": undefined,
-        "error": true,
       },
       "ref": null,
       "rendered": null,
-      "type": [Function],
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": undefined,
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-htpNat",
+          "isStatic": true,
+          "rules": Array [
+            "
+  background: var(--bg-error);
+  color: var(--error-text-color);
+",
+          ],
+        },
+        "displayName": "Styled(Message)",
+        "render": [Function],
+        "styledComponentId": "sc-htpNat",
+        "target": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+        Symbol(Symbol.hasInstance): [Function],
+      },
     },
   ],
   Symbol(enzyme.__options__): Object {

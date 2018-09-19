@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Error from '../../common/Error';
+import Error from '../../common/messages/Error';
 
 // eslint-disable-next-line import/prefer-default-export
 export const StyledGeoError = styled(Error)`

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import FeaturedButton from '../../common/buttons/FeaturedButton';
-import CountryFlag from '../../common/CountryFlag';
+import CountryFlag from '../../common/icons/CountryFlag';
 
 import { StyledFeaturedCityWrapper, StyledFeaturedCityTitle } from './styles';
 

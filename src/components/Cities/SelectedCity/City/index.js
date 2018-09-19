@@ -1,10 +1,10 @@
 import React from 'react';
 
 import Title from '../../../common/Title';
-import CountryFlag from '../../../common/CountryFlag';
 import RetryButton from '../../../common/buttons/RetryButton';
 import FeaturedButton from '../../../common/buttons/FeaturedButton';
-import WeatherIcon from '../../../common/WeatherIcon';
+import CountryFlag from '../../../common/icons/CountryFlag';
+import WeatherIcon from '../../../common/icons/WeatherIcon';
 
 import { StyledCityWrapper, StyledCityHeader } from './styles';
 

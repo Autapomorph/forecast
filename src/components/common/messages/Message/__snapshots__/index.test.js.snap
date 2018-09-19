@@ -18,8 +18,6 @@ ShallowWrapper {
     "nodeType": "function",
     "props": Object {
       "children": <Unknown />,
-      "error": undefined,
-      "success": undefined,
     },
     "ref": null,
     "rendered": Object {
@@ -57,17 +55,15 @@ ShallowWrapper {
       "attrs": undefined,
       "componentStyle": ComponentStyle {
         "componentId": "sc-bdVaJa",
-        "isStatic": false,
+        "isStatic": true,
         "rules": Array [
           "
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-
-  ",
-          [Function],
-          ";
+  padding: 10px;
+  border-radius: 5px;
 ",
         ],
       },
@@ -86,8 +82,6 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": <Unknown />,
-        "error": undefined,
-        "success": undefined,
       },
       "ref": null,
       "rendered": Object {
@@ -125,17 +119,15 @@ ShallowWrapper {
         "attrs": undefined,
         "componentStyle": ComponentStyle {
           "componentId": "sc-bdVaJa",
-          "isStatic": false,
+          "isStatic": true,
           "rules": Array [
             "
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-
-  ",
-            [Function],
-            ";
+  padding: 10px;
+  border-radius: 5px;
 ",
           ],
         },

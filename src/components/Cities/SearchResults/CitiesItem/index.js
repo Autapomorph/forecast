@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 
-import CountryFlag from '../../../common/CountryFlag';
 import FeaturedButton from '../../../common/buttons/FeaturedButton';
-import WeatherIcon from '../../../common/WeatherIcon';
+import CountryFlag from '../../../common/icons/CountryFlag';
+import WeatherIcon from '../../../common/icons/WeatherIcon';
 
 const CitiesItem = ({ city, isFeatured, fetchCity, addCityToFeatured, removeCityFromFeatured }) => (
   <Fragment>
