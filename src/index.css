@@ -9,12 +9,14 @@
 }
 
 html {
+  min-height: 100%;
   box-sizing: border-box;
   font-size: 12px;
 }
 
 body {
-  background-color: var(--bg-light-blue);
+  background: var(--bg-violet);
+  background: var(--bg-gradient);
   color: var(--base-text-color);
   font-family: Open Sans, Helvetica, Verdana, Arial, sans-serif;
   font-size: 1rem;

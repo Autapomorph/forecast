@@ -17,15 +17,20 @@
   --red: #f44336;
   --dark-red: #d32f2f;
 
+  /* gradients */
+  --bg-gradient: linear-gradient(to bottom right, var(--bg-violet), var(--bg-aquamarine));
+
   /* background colors */
+  --bg-violet: #9438f9;
+  --bg-aquamarine: #4cc6a2;
   --bg-light-blue: #f3f7fa;
   --bg-success: #d4edda;
   --bg-error: #f8d7da;
 
   /* text colors */
-  --base-text-color: #4a4a4a;
+  --base-text-color: #ffffff;
   --secondary-text-color: #8b9497;
-  --contrast-text-color: #ffffff;
+  --contrast-text-color: #4a4a4a;
   --disabled-text-color: #8b9497;
   --success-text-color: #155724;
   --error-text-color: #721c24;

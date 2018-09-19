@@ -28,22 +28,27 @@ export const StyledSearchButton = styled.button.attrs({
   border-left: 0;
   border-radius: 0 5px 5px 0;
   background: var(--light-gray);
-  color: var(--base-text-color);
+  color: var(--contrast-text-color);
   font-size: 1.5rem;
   cursor: pointer;
 
   &:hover {
-    color: var(--disabled-text-color);
+    background: var(--gray);
+    border: 1px solid var(--gray);
   }
 
   ${({ disabled }) =>
     disabled &&
     css`
+      background: var(--light-gray);
       color: var(--disabled-text-color);
+      border: 1px solid var(--light-gray);
       cursor: default;
 
       &:hover {
+        background: var(--light-gray);
         color: var(--disabled-text-color);
+        border: 1px solid var(--light-gray);
       }
     `};
 `;

@@ -13,7 +13,7 @@ export const StyledFeaturedCityWrapper = styled.div`
 `;
 
 export const StyledFeaturedCityTitle = styled.h4`
-  color: var(--base-text-color);
+  color: var(--contrast-text-color);
   margin: 0;
   font-weight: bold;
   cursor: pointer;

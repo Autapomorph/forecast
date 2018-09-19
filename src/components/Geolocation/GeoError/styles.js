@@ -6,5 +6,6 @@ import Error from '../../common/Error';
 export const StyledGeoError = styled(Error)`
   width: 100%;
   margin-top: 10px;
-  box-shadow: 0 1px 4px var(--light-gray);
+  border: 1px solid transparent;
+  font-size: 1.5rem;
 `;
