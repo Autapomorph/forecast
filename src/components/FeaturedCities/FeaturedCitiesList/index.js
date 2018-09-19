@@ -2,7 +2,7 @@ import React from 'react';
 
 import FeaturedCitiesItem from '../FeaturedCitiesItem';
 
-import { StyledFeaturedList } from './styles';
+import { StyledFeaturedList, StyledFeaturedListItem } from './styles';
 
 const FeaturedCitiesList = ({ cities, fetchCity, removeCityFromFeatured }) => (
   <StyledFeaturedList>
@@ -10,13 +10,13 @@ const FeaturedCitiesList = ({ cities, fetchCity, removeCityFromFeatured }) => (
       Object.values(cities)
         .sort((cityA, cityB) => cityA.timestamp - cityB.timestamp)
         .map(city => (
-          <li key={city.id}>
+          <StyledFeaturedListItem key={city.id}>
             <FeaturedCitiesItem
               city={city}
               fetchCity={fetchCity}
               removeCityFromFeatured={removeCityFromFeatured}
             />
-          </li>
+          </StyledFeaturedListItem>
         ))}
   </StyledFeaturedList>
 );

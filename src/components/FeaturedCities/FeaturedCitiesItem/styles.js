@@ -1,20 +1,19 @@
 import styled from 'styled-components';
 
-// eslint-disable-next-line import/prefer-default-export
-export const StyledFeaturedCityWrapper = styled.div`
+export const StyledFeaturedCity = styled.div`
+  padding: 10px;
+`;
+
+export const StyledFeaturedCityHeader = styled.h4`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--white);
-  padding: 15px 10px;
-  margin: 15px 0;
-  border: 1px solid var(--light-gray);
-  border-radius: 5px;
+  padding: 10px 0;
+  margin: 0;
+  color: var(--contrast-text-color);
+  font-weight: bold;
 `;
 
-export const StyledFeaturedCityTitle = styled.h4`
-  color: var(--contrast-text-color);
-  margin: 0;
-  font-weight: bold;
+export const StyledFeaturedCityTitle = styled.span`
   cursor: pointer;
 `;

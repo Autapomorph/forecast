@@ -1,18 +1,25 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import FeaturedButton from '../../../common/buttons/FeaturedButton';
 import CountryFlag from '../../../common/icons/CountryFlag';
 import WeatherIcon from '../../../common/icons/WeatherIcon';
 
+import {
+  StyledCitiesItem,
+  StyledCitiesItemHeader,
+  StyledCitiesItemTitle,
+  StyledCitiesItemContent,
+} from './styles';
+
 const CitiesItem = ({ city, isFeatured, fetchCity, addCityToFeatured, removeCityFromFeatured }) => (
-  <Fragment>
-    <h3>
-      <span onClick={() => fetchCity(city.id)}>
+  <StyledCitiesItem>
+    <StyledCitiesItemHeader>
+      <StyledCitiesItemTitle onClick={() => fetchCity(city.id)}>
         <span>{city.name}</span>
         <span>&nbsp;</span>
-        <CountryFlag country={city.country.toLowerCase()} />
+        <CountryFlag country={city.country.toLowerCase()} size="1.2rem" />
         <span>&nbsp;</span>
-      </span>
+      </StyledCitiesItemTitle>
 
       <FeaturedButton
         isFeatured={isFeatured}
@@ -26,9 +33,9 @@ const CitiesItem = ({ city, isFeatured, fetchCity, addCityToFeatured, removeCity
           })
         }
       />
-    </h3>
+    </StyledCitiesItemHeader>
 
-    <p>
+    <StyledCitiesItemContent>
       <span>
         {city.weather.description} <WeatherIcon icon={city.weather.weatherIcon} />,
       </span>
@@ -41,8 +48,8 @@ const CitiesItem = ({ city, isFeatured, fetchCity, addCityToFeatured, removeCity
       <span>
         ветер {city.weather.windSpeed} м/с <WeatherIcon wind icon={city.weather.windIcon} />
       </span>
-    </p>
-  </Fragment>
+    </StyledCitiesItemContent>
+  </StyledCitiesItem>
 );
 
 export default CitiesItem;

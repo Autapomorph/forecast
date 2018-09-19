@@ -20,7 +20,7 @@ import {
 } from '../../../store/rootSelectors';
 import { OWM_API_CITY_ID_QUERY_PARAM } from '../../../config/weather';
 
-import { StyledSearchResults } from './styles';
+import { StyledSearchResultsSection, StyledSearchResultsHeader } from './styles';
 
 export class SearchResults extends Component {
   fetchCity = cityId => {
@@ -59,8 +59,10 @@ export class SearchResults extends Component {
     }
 
     return (
-      <StyledSearchResults>
-        <Title>Результаты поиска</Title>
+      <StyledSearchResultsSection>
+        <StyledSearchResultsHeader>
+          <Title>Результаты поиска</Title>
+        </StyledSearchResultsHeader>
 
         <CitiesList
           cities={cities}
@@ -69,7 +71,7 @@ export class SearchResults extends Component {
           addCityToFeatured={_addCityToFeatured}
           removeCityFromFeatured={_removeCityFromFeatured}
         />
-      </StyledSearchResults>
+      </StyledSearchResultsSection>
     );
   }
 }

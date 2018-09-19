@@ -3,19 +3,21 @@ import React from 'react';
 import FeaturedButton from '../../common/buttons/FeaturedButton';
 import CountryFlag from '../../common/icons/CountryFlag';
 
-import { StyledFeaturedCityWrapper, StyledFeaturedCityTitle } from './styles';
+import { StyledFeaturedCity, StyledFeaturedCityHeader, StyledFeaturedCityTitle } from './styles';
 
 const FeaturedCitiesItem = ({ city, fetchCity, removeCityFromFeatured }) => (
-  <StyledFeaturedCityWrapper onClick={() => fetchCity(city.id)}>
-    <StyledFeaturedCityTitle>
-      <span>{city.name}</span>
-      <span>&nbsp;</span>
-      <CountryFlag country={city.country.toLowerCase()} size="1.2rem" />
-      <span>&nbsp;</span>
-    </StyledFeaturedCityTitle>
+  <StyledFeaturedCity>
+    <StyledFeaturedCityHeader>
+      <StyledFeaturedCityTitle onClick={() => fetchCity(city.id)}>
+        <span>{city.name}</span>
+        <span>&nbsp;</span>
+        <CountryFlag country={city.country.toLowerCase()} size="1.2rem" />
+        <span>&nbsp;</span>
+      </StyledFeaturedCityTitle>
 
-    <FeaturedButton isFeatured onRemove={() => removeCityFromFeatured(city.id)} />
-  </StyledFeaturedCityWrapper>
+      <FeaturedButton isFeatured onRemove={() => removeCityFromFeatured(city.id)} />
+    </StyledFeaturedCityHeader>
+  </StyledFeaturedCity>
 );
 
 export default FeaturedCitiesItem;

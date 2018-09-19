@@ -2,6 +2,8 @@ import React from 'react';
 
 import CitiesItem from '../CitiesItem';
 
+import { StyledCitiesList, StyledCitiesListItem } from './styles';
+
 const CitiesList = ({
   cities,
   checkIfFeatured,
@@ -9,9 +11,9 @@ const CitiesList = ({
   addCityToFeatured,
   removeCityFromFeatured,
 }) => (
-  <ul>
+  <StyledCitiesList>
     {Object.values(cities).map(city => (
-      <li key={city.id}>
+      <StyledCitiesListItem key={city.id}>
         <CitiesItem
           city={city}
           isFeatured={checkIfFeatured(city.id)}
@@ -19,9 +21,9 @@ const CitiesList = ({
           addCityToFeatured={addCityToFeatured}
           removeCityFromFeatured={removeCityFromFeatured}
         />
-      </li>
+      </StyledCitiesListItem>
     ))}
-  </ul>
+  </StyledCitiesList>
 );
 
 export default CitiesList;
