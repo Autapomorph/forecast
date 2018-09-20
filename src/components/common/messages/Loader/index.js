@@ -1,15 +1,13 @@
 import React from 'react';
 
-import Message from '../Message';
+import { StyledLoaderMessage } from './styles';
 
-const Loader = ({ text }) => (
-  <Message>
-    <h2>{text}</h2>
-  </Message>
+const Loader = ({ children, ...props }) => (
+  <StyledLoaderMessage {...props}>{children}</StyledLoaderMessage>
 );
 
 Loader.defaultProps = {
-  text: 'Загрузка',
+  children: 'Загрузка',
 };
 
 export default Loader;

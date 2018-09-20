@@ -8,8 +8,7 @@ export const StyledCitiesItemHeader = styled.h4`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 10px;
-  margin: 0;
+  margin: 0 0 10px 0;
   font-weight: bold;
 `;
 
@@ -18,5 +17,5 @@ export const StyledCitiesItemTitle = styled.span`
 `;
 
 export const StyledCitiesItemContent = styled.p`
-  margin: 0;
+  margin: 10px 0 0 0;
 `;

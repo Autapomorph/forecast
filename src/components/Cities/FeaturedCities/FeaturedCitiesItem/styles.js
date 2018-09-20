@@ -8,8 +8,7 @@ export const StyledFeaturedCityHeader = styled.h4`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
-  margin: 0;
+  margin: 5px 0;
   color: var(--contrast-text-color);
   font-weight: bold;
 `;

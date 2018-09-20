@@ -45,7 +45,7 @@ export class SelectedCity extends Component {
     }
 
     if (isLoading) {
-      return <Loader text="fetching city" />;
+      return <Loader />;
     }
 
     if (errorMessage) {
