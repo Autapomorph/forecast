@@ -11,10 +11,16 @@ import {
   StyledCitiesItemContent,
 } from './styles';
 
-const CitiesItem = ({ city, isFeatured, fetchCity, addCityToFeatured, removeCityFromFeatured }) => (
+const CitiesItem = ({
+  city,
+  isFeatured,
+  fetchCityWeather,
+  addCityToFeatured,
+  removeCityFromFeatured,
+}) => (
   <StyledCitiesItem>
     <StyledCitiesItemHeader>
-      <StyledCitiesItemTitle onClick={() => fetchCity(city.id)}>
+      <StyledCitiesItemTitle onClick={() => fetchCityWeather(city.id)}>
         <span>{city.name}</span>
         <span>&nbsp;</span>
         <CountryFlag country={city.country.toLowerCase()} size="1.2rem" />

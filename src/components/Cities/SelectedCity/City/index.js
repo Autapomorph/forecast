@@ -8,7 +8,13 @@ import WeatherIcon from '../../../common/icons/WeatherIcon';
 
 import { StyledCityWrapper, StyledCityHeader } from './styles';
 
-const City = ({ city, isFeatured, refetchCity, addCityToFeatured, removeCityFromFeatured }) => (
+const City = ({
+  city,
+  isFeatured,
+  refetchCityWeather,
+  addCityToFeatured,
+  removeCityFromFeatured,
+}) => (
   <StyledCityWrapper>
     <StyledCityHeader>
       <Title>
@@ -20,7 +26,7 @@ const City = ({ city, isFeatured, refetchCity, addCityToFeatured, removeCityFrom
           <span>{city.weather.timestamp}</span>
           <span>&nbsp;</span>
         </span>
-        <RetryButton onClick={refetchCity} />
+        <RetryButton onClick={refetchCityWeather} />
       </Title>
 
       <FeaturedButton
