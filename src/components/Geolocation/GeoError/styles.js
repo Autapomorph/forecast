@@ -8,4 +8,12 @@ export const StyledGeoError = styled(Error)`
   margin-top: 10px;
   border: 1px solid transparent;
   font-size: 1.5rem;
+
+  @media screen and (min-width: 600px) {
+    width: auto;
+    max-width: 320px;
+    padding: 5px;
+    margin-top: 0;
+    margin-left: 10px;
+  }
 `;

@@ -28,4 +28,8 @@ export const StyledGeoButton = styled.button.attrs({
         color: var(--disabled-text-color);
       }
     `};
+
+  @media screen and (min-width: 600px) {
+    max-width: 270px;
+  }
 `;

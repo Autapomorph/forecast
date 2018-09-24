@@ -7,6 +7,10 @@ export const StyledGeolocationSection = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 320px;
   padding: 0 10px;
+
+  @media screen and (min-width: 600px) {
+    flex-direction: row;
+    justify-content: start;
+  }
 `;

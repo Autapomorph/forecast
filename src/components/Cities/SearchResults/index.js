@@ -48,14 +48,26 @@ export class SearchResults extends Component {
 
     if (!cities || !Object.keys(cities).length) {
       if (isLoading) {
-        return <Loader />;
+        return (
+          <StyledSearchResultsSection>
+            <Loader />
+          </StyledSearchResultsSection>
+        );
       }
 
       if (errorMessage) {
-        return <Error>{errorMessage}</Error>;
+        return (
+          <StyledSearchResultsSection>
+            <Error>{errorMessage}</Error>
+          </StyledSearchResultsSection>
+        );
       }
 
-      return <EmptyResult />;
+      return (
+        <StyledSearchResultsSection>
+          <EmptyResult />;
+        </StyledSearchResultsSection>
+      );
     }
 
     return (

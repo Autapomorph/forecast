@@ -12,6 +12,14 @@ export const StyledLayoutWrapper = styled.div`
   min-width: 320px;
   max-width: 1000px;
   margin: 0 auto;
+
+  @media screen and (min-width: 380px) {
+    padding: 0 10px;
+  }
+
+  @media screen and (min-width: 450px) {
+    padding: 0 35px;
+  }
 `;
 
 export const StyledHeaderWrapper = styled.header`
@@ -21,10 +29,18 @@ export const StyledHeaderWrapper = styled.header`
 export const StyledContentWrapper = styled.main`
   display: grid;
   grid-area: main;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
   grid-template-areas:
     'geolocation'
     'cities'
     'featured-cities';
+
+  @media screen and (min-width: 600px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      'geolocation geolocation'
+      'cities featured-cities';
+  }
 `;

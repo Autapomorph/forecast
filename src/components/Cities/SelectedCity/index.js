@@ -45,15 +45,19 @@ export class SelectedCity extends Component {
     }
 
     if (isLoading) {
-      return <Loader />;
+      return (
+        <StyledSelectedCitySection>
+          <Loader />
+        </StyledSelectedCitySection>
+      );
     }
 
     if (errorMessage) {
-      return <Error>{errorMessage}</Error>;
-    }
-
-    if (!city) {
-      return <div>no data</div>;
+      return (
+        <StyledSelectedCitySection>
+          <Error>{errorMessage}</Error>
+        </StyledSelectedCitySection>
+      );
     }
 
     return (
