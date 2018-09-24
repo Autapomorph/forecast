@@ -1,6 +1,6 @@
-import cardDirMap from '../../config/weather/wind';
-import store from '../../store';
-import { getCurrentLanguage } from '../../store/rootSelectors';
+import cardDirMap from '../../../config/weather/wind';
+import store from '../../../store';
+import { getCurrentLanguage } from '../../../store/rootSelectors';
 
 export default function mapDegToCardDir(deg) {
   if (deg === undefined || deg === null || Number.isNaN(deg)) return null;

@@ -4,8 +4,8 @@ import keyBy from 'lodash/keyBy';
 import * as types from './actionTypes';
 import WeatherService from '../../services/weather';
 import TimezoneService from '../../services/timezone';
-import formatCityData from '../../utils/cityData/formatCityData';
-import getCityCoords from '../../utils/cityData/getCityCoords';
+import formatWeatherData from '../../utils/cityData/formatWeatherData';
+import getCityCoords from '../../utils/cityData/coords/getCityCoords';
 import { getIsAnythingLoading } from '../rootSelectors';
 
 // city actions
@@ -35,12 +35,22 @@ export const fetchCityWeather = searchParams => async (dispatch, getState) => {
   dispatch(fetchCityWeatherRequest());
 
   try {
-    const rawCityWeatherData = await WeatherService.fetchCityWeather(searchParams);
+    // const rawCityWeatherData = await WeatherService.fetchCityWeather(searchParams);
+
+    const [rawCityWeatherData, rawCityForecastData] = await Promise.all([
+      WeatherService.fetchCityWeather(searchParams),
+      WeatherService.fetchCityForecast(searchParams),
+    ]);
+
     const timezoneData = await TimezoneService.fetchTimezoneByCoords(
       getCityCoords(rawCityWeatherData),
     );
 
-    const cityWeatherData = formatCityData(rawCityWeatherData, timezoneData);
+    const cityWeatherData = formatWeatherData(
+      rawCityWeatherData,
+      rawCityForecastData,
+      timezoneData,
+    );
     dispatch(fetchCityWeatherSuccess(cityWeatherData));
   } catch (error) {
     dispatch(fetchCityWeatherFailure(error));
@@ -75,7 +85,7 @@ export const fetchCititesByName = searchParams => async (dispatch, getState) => 
 
   try {
     const rawCitiesData = await WeatherService.fetchCititesByName(searchParams);
-    const citiesData = rawCitiesData.list.map(cityData => formatCityData(cityData));
+    const citiesData = rawCitiesData.list.map(cityData => formatWeatherData(cityData));
     const uniqCitiesById = uniqBy(citiesData, 'id');
     const citiesById = keyBy(uniqCitiesById, 'id');
     dispatch(fetchCitiesByNameSuccess(citiesById));
