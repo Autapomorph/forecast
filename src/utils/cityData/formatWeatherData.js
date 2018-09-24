@@ -1,7 +1,7 @@
-import formatWind from './wind/formatWind';
 import formatTime from './time/formatTime';
+import formatWind from './wind/formatWind';
+import formatPressure from './pressure/formatPressure';
 import generateWeatherIcon from './icon/generateWeatherIcon';
-import { pascalToHg } from './pressure/pressureConverter';
 
 export default function formatWeatherData(weatherData, forecastData, timezoneData) {
   const {
@@ -26,6 +26,12 @@ export default function formatWeatherData(weatherData, forecastData, timezoneDat
 
   const { windDeg, windCardDir, windIcon } = formatWind({
     wind: weatherData.wind,
+  });
+
+  const { pressure, pressureSeaLevel, pressureGrindLevel } = formatPressure({
+    pressure: weatherData.main.pressure,
+    pressureSeaLevel: weatherData.main.sea_level,
+    pressureGrindLevel: weatherData.main.grnd_level,
   });
 
   return {
@@ -58,9 +64,9 @@ export default function formatWeatherData(weatherData, forecastData, timezoneDat
       windCardDir,
       windIcon,
 
-      pressure: pascalToHg(weatherData.main.pressure),
-      pressureSeaLevel: pascalToHg(weatherData.main.sea_level),
-      pressureGrindLevel: pascalToHg(weatherData.main.grnd_level),
+      pressure,
+      pressureSeaLevel,
+      pressureGrindLevel,
 
       pressurehPa: weatherData.main.pressure,
       pressureSeaLevelhPa: weatherData.main.sea_level,
