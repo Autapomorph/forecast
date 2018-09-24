@@ -14,4 +14,5 @@ export const OWM_API_LONGITUDE_QUERY_PARAM = `lon`;
 
 export const OWM_API_BASE = `${OWM_API_PROTOCOL}${OWM_API}/data/${OWM_API_VERSION}`;
 export const OWM_API_WEATHER_CITY = `${OWM_API_BASE}/weather`;
+export const OWM_API_WEATHER_CITY_FORECAST = `${OWM_API_BASE}/forecast`;
 export const OWM_API_WEATHER_SEARCH = `${OWM_API_BASE}/find`;
