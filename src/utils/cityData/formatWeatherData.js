@@ -2,6 +2,7 @@ import formatTime from './time/formatTime';
 import formatWind from './wind/formatWind';
 import formatPressure from './pressure/formatPressure';
 import generateWeatherIcon from './icon/generateWeatherIcon';
+import formatForecastData from './formatForecastData';
 
 export default function formatWeatherData(weatherData, forecastData, timezoneData) {
   const {
@@ -24,7 +25,7 @@ export default function formatWeatherData(weatherData, forecastData, timezoneDat
     sunset: sunsetUnix,
   });
 
-  const { windDeg, windCardDir, windIcon } = formatWind({
+  const { windDeg, windSpeed, windCardDir, windIcon } = formatWind({
     wind: weatherData.wind,
   });
 
@@ -34,6 +35,8 @@ export default function formatWeatherData(weatherData, forecastData, timezoneDat
     pressureGrindLevel: weatherData.main.grnd_level,
   });
 
+  const forecast = formatForecastData(forecastData, timezoneData);
+
   return {
     id: weatherData.id,
     name: weatherData.name,
@@ -42,6 +45,7 @@ export default function formatWeatherData(weatherData, forecastData, timezoneDat
       lon: weatherData.coord.lon,
       lat: weatherData.coord.lat,
     },
+    forecast,
     weather: {
       timestamp,
       timestampUnix,
@@ -55,11 +59,12 @@ export default function formatWeatherData(weatherData, forecastData, timezoneDat
       tempMax: Math.round(weatherData.main.temp_max),
 
       visibility: weatherData.visibility,
+      humidity: weatherData.main.humidity,
       cloudiness: weatherData.clouds && weatherData.clouds.all,
       rain: weatherData.rain && weatherData.rain['3h'],
       snow: weatherData.snow && weatherData.snow['3h'],
 
-      windSpeed: weatherData.wind && Math.round(weatherData.wind.speed),
+      windSpeed,
       windDeg,
       windCardDir,
       windIcon,
@@ -67,12 +72,6 @@ export default function formatWeatherData(weatherData, forecastData, timezoneDat
       pressure,
       pressureSeaLevel,
       pressureGrindLevel,
-
-      pressurehPa: weatherData.main.pressure,
-      pressureSeaLevelhPa: weatherData.main.sea_level,
-      pressureGrindLevelhPa: weatherData.main.grnd_level,
-
-      humidity: weatherData.main.humidity,
 
       sunrise,
       sunset,
