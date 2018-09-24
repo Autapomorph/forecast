@@ -32,7 +32,7 @@ export const citiesReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case types.CITY_FETCH_REQUEST: {
+    case types.CITY_WEATHER_FETCH_REQUEST: {
       return {
         ...state,
         selectedCity: {
@@ -64,7 +64,7 @@ export const citiesReducer = (state = initialState, action) => {
       };
     }
 
-    case types.CITY_FETCH_SUCCESS: {
+    case types.CITY_WEATHER_FETCH_SUCCESS: {
       return {
         ...state,
         selectedCity: {
@@ -88,7 +88,7 @@ export const citiesReducer = (state = initialState, action) => {
       };
     }
 
-    case types.CITY_FETCH_FAILURE: {
+    case types.CITY_WEATHER_FETCH_FAILURE: {
       return {
         ...state,
         selectedCity: {

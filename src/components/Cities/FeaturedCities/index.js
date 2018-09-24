@@ -5,7 +5,7 @@ import FeaturedCitiesList from './FeaturedCitiesList';
 import Title from '../../common/Title';
 import TrashButton from '../../common/buttons/TrashButton';
 import {
-  fetchCity,
+  fetchCityWeather,
   removeCityFromFeatured,
   clearFeaturedCities,
 } from '../../../store/cities/actions';
@@ -16,9 +16,9 @@ import { StyledFeaturedCitiesSection, StyledFeaturedCitiesHeader } from './style
 
 export class FeaturedCities extends Component {
   fetchCity = cityId => {
-    const { _fetchCity } = this.props;
+    const { _fetchCityWeather } = this.props;
 
-    _fetchCity({
+    _fetchCityWeather({
       [OWM_API_CITY_ID_QUERY_PARAM]: cityId,
     });
   };
@@ -60,7 +60,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  _fetchCity: fetchCity,
+  _fetchCityWeather: fetchCityWeather,
   _removeCityFromFeatured: removeCityFromFeatured,
   _clearFeaturedCities: clearFeaturedCities,
 };

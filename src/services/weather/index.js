@@ -57,7 +57,7 @@ export default class WeatherService {
     return cititesData;
   };
 
-  static fetchCity = async searchParams => {
+  static fetchCityWeather = async searchParams => {
     const apiEndpoint = WeatherService.getAPIWeatherEndpoint(searchParams);
 
     const response = await fetch(apiEndpoint);

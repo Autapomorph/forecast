@@ -1,9 +1,9 @@
 /**
  * city action types
  */
-export const CITY_FETCH_REQUEST = '@cities/CITY_FETCH_REQUEST';
-export const CITY_FETCH_SUCCESS = '@cities/CITY_FETCH_SUCCESS';
-export const CITY_FETCH_FAILURE = '@cities/CITY_FETCH_FAILURE';
+export const CITY_WEATHER_FETCH_REQUEST = '@cities/CITY_WEATHER_FETCH_REQUEST';
+export const CITY_WEATHER_FETCH_SUCCESS = '@cities/CITY_WEATHER_FETCH_SUCCESS';
+export const CITY_WEATHER_FETCH_FAILURE = '@cities/CITY_WEATHER_FETCH_FAILURE';
 
 /**
  * cities action types

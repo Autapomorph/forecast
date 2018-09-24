@@ -9,39 +9,41 @@ import getCityCoords from '../../utils/cityData/getCityCoords';
 import { getIsAnythingLoading } from '../rootSelectors';
 
 // city actions
-export const fetchCityRequest = () => ({
-  type: types.CITY_FETCH_REQUEST,
+export const fetchCityWeatherRequest = () => ({
+  type: types.CITY_WEATHER_FETCH_REQUEST,
 });
 
-export const fetchCitySuccess = cityData => ({
-  type: types.CITY_FETCH_SUCCESS,
+export const fetchCityWeatherSuccess = cityData => ({
+  type: types.CITY_WEATHER_FETCH_SUCCESS,
   payload: {
     cityData,
   },
 });
 
-export const fetchCityFailure = error => ({
-  type: types.CITY_FETCH_FAILURE,
+export const fetchCityWeatherFailure = error => ({
+  type: types.CITY_WEATHER_FETCH_FAILURE,
   payload: {
     errorMessage: error.message,
   },
 });
 
-export const fetchCity = searchParams => async (dispatch, getState) => {
+export const fetchCityWeather = searchParams => async (dispatch, getState) => {
   if (getIsAnythingLoading(getState())) {
     return;
   }
 
-  dispatch(fetchCityRequest());
+  dispatch(fetchCityWeatherRequest());
 
   try {
-    const rawCityData = await WeatherService.fetchCity(searchParams);
-    const timezoneData = await TimezoneService.fetchTimezoneByCoords(getCityCoords(rawCityData));
+    const rawCityWeatherData = await WeatherService.fetchCityWeather(searchParams);
+    const timezoneData = await TimezoneService.fetchTimezoneByCoords(
+      getCityCoords(rawCityWeatherData),
+    );
 
-    const cityData = formatCityData(rawCityData, timezoneData);
-    dispatch(fetchCitySuccess(cityData));
+    const cityWeatherData = formatCityData(rawCityWeatherData, timezoneData);
+    dispatch(fetchCityWeatherSuccess(cityWeatherData));
   } catch (error) {
-    dispatch(fetchCityFailure(error));
+    dispatch(fetchCityWeatherFailure(error));
   }
 };
 
