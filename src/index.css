@@ -3,6 +3,8 @@
 *,
 *:before,
 *:after {
+  min-height: 0;
+  min-width: 0;
   font-size: 1rem;
   font: inherit;
   box-sizing: inherit;

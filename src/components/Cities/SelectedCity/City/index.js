@@ -1,4 +1,5 @@
 import React from 'react';
+import Slider from 'react-slick';
 
 import Title from '../../../common/Title';
 import RetryButton from '../../../common/buttons/RetryButton';
@@ -68,7 +69,8 @@ const City = ({
         <tr>
           <td>Ветер</td>
           <td>
-            {city.weather.windSpeed} м/с, {city.weather.windCardDir}{' '}
+            {city.weather.windSpeed} м/с, {city.weather.windCardDir}
+            &nbsp;
             <WeatherIcon wind icon={city.weather.windIcon} />
           </td>
         </tr>
@@ -91,6 +93,53 @@ const City = ({
         </tr>
       </tbody>
     </table>
+
+    <div style={{ maxWidth: 'calc(100% - 25px * 2)', margin: '0 auto', textAlign: 'center' }}>
+      <Slider
+        infinite={false}
+        slidesToShow={5}
+        slidesToScroll={5}
+        responsive={[
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 4,
+              slidesToScroll: 4,
+            },
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 4,
+              slidesToScroll: 2,
+            },
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+            },
+          },
+        ]}
+      >
+        {city.forecast.slice(0, 8).map(f => (
+          <div key={f.timestamp}>
+            <WeatherIcon icon={f.weatherIcon} />
+            <br />
+            {f.temp}
+            &#8451;
+            <br />
+            {f.description}
+            <br />
+            {f.windSpeed} м/с,&nbsp;
+            <WeatherIcon wind icon={f.windIcon} />
+            <br />
+            {f.timestamp}
+          </div>
+        ))}
+      </Slider>
+    </div>
   </StyledCityWrapper>
 );
 
