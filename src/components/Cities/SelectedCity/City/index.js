@@ -94,7 +94,13 @@ const City = ({
       </tbody>
     </table>
 
-    <div style={{ maxWidth: 'calc(100% - 25px * 2)', margin: '0 auto', textAlign: 'center' }}>
+    <div
+      style={{
+        maxWidth: 'calc(100% - 25px * 2)',
+        margin: '30px auto 0',
+        textAlign: 'center',
+      }}
+    >
       <Slider
         infinite={false}
         slidesToShow={5}
