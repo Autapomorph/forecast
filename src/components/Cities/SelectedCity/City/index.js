@@ -123,7 +123,7 @@ const City = ({
           },
         ]}
       >
-        {city.forecast.slice(0, 8).map(f => (
+        {city.forecast.map(f => (
           <div key={f.timestamp}>
             <WeatherIcon icon={f.weatherIcon} />
             <br />
@@ -134,6 +134,8 @@ const City = ({
             <br />
             {f.windSpeed} м/с,&nbsp;
             <WeatherIcon wind icon={f.windIcon} />
+            <br />
+            {f.timestampDM}
             <br />
             {f.timestamp}
           </div>

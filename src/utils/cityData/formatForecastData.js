@@ -7,7 +7,11 @@ export default function formatForecastData(forecastData, timezoneData) {
   if (!forecastData || !forecastData.list) return null;
 
   return forecastData.list.map(forecast => {
-    const { timestampLocalized: timestamp, timestampUnix } = formatTime({
+    const {
+      timestampLocalized: timestamp,
+      timestampLocalizedDM: timestampDM,
+      timestampUnix,
+    } = formatTime({
       timestamp: forecast.dt,
       timezoneData,
     });
@@ -28,6 +32,7 @@ export default function formatForecastData(forecastData, timezoneData) {
 
     return {
       timestamp,
+      timestampDM,
       timestampUnix,
 
       id: weatherTypeId,
