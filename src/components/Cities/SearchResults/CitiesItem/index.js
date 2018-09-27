@@ -5,7 +5,7 @@ import CountryFlag from '../../../common/icons/CountryFlag';
 import WeatherIcon from '../../../common/icons/WeatherIcon';
 
 import {
-  StyledCitiesItem,
+  StyledCitiesItemWrapper,
   StyledCitiesItemHeader,
   StyledCitiesItemTitle,
   StyledCitiesItemContent,
@@ -18,7 +18,7 @@ const CitiesItem = ({
   addCityToFeatured,
   removeCityFromFeatured,
 }) => (
-  <StyledCitiesItem>
+  <StyledCitiesItemWrapper>
     <StyledCitiesItemHeader>
       <StyledCitiesItemTitle onClick={() => fetchCityWeather(city.id)}>
         <span>{city.name}</span>
@@ -55,7 +55,7 @@ const CitiesItem = ({
         {city.weather.windSpeed} м/с <WeatherIcon wind icon={city.weather.windIcon} />
       </span>
     </StyledCitiesItemContent>
-  </StyledCitiesItem>
+  </StyledCitiesItemWrapper>
 );
 
 export default CitiesItem;

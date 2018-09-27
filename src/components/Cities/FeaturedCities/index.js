@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import FeaturedCitiesList from './FeaturedCitiesList';
 import Title from '../../common/Title';
 import TrashButton from '../../common/buttons/TrashButton';
+import EmptyResult from '../../common/messages/EmptyResult';
 import {
   fetchCityWeather,
   removeCityFromFeatured,
@@ -26,11 +27,7 @@ export class FeaturedCities extends Component {
   render() {
     const { featuredCities, _removeCityFromFeatured, _clearFeaturedCities } = this.props;
 
-    if (!featuredCities) {
-      return null;
-    }
-
-    const isEmpty = !Object.keys(featuredCities).length;
+    const isEmpty = !featuredCities || !Object.keys(featuredCities).length;
 
     return (
       <StyledFeaturedCitiesSection>
@@ -42,6 +39,12 @@ export class FeaturedCities extends Component {
 
           <TrashButton isEmpty={isEmpty} onClick={_clearFeaturedCities} />
         </StyledFeaturedCitiesHeader>
+
+        {isEmpty && (
+          <EmptyResult>
+            <h2>Добавьте города в избранное</h2>
+          </EmptyResult>
+        )}
 
         {!isEmpty && (
           <FeaturedCitiesList

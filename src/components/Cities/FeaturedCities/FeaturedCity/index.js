@@ -3,10 +3,14 @@ import React from 'react';
 import FeaturedButton from '../../../common/buttons/FeaturedButton';
 import CountryFlag from '../../../common/icons/CountryFlag';
 
-import { StyledFeaturedCity, StyledFeaturedCityHeader, StyledFeaturedCityTitle } from './styles';
+import {
+  StyledFeaturedCityWrapper,
+  StyledFeaturedCityHeader,
+  StyledFeaturedCityTitle,
+} from './styles';
 
 const FeaturedCitiesItem = ({ city, fetchCity, removeCityFromFeatured }) => (
-  <StyledFeaturedCity>
+  <StyledFeaturedCityWrapper>
     <StyledFeaturedCityHeader>
       <StyledFeaturedCityTitle onClick={() => fetchCity(city.id)}>
         <span>{city.name}</span>
@@ -17,7 +21,7 @@ const FeaturedCitiesItem = ({ city, fetchCity, removeCityFromFeatured }) => (
 
       <FeaturedButton isFeatured onRemove={() => removeCityFromFeatured(city.id)} />
     </StyledFeaturedCityHeader>
-  </StyledFeaturedCity>
+  </StyledFeaturedCityWrapper>
 );
 
 export default FeaturedCitiesItem;

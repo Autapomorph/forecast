@@ -2,7 +2,7 @@ import React from 'react';
 
 import CitiesItem from '../CitiesItem';
 
-import { StyledCitiesList, StyledCitiesListItem } from './styles';
+import { StyledCitiesList } from './styles';
 
 const CitiesList = ({
   cities,
@@ -13,15 +13,14 @@ const CitiesList = ({
 }) => (
   <StyledCitiesList>
     {Object.values(cities).map(city => (
-      <StyledCitiesListItem key={city.id}>
-        <CitiesItem
-          city={city}
-          isFeatured={checkIfFeatured(city.id)}
-          fetchCityWeather={fetchCityWeather}
-          addCityToFeatured={addCityToFeatured}
-          removeCityFromFeatured={removeCityFromFeatured}
-        />
-      </StyledCitiesListItem>
+      <CitiesItem
+        key={city.id}
+        city={city}
+        isFeatured={checkIfFeatured(city.id)}
+        fetchCityWeather={fetchCityWeather}
+        addCityToFeatured={addCityToFeatured}
+        removeCityFromFeatured={removeCityFromFeatured}
+      />
     ))}
   </StyledCitiesList>
 );

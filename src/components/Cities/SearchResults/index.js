@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import CitiesList from './CitiesList';
-import EmptyResult from './EmptyResult';
 import Title from '../../common/Title';
 import Loader from '../../common/messages/Loader';
 import Error from '../../common/messages/Error';
+import EmptyResult from '../../common/messages/EmptyResult';
 import {
   fetchCityWeather,
   addCityToFeatured,
@@ -46,29 +46,17 @@ export class SearchResults extends Component {
       return null;
     }
 
-    if (!cities || !Object.keys(cities).length) {
-      if (isLoading) {
-        return (
-          <StyledSearchResultsSection>
-            <Loader />
-          </StyledSearchResultsSection>
-        );
-      }
+    const isEmpty = !cities || !Object.keys(cities).length;
+    const isLoadedEmpty = !isLoading && !errorMessage && isEmpty;
+    const isLoadedNotEmpty = !isLoading && !errorMessage && !isEmpty;
 
-      if (errorMessage) {
-        return (
-          <StyledSearchResultsSection>
-            <Error>{errorMessage}</Error>
-          </StyledSearchResultsSection>
-        );
-      }
-
-      return (
-        <StyledSearchResultsSection>
-          <EmptyResult />;
-        </StyledSearchResultsSection>
-      );
-    }
+    const loaderBlock = isLoading ? <Loader /> : null;
+    const errorBlock = errorMessage ? <Error>{errorMessage}</Error> : null;
+    const emptyBlock = isLoadedEmpty ? (
+      <EmptyResult>
+        <h2>Города не найдены</h2>
+      </EmptyResult>
+    ) : null;
 
     return (
       <StyledSearchResultsSection>
@@ -76,13 +64,19 @@ export class SearchResults extends Component {
           <Title>Результаты поиска</Title>
         </StyledSearchResultsHeader>
 
-        <CitiesList
-          cities={cities}
-          checkIfFeatured={checkIfFeatured}
-          fetchCityWeather={this.fetchCityWeather}
-          addCityToFeatured={_addCityToFeatured}
-          removeCityFromFeatured={_removeCityFromFeatured}
-        />
+        {loaderBlock}
+        {errorBlock}
+        {emptyBlock}
+
+        {isLoadedNotEmpty && (
+          <CitiesList
+            cities={cities}
+            checkIfFeatured={checkIfFeatured}
+            fetchCityWeather={this.fetchCityWeather}
+            addCityToFeatured={_addCityToFeatured}
+            removeCityFromFeatured={_removeCityFromFeatured}
+          />
+        )}
       </StyledSearchResultsSection>
     );
   }
