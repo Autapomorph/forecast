@@ -1,4 +1,5 @@
 import EmptyResult from '.';
+import Message from '../Message';
 
 describe('EmptyResult tests', () => {
   it('renders properly', () => {
@@ -7,10 +8,10 @@ describe('EmptyResult tests', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should render Message with text', () => {
-    const wrapper = shallow(<EmptyResult />);
+  it('should render defined text', () => {
+    const text = 'text';
+    const wrapper = mount(<EmptyResult>{text}</EmptyResult>);
 
-    expect(wrapper.find('Message')).toHaveLength(1);
-    expect(wrapper.find('h2').text()).toEqual('Города не найдены!');
+    expect(wrapper.find(Message).text()).toEqual(text);
   });
 });

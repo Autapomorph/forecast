@@ -1,4 +1,5 @@
 import Loader from '.';
+import Message from '../Message';
 
 describe('Loader tests', () => {
   it('renders properly', () => {
@@ -8,15 +9,15 @@ describe('Loader tests', () => {
   });
 
   it('should render default text', () => {
-    const wrapper = shallow(<Loader />);
+    const wrapper = mount(<Loader />);
 
-    expect(wrapper.find('h2').text()).toEqual(Loader.defaultProps.text);
+    expect(wrapper.find(Message).text()).toEqual(Loader.defaultProps.children);
   });
 
   it('should render defined text', () => {
     const text = 'text';
-    const wrapper = shallow(<Loader text={text} />);
+    const wrapper = mount(<Loader>{text}</Loader>);
 
-    expect(wrapper.find('h2').text()).toEqual(text);
+    expect(wrapper.find(Message).text()).toEqual(text);
   });
 });
