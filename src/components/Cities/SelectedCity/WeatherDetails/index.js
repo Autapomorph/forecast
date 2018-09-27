@@ -2,56 +2,61 @@ import React from 'react';
 
 import WeatherIcon from '../../../common/icons/WeatherIcon';
 
+import {
+  StyledWeatherDetailsWrapper,
+  StyledWeatherDetailsItem as StyledItem,
+  StyledWeatherDetailsItemTitle as StyledItemTitle,
+  StyledWeatherDetailsItemDescription as StyledItemDescription,
+} from './styles';
+
 const WeatherDetails = ({ city }) => (
-  <table>
-    <tbody>
-      <tr>
-        <td>Описание</td>
-        <td>
-          {city.weather.description} <WeatherIcon icon={city.weather.weatherIcon} />
-        </td>
-      </tr>
+  <StyledWeatherDetailsWrapper>
+    <StyledItem>
+      <StyledItemTitle>Описание:</StyledItemTitle>
+      <StyledItemDescription>
+        {city.weather.description} <WeatherIcon icon={city.weather.weatherIcon} />
+      </StyledItemDescription>
+    </StyledItem>
 
-      <tr>
-        <td>Температура</td>
-        <td>
-          {city.weather.temp}
-          &#8451;
-        </td>
-      </tr>
+    <StyledItem>
+      <StyledItemTitle>Температура:</StyledItemTitle>
+      <StyledItemDescription>
+        {city.weather.temp}
+        &#8451;
+      </StyledItemDescription>
+    </StyledItem>
 
-      <tr>
-        <td>Облачность</td>
-        <td>{city.weather.cloudiness}%</td>
-      </tr>
+    <StyledItem>
+      <StyledItemTitle>Облачность:</StyledItemTitle>
+      <StyledItemDescription>{city.weather.cloudiness}%</StyledItemDescription>
+    </StyledItem>
 
-      <tr>
-        <td>Ветер</td>
-        <td>
-          {city.weather.windSpeed} м/с, {city.weather.windCardDir}
-          &nbsp;
-          <WeatherIcon wind icon={city.weather.windIcon} />
-        </td>
-      </tr>
+    <StyledItem>
+      <StyledItemTitle>Ветер:</StyledItemTitle>
+      <StyledItemDescription>
+        {city.weather.windSpeed} м/с, {city.weather.windCardDir}
+        &nbsp;
+        <WeatherIcon wind icon={city.weather.windIcon} />
+      </StyledItemDescription>
+    </StyledItem>
 
-      <tr>
-        <td>Давление</td>
-        <td>{city.weather.pressure} мм рт. ст.</td>
-      </tr>
+    <StyledItem>
+      <StyledItemTitle>Давление:</StyledItemTitle>
+      <StyledItemDescription>{city.weather.pressure} мм рт. ст.</StyledItemDescription>
+    </StyledItem>
 
-      <tr>
-        <td>Влажность</td>
-        <td>{city.weather.humidity}%</td>
-      </tr>
+    <StyledItem>
+      <StyledItemTitle>Влажность:</StyledItemTitle>
+      <StyledItemDescription>{city.weather.humidity}%</StyledItemDescription>
+    </StyledItem>
 
-      <tr>
-        <td>День</td>
-        <td>
-          {city.weather.sunrise} &mdash; {city.weather.sunset}
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <StyledItem>
+      <StyledItemTitle>День:</StyledItemTitle>
+      <StyledItemDescription>
+        {city.weather.sunrise} &mdash; {city.weather.sunset}
+      </StyledItemDescription>
+    </StyledItem>
+  </StyledWeatherDetailsWrapper>
 );
 
 export default WeatherDetails;

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledCitiesList = styled.ul`
   padding: 0;
-  margin-bottom: 15px;
+  margin: 12px 0 0;
   list-style: none;
 `;
 
@@ -13,4 +13,8 @@ export const StyledCitiesListItem = styled.li`
   background: var(--white);
   color: var(--contrast-text-color);
   font-weight: bold;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;

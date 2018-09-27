@@ -52,7 +52,7 @@ const CitiesItem = ({
       </span>
       <span>&nbsp;</span>
       <span>
-        ветер {city.weather.windSpeed} м/с <WeatherIcon wind icon={city.weather.windIcon} />
+        {city.weather.windSpeed} м/с <WeatherIcon wind icon={city.weather.windIcon} />
       </span>
     </StyledCitiesItemContent>
   </StyledCitiesItem>
