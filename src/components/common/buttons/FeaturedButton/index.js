@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-import faStarSolid from '@fortawesome/free-solid-svg-icons/faStar';
-import faStarRegular from '@fortawesome/free-regular-svg-icons/faStar';
+import { faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons';
+import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 
 import { StyledFeaturedButton } from './styles';
 

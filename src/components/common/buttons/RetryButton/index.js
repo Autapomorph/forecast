@@ -1,5 +1,5 @@
 import React from 'react';
-import faRedoAlt from '@fortawesome/free-solid-svg-icons/faRedoAlt';
+import { faRedoAlt } from '@fortawesome/free-solid-svg-icons';
 
 import { StyledRetryButton } from './styles';
 
