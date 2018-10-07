@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import faTrashAlt from '@fortawesome/fontawesome-free-solid/faTrashAlt';
+import faTrashAlt from '@fortawesome/free-solid-svg-icons/faTrashAlt';
 
 import { StyledTrashButton } from './styles';
 
