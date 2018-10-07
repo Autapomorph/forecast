@@ -17,7 +17,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "function",
     "props": Object {
-      "children": <Unknown />,
+      "children": <ForwardRef />,
     },
     "ref": null,
     "rendered": Object {
@@ -81,7 +81,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
-        "children": <Unknown />,
+        "children": <ForwardRef />,
       },
       "ref": null,
       "rendered": Object {
@@ -156,8 +156,6 @@ ShallowWrapper {
         },
       },
     },
-    "attachTo": undefined,
-    "hydrateIn": undefined,
   },
 }
 `;
