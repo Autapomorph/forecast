@@ -28,11 +28,10 @@
     "normalize.css": "^8.0.0",
     "qs": "^6.5.2",
     "react": "^16.5.2",
-    "react-app-rewired": "^1.6.2",
     "react-dom": "^16.5.2",
     "react-onclickoutside": "^6.7.1",
     "react-redux": "^5.0.7",
-    "react-scripts": "1.1.5",
+    "react-scripts": "^2.0.4",
     "react-slick": "^0.23.1",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
@@ -44,6 +43,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
+    "customize-cra": "^0.1.0-beta6",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
     "eslint": "^5.6.0",
@@ -58,6 +58,7 @@
     "husky": "^1.0.1",
     "lint-staged": "^7.3.0",
     "prettier": "^1.14.3",
+    "react-app-rewired": "^1.6.2",
     "redux-devtools-extension": "^2.13.5",
     "redux-mock-store": "^1.5.3"
   },
@@ -80,5 +81,11 @@
     "ignore": [
       "./src/registerServiceWorker.js"
     ]
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
