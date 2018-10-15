@@ -15,25 +15,34 @@ export const StyledForecastItemDetail = styled.div`
   margin-top: 5px;
 `;
 
-export const StyledForecastItemDescription = styled.div`
+export const StyledDescription = styled.div`
   display: block;
   height: 2rem;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
 
-export const StyledForecastItemHumidity = styled(StyledForecastItemDetail)`
+export const StyledWeatherIcon = styled(StyledForecastItemDetail)``;
+export const StyledTemperature = styled(StyledForecastItemDetail)``;
+export const StyledTimestamp = styled(StyledForecastItemDetail)``;
+
+export const StyledHumidity = styled(StyledForecastItemDetail)`
   flex-direction: row;
   color: var(--light-gray);
 `;
 
-export const StyledForecastItemWind = styled(StyledForecastItemDetail)`
+export const StyledPressure = styled(StyledForecastItemDetail)`
   flex-direction: row;
   color: var(--light-gray);
 `;
 
-export const StyledForecastItemDivider = styled.hr`
+export const StyledWind = styled(StyledForecastItemDetail)`
+  flex-direction: row;
+  color: var(--light-gray);
+`;
+
+export const StyledDivider = styled.hr`
   border: 0;
   border-top: 1px solid var(--gray);
-  margin: 10px 0 5px 0;
+  margin: 5px 0;
 `;

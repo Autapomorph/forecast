@@ -4,10 +4,20 @@ import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 
 import { StyledFeaturedButton } from './styles';
 
-const FeaturedButton = ({ isFeatured = false, onAdd = () => {}, onRemove = () => {} }) => (
+const FeaturedButton = ({
+  isFeatured = false,
+  size = 'lg',
+  onAdd = () => {},
+  onRemove = () => {},
+  ...props
+}) => (
   <Fragment>
-    {isFeatured && <StyledFeaturedButton icon={faStarSolid} size="lg" onClick={onRemove} />}
-    {!isFeatured && <StyledFeaturedButton icon={faStarRegular} size="lg" onClick={onAdd} />}
+    {isFeatured && (
+      <StyledFeaturedButton icon={faStarSolid} size={size} onClick={onRemove} {...props} />
+    )}
+    {!isFeatured && (
+      <StyledFeaturedButton icon={faStarRegular} size={size} onClick={onAdd} {...props} />
+    )}
   </Fragment>
 );
 

@@ -3,6 +3,8 @@ import { faRedoAlt } from '@fortawesome/free-solid-svg-icons';
 
 import { StyledRetryButton } from './styles';
 
-const RetryButton = ({ onClick }) => <StyledRetryButton icon={faRedoAlt} onClick={onClick} />;
+const RetryButton = ({ onClick, ...props }) => (
+  <StyledRetryButton icon={faRedoAlt} onClick={onClick} {...props} />
+);
 
 export default RetryButton;

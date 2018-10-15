@@ -5,7 +5,7 @@ import RetryButton from '../../../common/buttons/RetryButton';
 import FeaturedButton from '../../../common/buttons/FeaturedButton';
 import CountryFlag from '../../../common/icons/CountryFlag';
 
-import { StyledCityHeader } from './styles';
+import { StyledCityHeader, StyledTitleButtonsWrapper } from './styles';
 
 const CityHeader = ({
   city,
@@ -24,21 +24,23 @@ const CityHeader = ({
         <span>{city.weather.timestamp}</span>
         <span>&nbsp;</span>
       </span>
-      <RetryButton onClick={refetchCityWeather} />
     </Title>
 
-    <FeaturedButton
-      isFeatured={isFeatured}
-      onRemove={() => removeCityFromFeatured(city.id)}
-      onAdd={() =>
-        addCityToFeatured({
-          id: city.id,
-          name: city.name,
-          country: city.country,
-          coords: city.coords,
-        })
-      }
-    />
+    <StyledTitleButtonsWrapper>
+      <RetryButton onClick={refetchCityWeather} size="lg" />
+      <FeaturedButton
+        isFeatured={isFeatured}
+        onRemove={() => removeCityFromFeatured(city.id)}
+        onAdd={() =>
+          addCityToFeatured({
+            id: city.id,
+            name: city.name,
+            country: city.country,
+            coords: city.coords,
+          })
+        }
+      />
+    </StyledTitleButtonsWrapper>
   </StyledCityHeader>
 );
 

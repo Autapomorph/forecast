@@ -3,9 +3,9 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 import { StyledTrashButton } from './styles';
 
-const TrashButton = ({ isEmpty = false, onClick = () => {} }) => (
+const TrashButton = ({ isEmpty = false, size = 'lg', onClick = () => {}, ...props }) => (
   <Fragment>
-    {!isEmpty && <StyledTrashButton icon={faTrashAlt} onClick={onClick} size="lg" />}
+    {!isEmpty && <StyledTrashButton icon={faTrashAlt} onClick={onClick} size={size} {...props} />}
   </Fragment>
 );
 

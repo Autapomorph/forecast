@@ -1,18 +1,21 @@
 import React from 'react';
 import Slider from 'react-slick';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTint } from '@fortawesome/free-solid-svg-icons';
+import { faTint, faThermometerHalf } from '@fortawesome/free-solid-svg-icons';
 
 import WeatherIcon from '../../../common/icons/WeatherIcon';
 
 import {
   StyledForecastWrapper,
   StyledForecastItem,
-  StyledForecastItemDetail,
-  StyledForecastItemDescription,
-  StyledForecastItemHumidity,
-  StyledForecastItemWind,
-  StyledForecastItemDivider,
+  StyledWeatherIcon,
+  StyledTemperature,
+  StyledDescription,
+  StyledHumidity,
+  StyledPressure,
+  StyledWind,
+  StyledDivider,
+  StyledTimestamp,
 } from './styles';
 
 const ForecastDetails = ({ city }) => (
@@ -47,39 +50,45 @@ const ForecastDetails = ({ city }) => (
     >
       {city.forecast.map(f => (
         <StyledForecastItem key={f.timestamp}>
-          <StyledForecastItemDetail>
+          <StyledWeatherIcon>
             <WeatherIcon icon={f.weatherIcon} size="lg" />
-          </StyledForecastItemDetail>
+          </StyledWeatherIcon>
 
-          <StyledForecastItemDetail>
+          <StyledTemperature>
             <span>
               {f.temp}
               &#8451;
             </span>
-          </StyledForecastItemDetail>
+          </StyledTemperature>
 
-          <StyledForecastItemDescription>
+          <StyledDescription>
             <span>{f.description}</span>
-          </StyledForecastItemDescription>
+          </StyledDescription>
 
-          <StyledForecastItemHumidity>
-            <FontAwesomeIcon icon={faTint} />
+          <StyledHumidity>
+            <FontAwesomeIcon icon={faTint} size="lg" />
             <span>&nbsp;</span>
             <span>{f.humidity}%</span>
-          </StyledForecastItemHumidity>
+          </StyledHumidity>
 
-          <StyledForecastItemWind>
+          <StyledPressure>
+            <FontAwesomeIcon icon={faThermometerHalf} size="lg" />
+            <span>&nbsp;</span>
+            <span>{f.pressure} мм</span>
+          </StyledPressure>
+
+          <StyledWind>
             <WeatherIcon wind icon={f.windIcon} size="lg" />
             <span>&nbsp;</span>
             <span>{f.windSpeed} м/с</span>
-          </StyledForecastItemWind>
+          </StyledWind>
 
-          <StyledForecastItemDivider />
+          <StyledDivider />
 
-          <StyledForecastItemDetail>
+          <StyledTimestamp>
             <span>{f.timestampDM}</span>
             <span>{f.timestamp}</span>
-          </StyledForecastItemDetail>
+          </StyledTimestamp>
         </StyledForecastItem>
       ))}
     </Slider>
