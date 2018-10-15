@@ -6,6 +6,7 @@ import WeatherService from '../../services/weather';
 import TimezoneService from '../../services/timezone';
 import formatWeatherData from '../../utils/cityData/formatWeatherData';
 import getCityCoords from '../../utils/cityData/coords/getCityCoords';
+import { OWM_API_CITY_NAME_QUERY_PARAM } from '../../config/weather';
 import { getIsAnythingLoading } from '../rootSelectors';
 
 // city actions
@@ -58,8 +59,11 @@ export const fetchCityWeather = searchParams => async (dispatch, getState) => {
 };
 
 // cities actions
-export const fetchCitiesByNameRequest = () => ({
+export const fetchCitiesByNameRequest = searchTerm => ({
   type: types.CITIES_FETCH_REQUEST,
+  payload: {
+    searchTerm,
+  },
 });
 
 export const fetchCitiesByNameSuccess = cities => ({
@@ -81,7 +85,7 @@ export const fetchCititesByName = searchParams => async (dispatch, getState) => 
     return;
   }
 
-  dispatch(fetchCitiesByNameRequest());
+  dispatch(fetchCitiesByNameRequest(searchParams[OWM_API_CITY_NAME_QUERY_PARAM]));
 
   try {
     const rawCitiesData = await WeatherService.fetchCititesByName(searchParams);

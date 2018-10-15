@@ -13,6 +13,7 @@ import {
 } from '../../../store/cities/actions';
 import {
   getCities,
+  getSearchTerm,
   getIsCitiesActive,
   getIsCitiesLoading,
   getCitiesErrorMessage,
@@ -34,6 +35,7 @@ export class SearchResults extends Component {
   render() {
     const {
       cities,
+      searchTerm,
       isActive,
       isLoading,
       errorMessage,
@@ -61,7 +63,11 @@ export class SearchResults extends Component {
     return (
       <StyledSearchResultsSection>
         <StyledSearchResultsHeader>
-          <Title>Результаты поиска</Title>
+          <Title>
+            Результаты поиска по запросу &quot;
+            {searchTerm}
+            &quot;
+          </Title>
         </StyledSearchResultsHeader>
 
         {loaderBlock}
@@ -84,6 +90,7 @@ export class SearchResults extends Component {
 
 const mapStateToProps = state => ({
   cities: getCities(state),
+  searchTerm: getSearchTerm(state),
   isActive: getIsCitiesActive(state),
   isLoading: getIsCitiesLoading(state),
   errorMessage: getCitiesErrorMessage(state),

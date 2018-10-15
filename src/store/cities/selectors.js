@@ -6,6 +6,7 @@ export const getSelectedCityErrorMessage = state => state.selectedCity.errorMess
 
 // cities selectors
 export const getCities = state => state.cities.data;
+export const getSearchTerm = state => state.cities.searchTerm;
 export const getIsCitiesActive = state => state.cities.active;
 export const getIsCitiesLoading = state => state.cities.loading;
 export const getCitiesErrorMessage = state => state.cities.errorMessage;

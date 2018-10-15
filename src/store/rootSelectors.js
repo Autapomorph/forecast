@@ -24,6 +24,7 @@ export const getSelectedCityErrorMessage = state =>
   citiesSelectors.getSelectedCityErrorMessage(state.cities);
 
 export const getCities = state => citiesSelectors.getCities(state.cities);
+export const getSearchTerm = state => citiesSelectors.getSearchTerm(state.cities);
 export const getIsCitiesActive = state => citiesSelectors.getIsCitiesActive(state.cities);
 export const getIsCitiesLoading = state => citiesSelectors.getIsCitiesLoading(state.cities);
 export const getCitiesErrorMessage = state => citiesSelectors.getCitiesErrorMessage(state.cities);

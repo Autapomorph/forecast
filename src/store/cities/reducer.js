@@ -13,6 +13,7 @@ export const initialState = {
   },
   cities: {
     data: null,
+    searchTerm: '',
     active: false,
     loading: false,
     errorMessage: null,
@@ -53,6 +54,7 @@ export const citiesReducer = (state = initialState, action) => {
         ...state,
         cities: {
           ...state.cities,
+          searchTerm: payload.searchTerm,
           active: true,
           loading: true,
           errorMessage: null,

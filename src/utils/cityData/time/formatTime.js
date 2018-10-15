@@ -17,7 +17,11 @@ export default function formatTime({
   }
 
   const timestampLocalized = timestamp.toLocaleString(DateTime.TIME_SIMPLE);
-  const timestampLocalizedDM = timestamp.toLocaleString({ day: 'numeric', month: 'numeric' });
+  const timestampLocalizedDM = timestamp.toLocaleString({
+    day: 'numeric',
+    month: 'short',
+    weekday: 'short',
+  });
   const sunriseLocalized = sunrise.toLocaleString(DateTime.TIME_SIMPLE);
   const sunsetLocalized = sunset.toLocaleString(DateTime.TIME_SIMPLE);
 

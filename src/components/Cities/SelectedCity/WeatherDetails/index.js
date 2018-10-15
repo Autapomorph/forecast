@@ -14,7 +14,7 @@ const WeatherDetails = ({ city }) => (
     <StyledItem>
       <StyledItemTitle>Описание:</StyledItemTitle>
       <StyledItemDescription>
-        {city.weather.description} <WeatherIcon icon={city.weather.weatherIcon} />
+        {city.weather.description} <WeatherIcon icon={city.weather.weatherIcon} size="lg" />
       </StyledItemDescription>
     </StyledItem>
 
@@ -36,7 +36,7 @@ const WeatherDetails = ({ city }) => (
       <StyledItemDescription>
         {city.weather.windSpeed} м/с, {city.weather.windCardDir}
         &nbsp;
-        <WeatherIcon wind icon={city.weather.windIcon} />
+        <WeatherIcon wind icon={city.weather.windIcon} size="lg" />
       </StyledItemDescription>
     </StyledItem>
 
