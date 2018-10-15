@@ -11,11 +11,10 @@ export const StyledSearchInput = styled.input.attrs({
 })`
   flex-grow: 1;
   background: var(--white);
-  padding: 5px;
+  padding: 10px;
   border: 1px solid var(--light-gray);
   border-radius: 5px 0 0 5px;
   font-size: 1.5rem;
-  line-height: 1;
   outline: none;
 `;
 
