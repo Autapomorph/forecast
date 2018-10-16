@@ -14,7 +14,7 @@ export const StyledSearchInput = styled.input.attrs({
   padding: 10px;
   border: 1px solid var(--light-gray);
   border-radius: 5px 0 0 5px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   outline: none;
 `;
 

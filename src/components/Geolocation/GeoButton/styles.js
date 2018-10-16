@@ -10,7 +10,7 @@ export const StyledGeoButton = styled.button.attrs({
   border-radius: 5px;
   background: var(--white);
   color: var(--contrast-text-color);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   cursor: pointer;
 
   &:hover {
