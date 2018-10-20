@@ -11,6 +11,10 @@ export const StyledWeatherDetailsItem = styled.dl`
 export const StyledWeatherDetailsItemTitle = styled.dt`
   display: inline-block;
   width: 25%;
+
+  @media screen and (min-width: 600px) {
+    width: 30%;
+  }
 `;
 
 export const StyledWeatherDetailsItemDescription = styled.dd`
