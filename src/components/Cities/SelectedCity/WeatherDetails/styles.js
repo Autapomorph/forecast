@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
 export const StyledWeatherDetailsWrapper = styled.div`
+  grid-area: city-weather;
   margin-top: 12px;
+
+  @media screen and (min-width: 600px) {
+    margin-top: 0;
+  }
 `;
 
 export const StyledWeatherDetailsItem = styled.dl`
@@ -13,7 +18,7 @@ export const StyledWeatherDetailsItemTitle = styled.dt`
   width: 25%;
 
   @media screen and (min-width: 600px) {
-    width: 30%;
+    width: 40%;
   }
 `;
 

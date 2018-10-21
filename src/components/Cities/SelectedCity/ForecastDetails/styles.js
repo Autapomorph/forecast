@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 
 export const StyledForecastWrapper = styled.div`
+  grid-area: city-forecast;
   max-width: calc(100% - 25px * 2);
   margin: 30px auto 0;
+
+  @media screen and (min-width: 600px) {
+    margin: 0 auto;
+  }
 `;
 
 export const StyledForecastItem = styled.div`

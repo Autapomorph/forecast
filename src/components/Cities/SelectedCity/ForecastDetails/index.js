@@ -26,21 +26,21 @@ const ForecastDetails = ({ city }) => (
       slidesToScroll={5}
       responsive={[
         {
-          breakpoint: 768,
+          breakpoint: 767,
           settings: {
             slidesToShow: 3,
             slidesToScroll: 3,
           },
         },
         {
-          breakpoint: 600,
+          breakpoint: 599,
           settings: {
             slidesToShow: 4,
             slidesToScroll: 4,
           },
         },
         {
-          breakpoint: 480,
+          breakpoint: 479,
           settings: {
             slidesToShow: 3,
             slidesToScroll: 3,

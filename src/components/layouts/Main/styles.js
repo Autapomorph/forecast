@@ -35,12 +35,4 @@ export const StyledContentWrapper = styled.main`
     'geolocation'
     'cities'
     'featured-cities';
-
-  @media screen and (min-width: 600px) {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      'geolocation geolocation'
-      'cities featured-cities';
-  }
 `;
