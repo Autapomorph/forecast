@@ -20,8 +20,6 @@ body {
   min-height: 100%;
   background: var(--bg-violet);
   background: var(--bg-gradient);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   color: var(--base-text-color);
   font-family: Open Sans, Helvetica, Verdana, Arial, sans-serif;
   font-size: 1rem;
