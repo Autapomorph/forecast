@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import City from './City';
 import Loader from '../../common/messages/Loader';
-import Error from '../../common/messages/Error';
 import {
   fetchCityWeather,
   addCityToFeatured,
@@ -18,7 +17,7 @@ import {
 } from '../../../store/rootSelectors';
 import { OWM_API_CITY_ID_QUERY_PARAM } from '../../../config/weather';
 
-import { StyledSelectedCitySection } from './styles';
+import { StyledSelectedCitySection, StyledSelectedCityError } from './styles';
 
 export class SelectedCity extends Component {
   fetchCityWeather = cityId => {
@@ -55,7 +54,7 @@ export class SelectedCity extends Component {
     if (errorMessage) {
       return (
         <StyledSelectedCitySection>
-          <Error>{errorMessage}</Error>
+          <StyledSelectedCityError>{errorMessage}</StyledSelectedCityError>
         </StyledSelectedCitySection>
       );
     }
