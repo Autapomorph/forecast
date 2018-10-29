@@ -45,13 +45,11 @@ export class Geolocation extends Component {
     const { icon, isLoading, errorMessage } = this.props;
 
     if (icon) {
-      return <GeoButton icon isLoading={isLoading} onClick={this.fetchGeolocation} />;
+      return <GeoButton isLoading={isLoading} onClick={this.fetchGeolocation} />;
     }
 
     return (
       <StyledGeolocationSection>
-        <GeoButton isLoading={isLoading} onClick={this.fetchGeolocation} />
-
         {errorMessage && <GeoError>{errorMessage}</GeoError>}
       </StyledGeolocationSection>
     );

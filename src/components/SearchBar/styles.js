@@ -13,6 +13,7 @@ export const StyledSearchInput = styled.input.attrs({
   background: var(--white);
   padding: 10px;
   border: 1px solid var(--light-gray);
+  border-right: 0;
   border-radius: 5px 0 0 5px;
   font-size: 1.3rem;
   outline: none;
@@ -23,9 +24,7 @@ export const StyledSearchButton = styled.button.attrs({
 })`
   flex-shrink: 0;
   padding: 5px 10px;
-  border: 1px solid var(--light-gray);
-  border-left: 0;
-  border-radius: 0 5px 5px 0;
+  border: 0;
   background: var(--light-gray);
   color: var(--contrast-text-color);
   font-size: 1.5rem;
@@ -33,7 +32,6 @@ export const StyledSearchButton = styled.button.attrs({
 
   &:hover {
     background: var(--gray);
-    border: 1px solid var(--gray);
   }
 
   ${({ disabled }) =>
@@ -41,17 +39,11 @@ export const StyledSearchButton = styled.button.attrs({
     css`
       background: var(--light-gray);
       color: var(--disabled-text-color);
-      border: 1px solid var(--light-gray);
       cursor: default;
 
       &:hover {
         background: var(--light-gray);
         color: var(--disabled-text-color);
-        border: 1px solid var(--light-gray);
       }
     `};
-
-  @media screen and (min-width: 600px) {
-    border-radius: 0;
-  }
 `;
