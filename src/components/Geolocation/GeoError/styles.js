@@ -12,8 +12,7 @@ export const StyledGeoError = styled(Error)`
   @media screen and (min-width: 600px) {
     width: auto;
     max-width: 320px;
-    padding: 5px;
     margin-top: 0;
-    margin-left: 10px;
+    margin-left: auto;
   }
 `;

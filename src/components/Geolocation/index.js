@@ -42,7 +42,11 @@ export class Geolocation extends Component {
   };
 
   render() {
-    const { isLoading, errorMessage } = this.props;
+    const { icon, isLoading, errorMessage } = this.props;
+
+    if (icon) {
+      return <GeoButton icon isLoading={isLoading} onClick={this.fetchGeolocation} />;
+    }
 
     return (
       <StyledGeolocationSection>

@@ -50,4 +50,8 @@ export const StyledSearchButton = styled.button.attrs({
         border: 1px solid var(--light-gray);
       }
     `};
+
+  @media screen and (min-width: 600px) {
+    border-radius: 0;
+  }
 `;
