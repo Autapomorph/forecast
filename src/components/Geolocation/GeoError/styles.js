@@ -6,6 +6,7 @@ import Error from '../../common/messages/Error';
 export const StyledGeoError = styled(Error)`
   width: 100%;
   border: 1px solid transparent;
+  margin-bottom: 20px;
   font-size: 1.5rem;
 
   @media screen and (min-width: 600px) {
