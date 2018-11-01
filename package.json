@@ -2,20 +2,12 @@
   "name": "forecast",
   "version": "0.1.0",
   "private": true,
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}",
-      "!src/index.js",
-      "!src/serviceWorker.js"
-    ]
-  },
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
     "lint": "eslint ./src",
-    "eject": "react-scripts eject",
-    "precommit": "lint-staged"
+    "eject": "react-scripts eject"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.7",
@@ -58,32 +50,51 @@
     "prettier": "^1.14.3",
     "react-app-rewired": "^1.6.2",
     "redux-devtools-extension": "^2.13.5",
-    "redux-mock-store": "^1.5.3"
-  },
-  "lint-staged": {
-    "linters": {
-      "*.{js,jsx}": [
-        "prettier --write",
-        "eslint --max-warnings=0",
-        "git add"
-      ],
-      "*.{css,scss,less,json,md}": [
-        "prettier --write",
-        "git add"
-      ],
-      ".*rc": [
-        "prettier --write",
-        "git add"
-      ]
-    },
-    "ignore": [
-      "./src/serviceWorker.js"
-    ]
+    "redux-mock-store": "^1.5.3",
+    "stylelint": "^9.7.1",
+    "stylelint-config-standard": "^18.2.0"
   },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/index.{js,ts}",
+      "!src/serviceWorker.{js,ts}"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "src/**/*.{js,jsx,ts,tsx}": [
+        "prettier --write",
+        "eslint --max-warnings=0",
+        "git add"
+      ],
+      "src/**/*.{json,md}": [
+        "prettier --write",
+        "git add"
+      ],
+      "src/**/*.{css,scss,sass,less}": [
+        "stylelint --fix",
+        "prettier --write",
+        "git add"
+      ],
+      ".*rc": [
+        "prettier --write --parser json",
+        "git add"
+      ],
+      "ignore": [
+        "./src/serviceWorker.js"
+      ]
+    }
+  }
 }

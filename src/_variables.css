@@ -1,8 +1,8 @@
 :root {
   /* common colors */
-  --black: #000000;
+  --black: #000;
   --black-transparent: rgba(0, 0, 0, 0.1);
-  --white: #ffffff;
+  --white: #fff;
   --white-transparent: rgba(255, 255, 255, 0.001);
   --gray: #d2d5d6;
   --light-gray: #eceff1;
@@ -28,7 +28,7 @@
   --bg-error: #f8d7da;
 
   /* text colors */
-  --base-text-color: #ffffff;
+  --base-text-color: #fff;
   --secondary-text-color: #8b9497;
   --contrast-text-color: #4a4a4a;
   --disabled-text-color: #8b9497;
