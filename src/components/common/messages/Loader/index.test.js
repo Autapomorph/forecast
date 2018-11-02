@@ -8,13 +8,7 @@ describe('Loader tests', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should render default text', () => {
-    const wrapper = mount(<Loader />);
-
-    expect(wrapper.find(Message).text()).toEqual(Loader.defaultProps.children);
-  });
-
-  it('should render defined text', () => {
+  it('should render defined content', () => {
     const text = 'text';
     const wrapper = mount(<Loader>{text}</Loader>);
 
