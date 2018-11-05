@@ -10,19 +10,22 @@ export const StyledWeatherDetailsWrapper = styled.div`
 `;
 
 export const StyledWeatherDetailsItem = styled.dl`
-  margin: 5px 0;
+  display: grid;
+  grid-template-columns: [wd-title] fit-content(50%) [wd-desc] auto;
+  grid-gap: 5px 20px;
+  align-items: baseline;
 `;
 
 export const StyledWeatherDetailsItemTitle = styled.dt`
-  display: inline-block;
-  width: 25%;
-
-  @media screen and (min-width: 600px) {
-    width: 40%;
-  }
+  grid-column: wd-title;
+  display: flex;
+  align-items: center;
+  margin: 0;
 `;
 
 export const StyledWeatherDetailsItemDescription = styled.dd`
-  display: inline-block;
-  margin: 0 0 0 10px;
+  grid-column: wd-desc;
+  display: flex;
+  align-items: center;
+  margin: 0;
 `;

@@ -14,43 +14,35 @@ const WeatherDetails = ({ city }) => (
     <StyledItem>
       <StyledItemTitle>Описание:</StyledItemTitle>
       <StyledItemDescription>
-        {city.weather.description} <WeatherIcon icon={city.weather.weatherIcon} size="lg" />
+        <span>
+          {city.weather.description} <WeatherIcon icon={city.weather.weatherIcon} size="lg" />
+        </span>
       </StyledItemDescription>
-    </StyledItem>
 
-    <StyledItem>
       <StyledItemTitle>Температура:</StyledItemTitle>
       <StyledItemDescription>
         {city.weather.temp}
         &#8451;
       </StyledItemDescription>
-    </StyledItem>
 
-    <StyledItem>
       <StyledItemTitle>Облачность:</StyledItemTitle>
       <StyledItemDescription>{city.weather.cloudiness}%</StyledItemDescription>
-    </StyledItem>
 
-    <StyledItem>
       <StyledItemTitle>Ветер:</StyledItemTitle>
       <StyledItemDescription>
-        {city.weather.windSpeed} м/с, {city.weather.windCardDir}
-        &nbsp;
-        <WeatherIcon wind icon={city.weather.windIcon} size="lg" />
+        <span>
+          {city.weather.windSpeed} м/с, {city.weather.windCardDir}
+          &nbsp;
+          <WeatherIcon wind icon={city.weather.windIcon} size="lg" />
+        </span>
       </StyledItemDescription>
-    </StyledItem>
 
-    <StyledItem>
       <StyledItemTitle>Давление:</StyledItemTitle>
       <StyledItemDescription>{city.weather.pressure} мм рт. ст.</StyledItemDescription>
-    </StyledItem>
 
-    <StyledItem>
       <StyledItemTitle>Влажность:</StyledItemTitle>
       <StyledItemDescription>{city.weather.humidity}%</StyledItemDescription>
-    </StyledItem>
 
-    <StyledItem>
       <StyledItemTitle>День:</StyledItemTitle>
       <StyledItemDescription>
         {city.weather.sunrise} &mdash; {city.weather.sunset}
