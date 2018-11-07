@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,12 +9,7 @@ const Loader = ({ children, ...props }) => (
 );
 
 Loader.defaultProps = {
-  children: (
-    <Fragment>
-      <span>Загрузка&nbsp;</span>
-      <FontAwesomeIcon icon={faSpinner} size="lg" spin />
-    </Fragment>
-  ),
+  children: <FontAwesomeIcon icon={faSpinner} size="lg" spin />,
 };
 
 export default Loader;
