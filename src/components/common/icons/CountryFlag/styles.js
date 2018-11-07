@@ -9,7 +9,6 @@ export const StyledCountryFlag = styled.span`
   position: relative;
   display: inline-block;
   width: 1.33333333em;
-  line-height: 1em;
 
   &::before {
     content: '\00a0';

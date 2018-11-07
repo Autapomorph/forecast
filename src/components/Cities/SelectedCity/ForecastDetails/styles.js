@@ -22,7 +22,8 @@ export const StyledForecastItemDetail = styled.div`
 
 export const StyledDescription = styled.div`
   display: block;
-  height: 2rem;
+  height: 2em;
+  line-height: 1;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
