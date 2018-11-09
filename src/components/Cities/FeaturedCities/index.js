@@ -34,7 +34,6 @@ export class FeaturedCities extends Component {
         <StyledFeaturedCitiesHeader>
           <Title>
             <span>Избранные города</span>
-            <span>&nbsp;</span>
           </Title>
 
           <TrashButton isEmpty={isEmpty} onClick={_clearFeaturedCities} />

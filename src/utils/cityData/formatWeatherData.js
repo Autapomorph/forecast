@@ -7,6 +7,7 @@ import formatForecastData from './formatForecastData';
 export default function formatWeatherData(weatherData, forecastData, timezoneData) {
   const {
     timestampLocalized: timestamp,
+    timestampLocalizedDM: timestampDM,
     sunriseLocalized: sunrise,
     sunsetLocalized: sunset,
     timestampUnix,
@@ -48,6 +49,7 @@ export default function formatWeatherData(weatherData, forecastData, timezoneDat
     forecast,
     weather: {
       timestamp,
+      timestampDM,
       timestampUnix,
       id: weatherTypeId,
       main: weatherData.weather[0].main,

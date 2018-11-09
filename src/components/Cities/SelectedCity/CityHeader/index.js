@@ -20,10 +20,12 @@ const CityHeader = ({
         <span>{city.name}</span>
         <span>&nbsp;</span>
         <CountryFlag country={city.country.toLowerCase()} />
-        <span>&nbsp;</span>
-        <span>{city.weather.timestamp}</span>
-        <span>&nbsp;</span>
       </span>
+
+      <br />
+      <Title.Subtitle>
+        {city.weather.timestampDM} {city.weather.timestamp}
+      </Title.Subtitle>
     </Title>
 
     <StyledTitleButtonsWrapper>

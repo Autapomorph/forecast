@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
-// eslint-disable-next-line import/prefer-default-export
 export const StyledSearchResultsSection = styled.div`
   grid-area: cities;
-  padding: 20px 10px 0;
+  padding: 0 10px;
 `;
 
 export const StyledSearchResultsHeader = styled.div`
