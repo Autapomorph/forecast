@@ -1,7 +1,8 @@
 export const TZDB_API = 'api.timezonedb.com';
 export const TZDB_API_PROTOCOL = 'https://';
 export const TZDB_API_VERSION = 'v2.1';
-export const TZDB_API_KEY = '2F22B5FENMEG';
+
+export const TZDB_API_KEY = process.env.REACT_APP_TZDB_API_KEY;
 
 export const TZDB_API_KEY_QUERY_PARAM = `key`;
 export const TZDB_API_FORMAT_QUERY_PARAM = `format`;

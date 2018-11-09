@@ -1,7 +1,7 @@
 export const OWM_API = 'api.openweathermap.org';
 export const OWM_API_PROTOCOL = 'https://';
 export const OWM_API_VERSION = '2.5';
-export const OWM_API_KEY = '0cc1e365769e7138bbcfd2a60fda214d';
+export const OWM_API_KEY = process.env.REACT_APP_OWM_API_KEY;
 
 export const OWM_API_KEY_QUERY_PARAM = `appid`;
 export const OWM_API_LANG_QUERY_PARAM = `lang`;
