@@ -1,2 +1,5 @@
 /build/
 /src/serviceWorker.js
+!.eslintrc.js
+!.prettierrc.js
+!.stylelintrc.js
