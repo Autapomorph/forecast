@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const StyledFeaturedCitiesSection = styled.section`
   grid-area: featured-cities;
-  padding: 20px 10px 30px;
+  padding: 0 10px;
+  margin: 20px 0;
 `;
 
 export const StyledFeaturedCitiesHeader = styled.div`

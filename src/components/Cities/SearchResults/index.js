@@ -61,7 +61,7 @@ export class SearchResults extends Component {
     ) : null;
 
     return (
-      <StyledSearchResultsSection>
+      <StyledSearchResultsSection isLoading={isLoading}>
         <StyledSearchResultsHeader>
           <Title>
             Результаты поиска по запросу &quot;

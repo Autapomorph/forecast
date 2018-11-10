@@ -45,7 +45,7 @@ export class SelectedCity extends Component {
 
     if (isLoading) {
       return (
-        <StyledSelectedCitySection>
+        <StyledSelectedCitySection isLoading>
           <Loader />
         </StyledSelectedCitySection>
       );
