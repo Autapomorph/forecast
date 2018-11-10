@@ -8,7 +8,6 @@ export const StyledLayoutWrapper = styled.div`
     'header'
     'main';
   grid-gap: 20px;
-
   min-width: 320px;
   max-width: 1000px;
   margin: 0 auto;

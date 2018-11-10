@@ -34,7 +34,7 @@ export const StyledSearchButton = styled.button.attrs({
     background: var(--gray);
   }
 
-  ${({ disabled }) =>
+  ${/* sc-dec */ ({ disabled }) =>
     disabled &&
     css`
       background: var(--light-gray);
@@ -45,5 +45,5 @@ export const StyledSearchButton = styled.button.attrs({
         background: var(--light-gray);
         color: var(--disabled-text-color);
       }
-    `};
+    `}
 `;

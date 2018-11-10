@@ -28,9 +28,11 @@ export const StyledDescription = styled.div`
   text-overflow: ellipsis;
 `;
 
+/* stylelint-disable */
 export const StyledWeatherIcon = styled(StyledForecastItemDetail)``;
 export const StyledTemperature = styled(StyledForecastItemDetail)``;
 export const StyledTimestamp = styled(StyledForecastItemDetail)``;
+/* stylelint-enable */
 
 export const StyledHumidity = styled(StyledForecastItemDetail)`
   flex-direction: row;

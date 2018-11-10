@@ -8764,7 +8764,7 @@ postcss-values-parser@^2.0.0:
     indexes-of "^1.0.1"
     uniq "^1.0.1"
 
-postcss@^6.0.1, postcss@^6.0.23:
+postcss@^6.0.1, postcss@^6.0.14, postcss@^6.0.23:
   version "6.0.23"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-6.0.23.tgz#61c82cc328ac60e677645f979054eb98bc0e3324"
   integrity sha512-soOk1h6J3VMTZtVeVpv15/Hpdl2cBLX3CAw4TAbkpTJiNPk9YP/zWcD1ND+xEtvyuuvKzbxliTOIyvkSeSJ6ag==
@@ -10563,6 +10563,20 @@ stylelint-config-standard@^18.2.0:
   integrity sha512-07x0TaSIzvXlbOioUU4ORkCIM07kyIuojkbSVCyFWNVgXMXYHfhnQSCkqu+oHWJf3YADAnPGWzdJ53NxkoJ7RA==
   dependencies:
     stylelint-config-recommended "^2.1.0"
+
+stylelint-config-styled-components@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/stylelint-config-styled-components/-/stylelint-config-styled-components-0.1.1.tgz#b408388d7c687833ab4be4c4e6522d97d2827ede"
+  integrity sha512-z5Xz/9GmvxO6e/DLzBMwkB85zHxEEjN6K7Cj80Bi+o/9vR9eS3GX3E9VuMnX9WLFYulqbqLtTapGGY28JBiy9Q==
+
+stylelint-processor-styled-components@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/stylelint-processor-styled-components/-/stylelint-processor-styled-components-1.5.0.tgz#bf17ab1a263621015f2cab302f0e6cb174e6bd2a"
+  integrity sha512-mXgx0p3EMYmeo8qXnkXDuzhIojCpzsFdwBzZw2bieBUx5yBtduira/geC15Ug2RsqhePnuT0b7j9g/YtNTwkLg==
+  dependencies:
+    "@babel/parser" "^7.0.0"
+    "@babel/traverse" "^7.0.0"
+    postcss "^6.0.14"
 
 stylelint@^9.8.0:
   version "9.8.0"

@@ -14,24 +14,30 @@ export const StyledCountryFlag = styled.span`
     content: '\00a0';
   }
 
-  ${({ background }) =>
-    background &&
-    css`
-      background-size: contain;
-      background-position: 50%;
-      background-repeat: no-repeat;
-    `};
+  ${
+    /* sc-dec */ ({ background }) =>
+      background &&
+      css`
+        background-size: contain;
+        background-position: 50%;
+        background-repeat: no-repeat;
+      `
+  }
 
-  ${({ squared }) =>
-    squared &&
-    css`
-      background-image: ${({ country }) => `url(/images/countries/flags/1x1/${country}.svg)`};
-      width: 1em;
-    `};
+  ${
+    /* sc-dec */ ({ squared }) =>
+      squared &&
+      css`
+        background-image: ${({ country }) => `url(/images/countries/flags/1x1/${country}.svg)`};
+        width: 1em;
+      `
+  }
 
-  ${({ size }) =>
-    size &&
-    css`
-      font-size: ${size};
-    `};
+  ${
+    /* sc-dec */ ({ size }) =>
+      size &&
+      css`
+        font-size: ${size};
+      `
+  }
 `;
