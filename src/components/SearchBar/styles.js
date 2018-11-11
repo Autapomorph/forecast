@@ -16,7 +16,13 @@ export const StyledSearchInput = styled.input.attrs({
   border-right: 0;
   border-radius: 5px 0 0 5px;
   font-size: 1.3rem;
+  line-height: 1.2em;
   outline: none;
+
+  ::selection {
+    background: var(--bg-violet);
+    color: var(--base-text-color);
+  }
 `;
 
 export const StyledSearchButton = styled.button.attrs({
@@ -30,7 +36,7 @@ export const StyledSearchButton = styled.button.attrs({
   font-size: 1.5rem;
   cursor: pointer;
 
-  &:hover {
+  :hover {
     background: var(--gray);
   }
 
@@ -41,7 +47,7 @@ export const StyledSearchButton = styled.button.attrs({
       color: var(--disabled-text-color);
       cursor: default;
 
-      &:hover {
+      :hover {
         background: var(--light-gray);
         color: var(--disabled-text-color);
       }

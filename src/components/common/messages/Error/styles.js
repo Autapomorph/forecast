@@ -6,4 +6,5 @@ import Message from '../Message';
 export const StyledErrorMessage = styled(Message)`
   background: var(--bg-error);
   color: var(--error-text-color);
+  font-size: 1.3rem;
 `;

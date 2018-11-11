@@ -6,7 +6,7 @@ import BaseIconButton from '../BaseIconButton';
 export const StyledTrashButton = styled(BaseIconButton)`
   color: var(--red);
 
-  &:hover {
+  :hover {
     color: var(--dark-red);
   }
 `;

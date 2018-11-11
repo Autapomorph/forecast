@@ -14,7 +14,7 @@ export const StyledGeoButton = styled.button.attrs({
   font-size: 1.5rem;
   cursor: pointer;
 
-  &:hover {
+  :hover {
     background: var(--gray);
   }
 
@@ -25,7 +25,7 @@ export const StyledGeoButton = styled.button.attrs({
       color: var(--disabled-text-color);
       cursor: default;
 
-      &:hover {
+      :hover {
         background: var(--light-gray);
         color: var(--disabled-text-color);
       }

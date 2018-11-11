@@ -6,7 +6,7 @@ import BaseIconButton from '../BaseIconButton';
 export const StyledFeaturedButton = styled(BaseIconButton)`
   color: var(--yellow);
 
-  &:hover {
+  :hover {
     color: var(--dark-yellow);
   }
 `;

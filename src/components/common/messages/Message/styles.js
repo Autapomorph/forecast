@@ -7,9 +7,9 @@ export const StyledMessageWrapper = styled.div`
   height: 100%;
   padding: 10px;
   border-radius: 5px;
+  font-size: 1.3rem;
 `;
 
 export const StyledMessageContent = styled.span`
   text-align: center;
-  font-size: 1.5rem;
 `;

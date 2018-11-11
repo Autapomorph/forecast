@@ -9,7 +9,7 @@ export const StyledFeaturedCityWrapper = styled.li`
   color: var(--contrast-text-color);
   font-weight: bold;
 
-  &:last-child {
+  :last-child {
     margin-bottom: 0;
   }
 `;

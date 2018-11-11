@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const StyledIconButton = styled.span`
   cursor: pointer;
 
-  &:hover {
+  :hover {
     color: var(--light-gray);
   }
 `;
