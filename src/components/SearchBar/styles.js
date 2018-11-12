@@ -16,7 +16,7 @@ export const StyledSearchInput = styled.input.attrs({
   border-right: 0;
   border-radius: 5px 0 0 5px;
   font-size: 1.3rem;
-  line-height: 1.2em;
+  line-height: 1.2;
   outline: none;
 
   ::selection {
@@ -28,6 +28,9 @@ export const StyledSearchInput = styled.input.attrs({
 export const StyledSearchButton = styled.button.attrs({
   type: 'submit',
 })`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-shrink: 0;
   padding: 5px 10px;
   border: 0;

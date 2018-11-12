@@ -4,6 +4,9 @@ import styled, { css } from 'styled-components';
 export const StyledGeoButton = styled.button.attrs({
   type: 'button',
 })`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-shrink: 0;
   padding: 5px 10px;
   border: 0;
