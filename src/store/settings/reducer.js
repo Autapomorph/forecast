@@ -1,48 +1,11 @@
-import * as types from './actionTypes';
-import {
-  languages,
-  defaultLanguage,
-  unitsFormats,
-  defaultUnitsFormat,
-} from '../../config/settings';
+import { combineReducers } from 'redux';
 
-export const initialState = {
-  languages: {
-    data: languages,
-    currentLanguage: defaultLanguage,
-  },
-  unitsFormats: {
-    data: unitsFormats,
-    currentUnitsFormat: defaultUnitsFormat,
-  },
-};
+import languagesReducer from './reducers/language';
+import unitsFormatsReducer from './reducers/unitsFormats';
 
-export default (state = initialState, action) => {
-  const { type, payload } = action;
+const settingsReducer = combineReducers({
+  languages: languagesReducer,
+  unitsFormats: unitsFormatsReducer,
+});
 
-  switch (type) {
-    case types.SETTINGS_CHANGE_LANGUAGE: {
-      return {
-        ...state,
-        languages: {
-          ...state.languages,
-          currentLanguage: payload.language,
-        },
-      };
-    }
-
-    case types.SETTINGS_CHANGE_UNITS_FORMAT: {
-      return {
-        ...state,
-        unitsFormats: {
-          ...state.unitsFormats,
-          currentUnitsFormat: payload.unitsFormat,
-        },
-      };
-    }
-
-    default: {
-      return state;
-    }
-  }
-};
+export default settingsReducer;

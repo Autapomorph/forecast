@@ -1,6 +1,8 @@
 import React from 'react';
 
+import { UnitsFormatContext } from '../../../../store/settings/context';
 import WeatherIcon from '../../../common/icons/WeatherIcon';
+import { convertTemp } from '../../../../utils/cityData/temperature/formatTemp';
 
 import {
   StyledWeatherDetailsWrapper,
@@ -11,43 +13,50 @@ import {
 
 const WeatherDetails = ({ city }) => (
   <StyledWeatherDetailsWrapper>
-    <StyledItem>
-      <StyledItemTitle>Описание:</StyledItemTitle>
-      <StyledItemDescription>
-        <span>
-          {city.weather.description} <WeatherIcon icon={city.weather.weatherIcon} size="lg" />
-        </span>
-      </StyledItemDescription>
+    <UnitsFormatContext.Consumer>
+      {currentUnitsFormat => {
+        const convertedTemp = convertTemp(city.weather.temp, currentUnitsFormat.temp.title);
 
-      <StyledItemTitle>Температура:</StyledItemTitle>
-      <StyledItemDescription>
-        {city.weather.temp}
-        &#8451;
-      </StyledItemDescription>
+        return (
+          <StyledItem>
+            <StyledItemTitle>Описание:</StyledItemTitle>
+            <StyledItemDescription>
+              <span>
+                {city.weather.description} <WeatherIcon icon={city.weather.weatherIcon} size="lg" />
+              </span>
+            </StyledItemDescription>
 
-      <StyledItemTitle>Облачность:</StyledItemTitle>
-      <StyledItemDescription>{city.weather.cloudiness}%</StyledItemDescription>
+            <StyledItemTitle>Температура:</StyledItemTitle>
+            <StyledItemDescription>
+              {`${convertedTemp}${currentUnitsFormat.temp.symbol}`}
+            </StyledItemDescription>
 
-      <StyledItemTitle>Ветер:</StyledItemTitle>
-      <StyledItemDescription>
-        <span>
-          {city.weather.windSpeed} м/с, {city.weather.windCardDir}
-          &nbsp;
-          <WeatherIcon wind icon={city.weather.windIcon} size="lg" />
-        </span>
-      </StyledItemDescription>
+            <StyledItemTitle>Облачность:</StyledItemTitle>
+            <StyledItemDescription>{city.weather.cloudiness}%</StyledItemDescription>
 
-      <StyledItemTitle>Давление:</StyledItemTitle>
-      <StyledItemDescription>{city.weather.pressure} мм рт. ст.</StyledItemDescription>
+            <StyledItemTitle>Ветер:</StyledItemTitle>
+            <StyledItemDescription>
+              <span>
+                {city.weather.windSpeed} м/с, {city.weather.windCardDir}
+                &nbsp;
+                <WeatherIcon wind icon={city.weather.windIcon} size="lg" />
+              </span>
+            </StyledItemDescription>
 
-      <StyledItemTitle>Влажность:</StyledItemTitle>
-      <StyledItemDescription>{city.weather.humidity}%</StyledItemDescription>
+            <StyledItemTitle>Давление:</StyledItemTitle>
+            <StyledItemDescription>{city.weather.pressure} мм рт. ст.</StyledItemDescription>
 
-      <StyledItemTitle>День:</StyledItemTitle>
-      <StyledItemDescription>
-        {city.weather.sunrise} &mdash; {city.weather.sunset}
-      </StyledItemDescription>
-    </StyledItem>
+            <StyledItemTitle>Влажность:</StyledItemTitle>
+            <StyledItemDescription>{city.weather.humidity}%</StyledItemDescription>
+
+            <StyledItemTitle>День:</StyledItemTitle>
+            <StyledItemDescription>
+              {city.weather.sunrise} &mdash; {city.weather.sunset}
+            </StyledItemDescription>
+          </StyledItem>
+        );
+      }}
+    </UnitsFormatContext.Consumer>
   </StyledWeatherDetailsWrapper>
 );
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { UnitsFormatContext } from '../../../store/settings/context';
 import City from './City';
 import Loader from '../../common/messages/Loader';
 import {
@@ -14,6 +15,7 @@ import {
   getIsSelectedCityLoading,
   getSelectedCityErrorMessage,
   getIsFeaturedCity,
+  getCurrentUnitsFormat,
 } from '../../../store/rootSelectors';
 import { OWM_API_CITY_ID_QUERY_PARAM } from '../../../config/weather';
 
@@ -34,6 +36,7 @@ export class SelectedCity extends Component {
       isActive,
       isLoading,
       errorMessage,
+      unitsFormat,
       checkIfFeatured,
       _addCityToFeatured,
       _removeCityFromFeatured,
@@ -61,13 +64,15 @@ export class SelectedCity extends Component {
 
     return (
       <StyledSelectedCitySection>
-        <City
-          city={city}
-          isFeatured={checkIfFeatured(city.id)}
-          refetchCityWeather={() => this.fetchCityWeather(city.id)}
-          addCityToFeatured={_addCityToFeatured}
-          removeCityFromFeatured={_removeCityFromFeatured}
-        />
+        <UnitsFormatContext.Provider value={unitsFormat}>
+          <City
+            city={city}
+            isFeatured={checkIfFeatured(city.id)}
+            refetchCityWeather={() => this.fetchCityWeather(city.id)}
+            addCityToFeatured={_addCityToFeatured}
+            removeCityFromFeatured={_removeCityFromFeatured}
+          />
+        </UnitsFormatContext.Provider>
       </StyledSelectedCitySection>
     );
   }
@@ -78,6 +83,7 @@ const mapStateToProps = state => ({
   isActive: getIsSelectedCityActive(state),
   isLoading: getIsSelectedCityLoading(state),
   errorMessage: getSelectedCityErrorMessage(state),
+  unitsFormat: getCurrentUnitsFormat(state),
 
   checkIfFeatured: getIsFeaturedCity(state),
 });

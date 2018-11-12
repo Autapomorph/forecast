@@ -29,7 +29,7 @@ const persistConfig = {
   whitelist: ['featuredCities'],
 };
 
-export const citiesReducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -151,4 +151,4 @@ export const citiesReducer = (state = initialState, action) => {
   }
 };
 
-export default persistReducer(persistConfig, citiesReducer);
+export default persistReducer(persistConfig, reducer);

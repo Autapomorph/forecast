@@ -1,32 +1,15 @@
 import * as types from './actionTypes';
 
-import WeatherService from '../../services/weather';
-
-export const fetchTicketsRequest = () => ({
-  type: types.CITY_WEATHER_FETCH_REQUEST,
-});
-
-export const fetchTicketsSuccess = wheatherData => ({
-  type: types.CITY_WEATHER_FETCH_SUCCESS,
+export const changeLanguage = language => ({
+  type: types.SETTINGS_CHANGE_LANGUAGE,
   payload: {
-    data: wheatherData,
+    language,
   },
 });
 
-export const fetchTicketsFailure = error => ({
-  type: types.CITY_WEATHER_FETCH_FAILURE,
+export const changeUnitsFormat = unitsFormat => ({
+  type: types.SETTINGS_CHANGE_UNITS_FORMAT,
   payload: {
-    errorMessage: error.message,
+    unitsFormat,
   },
 });
-
-export const fetchTickets = () => async dispatch => {
-  dispatch(fetchTicketsRequest());
-
-  try {
-    const wheatherData = await WeatherService.fetchWeather();
-    dispatch(fetchTicketsSuccess(wheatherData));
-  } catch (error) {
-    dispatch(fetchTicketsFailure(error));
-  }
-};
