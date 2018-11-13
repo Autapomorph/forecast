@@ -8,16 +8,12 @@ import WeatherIcon from '../../../common/icons/WeatherIcon';
 import {
   StyledForecastWrapper,
   StyledForecastItem,
-  StyledItemTop,
-  StyledItemMiddle,
-  StyledItemBottom,
-  StyledWeatherIcon,
-  StyledTemperature,
+  StyledForecastItemDetail,
   StyledDescription,
+  StyledItemDetailsList,
   StyledIcon,
   StyledIconDescription,
   StyledDivider,
-  StyledTimestamp,
 } from './styles';
 
 const ForecastDetails = ({ city }) => (
@@ -52,20 +48,20 @@ const ForecastDetails = ({ city }) => (
     >
       {city.forecast.map(f => (
         <StyledForecastItem key={f.timestamp}>
-          <StyledItemTop>
-            <StyledWeatherIcon>
-              <WeatherIcon icon={f.weatherIcon} size="lg" />
-            </StyledWeatherIcon>
+          <StyledForecastItemDetail>
+            <WeatherIcon icon={f.weatherIcon} size="lg" />
+          </StyledForecastItemDetail>
 
-            <StyledTemperature>
-              {f.temp}
-              &#8451;
-            </StyledTemperature>
+          <StyledForecastItemDetail>
+            {f.temp}
+            &#8451;
+          </StyledForecastItemDetail>
 
+          <StyledForecastItemDetail>
             <StyledDescription>{f.description}</StyledDescription>
-          </StyledItemTop>
+          </StyledForecastItemDetail>
 
-          <StyledItemMiddle>
+          <StyledItemDetailsList>
             <StyledIcon>
               <FontAwesomeIcon icon={faTint} size="lg" />
             </StyledIcon>
@@ -80,17 +76,11 @@ const ForecastDetails = ({ city }) => (
               <WeatherIcon wind icon={f.windIcon} size="lg" />
             </StyledIcon>
             <StyledIconDescription>{f.windSpeed} м/с</StyledIconDescription>
-          </StyledItemMiddle>
+          </StyledItemDetailsList>
 
-          <StyledItemBottom>
-            <StyledDivider />
+          <StyledDivider />
 
-            <StyledTimestamp>
-              {f.timestampDM}
-              &nbsp;
-              {f.timestamp}
-            </StyledTimestamp>
-          </StyledItemBottom>
+          <StyledForecastItemDetail>{`${f.timestampDM} ${f.timestamp}`}</StyledForecastItemDetail>
         </StyledForecastItem>
       ))}
     </Slider>
