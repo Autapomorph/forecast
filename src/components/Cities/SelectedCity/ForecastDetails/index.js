@@ -7,6 +7,7 @@ import { UnitsFormatContext } from '../../../../store/settings/context';
 import WeatherIcon from '../../../common/icons/WeatherIcon';
 import convertTemp from '../../../../utils/cityData/temperature/tempConverter';
 import convertPressure from '../../../../utils/cityData/pressure/pressureConverter';
+import convertSpeed from '../../../../utils/cityData/wind/speedConverter';
 
 import {
   StyledForecastWrapper,
@@ -56,6 +57,7 @@ const ForecastDetails = ({ city }) => (
           {city.forecast.map(f => {
             const convertedTemp = convertTemp(f.temp, unitsFormat.temp.title);
             const convertedPressure = convertPressure(f.pressure, unitsFormat.pressure.title);
+            const convertedWindSpeed = convertSpeed(f.windSpeed, unitsFormat.speed.title);
 
             return (
               <StyledForecastItem key={f.timestamp}>
@@ -86,7 +88,7 @@ const ForecastDetails = ({ city }) => (
                 <StyledWind>
                   <WeatherIcon wind icon={f.windIcon} size="lg" />
                   <span>&nbsp;</span>
-                  <span>{f.windSpeed} м/с</span>
+                  <span>{`${convertedWindSpeed} ${unitsFormat.speed.symbol}`}</span>
                 </StyledWind>
 
                 <StyledDivider />

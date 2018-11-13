@@ -16,6 +16,10 @@ export const unitsFormats = {
       title: 'hPa',
       symbol: 'гПа',
     },
+    speed: {
+      title: 'м/с',
+      symbol: 'м/с',
+    },
   },
   METRIC: {
     title: 'metric',
@@ -27,6 +31,10 @@ export const unitsFormats = {
       title: 'mmHg',
       symbol: ' мм',
     },
+    speed: {
+      title: 'м/с',
+      symbol: 'м/с',
+    },
   },
   IMPERIAL: {
     title: 'imperial',
@@ -37,6 +45,10 @@ export const unitsFormats = {
     pressure: {
       title: 'inHg',
       symbol: '"',
+    },
+    speed: {
+      title: 'уз',
+      symbol: 'уз',
     },
   },
 };

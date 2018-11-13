@@ -4,6 +4,7 @@ import { UnitsFormatContext } from '../../../../store/settings/context';
 import WeatherIcon from '../../../common/icons/WeatherIcon';
 import convertTemp from '../../../../utils/cityData/temperature/tempConverter';
 import convertPressure from '../../../../utils/cityData/pressure/pressureConverter';
+import convertSpeed from '../../../../utils/cityData/wind/speedConverter';
 
 import {
   StyledWeatherDetailsWrapper,
@@ -17,6 +18,7 @@ const WeatherDetails = ({ city }) => (
     {unitsFormat => {
       const convertedTemp = convertTemp(city.weather.temp, unitsFormat.temp.title);
       const convertedPressure = convertPressure(city.weather.pressure, unitsFormat.pressure.title);
+      const convertedWindSpeed = convertSpeed(city.weather.windSpeed, unitsFormat.speed.title);
 
       return (
         <StyledWeatherDetailsWrapper>
@@ -39,7 +41,7 @@ const WeatherDetails = ({ city }) => (
             <StyledItemTitle>Ветер:</StyledItemTitle>
             <StyledItemDescription>
               <span>
-                {city.weather.windSpeed} м/с, {city.weather.windCardDir}
+                {`${convertedWindSpeed} ${unitsFormat.speed.symbol}, ${city.weather.windCardDir}`}
                 &nbsp;
                 <WeatherIcon wind icon={city.weather.windIcon} size="lg" />
               </span>

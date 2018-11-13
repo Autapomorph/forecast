@@ -5,6 +5,7 @@ import FeaturedButton from '../../../common/buttons/FeaturedButton';
 import CountryFlag from '../../../common/icons/CountryFlag';
 import WeatherIcon from '../../../common/icons/WeatherIcon';
 import convertTemp from '../../../../utils/cityData/temperature/tempConverter';
+import convertSpeed from '../../../../utils/cityData/wind/speedConverter';
 
 import {
   StyledCitiesItemWrapper,
@@ -23,6 +24,7 @@ const CitiesItem = ({
   <UnitsFormatContext.Consumer>
     {unitsFormat => {
       const convertedTemp = convertTemp(city.weather.temp, unitsFormat.temp.title);
+      const convertedWindSpeed = convertSpeed(city.weather.windSpeed, unitsFormat.speed.title);
 
       return (
         <StyledCitiesItemWrapper>
@@ -55,9 +57,9 @@ const CitiesItem = ({
             <span>&nbsp;</span>
             <span>{`${convertedTemp}${unitsFormat.temp.symbol},`}</span>
             <span>&nbsp;</span>
-            <span>
-              {city.weather.windSpeed} м/с <WeatherIcon wind icon={city.weather.windIcon} />
-            </span>
+            <span>{`${convertedWindSpeed} ${unitsFormat.speed.symbol}`}</span>
+            <span>&nbsp;</span>
+            <WeatherIcon wind icon={city.weather.windIcon} />
           </StyledCitiesItemContent>
         </StyledCitiesItemWrapper>
       );
