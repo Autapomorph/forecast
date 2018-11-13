@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { UnitsFormatContext } from '../../../store/settings/context';
 import CitiesList from './CitiesList';
 import Title from '../../common/Title';
 import Loader from '../../common/messages/Loader';
@@ -18,6 +19,7 @@ import {
   getIsCitiesLoading,
   getCitiesErrorMessage,
   getIsFeaturedCity,
+  getCurrentUnitsFormat,
 } from '../../../store/rootSelectors';
 import { OWM_API_CITY_ID_QUERY_PARAM } from '../../../config/weather';
 
@@ -39,6 +41,7 @@ export class SearchResults extends Component {
       isActive,
       isLoading,
       errorMessage,
+      unitsFormat,
       checkIfFeatured,
       _addCityToFeatured,
       _removeCityFromFeatured,
@@ -75,13 +78,15 @@ export class SearchResults extends Component {
         {emptyBlock}
 
         {isLoadedNotEmpty && (
-          <CitiesList
-            cities={cities}
-            checkIfFeatured={checkIfFeatured}
-            fetchCityWeather={this.fetchCityWeather}
-            addCityToFeatured={_addCityToFeatured}
-            removeCityFromFeatured={_removeCityFromFeatured}
-          />
+          <UnitsFormatContext.Provider value={unitsFormat}>
+            <CitiesList
+              cities={cities}
+              checkIfFeatured={checkIfFeatured}
+              fetchCityWeather={this.fetchCityWeather}
+              addCityToFeatured={_addCityToFeatured}
+              removeCityFromFeatured={_removeCityFromFeatured}
+            />
+          </UnitsFormatContext.Provider>
         )}
       </StyledSearchResultsSection>
     );
@@ -94,6 +99,7 @@ const mapStateToProps = state => ({
   isActive: getIsCitiesActive(state),
   isLoading: getIsCitiesLoading(state),
   errorMessage: getCitiesErrorMessage(state),
+  unitsFormat: getCurrentUnitsFormat(state),
 
   checkIfFeatured: getIsFeaturedCity(state),
 });

@@ -12,6 +12,10 @@ export const unitsFormats = {
       title: 'kelvin;',
       symbol: 'K',
     },
+    pressure: {
+      title: 'hPa',
+      symbol: 'гПа',
+    },
   },
   METRIC: {
     title: 'metric',
@@ -19,12 +23,20 @@ export const unitsFormats = {
       title: 'celsius',
       symbol: '℃',
     },
+    pressure: {
+      title: 'mmHg',
+      symbol: ' мм',
+    },
   },
   IMPERIAL: {
     title: 'imperial',
     temp: {
       title: 'fahrenheit',
       symbol: '℉',
+    },
+    pressure: {
+      title: 'inHg',
+      symbol: '"',
     },
   },
 };

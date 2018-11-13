@@ -1,21 +1,5 @@
 import { unitsFormats } from '../../../config/settings';
 
-export function cToF(degrees) {
-  if (!degrees || Number.isNaN(degrees)) {
-    return null;
-  }
-
-  return Math.round(degrees * 1.8 + 32);
-}
-
-export function fToC(degrees) {
-  if (!degrees || Number.isNaN(degrees)) {
-    return null;
-  }
-
-  return Math.round((degrees - 32) / 1.8);
-}
-
 export function kToC(degrees) {
   if (!degrees || Number.isNaN(degrees)) {
     return null;
@@ -47,3 +31,5 @@ export function convertTemp(degrees, scale) {
     }
   }
 }
+
+export default convertTemp;

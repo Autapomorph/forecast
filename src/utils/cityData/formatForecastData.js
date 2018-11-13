@@ -1,6 +1,5 @@
 import formatTime from './time/formatTime';
 import formatWind from './wind/formatWind';
-import formatPressure from './pressure/formatPressure';
 import generateWeatherIcon from './icon/generateWeatherIcon';
 
 export default function formatForecastData(forecastData, timezoneData) {
@@ -22,12 +21,6 @@ export default function formatForecastData(forecastData, timezoneData) {
 
     const { windDeg, windSpeed, windCardDir, windIcon } = formatWind({
       wind: forecast.wind,
-    });
-
-    const { pressure, pressureSeaLevel, pressureGrindLevel } = formatPressure({
-      pressure: forecast.main.pressure,
-      pressureSeaLevel: forecast.main.sea_level,
-      pressureGrindLevel: forecast.main.grnd_level,
     });
 
     return {
@@ -55,9 +48,7 @@ export default function formatForecastData(forecastData, timezoneData) {
       windCardDir,
       windIcon,
 
-      pressure,
-      pressureSeaLevel,
-      pressureGrindLevel,
+      pressure: forecast.main.pressure,
     };
   });
 }

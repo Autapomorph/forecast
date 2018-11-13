@@ -2,7 +2,8 @@ import React from 'react';
 
 import { UnitsFormatContext } from '../../../../store/settings/context';
 import WeatherIcon from '../../../common/icons/WeatherIcon';
-import { convertTemp } from '../../../../utils/cityData/temperature/formatTemp';
+import convertTemp from '../../../../utils/cityData/temperature/tempConverter';
+import convertPressure from '../../../../utils/cityData/pressure/pressureConverter';
 
 import {
   StyledWeatherDetailsWrapper,
@@ -12,12 +13,13 @@ import {
 } from './styles';
 
 const WeatherDetails = ({ city }) => (
-  <StyledWeatherDetailsWrapper>
-    <UnitsFormatContext.Consumer>
-      {currentUnitsFormat => {
-        const convertedTemp = convertTemp(city.weather.temp, currentUnitsFormat.temp.title);
+  <UnitsFormatContext.Consumer>
+    {unitsFormat => {
+      const convertedTemp = convertTemp(city.weather.temp, unitsFormat.temp.title);
+      const convertedPressure = convertPressure(city.weather.pressure, unitsFormat.pressure.title);
 
-        return (
+      return (
+        <StyledWeatherDetailsWrapper>
           <StyledItem>
             <StyledItemTitle>Описание:</StyledItemTitle>
             <StyledItemDescription>
@@ -28,7 +30,7 @@ const WeatherDetails = ({ city }) => (
 
             <StyledItemTitle>Температура:</StyledItemTitle>
             <StyledItemDescription>
-              {`${convertedTemp}${currentUnitsFormat.temp.symbol}`}
+              {`${convertedTemp}${unitsFormat.temp.symbol}`}
             </StyledItemDescription>
 
             <StyledItemTitle>Облачность:</StyledItemTitle>
@@ -44,7 +46,9 @@ const WeatherDetails = ({ city }) => (
             </StyledItemDescription>
 
             <StyledItemTitle>Давление:</StyledItemTitle>
-            <StyledItemDescription>{city.weather.pressure} мм рт. ст.</StyledItemDescription>
+            <StyledItemDescription>
+              {`${convertedPressure}${unitsFormat.pressure.symbol}`}
+            </StyledItemDescription>
 
             <StyledItemTitle>Влажность:</StyledItemTitle>
             <StyledItemDescription>{city.weather.humidity}%</StyledItemDescription>
@@ -54,10 +58,10 @@ const WeatherDetails = ({ city }) => (
               {city.weather.sunrise} &mdash; {city.weather.sunset}
             </StyledItemDescription>
           </StyledItem>
-        );
-      }}
-    </UnitsFormatContext.Consumer>
-  </StyledWeatherDetailsWrapper>
+        </StyledWeatherDetailsWrapper>
+      );
+    }}
+  </UnitsFormatContext.Consumer>
 );
 
 export default WeatherDetails;

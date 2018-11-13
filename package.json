@@ -6,8 +6,8 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
-    "lint": "eslint ./*.{js,jsx}",
-    "lint:css": "stylelint ./*.{css,scss,sass,less,js,jsx}",
+    "lint": "eslint ./**/*.{js,jsx}",
+    "lint:css": "stylelint ./**/*.{css,scss,sass,less,js,jsx}",
     "eject": "react-scripts eject"
   },
   "dependencies": {

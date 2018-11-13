@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { changeUnitsFormat } from '../../store/settings/actions';
-import { getUnitsFormats } from '../../store/rootSelectors';
+import { unitsFormats } from '../../config/settings';
 
-export const Units = ({ unitsFormats, _changeUnitsFormat }) => (
+export const Units = ({ _changeUnitsFormat }) => (
   <div>
     {Object.values(unitsFormats).map(unitsFormat =>
       unitsFormat.title === 'standart' ? null : (
@@ -20,15 +20,11 @@ export const Units = ({ unitsFormats, _changeUnitsFormat }) => (
   </div>
 );
 
-const mapStateToProps = state => ({
-  unitsFormats: getUnitsFormats(state),
-});
-
 const mapDispatchToProps = {
   _changeUnitsFormat: changeUnitsFormat,
 };
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps,
 )(Units);

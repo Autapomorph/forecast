@@ -5,10 +5,8 @@ import * as geolocationSelectors from './geolocation/selectors';
 /**
  * top-level settings selectors
  */
-export const getLanguages = state => settingsSelectors.getLanguages(state.settings);
 export const getCurrentLanguage = state => settingsSelectors.getCurrentLanguage(state.settings);
 
-export const getUnitsFormats = state => settingsSelectors.getUnitsFormats(state.settings);
 export const getCurrentUnitsFormat = state =>
   settingsSelectors.getCurrentUnitsFormat(state.settings);
 

@@ -3,7 +3,10 @@ import Slider from 'react-slick';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTint, faThermometerHalf } from '@fortawesome/free-solid-svg-icons';
 
+import { UnitsFormatContext } from '../../../../store/settings/context';
 import WeatherIcon from '../../../common/icons/WeatherIcon';
+import convertTemp from '../../../../utils/cityData/temperature/tempConverter';
+import convertPressure from '../../../../utils/cityData/pressure/pressureConverter';
 
 import {
   StyledForecastWrapper,
@@ -19,80 +22,86 @@ import {
 } from './styles';
 
 const ForecastDetails = ({ city }) => (
-  <StyledForecastWrapper>
-    <Slider
-      infinite={false}
-      slidesToShow={5}
-      slidesToScroll={5}
-      responsive={[
-        {
-          breakpoint: 767,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-          },
-        },
-        {
-          breakpoint: 599,
-          settings: {
-            slidesToShow: 4,
-            slidesToScroll: 4,
-          },
-        },
-        {
-          breakpoint: 479,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-          },
-        },
-      ]}
-    >
-      {city.forecast.map(f => (
-        <StyledForecastItem key={f.timestamp}>
-          <StyledWeatherIcon>
-            <WeatherIcon icon={f.weatherIcon} size="lg" />
-          </StyledWeatherIcon>
+  <UnitsFormatContext.Consumer>
+    {unitsFormat => (
+      <StyledForecastWrapper>
+        <Slider
+          infinite={false}
+          slidesToShow={5}
+          slidesToScroll={5}
+          responsive={[
+            {
+              breakpoint: 767,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+              },
+            },
+            {
+              breakpoint: 599,
+              settings: {
+                slidesToShow: 4,
+                slidesToScroll: 4,
+              },
+            },
+            {
+              breakpoint: 479,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+              },
+            },
+          ]}
+        >
+          {city.forecast.map(f => {
+            const convertedTemp = convertTemp(f.temp, unitsFormat.temp.title);
+            const convertedPressure = convertPressure(f.pressure, unitsFormat.pressure.title);
 
-          <StyledTemperature>
-            <span>
-              {f.temp}
-              &#8451;
-            </span>
-          </StyledTemperature>
+            return (
+              <StyledForecastItem key={f.timestamp}>
+                <StyledWeatherIcon>
+                  <WeatherIcon icon={f.weatherIcon} size="lg" />
+                </StyledWeatherIcon>
 
-          <StyledDescription>
-            <span>{f.description}</span>
-          </StyledDescription>
+                <StyledTemperature>
+                  <span>{`${convertedTemp}${unitsFormat.temp.symbol}`}</span>
+                </StyledTemperature>
 
-          <StyledHumidity>
-            <FontAwesomeIcon icon={faTint} size="lg" />
-            <span>&nbsp;</span>
-            <span>{f.humidity}%</span>
-          </StyledHumidity>
+                <StyledDescription>
+                  <span>{f.description}</span>
+                </StyledDescription>
 
-          <StyledPressure>
-            <FontAwesomeIcon icon={faThermometerHalf} size="lg" />
-            <span>&nbsp;</span>
-            <span>{f.pressure} мм</span>
-          </StyledPressure>
+                <StyledHumidity>
+                  <FontAwesomeIcon icon={faTint} size="lg" />
+                  <span>&nbsp;</span>
+                  <span>{f.humidity}%</span>
+                </StyledHumidity>
 
-          <StyledWind>
-            <WeatherIcon wind icon={f.windIcon} size="lg" />
-            <span>&nbsp;</span>
-            <span>{f.windSpeed} м/с</span>
-          </StyledWind>
+                <StyledPressure>
+                  <FontAwesomeIcon icon={faThermometerHalf} size="lg" />
+                  <span>&nbsp;</span>
+                  <span>{`${convertedPressure}${unitsFormat.pressure.symbol}`}</span>
+                </StyledPressure>
 
-          <StyledDivider />
+                <StyledWind>
+                  <WeatherIcon wind icon={f.windIcon} size="lg" />
+                  <span>&nbsp;</span>
+                  <span>{f.windSpeed} м/с</span>
+                </StyledWind>
 
-          <StyledTimestamp>
-            <span>{f.timestampDM}</span>
-            <span>{f.timestamp}</span>
-          </StyledTimestamp>
-        </StyledForecastItem>
-      ))}
-    </Slider>
-  </StyledForecastWrapper>
+                <StyledDivider />
+
+                <StyledTimestamp>
+                  <span>{f.timestampDM}</span>
+                  <span>{f.timestamp}</span>
+                </StyledTimestamp>
+              </StyledForecastItem>
+            );
+          })}
+        </Slider>
+      </StyledForecastWrapper>
+    )}
+  </UnitsFormatContext.Consumer>
 );
 
 export default ForecastDetails;
