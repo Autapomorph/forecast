@@ -8,12 +8,14 @@ import WeatherIcon from '../../../common/icons/WeatherIcon';
 import {
   StyledForecastWrapper,
   StyledForecastItem,
+  StyledItemTop,
+  StyledItemMiddle,
+  StyledItemBottom,
   StyledWeatherIcon,
   StyledTemperature,
   StyledDescription,
-  StyledHumidity,
-  StyledPressure,
-  StyledWind,
+  StyledIcon,
+  StyledIconDescription,
   StyledDivider,
   StyledTimestamp,
 } from './styles';
@@ -50,45 +52,45 @@ const ForecastDetails = ({ city }) => (
     >
       {city.forecast.map(f => (
         <StyledForecastItem key={f.timestamp}>
-          <StyledWeatherIcon>
-            <WeatherIcon icon={f.weatherIcon} size="lg" />
-          </StyledWeatherIcon>
+          <StyledItemTop>
+            <StyledWeatherIcon>
+              <WeatherIcon icon={f.weatherIcon} size="lg" />
+            </StyledWeatherIcon>
 
-          <StyledTemperature>
-            <span>
+            <StyledTemperature>
               {f.temp}
               &#8451;
-            </span>
-          </StyledTemperature>
+            </StyledTemperature>
 
-          <StyledDescription>
-            <span>{f.description}</span>
-          </StyledDescription>
+            <StyledDescription>{f.description}</StyledDescription>
+          </StyledItemTop>
 
-          <StyledHumidity>
-            <FontAwesomeIcon icon={faTint} size="lg" />
-            <span>&nbsp;</span>
-            <span>{f.humidity}%</span>
-          </StyledHumidity>
+          <StyledItemMiddle>
+            <StyledIcon>
+              <FontAwesomeIcon icon={faTint} size="lg" />
+            </StyledIcon>
+            <StyledIconDescription>{f.humidity}%</StyledIconDescription>
 
-          <StyledPressure>
-            <FontAwesomeIcon icon={faThermometerHalf} size="lg" />
-            <span>&nbsp;</span>
-            <span>{f.pressure} мм</span>
-          </StyledPressure>
+            <StyledIcon>
+              <FontAwesomeIcon icon={faThermometerHalf} size="lg" />
+            </StyledIcon>
+            <StyledIconDescription>{f.pressure} мм</StyledIconDescription>
 
-          <StyledWind>
-            <WeatherIcon wind icon={f.windIcon} size="lg" />
-            <span>&nbsp;</span>
-            <span>{f.windSpeed} м/с</span>
-          </StyledWind>
+            <StyledIcon>
+              <WeatherIcon wind icon={f.windIcon} size="lg" />
+            </StyledIcon>
+            <StyledIconDescription>{f.windSpeed} м/с</StyledIconDescription>
+          </StyledItemMiddle>
 
-          <StyledDivider />
+          <StyledItemBottom>
+            <StyledDivider />
 
-          <StyledTimestamp>
-            <span>{f.timestampDM}</span>
-            <span>{f.timestamp}</span>
-          </StyledTimestamp>
+            <StyledTimestamp>
+              {f.timestampDM}
+              &nbsp;
+              {f.timestamp}
+            </StyledTimestamp>
+          </StyledItemBottom>
         </StyledForecastItem>
       ))}
     </Slider>
