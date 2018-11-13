@@ -12,14 +12,12 @@ import convertSpeed from '../../../../utils/cityData/wind/speedConverter';
 import {
   StyledForecastWrapper,
   StyledForecastItem,
-  StyledWeatherIcon,
-  StyledTemperature,
+  StyledForecastItemDetail,
   StyledDescription,
-  StyledHumidity,
-  StyledPressure,
-  StyledWind,
+  StyledItemDetailsList,
+  StyledIcon,
+  StyledIconDescription,
   StyledDivider,
-  StyledTimestamp,
 } from './styles';
 
 const ForecastDetails = ({ city }) => (
@@ -61,42 +59,44 @@ const ForecastDetails = ({ city }) => (
 
             return (
               <StyledForecastItem key={f.timestamp}>
-                <StyledWeatherIcon>
+                <StyledForecastItemDetail>
                   <WeatherIcon icon={f.weatherIcon} size="lg" />
-                </StyledWeatherIcon>
+                </StyledForecastItemDetail>
 
-                <StyledTemperature>
-                  <span>{`${convertedTemp}${unitsFormat.temp.symbol}`}</span>
-                </StyledTemperature>
+                <StyledForecastItemDetail>
+                  {`${convertedTemp}${unitsFormat.temp.symbol}`}
+                </StyledForecastItemDetail>
 
-                <StyledDescription>
-                  <span>{f.description}</span>
-                </StyledDescription>
+                <StyledForecastItemDetail>
+                  <StyledDescription>{f.description}</StyledDescription>
+                </StyledForecastItemDetail>
 
-                <StyledHumidity>
-                  <FontAwesomeIcon icon={faTint} size="lg" />
-                  <span>&nbsp;</span>
-                  <span>{f.humidity}%</span>
-                </StyledHumidity>
+                <StyledItemDetailsList>
+                  <StyledIcon>
+                    <FontAwesomeIcon icon={faTint} size="lg" />
+                  </StyledIcon>
+                  <StyledIconDescription>{`${f.humidity}%`}</StyledIconDescription>
 
-                <StyledPressure>
-                  <FontAwesomeIcon icon={faThermometerHalf} size="lg" />
-                  <span>&nbsp;</span>
-                  <span>{`${convertedPressure}${unitsFormat.pressure.symbol}`}</span>
-                </StyledPressure>
+                  <StyledIcon>
+                    <FontAwesomeIcon icon={faThermometerHalf} size="lg" />
+                  </StyledIcon>
+                  <StyledIconDescription>
+                    {`${convertedPressure}${unitsFormat.pressure.symbol}`}
+                  </StyledIconDescription>
 
-                <StyledWind>
-                  <WeatherIcon wind icon={f.windIcon} size="lg" />
-                  <span>&nbsp;</span>
-                  <span>{`${convertedWindSpeed} ${unitsFormat.speed.symbol}`}</span>
-                </StyledWind>
+                  <StyledIcon>
+                    <WeatherIcon wind icon={f.windIcon} size="lg" />
+                  </StyledIcon>
+                  <StyledIconDescription>
+                    {`${convertedWindSpeed} ${unitsFormat.speed.symbol}`}
+                  </StyledIconDescription>
+                </StyledItemDetailsList>
 
                 <StyledDivider />
 
-                <StyledTimestamp>
-                  <span>{f.timestampDM}</span>
-                  <span>{f.timestamp}</span>
-                </StyledTimestamp>
+                <StyledForecastItemDetail>
+                  {`${f.timestampDM} ${f.timestamp}`}
+                </StyledForecastItemDetail>
               </StyledForecastItem>
             );
           })}

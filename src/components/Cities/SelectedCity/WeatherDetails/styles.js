@@ -18,14 +18,10 @@ export const StyledWeatherDetailsItem = styled.dl`
 
 export const StyledWeatherDetailsItemTitle = styled.dt`
   grid-column: wd-title;
-  display: flex;
-  align-items: center;
   margin: 0;
 `;
 
 export const StyledWeatherDetailsItemDescription = styled.dd`
   grid-column: wd-desc;
-  display: flex;
-  align-items: center;
   margin: 0;
 `;

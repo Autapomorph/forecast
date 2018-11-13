@@ -25,9 +25,8 @@ const WeatherDetails = ({ city }) => (
           <StyledItem>
             <StyledItemTitle>Описание:</StyledItemTitle>
             <StyledItemDescription>
-              <span>
-                {city.weather.description} <WeatherIcon icon={city.weather.weatherIcon} size="lg" />
-              </span>
+              {`${city.weather.description} `}
+              <WeatherIcon icon={city.weather.weatherIcon} size="lg" />
             </StyledItemDescription>
 
             <StyledItemTitle>Температура:</StyledItemTitle>
@@ -36,15 +35,12 @@ const WeatherDetails = ({ city }) => (
             </StyledItemDescription>
 
             <StyledItemTitle>Облачность:</StyledItemTitle>
-            <StyledItemDescription>{city.weather.cloudiness}%</StyledItemDescription>
+            <StyledItemDescription>{`${city.weather.cloudiness}%`}</StyledItemDescription>
 
             <StyledItemTitle>Ветер:</StyledItemTitle>
             <StyledItemDescription>
-              <span>
-                {`${convertedWindSpeed} ${unitsFormat.speed.symbol}, ${city.weather.windCardDir}`}
-                &nbsp;
-                <WeatherIcon wind icon={city.weather.windIcon} size="lg" />
-              </span>
+              {`${convertedWindSpeed} ${unitsFormat.speed.symbol}, ${city.weather.windCardDir} `}
+              <WeatherIcon wind icon={city.weather.windIcon} size="lg" />
             </StyledItemDescription>
 
             <StyledItemTitle>Давление:</StyledItemTitle>
@@ -53,11 +49,11 @@ const WeatherDetails = ({ city }) => (
             </StyledItemDescription>
 
             <StyledItemTitle>Влажность:</StyledItemTitle>
-            <StyledItemDescription>{city.weather.humidity}%</StyledItemDescription>
+            <StyledItemDescription>{`${city.weather.humidity}%`}</StyledItemDescription>
 
             <StyledItemTitle>День:</StyledItemTitle>
             <StyledItemDescription>
-              {city.weather.sunrise} &mdash; {city.weather.sunset}
+              {`${city.weather.sunrise} — ${city.weather.sunset}`}
             </StyledItemDescription>
           </StyledItem>
         </StyledWeatherDetailsWrapper>

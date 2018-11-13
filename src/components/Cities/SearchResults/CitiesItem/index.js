@@ -30,10 +30,8 @@ const CitiesItem = ({
         <StyledCitiesItemWrapper>
           <StyledCitiesItemHeader>
             <StyledCitiesItemTitle onClick={() => fetchCityWeather(city.id)}>
-              <span>{city.name}</span>
-              <span>&nbsp;</span>
+              {`${city.name} `}
               <CountryFlag country={city.country.toLowerCase()} size="1.2rem" />
-              <span>&nbsp;</span>
             </StyledCitiesItemTitle>
 
             <FeaturedButton
@@ -51,14 +49,10 @@ const CitiesItem = ({
           </StyledCitiesItemHeader>
 
           <StyledCitiesItemContent>
-            <span>
-              {city.weather.description} <WeatherIcon icon={city.weather.weatherIcon} />,
-            </span>
-            <span>&nbsp;</span>
-            <span>{`${convertedTemp}${unitsFormat.temp.symbol},`}</span>
-            <span>&nbsp;</span>
-            <span>{`${convertedWindSpeed} ${unitsFormat.speed.symbol}`}</span>
-            <span>&nbsp;</span>
+            <WeatherIcon icon={city.weather.weatherIcon} />
+            {` ${city.weather.description}`}
+            {`, ${convertedTemp}${unitsFormat.temp.symbol}`}
+            {`, ${convertedWindSpeed} ${unitsFormat.speed.symbol} `}
             <WeatherIcon wind icon={city.weather.windIcon} />
           </StyledCitiesItemContent>
         </StyledCitiesItemWrapper>

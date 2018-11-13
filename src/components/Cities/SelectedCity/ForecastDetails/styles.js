@@ -17,35 +17,40 @@ export const StyledForecastItem = styled.div`
 export const StyledForecastItemDetail = styled.div`
   display: flex;
   flex-direction: column;
+  padding-right: 10px;
   margin-top: 5px;
 `;
 
 export const StyledDescription = styled.div`
-  display: block;
   height: 2.3em;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
 
-/* stylelint-disable */
-export const StyledWeatherIcon = styled(StyledForecastItemDetail)``;
-export const StyledTemperature = styled(StyledForecastItemDetail)``;
-export const StyledTimestamp = styled(StyledForecastItemDetail)``;
-/* stylelint-enable */
-
-export const StyledHumidity = styled(StyledForecastItemDetail)`
-  flex-direction: row;
+export const StyledItemDetailsList = styled.dl`
+  display: grid;
+  grid-template-columns: [fd-icon] fit-content(20%) [fd-desc] auto;
+  grid-gap: 5px;
+  padding-right: 10px;
+  margin: 0;
+  margin-top: 5px;
   color: var(--light-gray);
 `;
 
-export const StyledPressure = styled(StyledForecastItemDetail)`
-  flex-direction: row;
-  color: var(--light-gray);
+export const StyledIcon = styled.dt`
+  grid-column: fd-icon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
 `;
 
-export const StyledWind = styled(StyledForecastItemDetail)`
-  flex-direction: row;
-  color: var(--light-gray);
+export const StyledIconDescription = styled.dd`
+  grid-column: fd-desc;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
 `;
 
 export const StyledDivider = styled.hr`
