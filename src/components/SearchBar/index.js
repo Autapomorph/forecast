@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-import Geolocation from '../Geolocation';
+import GeoButton from '../Geolocation/GeoButton';
 import { fetchCititesByName } from '../../store/cities/actions';
 import { OWM_API_CITY_NAME_QUERY_PARAM } from '../../config/weather';
 
@@ -71,7 +71,7 @@ export class SearchBar extends Component {
           <FontAwesomeIcon icon={faSearch} />
         </StyledSearchButton>
 
-        <Geolocation icon />
+        <GeoButton />
       </StyledSearchForm>
     );
   }
