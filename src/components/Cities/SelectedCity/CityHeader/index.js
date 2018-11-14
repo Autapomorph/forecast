@@ -16,11 +16,8 @@ const CityHeader = ({
 }) => (
   <StyledCityHeader>
     <Title>
-      <span>
-        <span>{city.name}</span>
-        <span>&nbsp;</span>
-        <CountryFlag country={city.country.toLowerCase()} />
-      </span>
+      {`${city.name} `}
+      <CountryFlag country={city.country.toLowerCase()} />
 
       <br />
       <Title.Subtitle>

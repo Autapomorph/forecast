@@ -32,18 +32,12 @@ export class FeaturedCities extends Component {
     return (
       <StyledFeaturedCitiesSection>
         <StyledFeaturedCitiesHeader>
-          <Title>
-            <span>Избранные города</span>
-          </Title>
+          <Title>Избранные города</Title>
 
           <TrashButton isEmpty={isEmpty} onClick={_clearFeaturedCities} />
         </StyledFeaturedCitiesHeader>
 
-        {isEmpty && (
-          <EmptyResult>
-            <h2>Добавьте города в избранное</h2>
-          </EmptyResult>
-        )}
+        {isEmpty && <EmptyResult>Добавьте города в избранное</EmptyResult>}
 
         {!isEmpty && (
           <FeaturedCitiesList

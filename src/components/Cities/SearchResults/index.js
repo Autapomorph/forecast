@@ -63,11 +63,7 @@ export class SearchResults extends Component {
     return (
       <StyledSearchResultsSection isLoading={isLoading}>
         <StyledSearchResultsHeader>
-          <Title>
-            Результаты поиска по запросу &quot;
-            {searchTerm}
-            &quot;
-          </Title>
+          <Title>{`Результаты поиска по запросу "${searchTerm}"`}</Title>
         </StyledSearchResultsHeader>
 
         {loaderBlock}
