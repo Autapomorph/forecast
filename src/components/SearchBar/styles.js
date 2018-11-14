@@ -35,13 +35,13 @@ export const StyledInputButtonsBlock = styled.div`
   }
 `;
 
+// stylelint-disable
 export const StyledInputButton = styled.button.attrs({
   type: 'button',
 })`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-shrink: 0;
   padding: 5px 10px;
   border: 0;
   border-right: 1px solid var(--gray);
@@ -67,6 +67,7 @@ export const StyledInputButton = styled.button.attrs({
       }
     `}
 `;
+// stylelint-enable
 
 export const StyledSearchButton = styled(StyledInputButton).attrs({
   type: 'submit',
