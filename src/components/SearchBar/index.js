@@ -7,7 +7,12 @@ import GeoButton from '../Geolocation/GeoButton';
 import { fetchCititesByName } from '../../store/cities/actions';
 import { OWM_API_CITY_NAME_QUERY_PARAM } from '../../config/weather';
 
-import { StyledSearchForm, StyledSearchInput, StyledSearchButton } from './styles';
+import {
+  StyledSearchForm,
+  StyledSearchInput,
+  StyledInputButtonsBlock,
+  StyledInputButton,
+} from './styles';
 
 export class SearchBar extends Component {
   state = {
@@ -67,11 +72,13 @@ export class SearchBar extends Component {
           onChange={this.handleChange}
         />
 
-        <StyledSearchButton disabled={isSubmitDisabled} onClick={this.handleSubmit}>
-          <FontAwesomeIcon icon={faSearch} />
-        </StyledSearchButton>
+        <StyledInputButtonsBlock>
+          <StyledInputButton disabled={isSubmitDisabled} onClick={this.handleSubmit}>
+            <FontAwesomeIcon icon={faSearch} />
+          </StyledInputButton>
 
-        <GeoButton />
+          <GeoButton />
+        </StyledInputButtonsBlock>
       </StyledSearchForm>
     );
   }

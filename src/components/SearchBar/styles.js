@@ -25,8 +25,18 @@ export const StyledSearchInput = styled.input.attrs({
   }
 `;
 
-export const StyledSearchButton = styled.button.attrs({
-  type: 'submit',
+export const StyledInputButtonsBlock = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  > :last-child {
+    border: 0;
+    border-radius: 0 5px 5px 0;
+  }
+`;
+
+export const StyledInputButton = styled.button.attrs({
+  type: 'button',
 })`
   display: flex;
   justify-content: center;
@@ -34,6 +44,7 @@ export const StyledSearchButton = styled.button.attrs({
   flex-shrink: 0;
   padding: 5px 10px;
   border: 0;
+  border-right: 1px solid var(--gray);
   background: var(--light-gray);
   color: var(--contrast-text-color);
   font-size: 1.5rem;
@@ -56,3 +67,7 @@ export const StyledSearchButton = styled.button.attrs({
       }
     `}
 `;
+
+export const StyledSearchButton = styled(StyledInputButton).attrs({
+  type: 'submit',
+});

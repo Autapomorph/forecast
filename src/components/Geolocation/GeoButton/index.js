@@ -11,7 +11,7 @@ import {
   OWM_API_LONGITUDE_QUERY_PARAM,
 } from '../../../config/weather';
 
-import { StyledGeoButton } from './styles';
+import { StyledInputButton } from '../../SearchBar/styles';
 
 export class GeoButton extends Component {
   componentDidMount() {
@@ -48,9 +48,9 @@ export class GeoButton extends Component {
     const { isLoading } = this.props;
 
     return (
-      <StyledGeoButton disabled={isLoading} onClick={this.fetchGeolocation}>
+      <StyledInputButton disabled={isLoading} onClick={this.fetchGeolocation}>
         <FontAwesomeIcon icon={faLocationArrow} />
-      </StyledGeoButton>
+      </StyledInputButton>
     );
   }
 }
