@@ -51,7 +51,9 @@ const CitiesItem = ({
           <StyledCitiesItemContent>
             <WeatherIcon icon={city.weather.weatherIcon} />
             {` ${city.weather.description}`}
+
             {`, ${convertedTemp}${unitsFormat.temp.symbol}`}
+
             {`, ${convertedWindSpeed} ${unitsFormat.speed.symbol} `}
             <WeatherIcon wind icon={city.weather.windIcon} />
           </StyledCitiesItemContent>

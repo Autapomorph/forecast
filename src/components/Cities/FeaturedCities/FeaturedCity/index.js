@@ -13,10 +13,8 @@ const FeaturedCitiesItem = ({ city, fetchCity, removeCityFromFeatured }) => (
   <StyledFeaturedCityWrapper>
     <StyledFeaturedCityHeader>
       <StyledFeaturedCityTitle onClick={() => fetchCity(city.id)}>
-        <span>{city.name}</span>
-        <span>&nbsp;</span>
+        {`${city.name} `}
         <CountryFlag country={city.country.toLowerCase()} size="1.2rem" />
-        <span>&nbsp;</span>
       </StyledFeaturedCityTitle>
 
       <FeaturedButton isFeatured onRemove={() => removeCityFromFeatured(city.id)} />

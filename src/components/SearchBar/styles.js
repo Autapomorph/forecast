@@ -28,11 +28,6 @@ export const StyledSearchInput = styled.input.attrs({
 export const StyledInputButtonsBlock = styled.div`
   display: flex;
   flex-direction: row;
-
-  > :last-child {
-    border: 0;
-    border-radius: 0 5px 5px 0;
-  }
 `;
 
 // stylelint-disable
@@ -49,6 +44,11 @@ export const StyledInputButton = styled.button.attrs({
   color: var(--contrast-text-color);
   font-size: 1.5rem;
   cursor: pointer;
+
+  :last-child {
+    border: 0;
+    border-radius: 0 5px 5px 0;
+  }
 
   :hover {
     background: var(--gray);
