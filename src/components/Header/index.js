@@ -8,7 +8,6 @@ import { StyledHeader } from './styles';
 const Header = () => (
   <StyledHeader>
     <SearchBar />
-    <br />
     <Units />
   </StyledHeader>
 );
