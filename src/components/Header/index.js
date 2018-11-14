@@ -1,14 +1,14 @@
 import React from 'react';
 
 import SearchBar from '../SearchBar';
-import Units from '../Units';
+import UnitsFormats from '../UnitsFormats';
 
 import { StyledHeader } from './styles';
 
 const Header = () => (
   <StyledHeader>
     <SearchBar />
-    <Units />
+    <UnitsFormats />
   </StyledHeader>
 );
 

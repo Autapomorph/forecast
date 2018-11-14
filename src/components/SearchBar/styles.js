@@ -30,7 +30,6 @@ export const StyledInputButtonsBlock = styled.div`
   flex-direction: row;
 `;
 
-// stylelint-disable
 export const StyledInputButton = styled.button.attrs({
   type: 'button',
 })`
@@ -54,7 +53,7 @@ export const StyledInputButton = styled.button.attrs({
     background: var(--gray);
   }
 
-  ${/* sc-dec */ ({ disabled }) =>
+  ${/* sc-custom */ ({ disabled }) =>
     disabled &&
     css`
       background: var(--light-gray);
@@ -67,7 +66,6 @@ export const StyledInputButton = styled.button.attrs({
       }
     `}
 `;
-// stylelint-enable
 
 export const StyledSearchButton = styled(StyledInputButton).attrs({
   type: 'submit',

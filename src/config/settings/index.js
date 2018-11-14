@@ -54,3 +54,4 @@ export const unitsFormats = {
 };
 
 export const defaultUnitsFormat = unitsFormats.METRIC;
+export const availableUnitsFormats = [unitsFormats.METRIC, unitsFormats.IMPERIAL];
