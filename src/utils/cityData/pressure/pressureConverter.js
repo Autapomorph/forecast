@@ -13,7 +13,7 @@ export function pascalToInHg(hPa) {
     return null;
   }
 
-  return Math.round((hPa * 0.75006375541921) / 25.4);
+  return Number(((hPa * 0.75006375541921) / 25.4).toFixed(2));
 }
 
 export function convertPressure(pressure, unit) {
