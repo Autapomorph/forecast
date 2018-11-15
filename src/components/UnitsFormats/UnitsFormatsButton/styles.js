@@ -1,14 +1,12 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StyledSwitchButton = styled.span`
-  flex-grow: 1;
-  height: 40px;
+  flex: 1 1 0;
   border: 1px solid var(--light-gray);
   background: var(--white);
   color: var(--contrast-text-color);
   transition: all 0.2s ease;
   cursor: pointer;
-  text-decoration: ${({ checked }) => checked && 'underline'};
 
   :hover {
     border-color: var(--gray);
@@ -26,6 +24,18 @@ export const StyledSwitchButton = styled.span`
   :last-child {
     border-radius: 0 5px 5px 0;
   }
+
+  ${/* sc-custom */ ({ checked }) =>
+    checked &&
+    css`
+      color: var(--bg-violet);
+      font-weight: bold;
+
+      :hover {
+        border-color: var(--light-gray);
+        background: var(--white);
+      }
+    `};
 `;
 
 export const StyledLabel = styled.label`
@@ -34,6 +44,7 @@ export const StyledLabel = styled.label`
   align-items: center;
   width: 100%;
   height: 100%;
+  padding: 10px;
   cursor: pointer;
 `;
 
