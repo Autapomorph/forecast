@@ -4,5 +4,5 @@ import styled from 'styled-components';
 export const StyledUnitsFormatSwitcher = styled.div`
   display: flex;
   flex-direction: row;
-  padding: 10px;
+  padding: 0 10px;
 `;
