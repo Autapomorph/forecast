@@ -1,4 +1,4 @@
-import formatTime from './time/formatTime';
+import formatTime from './time';
 import formatWind from './wind/formatWind';
 import generateWeatherIcon from './icon/generateWeatherIcon';
 import formatForecastData from './formatForecastData';

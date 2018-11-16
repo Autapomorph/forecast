@@ -5,7 +5,7 @@ import * as types from './actionTypes';
 import WeatherService from '../../services/weather';
 import TimezoneService from '../../services/timezone';
 import formatWeatherData from '../../utils/cityData/formatWeatherData';
-import getCityCoords from '../../utils/cityData/coords/getCityCoords';
+import getCityCoords from '../../utils/cityData/coords';
 import { OWM_API_CITY_NAME_QUERY_PARAM } from '../../config/weather';
 import { getIsAnythingLoading } from '../rootSelectors';
 

@@ -4,8 +4,8 @@ import { UnitsFormatContext } from '../../../../store/settings/context';
 import FeaturedButton from '../../../common/buttons/FeaturedButton';
 import CountryFlag from '../../../common/icons/CountryFlag';
 import WeatherIcon from '../../../common/icons/WeatherIcon';
-import convertTemp from '../../../../utils/cityData/temperature/tempConverter';
-import convertSpeed from '../../../../utils/cityData/wind/speedConverter';
+import convertTemp from '../../../../utils/cityData/temperature';
+import convertSpeed from '../../../../utils/cityData/wind';
 
 import {
   StyledCitiesItemWrapper,

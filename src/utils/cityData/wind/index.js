@@ -1,12 +1,6 @@
 import { unitsFormats } from '../../../config/settings';
 
-export function mpsToKnots(speed) {
-  if (!speed || Number.isNaN(speed)) {
-    return null;
-  }
-
-  return Math.round(speed * 1.94);
-}
+import { mpsToKnots } from './converters';
 
 export function convertSpeed(speed, scale) {
   switch (scale) {
