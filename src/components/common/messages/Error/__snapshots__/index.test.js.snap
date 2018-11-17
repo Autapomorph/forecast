@@ -23,7 +23,7 @@ ShallowWrapper {
     "rendered": null,
     "type": Object {
       "$$typeof": Symbol(react.forward_ref),
-      "attrs": undefined,
+      "attrs": Array [],
       "componentStyle": ComponentStyle {
         "componentId": "sc-htpNat",
         "isStatic": true,
@@ -57,7 +57,7 @@ ShallowWrapper {
       "rendered": null,
       "type": Object {
         "$$typeof": Symbol(react.forward_ref),
-        "attrs": undefined,
+        "attrs": Array [],
         "componentStyle": ComponentStyle {
           "componentId": "sc-htpNat",
           "isStatic": true,

@@ -31,7 +31,7 @@ ShallowWrapper {
       "rendered": null,
       "type": Object {
         "$$typeof": Symbol(react.forward_ref),
-        "attrs": undefined,
+        "attrs": Array [],
         "componentStyle": ComponentStyle {
           "componentId": "sc-bwzfXH",
           "isStatic": true,
@@ -52,7 +52,7 @@ ShallowWrapper {
     },
     "type": Object {
       "$$typeof": Symbol(react.forward_ref),
-      "attrs": undefined,
+      "attrs": Array [],
       "componentStyle": ComponentStyle {
         "componentId": "sc-bdVaJa",
         "isStatic": true,
@@ -97,7 +97,7 @@ ShallowWrapper {
         "rendered": null,
         "type": Object {
           "$$typeof": Symbol(react.forward_ref),
-          "attrs": undefined,
+          "attrs": Array [],
           "componentStyle": ComponentStyle {
             "componentId": "sc-bwzfXH",
             "isStatic": true,
@@ -118,7 +118,7 @@ ShallowWrapper {
       },
       "type": Object {
         "$$typeof": Symbol(react.forward_ref),
-        "attrs": undefined,
+        "attrs": Array [],
         "componentStyle": ComponentStyle {
           "componentId": "sc-bdVaJa",
           "isStatic": true,
