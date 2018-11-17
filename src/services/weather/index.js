@@ -1,5 +1,4 @@
-import store from '../../store';
-import { getCurrentLanguage } from '../../store/rootSelectors';
+import i18n from '../../config/settings/i18n';
 import combineQueryParams from '../../utils/url/combineQueryParams';
 import {
   OWM_API_WEATHER_CITY,
@@ -12,9 +11,7 @@ import {
 
 export default class WeatherService {
   static getQueryString = searchParams => {
-    const state = store.getState();
-
-    const currentLanguage = getCurrentLanguage(state);
+    const currentLanguage = i18n.languages[0];
 
     const queryString = combineQueryParams({
       [OWM_API_KEY_QUERY_PARAM]: OWM_API_KEY,

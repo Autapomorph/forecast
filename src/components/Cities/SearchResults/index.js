@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withNamespaces } from 'react-i18next';
 
 import { UnitsFormatContext } from '../../../store/settings/context';
 import CitiesList from './CitiesList';
@@ -36,6 +37,7 @@ export class SearchResults extends Component {
 
   render() {
     const {
+      t,
       cities,
       searchTerm,
       isActive,
@@ -59,14 +61,14 @@ export class SearchResults extends Component {
     const errorBlock = errorMessage ? <Error>{errorMessage}</Error> : null;
     const emptyBlock = isLoadedEmpty ? (
       <EmptyResult>
-        <h2>Города не найдены</h2>
+        <h2>{t('cities.searchResults.emptyResult')}</h2>
       </EmptyResult>
     ) : null;
 
     return (
       <StyledSearchResultsSection isLoading={isLoading}>
         <StyledSearchResultsHeader>
-          <Title>{`Результаты поиска по запросу "${searchTerm}"`}</Title>
+          <Title>{t('cities.searchResults.title', { searchTerm })}</Title>
         </StyledSearchResultsHeader>
 
         {loaderBlock}
@@ -109,4 +111,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(SearchResults);
+)(withNamespaces()(SearchResults));

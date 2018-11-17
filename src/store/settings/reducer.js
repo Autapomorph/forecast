@@ -2,10 +2,11 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import * as types from './actionTypes';
-import { defaultLanguage, defaultUnitsFormat } from '../../config/settings';
+import i18n from '../../config/settings/i18n';
+import { defaultUnitsFormat } from '../../config/settings/unitsFormats';
 
 export const initialState = {
-  language: defaultLanguage,
+  language: i18n.language,
   unitsFormat: defaultUnitsFormat,
 };
 

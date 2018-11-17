@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withNamespaces } from 'react-i18next';
 
 import FeaturedCitiesList from './FeaturedCitiesList';
 import Title from '../../common/Title';
@@ -25,19 +26,19 @@ export class FeaturedCities extends Component {
   };
 
   render() {
-    const { featuredCities, _removeCityFromFeatured, _clearFeaturedCities } = this.props;
+    const { t, featuredCities, _removeCityFromFeatured, _clearFeaturedCities } = this.props;
 
     const isEmpty = !featuredCities || !Object.keys(featuredCities).length;
 
     return (
       <StyledFeaturedCitiesSection>
         <StyledFeaturedCitiesHeader>
-          <Title>Избранные города</Title>
+          <Title>{t('cities.featured.title')}</Title>
 
           <TrashButton isEmpty={isEmpty} onClick={_clearFeaturedCities} />
         </StyledFeaturedCitiesHeader>
 
-        {isEmpty && <EmptyResult>Добавьте города в избранное</EmptyResult>}
+        {isEmpty && <EmptyResult>{t('cities.featured.addToFeatured')}</EmptyResult>}
 
         {!isEmpty && (
           <FeaturedCitiesList
@@ -64,4 +65,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(FeaturedCities);
+)(withNamespaces()(FeaturedCities));

@@ -1,4 +1,5 @@
 import React from 'react';
+import { withNamespaces } from 'react-i18next';
 
 import { UnitsFormatContext } from '../../../../store/settings/context';
 import WeatherIcon from '../../../common/icons/WeatherIcon';
@@ -13,9 +14,10 @@ import {
   StyledWeatherDetailsItemDescription as StyledItemDescription,
 } from './styles';
 
-const WeatherDetails = ({ city }) => (
+const WeatherDetails = ({ t, city }) => (
   <UnitsFormatContext.Consumer>
     {unitsFormat => {
+      const cityDetailsLang = 'cities.selected.details';
       const convertedTemp = convertTemp(city.weather.temp, unitsFormat.temp.title);
       const convertedPressure = convertPressure(city.weather.pressure, unitsFormat.pressure.title);
       const convertedWindSpeed = convertSpeed(city.weather.windSpeed, unitsFormat.speed.title);
@@ -23,35 +25,37 @@ const WeatherDetails = ({ city }) => (
       return (
         <StyledWeatherDetailsWrapper>
           <StyledItem>
-            <StyledItemTitle>Описание:</StyledItemTitle>
+            <StyledItemTitle>{t(`${cityDetailsLang}.description`)}:</StyledItemTitle>
             <StyledItemDescription>
               {`${city.weather.description} `}
               <WeatherIcon icon={city.weather.weatherIcon} size="lg" />
             </StyledItemDescription>
 
-            <StyledItemTitle>Температура:</StyledItemTitle>
+            <StyledItemTitle>{t(`${cityDetailsLang}.temperature`)}:</StyledItemTitle>
             <StyledItemDescription>
               {`${convertedTemp}${unitsFormat.temp.symbol}`}
             </StyledItemDescription>
 
-            <StyledItemTitle>Облачность:</StyledItemTitle>
+            <StyledItemTitle>{t(`${cityDetailsLang}.cloudiness`)}:</StyledItemTitle>
             <StyledItemDescription>{`${city.weather.cloudiness}%`}</StyledItemDescription>
 
-            <StyledItemTitle>Ветер:</StyledItemTitle>
+            <StyledItemTitle>{t(`${cityDetailsLang}.wind`)}:</StyledItemTitle>
             <StyledItemDescription>
-              {`${convertedWindSpeed} ${unitsFormat.speed.symbol}, ${city.weather.windCardDir} `}
+              {`${convertedWindSpeed} ${unitsFormat.speed.symbol}, ${t(
+                `wind.${city.weather.windCardDir}`,
+              )} `}
               <WeatherIcon wind icon={city.weather.windIcon} size="lg" />
             </StyledItemDescription>
 
-            <StyledItemTitle>Давление:</StyledItemTitle>
+            <StyledItemTitle>{t(`${cityDetailsLang}.pressure`)}:</StyledItemTitle>
             <StyledItemDescription>
               {`${convertedPressure}${unitsFormat.pressure.symbol}`}
             </StyledItemDescription>
 
-            <StyledItemTitle>Влажность:</StyledItemTitle>
+            <StyledItemTitle>{t(`${cityDetailsLang}.humidity`)}:</StyledItemTitle>
             <StyledItemDescription>{`${city.weather.humidity}%`}</StyledItemDescription>
 
-            <StyledItemTitle>День:</StyledItemTitle>
+            <StyledItemTitle>{t(`${cityDetailsLang}.daytime`)}:</StyledItemTitle>
             <StyledItemDescription>
               {`${city.weather.sunrise} — ${city.weather.sunset}`}
             </StyledItemDescription>
@@ -62,4 +66,4 @@ const WeatherDetails = ({ city }) => (
   </UnitsFormatContext.Consumer>
 );
 
-export default WeatherDetails;
+export default withNamespaces()(WeatherDetails);

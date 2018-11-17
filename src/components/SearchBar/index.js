@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withNamespaces } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -62,12 +63,13 @@ export class SearchBar extends Component {
   };
 
   render() {
+    const { t } = this.props;
     const { cityName, isSubmitDisabled } = this.state;
 
     return (
       <StyledSearchForm onSubmit={this.handleSubmit}>
         <StyledSearchInput
-          placeholder="Введите город"
+          placeholder={t('searchBar.placeholder')}
           value={cityName}
           onChange={this.handleChange}
         />
@@ -91,4 +93,4 @@ const mapDispatchToProps = {
 export default connect(
   null,
   mapDispatchToProps,
-)(SearchBar);
+)(withNamespaces()(SearchBar));

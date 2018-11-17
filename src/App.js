@@ -1,15 +1,11 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
-import { Settings } from 'luxon';
-
-import store, { persistor } from './store';
 
 import MainLayout from './components/layouts/Main';
 import Loader from './components/common/messages/Loader';
-import { defaultLanguage } from './config/settings';
-
-Settings.defaultLocale = defaultLanguage;
+import store, { persistor } from './store';
+import './config/settings/i18n';
 
 const App = () => (
   <Provider store={store}>

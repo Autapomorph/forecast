@@ -1,0 +1,62 @@
+{
+  "searchBar": {
+    "placeholder": "Type city here"
+  },
+  "cities": {
+    "selected": {
+      "details": {
+        "description": "Description",
+        "temperature": "Temperature",
+        "pressure": "Pressure",
+        "humidity": "Humidity",
+        "wind": "Wind",
+        "cloudiness": "Cloudiness",
+        "daytime": "Daytime"
+      }
+    },
+    "searchResults": {
+      "title": "Results found for «{{searchTerm}}»",
+      "emptyResult": "No cities found"
+    },
+    "featured": {
+      "title": "Featured cites",
+      "addToFeatured": "Add city to featured"
+    }
+  },
+  "unitsFormats": {
+    "title": {
+      "metric": "metric.",
+      "imperial": "imper."
+    },
+    "temp": {
+      "metric": "℃",
+      "imperial": "℉"
+    },
+    "pressure": {
+      "metric": " mm",
+      "imperial": "\""
+    },
+    "speed": {
+      "metric": " m/s",
+      "imperial": " kn"
+    }
+  },
+  "wind": {
+    "N": "N",
+    "NNE": "NNE",
+    "NE": "NE",
+    "ENE": "ENE",
+    "E": "E",
+    "ESE": "ESE",
+    "SE": "SE",
+    "SSE": "SSE",
+    "S": "S",
+    "SSW": "SSW",
+    "SW": "SW",
+    "WSW": "WSW",
+    "W": "W",
+    "WNW": "WNW",
+    "NW": "NW",
+    "NNW": "NNW"
+  }
+}

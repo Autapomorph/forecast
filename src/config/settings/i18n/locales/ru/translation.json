@@ -1,0 +1,62 @@
+{
+  "searchBar": {
+    "placeholder": "Введите город"
+  },
+  "cities": {
+    "selected": {
+      "details": {
+        "description": "Описание",
+        "temperature": "Температура",
+        "pressure": "Давление",
+        "humidity": "Влажность",
+        "wind": "Ветер",
+        "cloudiness": "Облачность",
+        "daytime": "День"
+      }
+    },
+    "searchResults": {
+      "title": "Результаты поиска по запросу «{{searchTerm}}»",
+      "emptyResult": "Города не найдены"
+    },
+    "featured": {
+      "title": "Избранные города",
+      "addToFeatured": "Добавьте города в избранное"
+    }
+  },
+  "unitsFormats": {
+    "title": {
+      "metric": "метрич.",
+      "imperial": "имперск."
+    },
+    "temp": {
+      "metric": "℃",
+      "imperial": "℉"
+    },
+    "pressure": {
+      "metric": " mm",
+      "imperial": "\""
+    },
+    "speed": {
+      "metric": " м/с",
+      "imperial": " уз"
+    }
+  },
+  "wind": {
+    "N": "С",
+    "NNE": "ССВ",
+    "NE": "СВ",
+    "ENE": "ВСВ",
+    "E": "В",
+    "ESE": "ВЮВ",
+    "SE": "ЮВ",
+    "SSE": "ЮЮВ",
+    "S": "Ю",
+    "SSW": "ЮЮЗ",
+    "SW": "ЮЗ",
+    "WSW": "ЗЮЗ",
+    "W": "З",
+    "WNW": "ЗСЗ",
+    "NW": "СЗ",
+    "NNW": "ССЗ"
+  }
+}
