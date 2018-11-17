@@ -4,15 +4,7 @@ import generateWeatherIcon from './icon/generateWeatherIcon';
 import formatForecastData from './formatForecastData';
 
 export default function formatWeatherData(weatherData, forecastData, timezoneData) {
-  const {
-    timestampLocalized: timestamp,
-    timestampLocalizedDM: timestampDM,
-    sunriseLocalized: sunrise,
-    sunsetLocalized: sunset,
-    timestampUnix,
-    sunriseUnix,
-    sunsetUnix,
-  } = formatTime({
+  const { timeZone, timestamp, sunrise, sunset } = formatTime({
     timestamp: weatherData.dt,
     sunrise: weatherData.sys.sunrise,
     sunset: weatherData.sys.sunset,
@@ -21,8 +13,8 @@ export default function formatWeatherData(weatherData, forecastData, timezoneDat
 
   const { weatherTypeId, weatherIcon } = generateWeatherIcon({
     weatherTypeId: weatherData.weather[0].id,
-    sunrise: sunriseUnix,
-    sunset: sunsetUnix,
+    sunrise: sunrise.toMillis(),
+    sunset: sunset.toMillis,
   });
 
   const { windDeg, windSpeed, windCardDir, windIcon } = formatWind({
@@ -42,8 +34,8 @@ export default function formatWeatherData(weatherData, forecastData, timezoneDat
     forecast,
     weather: {
       timestamp,
-      timestampDM,
-      timestampUnix,
+      timeZone,
+
       id: weatherTypeId,
       main: weatherData.weather[0].main,
       description: weatherData.weather[0].description,
@@ -68,8 +60,6 @@ export default function formatWeatherData(weatherData, forecastData, timezoneDat
 
       sunrise,
       sunset,
-      sunriseUnix,
-      sunsetUnix,
     },
   };
 }

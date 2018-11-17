@@ -6,6 +6,7 @@ import WeatherIcon from '../../../common/icons/WeatherIcon';
 import convertTemp from '../../../../utils/cityData/temperature';
 import convertPressure from '../../../../utils/cityData/pressure';
 import convertSpeed from '../../../../utils/cityData/wind';
+import { toHourMinutes } from '../../../../utils/cityData/time/coverters';
 
 import {
   StyledWeatherDetailsWrapper,
@@ -14,7 +15,7 @@ import {
   StyledWeatherDetailsItemDescription as StyledItemDescription,
 } from './styles';
 
-const WeatherDetails = ({ t, city }) => (
+const WeatherDetails = ({ t, i18n, city }) => (
   <UnitsFormatContext.Consumer>
     {unitsFormat => {
       const cityDetailsLang = 'cities.selected.details';
@@ -57,7 +58,10 @@ const WeatherDetails = ({ t, city }) => (
 
             <StyledItemTitle>{t(`${cityDetailsLang}.daytime`)}:</StyledItemTitle>
             <StyledItemDescription>
-              {`${city.weather.sunrise} — ${city.weather.sunset}`}
+              {`${toHourMinutes(city.weather.sunrise, i18n.language)} — ${toHourMinutes(
+                city.weather.sunset,
+                i18n.language,
+              )}`}
             </StyledItemDescription>
           </StyledItem>
         </StyledWeatherDetailsWrapper>

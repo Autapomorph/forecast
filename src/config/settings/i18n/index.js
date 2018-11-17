@@ -11,6 +11,9 @@ i18n
     resources,
     fallbackLng: 'en',
     load: 'languageOnly',
+    detection: {
+      lookupLocalStorage: 'lang',
+    },
     interpolation: {
       escapeValue: false,
     },

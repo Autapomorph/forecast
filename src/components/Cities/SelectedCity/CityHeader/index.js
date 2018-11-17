@@ -1,13 +1,16 @@
 import React from 'react';
+import { withNamespaces } from 'react-i18next';
 
 import Title from '../../../common/Title';
 import RetryButton from '../../../common/buttons/RetryButton';
 import FeaturedButton from '../../../common/buttons/FeaturedButton';
 import CountryFlag from '../../../common/icons/CountryFlag';
+import { toDayMonthHourMinutes } from '../../../../utils/cityData/time/coverters';
 
 import { StyledCityHeader, StyledTitleButtonsWrapper } from './styles';
 
 const CityHeader = ({
+  i18n,
   city,
   isFeatured,
   refetchCityWeather,
@@ -21,7 +24,7 @@ const CityHeader = ({
 
       <br />
       <Title.Subtitle>
-        {city.weather.timestampDM} {city.weather.timestamp}
+        {toDayMonthHourMinutes(city.weather.timestamp, i18n.language)}
       </Title.Subtitle>
     </Title>
 
@@ -43,4 +46,4 @@ const CityHeader = ({
   </StyledCityHeader>
 );
 
-export default CityHeader;
+export default withNamespaces()(CityHeader);

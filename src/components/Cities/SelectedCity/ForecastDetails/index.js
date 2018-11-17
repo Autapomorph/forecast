@@ -1,4 +1,5 @@
 import React from 'react';
+import { withNamespaces } from 'react-i18next';
 import Slider from 'react-slick';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTint, faThermometerHalf } from '@fortawesome/free-solid-svg-icons';
@@ -8,6 +9,7 @@ import WeatherIcon from '../../../common/icons/WeatherIcon';
 import convertTemp from '../../../../utils/cityData/temperature';
 import convertPressure from '../../../../utils/cityData/pressure';
 import convertSpeed from '../../../../utils/cityData/wind';
+import { toDayMonth, toHourMinutes } from '../../../../utils/cityData/time/coverters';
 
 import {
   StyledForecastWrapper,
@@ -20,7 +22,7 @@ import {
   StyledDivider,
 } from './styles';
 
-const ForecastDetails = ({ city }) => (
+const ForecastDetails = ({ i18n, city }) => (
   <UnitsFormatContext.Consumer>
     {unitsFormat => (
       <StyledForecastWrapper>
@@ -95,7 +97,9 @@ const ForecastDetails = ({ city }) => (
                 <StyledDivider />
 
                 <StyledForecastItemDetail>
-                  {`${f.timestampDM} ${f.timestamp}`}
+                  {toDayMonth(city.weather.timestamp, i18n.language)}
+                  <br />
+                  {toHourMinutes(city.weather.timestamp, i18n.language)}
                 </StyledForecastItemDetail>
               </StyledForecastItem>
             );
@@ -106,4 +110,4 @@ const ForecastDetails = ({ city }) => (
   </UnitsFormatContext.Consumer>
 );
 
-export default ForecastDetails;
+export default withNamespaces()(ForecastDetails);
