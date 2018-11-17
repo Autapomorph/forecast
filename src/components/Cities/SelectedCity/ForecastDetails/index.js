@@ -97,9 +97,9 @@ const ForecastDetails = ({ i18n, city }) => (
                 <StyledDivider />
 
                 <StyledForecastItemDetail>
-                  {toDayMonth(city.weather.timestamp, i18n.language)}
+                  {toDayMonth(f.timestamp, i18n.language)}
                   <br />
-                  {toHourMinutes(city.weather.timestamp, i18n.language)}
+                  {toHourMinutes(f.timestamp, i18n.language)}
                 </StyledForecastItemDetail>
               </StyledForecastItem>
             );
