@@ -9,10 +9,11 @@ i18n
   .use(reactI18nextModule)
   .init({
     resources,
+    // lng: 'en',
     fallbackLng: 'en',
     load: 'languageOnly',
     detection: {
-      lookupLocalStorage: 'lang',
+      lookupLocalStorage: 'locale',
     },
     interpolation: {
       escapeValue: false,
