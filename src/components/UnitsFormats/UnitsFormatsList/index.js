@@ -8,9 +8,9 @@ const UnitsFormatList = ({ unitsFormats, selectedUnitsFormat, handleChangeUnitsF
   <StyledUnitsFormatSwitcher>
     {Object.values(unitsFormats).map(unitsFormat => (
       <UnitsFormatsButton
-        key={unitsFormat.title}
+        key={unitsFormat}
         unitsFormat={unitsFormat}
-        checked={unitsFormat.title === selectedUnitsFormat.title}
+        checked={unitsFormat === selectedUnitsFormat}
         handleChange={handleChangeUnitsFormat}
       />
     ))}

@@ -22,7 +22,7 @@ import {
   StyledDivider,
 } from './styles';
 
-const ForecastDetails = ({ i18n, city }) => (
+const ForecastDetails = ({ t, i18n, city }) => (
   <UnitsFormatContext.Consumer>
     {unitsFormat => (
       <StyledForecastWrapper>
@@ -55,9 +55,9 @@ const ForecastDetails = ({ i18n, city }) => (
           ]}
         >
           {city.forecast.map(f => {
-            const convertedTemp = convertTemp(f.temp, unitsFormat.temp.title);
-            const convertedPressure = convertPressure(f.pressure, unitsFormat.pressure.title);
-            const convertedWindSpeed = convertSpeed(f.windSpeed, unitsFormat.speed.title);
+            const convertedTemp = convertTemp(f.temp, unitsFormat);
+            const convertedPressure = convertPressure(f.pressure, unitsFormat);
+            const convertedWindSpeed = convertSpeed(f.windSpeed, unitsFormat);
 
             return (
               <StyledForecastItem key={f.timestamp}>
@@ -66,7 +66,7 @@ const ForecastDetails = ({ i18n, city }) => (
                 </StyledForecastItemDetail>
 
                 <StyledForecastItemDetail>
-                  {`${convertedTemp}${unitsFormat.temp.symbol}`}
+                  {`${convertedTemp}${t(`unitsFormats.temp.${unitsFormat}`)}`}
                 </StyledForecastItemDetail>
 
                 <StyledForecastItemDetail>
@@ -83,14 +83,14 @@ const ForecastDetails = ({ i18n, city }) => (
                     <FontAwesomeIcon icon={faThermometerHalf} size="lg" />
                   </StyledIcon>
                   <StyledIconDescription>
-                    {`${convertedPressure}${unitsFormat.pressure.symbol}`}
+                    {`${convertedPressure}${t(`unitsFormats.pressure.${unitsFormat}`)}`}
                   </StyledIconDescription>
 
                   <StyledIcon>
                     <WeatherIcon wind icon={f.windIcon} size="lg" />
                   </StyledIcon>
                   <StyledIconDescription>
-                    {`${convertedWindSpeed} ${unitsFormat.speed.symbol}`}
+                    {`${convertedWindSpeed} ${t(`unitsFormats.speed.${unitsFormat}`)}`}
                   </StyledIconDescription>
                 </StyledItemDetailsList>
 

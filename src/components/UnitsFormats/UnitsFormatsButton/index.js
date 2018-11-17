@@ -1,20 +1,21 @@
 import React from 'react';
+import { withNamespaces } from 'react-i18next';
 
 import { StyledSwitchButton, StyledLabel, StyledRadioButton, StyledLabelText } from './styles';
 
-const UnitsFormatsButton = ({ unitsFormat, checked, handleChange }) => (
+const UnitsFormatsButton = ({ t, unitsFormat, checked, handleChange }) => (
   <StyledSwitchButton checked={checked}>
     <StyledLabel>
       <StyledRadioButton
         name="units-format"
-        value={unitsFormat.title}
+        value={unitsFormat}
         checked={checked}
         onChange={() => handleChange(unitsFormat)}
       />
 
-      <StyledLabelText>{unitsFormat.title}</StyledLabelText>
+      <StyledLabelText>{`${t(`unitsFormats.title.${unitsFormat}`)}`}</StyledLabelText>
     </StyledLabel>
   </StyledSwitchButton>
 );
 
-export default UnitsFormatsButton;
+export default withNamespaces()(UnitsFormatsButton);

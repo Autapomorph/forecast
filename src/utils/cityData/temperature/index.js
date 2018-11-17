@@ -4,11 +4,11 @@ import { kelvinToCelsius, kelvinToFahrenheit } from './converters';
 
 export function convertTemp(degrees, scale) {
   switch (scale) {
-    case unitsFormats.METRIC.temp.title: {
+    case unitsFormats.METRIC: {
       return kelvinToCelsius(degrees);
     }
 
-    case unitsFormats.IMPERIAL.temp.title: {
+    case unitsFormats.IMPERIAL: {
       return kelvinToFahrenheit(degrees);
     }
 

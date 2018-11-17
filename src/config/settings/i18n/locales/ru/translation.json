@@ -33,12 +33,12 @@
       "imperial": "℉"
     },
     "pressure": {
-      "metric": " mm",
+      "metric": " мм",
       "imperial": "\""
     },
     "speed": {
-      "metric": " м/с",
-      "imperial": " уз"
+      "metric": "м/с",
+      "imperial": "уз"
     }
   },
   "wind": {

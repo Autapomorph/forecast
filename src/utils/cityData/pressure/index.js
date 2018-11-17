@@ -4,11 +4,11 @@ import { pascalToMmHg, pascalToInHg } from './converters';
 
 function convertPressure(pressure, unit) {
   switch (unit) {
-    case unitsFormats.METRIC.pressure.title: {
+    case unitsFormats.METRIC: {
       return pascalToMmHg(pressure);
     }
 
-    case unitsFormats.IMPERIAL.pressure.title: {
+    case unitsFormats.IMPERIAL: {
       return pascalToInHg(pressure);
     }
 

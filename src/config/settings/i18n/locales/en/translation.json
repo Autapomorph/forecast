@@ -37,8 +37,8 @@
       "imperial": "\""
     },
     "speed": {
-      "metric": " m/s",
-      "imperial": " kn"
+      "metric": "m/s",
+      "imperial": "kn"
     }
   },
   "wind": {

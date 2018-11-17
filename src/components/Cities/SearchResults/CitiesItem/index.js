@@ -1,4 +1,5 @@
 import React from 'react';
+import { withNamespaces } from 'react-i18next';
 
 import { UnitsFormatContext } from '../../../../store/settings/context';
 import FeaturedButton from '../../../common/buttons/FeaturedButton';
@@ -15,6 +16,7 @@ import {
 } from './styles';
 
 const CitiesItem = ({
+  t,
   city,
   isFeatured,
   fetchCityWeather,
@@ -23,8 +25,8 @@ const CitiesItem = ({
 }) => (
   <UnitsFormatContext.Consumer>
     {unitsFormat => {
-      const convertedTemp = convertTemp(city.weather.temp, unitsFormat.temp.title);
-      const convertedWindSpeed = convertSpeed(city.weather.windSpeed, unitsFormat.speed.title);
+      const convertedTemp = convertTemp(city.weather.temp, unitsFormat);
+      const convertedWindSpeed = convertSpeed(city.weather.windSpeed, unitsFormat);
 
       return (
         <StyledCitiesItemWrapper>
@@ -52,9 +54,9 @@ const CitiesItem = ({
             <WeatherIcon icon={city.weather.weatherIcon} />
             {` ${city.weather.description}`}
 
-            {`, ${convertedTemp}${unitsFormat.temp.symbol}`}
+            {`, ${convertedTemp}${t(`unitsFormats.temp.${unitsFormat}`)}`}
 
-            {`, ${convertedWindSpeed} ${unitsFormat.speed.symbol} `}
+            {`, ${convertedWindSpeed} ${t(`unitsFormats.speed.${unitsFormat}`)} `}
             <WeatherIcon wind icon={city.weather.windIcon} />
           </StyledCitiesItemContent>
         </StyledCitiesItemWrapper>
@@ -63,4 +65,4 @@ const CitiesItem = ({
   </UnitsFormatContext.Consumer>
 );
 
-export default CitiesItem;
+export default withNamespaces()(CitiesItem);

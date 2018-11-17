@@ -19,9 +19,9 @@ const WeatherDetails = ({ t, i18n, city }) => (
   <UnitsFormatContext.Consumer>
     {unitsFormat => {
       const cityDetailsLang = 'cities.selected.details';
-      const convertedTemp = convertTemp(city.weather.temp, unitsFormat.temp.title);
-      const convertedPressure = convertPressure(city.weather.pressure, unitsFormat.pressure.title);
-      const convertedWindSpeed = convertSpeed(city.weather.windSpeed, unitsFormat.speed.title);
+      const convertedTemp = convertTemp(city.weather.temp, unitsFormat);
+      const convertedPressure = convertPressure(city.weather.pressure, unitsFormat);
+      const convertedWindSpeed = convertSpeed(city.weather.windSpeed, unitsFormat);
 
       return (
         <StyledWeatherDetailsWrapper>
@@ -34,7 +34,7 @@ const WeatherDetails = ({ t, i18n, city }) => (
 
             <StyledItemTitle>{t(`${cityDetailsLang}.temperature`)}:</StyledItemTitle>
             <StyledItemDescription>
-              {`${convertedTemp}${unitsFormat.temp.symbol}`}
+              {`${convertedTemp}${t(`unitsFormats.temp.${unitsFormat}`)}`}
             </StyledItemDescription>
 
             <StyledItemTitle>{t(`${cityDetailsLang}.cloudiness`)}:</StyledItemTitle>
@@ -42,15 +42,15 @@ const WeatherDetails = ({ t, i18n, city }) => (
 
             <StyledItemTitle>{t(`${cityDetailsLang}.wind`)}:</StyledItemTitle>
             <StyledItemDescription>
-              {`${convertedWindSpeed} ${unitsFormat.speed.symbol}, ${t(
+              {`${convertedWindSpeed} ${t(`unitsFormats.speed.${unitsFormat}`)}, ${t(
                 `wind.${city.weather.windCardDir}`,
-              )} `}
+              )}, `}
               <WeatherIcon wind icon={city.weather.windIcon} size="lg" />
             </StyledItemDescription>
 
             <StyledItemTitle>{t(`${cityDetailsLang}.pressure`)}:</StyledItemTitle>
             <StyledItemDescription>
-              {`${convertedPressure}${unitsFormat.pressure.symbol}`}
+              {`${convertedPressure}${t(`unitsFormats.pressure.${unitsFormat}`)}`}
             </StyledItemDescription>
 
             <StyledItemTitle>{t(`${cityDetailsLang}.humidity`)}:</StyledItemTitle>

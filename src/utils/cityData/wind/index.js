@@ -4,7 +4,7 @@ import { mpsToKnots } from './converters';
 
 export function convertSpeed(speed, scale) {
   switch (scale) {
-    case unitsFormats.IMPERIAL.speed.title: {
+    case unitsFormats.IMPERIAL: {
       return mpsToKnots(speed);
     }
 
