@@ -9,8 +9,8 @@ import { StyledHeader } from './styles';
 const Header = () => (
   <StyledHeader>
     <SearchBar />
-    <UnitsFormats />
     <Languages />
+    <UnitsFormats />
   </StyledHeader>
 );
 

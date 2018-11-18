@@ -1,15 +1,28 @@
 import React from 'react';
-import { withNamespaces } from 'react-i18next';
+import { connect } from 'react-redux';
 
-export const Languages = ({ i18n }) => (
-  <div>
-    <button type="button" onClick={() => i18n.changeLanguage('ru-RU')}>
-      ru
-    </button>
-    <button type="button" onClick={() => i18n.changeLanguage('en-US')}>
-      en
-    </button>
-  </div>
+import LanguagesList from './LanguagesList';
+import { getCurrentLanguage } from '../../store/rootSelectors';
+import { changeLanguage } from '../../store/settings/actions';
+import { availableLanguages } from '../../config/settings/i18n';
+
+export const Languages = ({ selectedLanguage, _changeLanguage }) => (
+  <LanguagesList
+    languages={availableLanguages}
+    selectedLanguage={selectedLanguage}
+    handleChangeLanguage={_changeLanguage}
+  />
 );
 
-export default withNamespaces()(Languages);
+const mapStateToProps = state => ({
+  selectedLanguage: getCurrentLanguage(state),
+});
+
+const mapDispatchToProps = {
+  _changeLanguage: changeLanguage,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Languages);
