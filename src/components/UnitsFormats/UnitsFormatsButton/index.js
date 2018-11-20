@@ -13,7 +13,7 @@ const UnitsFormatsButton = ({ t, unitsFormat, checked, handleChange }) => (
         onChange={() => handleChange(unitsFormat)}
       />
 
-      <StyledLabelText>{`${t(`unitsFormats.title.${unitsFormat}`)}`}</StyledLabelText>
+      <StyledLabelText>{`${t(`settings.unitsFormats.title.${unitsFormat}`)}`}</StyledLabelText>
     </StyledLabel>
   </StyledSwitchButton>
 );

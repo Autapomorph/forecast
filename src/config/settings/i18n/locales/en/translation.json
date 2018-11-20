@@ -23,22 +23,25 @@
       "addToFeatured": "Add city to featured"
     }
   },
-  "unitsFormats": {
-    "title": {
-      "metric": "metric.",
-      "imperial": "imper."
-    },
-    "temp": {
-      "metric": "℃",
-      "imperial": "℉"
-    },
-    "pressure": {
-      "metric": " mm",
-      "imperial": "\""
-    },
-    "speed": {
-      "metric": "m/s",
-      "imperial": "kn"
+  "settings": {
+    "title": "Settings",
+    "unitsFormats": {
+      "title": {
+        "metric": "metric.",
+        "imperial": "imper."
+      },
+      "temp": {
+        "metric": "℃",
+        "imperial": "℉"
+      },
+      "pressure": {
+        "metric": " mm",
+        "imperial": "\""
+      },
+      "speed": {
+        "metric": "m/s",
+        "imperial": "kn"
+      }
     }
   },
   "wind": {

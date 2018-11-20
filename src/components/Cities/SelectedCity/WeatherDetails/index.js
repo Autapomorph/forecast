@@ -34,7 +34,7 @@ const WeatherDetails = ({ t, i18n, city }) => (
 
             <StyledItemTitle>{t(`${cityDetailsLang}.temperature`)}:</StyledItemTitle>
             <StyledItemDescription>
-              {`${convertedTemp}${t(`unitsFormats.temp.${unitsFormat}`)}`}
+              {`${convertedTemp}${t(`settings.unitsFormats.temp.${unitsFormat}`)}`}
             </StyledItemDescription>
 
             <StyledItemTitle>{t(`${cityDetailsLang}.cloudiness`)}:</StyledItemTitle>
@@ -42,7 +42,7 @@ const WeatherDetails = ({ t, i18n, city }) => (
 
             <StyledItemTitle>{t(`${cityDetailsLang}.wind`)}:</StyledItemTitle>
             <StyledItemDescription>
-              {`${convertedWindSpeed} ${t(`unitsFormats.speed.${unitsFormat}`)}, ${t(
+              {`${convertedWindSpeed} ${t(`settings.unitsFormats.speed.${unitsFormat}`)}, ${t(
                 `wind.${city.weather.windCardDir}`,
               )}, `}
               <WeatherIcon wind icon={city.weather.windIcon} size="lg" />
@@ -50,7 +50,7 @@ const WeatherDetails = ({ t, i18n, city }) => (
 
             <StyledItemTitle>{t(`${cityDetailsLang}.pressure`)}:</StyledItemTitle>
             <StyledItemDescription>
-              {`${convertedPressure}${t(`unitsFormats.pressure.${unitsFormat}`)}`}
+              {`${convertedPressure}${t(`settings.unitsFormats.pressure.${unitsFormat}`)}`}
             </StyledItemDescription>
 
             <StyledItemTitle>{t(`${cityDetailsLang}.humidity`)}:</StyledItemTitle>

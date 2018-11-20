@@ -14,19 +14,19 @@ export const StyledSwitchButton = styled.span`
     background: var(--light-gray);
   }
 
-  :first-child {
+  :first-of-type {
     border-radius: 5px 0 0 5px;
   }
 
-  :not(:first-child) {
+  :not(:first-of-type) {
     margin-left: -1px;
   }
 
-  :last-child {
+  :last-of-type {
     border-radius: 0 5px 5px 0;
   }
 
-  :first-child:last-child {
+  :only-of-type {
     border-radius: 5px;
   }
 

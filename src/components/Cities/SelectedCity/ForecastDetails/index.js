@@ -66,7 +66,7 @@ const ForecastDetails = ({ t, i18n, city }) => (
                 </StyledForecastItemDetail>
 
                 <StyledForecastItemDetail>
-                  {`${convertedTemp}${t(`unitsFormats.temp.${unitsFormat}`)}`}
+                  {`${convertedTemp}${t(`settings.unitsFormats.temp.${unitsFormat}`)}`}
                 </StyledForecastItemDetail>
 
                 <StyledForecastItemDetail>
@@ -83,14 +83,14 @@ const ForecastDetails = ({ t, i18n, city }) => (
                     <FontAwesomeIcon icon={faThermometerHalf} size="lg" />
                   </StyledIcon>
                   <StyledIconDescription>
-                    {`${convertedPressure}${t(`unitsFormats.pressure.${unitsFormat}`)}`}
+                    {`${convertedPressure}${t(`settings.unitsFormats.pressure.${unitsFormat}`)}`}
                   </StyledIconDescription>
 
                   <StyledIcon>
                     <WeatherIcon wind icon={f.windIcon} size="lg" />
                   </StyledIcon>
                   <StyledIconDescription>
-                    {`${convertedWindSpeed} ${t(`unitsFormats.speed.${unitsFormat}`)}`}
+                    {`${convertedWindSpeed} ${t(`settings.unitsFormats.speed.${unitsFormat}`)}`}
                   </StyledIconDescription>
                 </StyledItemDetailsList>
 

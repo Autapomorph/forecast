@@ -54,9 +54,9 @@ const CitiesItem = ({
             <WeatherIcon icon={city.weather.weatherIcon} />
             {` ${city.weather.description}`}
 
-            {`, ${convertedTemp}${t(`unitsFormats.temp.${unitsFormat}`)}`}
+            {`, ${convertedTemp}${t(`settings.unitsFormats.temp.${unitsFormat}`)}`}
 
-            {`, ${convertedWindSpeed} ${t(`unitsFormats.speed.${unitsFormat}`)} `}
+            {`, ${convertedWindSpeed} ${t(`settings.unitsFormats.speed.${unitsFormat}`)} `}
             <WeatherIcon wind icon={city.weather.windIcon} />
           </StyledCitiesItemContent>
         </StyledCitiesItemWrapper>
