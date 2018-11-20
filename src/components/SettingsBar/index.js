@@ -5,11 +5,11 @@ import Collapsible from 'react-collapsible';
 import UnitsFormats from '../UnitsFormats';
 import Languages from '../Languages';
 
-import { StyledSettingsBar } from './styles';
-import './index.css';
+import { StyledSettingsBar, GlobalStyleCollapsible } from './styles';
 
 const SettingsBar = ({ t }) => (
   <StyledSettingsBar>
+    <GlobalStyleCollapsible />
     <Collapsible trigger={t('settings.title')}>
       <Languages />
       <UnitsFormats />
