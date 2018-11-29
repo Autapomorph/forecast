@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { DragDropContext } from 'react-beautiful-dnd';
 import { withNamespaces } from 'react-i18next';
 
 import FeaturedCitiesList from './FeaturedCitiesList';
@@ -10,6 +11,7 @@ import {
   fetchCityWeather,
   removeCityFromFeatured,
   clearFeaturedCities,
+  reorderFeaturedCities,
 } from '../../../store/cities/actions';
 import { getFeaturedCities } from '../../../store/rootSelectors';
 import { OWM_API_CITY_ID_QUERY_PARAM } from '../../../config/weather';
@@ -23,6 +25,20 @@ export class FeaturedCities extends Component {
     _fetchCityWeather({
       [OWM_API_CITY_ID_QUERY_PARAM]: cityId,
     });
+  };
+
+  onDragEnd = ({ source, destination }) => {
+    const { _reorderFeaturedCities } = this.props;
+
+    if (!destination) {
+      return;
+    }
+
+    if (source.droppableId === destination.droppableId && source.index === destination.index) {
+      return;
+    }
+
+    _reorderFeaturedCities(source.index, destination.index);
   };
 
   render() {
@@ -41,11 +57,13 @@ export class FeaturedCities extends Component {
         {isEmpty && <EmptyResult>{t('cities.featured.addToFeatured')}</EmptyResult>}
 
         {!isEmpty && (
-          <FeaturedCitiesList
-            cities={featuredCities}
-            fetchCity={this.fetchCity}
-            removeCityFromFeatured={_removeCityFromFeatured}
-          />
+          <DragDropContext onDragEnd={this.onDragEnd}>
+            <FeaturedCitiesList
+              cities={featuredCities}
+              fetchCity={this.fetchCity}
+              removeCityFromFeatured={_removeCityFromFeatured}
+            />
+          </DragDropContext>
         )}
       </StyledFeaturedCitiesSection>
     );
@@ -60,6 +78,7 @@ const mapDispatchToProps = {
   _fetchCityWeather: fetchCityWeather,
   _removeCityFromFeatured: removeCityFromFeatured,
   _clearFeaturedCities: clearFeaturedCities,
+  _reorderFeaturedCities: reorderFeaturedCities,
 };
 
 export default connect(

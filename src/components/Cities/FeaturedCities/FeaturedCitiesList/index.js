@@ -1,22 +1,28 @@
 import React from 'react';
+import { Droppable } from 'react-beautiful-dnd';
 
 import FeaturedCity from '../FeaturedCity';
 
 import { StyledFeaturedList } from './styles';
 
 const FeaturedCitiesList = ({ cities, fetchCity, removeCityFromFeatured }) => {
-  const featuredCities = Object.values(cities)
-    .sort((cityA, cityB) => cityA.timestamp - cityB.timestamp)
-    .map(city => (
-      <FeaturedCity
-        key={city.id}
-        city={city}
-        fetchCity={fetchCity}
-        removeCityFromFeatured={removeCityFromFeatured}
-      />
-    ));
+  const featuredCities = cities.map((city, index) => (
+    <FeaturedCity
+      key={city.id}
+      index={index}
+      city={city}
+      fetchCity={fetchCity}
+      removeCityFromFeatured={removeCityFromFeatured}
+    />
+  ));
 
-  return <StyledFeaturedList>{featuredCities}</StyledFeaturedList>;
+  return (
+    <Droppable droppableId="featured-cities">
+      {provided => (
+        <StyledFeaturedList ref={provided.innerRef}>{featuredCities}</StyledFeaturedList>
+      )}
+    </Droppable>
+  );
 };
 
 export default FeaturedCitiesList;

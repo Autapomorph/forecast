@@ -2,7 +2,6 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import * as types from './actionTypes';
-import removePropByKey from '../../utils/common/removePropByKey';
 
 export const initialState = {
   selectedCity: {
@@ -19,7 +18,7 @@ export const initialState = {
     errorMessage: null,
   },
   featuredCities: {
-    data: {},
+    data: [],
   },
 };
 
@@ -117,10 +116,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         featuredCities: {
           ...state.featuredCities,
-          data: {
-            ...state.featuredCities.data,
-            [payload.city.id]: payload.city,
-          },
+          data: [...state.featuredCities.data, payload.city],
         },
       };
     }
@@ -130,7 +126,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         featuredCities: {
           ...state.featuredCities,
-          data: removePropByKey(state.featuredCities.data, String(payload.cityId)),
+          data: state.featuredCities.data.filter(city => city.id !== payload.cityId),
         },
       };
     }
@@ -140,7 +136,23 @@ const reducer = (state = initialState, action) => {
         ...state,
         featuredCities: {
           ...state.featuredCities,
-          data: {},
+          data: [],
+        },
+      };
+    }
+
+    case types.FEATURED_CITIES_REORDER: {
+      const { prevIndex, nextIndex } = payload;
+
+      const featuredCities = state.featuredCities.data.slice();
+      const [removed] = featuredCities.splice(prevIndex, 1);
+      featuredCities.splice(nextIndex, 0, removed);
+
+      return {
+        ...state,
+        featuredCities: {
+          ...state.featuredCities,
+          data: featuredCities,
         },
       };
     }

@@ -14,4 +14,4 @@ export const getCitiesErrorMessage = state => state.cities.errorMessage;
 // featured cities selectors
 export const getFeaturedCities = state => state.featuredCities.data;
 export const getIsFeaturedCity = state => cityId =>
-  Object.prototype.hasOwnProperty.call(state.featuredCities.data, String(cityId));
+  state.featuredCities.data.some(city => city.id === cityId);

@@ -102,10 +102,7 @@ export const fetchCititesByName = searchParams => async (dispatch, getState) => 
 export const addCityToFeatured = city => ({
   type: types.FEATURED_CITY_ADD,
   payload: {
-    city: {
-      ...city,
-      timestamp: Date.now(),
-    },
+    city,
   },
 });
 
@@ -118,4 +115,12 @@ export const removeCityFromFeatured = cityId => ({
 
 export const clearFeaturedCities = () => ({
   type: types.FEATURED_CITIES_CLEAR,
+});
+
+export const reorderFeaturedCities = (prevIndex, nextIndex) => ({
+  type: types.FEATURED_CITIES_REORDER,
+  payload: {
+    prevIndex,
+    nextIndex,
+  },
 });
