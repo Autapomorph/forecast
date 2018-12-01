@@ -23,6 +23,7 @@ export const initialState = {
 };
 
 const persistConfig = {
+  version: 1,
   key: 'featuredCities',
   storage,
   whitelist: ['featuredCities'],

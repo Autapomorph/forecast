@@ -11,6 +11,7 @@ export const initialState = {
 };
 
 const persistConfig = {
+  version: 1,
   key: 'settings',
   storage,
   whitelist: ['unitsFormat'],
