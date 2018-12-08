@@ -4,13 +4,14 @@ import BaseIconButton from '../BaseIconButton';
 
 // eslint-disable-next-line import/prefer-default-export
 export const StyledReorderButton = styled(BaseIconButton)`
-  margin-right: 8px;
+  padding: 8px 0;
+  padding-right: 8px;
   color: var(--gray);
 
   ${/* sc-custom */ ({ isDragging }) =>
     isDragging &&
     css`
-      color: var(--bg-violet);
+      color: var(--contrast-text-color);
     `};
 
   :hover {
