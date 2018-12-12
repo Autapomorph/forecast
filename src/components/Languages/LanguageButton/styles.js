@@ -30,7 +30,7 @@ export const StyledSwitchButton = styled.span`
     border-radius: 5px;
   }
 
-  ${/* sc-custom */ ({ checked }) =>
+  ${/* sc-block */ ({ checked }) =>
     checked &&
     css`
       color: var(--bg-violet);
@@ -40,7 +40,7 @@ export const StyledSwitchButton = styled.span`
         border-color: var(--light-gray);
         background: var(--white);
       }
-    `};
+    `}
 `;
 
 export const StyledLabel = styled.label`

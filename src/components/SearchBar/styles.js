@@ -54,7 +54,7 @@ export const StyledInputButton = styled.button.attrs({
     background: var(--gray);
   }
 
-  ${/* sc-custom */ ({ disabled }) =>
+  ${/* sc-block */ ({ disabled }) =>
     disabled &&
     css`
       background: var(--light-gray);

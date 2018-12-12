@@ -8,13 +8,13 @@ export const StyledReorderButton = styled(BaseIconButton)`
   padding-right: 8px;
   color: var(--gray);
 
-  ${/* sc-custom */ ({ isDragging }) =>
-    isDragging &&
-    css`
-      color: var(--contrast-text-color);
-    `};
-
   :hover {
     color: var(--secondary-text-color);
   }
+
+  ${/* sc-block */ ({ isDragging }) =>
+    isDragging &&
+    css`
+      color: var(--contrast-text-color);
+    `}
 `;

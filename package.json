@@ -1,13 +1,14 @@
 {
   "name": "forecast",
-  "version": "0.43.0",
+  "version": "0.9.0",
   "private": true,
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
     "lint": "eslint ./**/*.{js,jsx}",
-    "lint:css": "stylelint ./**/*.{css,scss,sass,less,js,jsx}",
+    "lint:css": "stylelint ./**/*.{css,scss,sass,less} --config .stylelintrc-format.js",
+    "lint:sc": "stylelint ./**/*.{js,jsx,ts,tsx}",
     "eject": "react-scripts eject"
   },
   "dependencies": {
@@ -85,11 +86,13 @@
     "linters": {
       "*.{js,jsx}": [
         "prettier --write",
+        "stylelint",
         "eslint --max-warnings=0",
         "git add"
       ],
       "*.{css,scss,sass,less}": [
         "prettier --write",
+        "stylelint --fix --config .stylelintrc-format.js",
         "git add"
       ],
       "*.{json,md}": [
