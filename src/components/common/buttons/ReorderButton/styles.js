@@ -4,8 +4,6 @@ import BaseIconButton from '../BaseIconButton';
 
 // eslint-disable-next-line import/prefer-default-export
 export const StyledReorderButton = styled(BaseIconButton)`
-  padding: 8px 0;
-  padding-right: 8px;
   color: var(--gray);
 
   :hover {
