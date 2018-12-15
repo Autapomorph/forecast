@@ -6,7 +6,7 @@ export const StyledCountryFlag = styled.span`
   width: 1em;
   height: 1em;
   border-radius: 50%;
-  vertical-align: middle;
+  vertical-align: sub;
   font-size: ${({ size }) => size};
   background-image: ${({ country }) => `url(/images/countries/flags/1x1/${country}.svg)`};
   background-position: center center;
