@@ -10,7 +10,7 @@ export const StyledReorderButton = styled(BaseIconButton)`
     color: var(--secondary-text-color);
   }
 
-  ${/* sc-block */ ({ isDragging }) =>
+  ${/* sc-dec */ ({ isDragging }) =>
     isDragging &&
     css`
       color: var(--contrast-text-color);

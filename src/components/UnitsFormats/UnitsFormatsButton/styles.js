@@ -30,7 +30,7 @@ export const StyledSwitchButton = styled.span`
     border-radius: 5px;
   }
 
-  ${/* sc-block */ ({ checked }) =>
+  ${/* sc-dec */ ({ checked }) =>
     checked &&
     css`
       color: var(--bg-violet);

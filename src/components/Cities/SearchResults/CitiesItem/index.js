@@ -12,6 +12,7 @@ import {
   StyledCitiesItemWrapper,
   StyledCitiesItemHeader,
   StyledCitiesItemTitle,
+  StyledTitleButtonsWrapper,
   StyledCitiesItemContent,
 } from './styles';
 
@@ -33,21 +34,23 @@ const CitiesItem = ({
           <StyledCitiesItemHeader>
             <StyledCitiesItemTitle onClick={() => fetchCityWeather(city.id)}>
               {`${city.name} `}
-              <CountryFlag country={city.country.toLowerCase()} size="1.2rem" />
+              <CountryFlag country={city.country.toLowerCase()} size="1.2em" />
             </StyledCitiesItemTitle>
 
-            <FeaturedButton
-              isFeatured={isFeatured}
-              onRemove={() => removeCityFromFeatured(city.id)}
-              onAdd={() =>
-                addCityToFeatured({
-                  id: city.id,
-                  name: city.name,
-                  country: city.country,
-                  coords: city.coords,
-                })
-              }
-            />
+            <StyledTitleButtonsWrapper>
+              <FeaturedButton
+                isFeatured={isFeatured}
+                onRemove={() => removeCityFromFeatured(city.id)}
+                onAdd={() =>
+                  addCityToFeatured({
+                    id: city.id,
+                    name: city.name,
+                    country: city.country,
+                    coords: city.coords,
+                  })
+                }
+              />
+            </StyledTitleButtonsWrapper>
           </StyledCitiesItemHeader>
 
           <StyledCitiesItemContent>
