@@ -9,7 +9,7 @@ export default function mapDegToCardDir(deg) {
 
   if ((deg >= 0 && deg <= 11.25) || (deg >= 348.75 && deg <= 360)) return 'N';
 
-  if (deg >= 11.25 && deg <= 33.75) return 'N';
+  if (deg >= 11.25 && deg <= 33.75) return 'NNE';
 
   if (deg >= 33.75 && deg <= 56.25) return 'NE';
 

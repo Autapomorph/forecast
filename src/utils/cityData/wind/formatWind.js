@@ -5,7 +5,8 @@ import generateWindIcon from './generateWindIcon';
 export default function formatWind({ wind }) {
   const windDeg = (wind && wind.deg) || 0;
   const windSpeed = wind && Math.round(wind.speed);
-  const windCardDir = windDeg && mapDegToCardDir(windDeg);
+  const windCardDir = mapDegToCardDir(windDeg);
+
   const windIcon = generateWindIcon(windDeg);
 
   return {
