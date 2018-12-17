@@ -1,6 +1,5 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import MDSpinner from 'react-md-spinner';
 
 import { StyledLoaderMessage } from './styles';
 
@@ -9,7 +8,7 @@ const Loader = ({ children, ...props }) => (
 );
 
 Loader.defaultProps = {
-  children: <FontAwesomeIcon icon={faSpinner} size="lg" spin />,
+  children: <MDSpinner singleColor="#fff" />,
 };
 
 export default Loader;
