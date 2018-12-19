@@ -5,6 +5,7 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
+    "now-build": "npm run build",
     "test": "react-app-rewired test --env=jsdom",
     "lint": "eslint ./**/*.{js,jsx}",
     "lint:css": "stylelint ./**/*.{css,scss,sass,less} --config .stylelintrc-format.js",
