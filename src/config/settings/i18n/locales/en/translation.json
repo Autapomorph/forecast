@@ -30,14 +30,13 @@
         "forecastFetchFailed": "Forecast fetching failed"
       },
       "geolocation": {
-        "geoDenied": "Enable geolocation on your device",
-        "geoIPFailed": "GeoIP fetching failed"
+        "permissionDenied": "Grant geolocation permission in your browser",
+        "positionUnavailable": "Enable geolocation on your device",
+        "timeout": "Geolocation has reached timeout",
+        "geoIPFetchFailed": "GeoIP fetching failed"
       },
       "timezone": {
         "fetchFailed": "Timezone fetching failed"
-      },
-      "permissions": {
-        "APIUnavailable": "Permission API is not supported"
       }
     }
   },

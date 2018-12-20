@@ -30,14 +30,13 @@
         "forecastFetchFailed": "Ошибка загрузки прогноза погоды"
       },
       "geolocation": {
-        "geoDenied": "Включите определение местоположения",
-        "geoIPFailed": "Не удалось определить местоположение"
+        "permissionDenied": "Разрешите геолокацию в настройках браузера",
+        "positionUnavailable": "Включите геолокацию в настройках устройства",
+        "timeout": "Таймаут определения местоположения",
+        "geoIPFetchFailed": "Не удалось определить местоположение"
       },
       "timezone": {
         "fetchFailed": "Не удалось загрузить часовые пояса"
-      },
-      "permissions": {
-        "APIUnavailable": "Permission API не поддерживается"
       }
     }
   },
