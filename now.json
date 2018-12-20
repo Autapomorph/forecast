@@ -11,8 +11,10 @@
       }
     }
   ],
-  "env": {
-    "REACT_APP_OWM_API_KEY": "0cc1e365769e7138bbcfd2a60fda214d",
-    "REACT_APP_TZDB_API_KEY": "2F22B5FENMEG"
+  "build": {
+    "env": {
+      "REACT_APP_OWM_API_KEY": "0cc1e365769e7138bbcfd2a60fda214d",
+      "REACT_APP_TZDB_API_KEY": "2F22B5FENMEG"
+    }
   }
 }
