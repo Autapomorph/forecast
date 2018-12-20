@@ -6,7 +6,6 @@ import { UnitsFormatContext } from '../../../store/settings/context';
 import CitiesList from './CitiesList';
 import Title from '../../common/Title';
 import Loader from '../../common/messages/Loader';
-import Error from '../../common/messages/Error';
 import EmptyResult from '../../common/messages/EmptyResult';
 import {
   fetchCityWeather,
@@ -24,7 +23,11 @@ import {
 } from '../../../store/rootSelectors';
 import { OWM_API_CITY_ID_QUERY_PARAM } from '../../../config/weather';
 
-import { StyledSearchResultsSection, StyledSearchResultsHeader } from './styles';
+import {
+  StyledSearchResultsSection,
+  StyledSearchResultsHeader,
+  StyledSearchResultsError,
+} from './styles';
 
 export class SearchResults extends Component {
   fetchCityWeather = cityId => {
@@ -58,7 +61,11 @@ export class SearchResults extends Component {
     const isLoadedNotEmpty = !isLoading && !errorMessage && !isEmpty;
 
     const loaderBlock = isLoading ? <Loader /> : null;
-    const errorBlock = errorMessage ? <Error>{errorMessage}</Error> : null;
+
+    const errorBlock = errorMessage ? (
+      <StyledSearchResultsError>{t(errorMessage)}</StyledSearchResultsError>
+    ) : null;
+
     const emptyBlock = isLoadedEmpty ? (
       <EmptyResult>
         <h2>{t('cities.searchResults.emptyResult')}</h2>

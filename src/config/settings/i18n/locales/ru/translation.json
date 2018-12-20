@@ -23,6 +23,24 @@
       "addToFeatured": "Добавьте города в избранное"
     }
   },
+  "messages": {
+    "errors": {
+      "weather": {
+        "weatherFetchFailed": "Ошибка загрузки погоды",
+        "forecastFetchFailed": "Ошибка загрузки прогноза погоды"
+      },
+      "geolocation": {
+        "geoDenied": "Включите определение местоположения",
+        "geoIPFailed": "Не удалось определить местоположение"
+      },
+      "timezone": {
+        "fetchFailed": "Не удалось загрузить часовые пояса"
+      },
+      "permissions": {
+        "APIUnavailable": "Permission API не поддерживается"
+      }
+    }
+  },
   "settings": {
     "title": "Настройки",
     "unitsFormats": {

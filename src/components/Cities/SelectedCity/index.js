@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withNamespaces } from 'react-i18next';
 
 import { UnitsFormatContext } from '../../../store/settings/context';
 import City from './City';
@@ -32,6 +33,7 @@ export class SelectedCity extends Component {
 
   render() {
     const {
+      t,
       city,
       isActive,
       isLoading,
@@ -57,7 +59,7 @@ export class SelectedCity extends Component {
     if (errorMessage) {
       return (
         <StyledSelectedCitySection>
-          <StyledSelectedCityError>{errorMessage}</StyledSelectedCityError>
+          <StyledSelectedCityError>{t(errorMessage)}</StyledSelectedCityError>
         </StyledSelectedCitySection>
       );
     }
@@ -97,4 +99,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(SelectedCity);
+)(withNamespaces()(SelectedCity));

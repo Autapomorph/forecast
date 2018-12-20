@@ -46,7 +46,7 @@ export default class WeatherService {
     const response = await fetch(apiEndpoint);
 
     if (!response.ok) {
-      throw new Error('Weather fetching failed');
+      throw new Error('messages.errors.weather.weatherFetchFailed');
     }
 
     const cityWeatherData = await response.json();
@@ -64,7 +64,7 @@ export default class WeatherService {
     const response = await fetch(apiEndpoint);
 
     if (!response.ok) {
-      throw new Error('Forecast fetching failed');
+      throw new Error('messages.errors.weather.forecastFetchFailed');
     }
 
     const cityForecastData = await response.json();
@@ -82,7 +82,7 @@ export default class WeatherService {
     const response = await fetch(apiEndpoint);
 
     if (!response.ok) {
-      throw new Error('Weather fetching failed');
+      throw new Error('messages.errors.weather.weatherFetchFailed');
     }
 
     const cititesData = await response.json();

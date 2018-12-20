@@ -37,7 +37,7 @@ export default class TimezoneService {
     const response = await fetch(apiEndpoint);
 
     if (!response.ok) {
-      throw new Error('Timezone fetching failed');
+      throw new Error('messages.errors.timezone.fetchFailed');
     }
 
     const timezoneData = await response.json();

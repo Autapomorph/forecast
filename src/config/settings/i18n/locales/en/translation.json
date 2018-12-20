@@ -23,6 +23,24 @@
       "addToFeatured": "Add city to featured"
     }
   },
+  "messages": {
+    "errors": {
+      "weather": {
+        "weatherFetchFailed": "Weather fetching failed",
+        "forecastFetchFailed": "Forecast fetching failed"
+      },
+      "geolocation": {
+        "geoDenied": "Enable geolocation on your device",
+        "geoIPFailed": "GeoIP fetching failed"
+      },
+      "timezone": {
+        "fetchFailed": "Timezone fetching failed"
+      },
+      "permissions": {
+        "APIUnavailable": "Permission API is not supported"
+      }
+    }
+  },
   "settings": {
     "title": "Settings",
     "unitsFormats": {

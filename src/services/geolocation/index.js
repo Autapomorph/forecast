@@ -8,40 +8,35 @@ export default class GeolocationService {
           .query({ name: 'geolocation' })
           .then(permission => resolve(permission.state));
       } else {
-        reject(new Error('Permission API is not supported'));
+        reject(new Error('messages.errors.permissions.APIUnavailable'));
       }
     });
   }
 
-  static fetchGeolocationWithPermission = async () => {
-    try {
-      const geoPermissionState = await GeolocationService.getGeoPermissionState();
+  static fetchGeolocation = async () => {
+    const geoPermissionState = await GeolocationService.getGeoPermissionState();
 
-      if (geoPermissionState === 'denied') {
-        return GeolocationService.fetchGeolocationByIP();
-      }
-
-      return new Promise((resolve, reject) => {
-        navigator.geolocation.getCurrentPosition(resolve, reject);
-      });
-    } catch (e) {
-      return new Promise((resolve, reject) => {
-        navigator.geolocation.getCurrentPosition(resolve, reject);
-      });
+    /*
+      browsers do not show quick settings switcher if permission state is 'denied',
+      so it might be better disable permission check and only rely on results of
+      `navigator.geolocation.getCurrentPosition` method
+    */
+    if (geoPermissionState === 'denied') {
+      throw new Error('messages.errors.geolocation.geoDenied');
     }
-  };
 
-  static fetchGeolocation() {
     return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(resolve, reject);
+      navigator.geolocation.getCurrentPosition(resolve, () =>
+        reject(new Error('messages.errors.geolocation.geoDenied')),
+      );
     });
-  }
+  };
 
   static fetchGeolocationByIP = async () => {
     const response = await fetch(IPAPI_API);
 
     if (!response.ok) {
-      throw new Error('GeoIP fetching failed');
+      throw new Error('messages.errors.geolocation.geoIPFailed');
     }
 
     const geolocationData = await response.json();
