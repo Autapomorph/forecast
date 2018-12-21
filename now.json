@@ -16,5 +16,18 @@
       "REACT_APP_OWM_API_KEY": "0cc1e365769e7138bbcfd2a60fda214d",
       "REACT_APP_TZDB_API_KEY": "2F22B5FENMEG"
     }
-  }
+  },
+  "routes": [
+    { "src": "^/static/(.*)", "dest": "/static/$1" },
+    { "src": "^/favicon.ico", "dest": "/favicon.ico" },
+    { "src": "^/asset-manifest.json", "dest": "/asset-manifest.json" },
+    { "src": "^/manifest.json", "dest": "/manifest.json" },
+    {
+      "src": "^/serviceWorker.js",
+      "headers": { "cache-control": "s-maxage=0" },
+      "dest": "/serviceWorker.js"
+    },
+    { "src": "^/precache-manifest.(.*)", "dest": "/precache-manifest.$1" },
+    { "src": "^/(.*)", "dest": "/index.html" }
+  ]
 }
