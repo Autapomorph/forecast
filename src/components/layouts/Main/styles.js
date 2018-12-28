@@ -31,7 +31,6 @@ export const StyledContentWrapper = styled.main`
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
   grid-template-areas:
-    'geolocation'
     'cities'
     'featured-cities';
 `;

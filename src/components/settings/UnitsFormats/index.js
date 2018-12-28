@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import UnitsFormatsList from './UnitsFormatsList';
-import { getCurrentUnitsFormat } from '../../store/rootSelectors';
-import { changeUnitsFormat } from '../../store/settings/actions';
-import { availableUnitsFormats } from '../../config/settings/unitsFormats';
+import { getCurrentUnitsFormat } from '../../../store/rootSelectors';
+import { changeUnitsFormat } from '../../../store/settings/actions';
+import { availableUnitsFormats } from '../../../config/settings/unitsFormats';
 
 export const UnitsFormats = ({ selectedUnitsFormat, _changeUnitsFormat }) => (
   <UnitsFormatsList

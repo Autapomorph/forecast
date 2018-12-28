@@ -1,21 +1,42 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withNamespaces } from 'react-i18next';
+import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationArrow } from '@fortawesome/free-solid-svg-icons';
 
-import { fetchGeolocation, fetchGeolocationByIP } from '../../../store/geolocation/actions';
-import { fetchCityWeather } from '../../../store/cities/actions';
-import { getIsGeolocationLoading } from '../../../store/rootSelectors';
+import { fetchGeolocation, fetchGeolocationByIP } from '../../../../store/geolocation/actions';
+import { fetchCityWeather } from '../../../../store/cities/actions';
+import {
+  getIsGeolocationLoading,
+  getGeolocationErrorMessage,
+} from '../../../../store/rootSelectors';
 import {
   OWM_API_LATITUDE_QUERY_PARAM,
   OWM_API_LONGITUDE_QUERY_PARAM,
-} from '../../../config/weather';
+} from '../../../../config/weather';
 
-import { StyledInputButton } from '../../SearchBar/styles';
+import { StyledInputButton } from '../../../SearchBar/styles';
 
-export class GeoButton extends Component {
+export class GeolocationButton extends Component {
+  toastId = 'geoError';
+
   componentDidMount() {
     this.fetchGeolocationByIP();
+  }
+
+  componentDidUpdate() {
+    const { t, isLoading, errorMessage } = this.props;
+    const shouldShowToast = !isLoading && errorMessage && !toast.isActive(this.toastId);
+    const shouldDismissToast = !isLoading && !errorMessage && toast.isActive(this.toastId);
+
+    if (shouldShowToast) {
+      toast.error(t(errorMessage), {
+        toastId: this.toastId,
+      });
+    } else if (shouldDismissToast) {
+      toast.dismiss(this.toastId);
+    }
   }
 
   fetchGeolocation = () => {
@@ -57,6 +78,7 @@ export class GeoButton extends Component {
 
 const mapStateToProps = state => ({
   isLoading: getIsGeolocationLoading(state),
+  errorMessage: getGeolocationErrorMessage(state),
 });
 
 const mapDispatchToProps = {
@@ -68,4 +90,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(GeoButton);
+)(withNamespaces()(GeolocationButton));
