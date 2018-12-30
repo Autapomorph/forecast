@@ -89,6 +89,7 @@
       "*.{js,jsx}": [
         "prettier --write",
         "stylelint",
+        "eslint --max-warnings=0",
         "git add"
       ],
       "*.{css,scss,sass,less}": [
