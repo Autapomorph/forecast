@@ -2,6 +2,9 @@
   "version": 2,
   "name": "forecast",
   "alias": ["autapomorph-forecast"],
+  "github": {
+    "enabled": false
+  },
   "builds": [
     {
       "src": "package.json",

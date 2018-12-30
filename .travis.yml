@@ -1,3 +1,9 @@
 language: node_js
 
 node_js: 'node'
+
+deploy:
+  - provider: script
+    script: npx now --token $NOW_TOKEN && npx now alias autapomorph-forecast.now.sh --token $NOW_TOKEN
+    on:
+      branch: master
