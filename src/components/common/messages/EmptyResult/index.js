@@ -1,7 +1,9 @@
 import React from 'react';
 
-import Message from '../Message';
+import { StyledEmptyResultMessage } from './styles';
 
-const EmptyResult = ({ children, ...props }) => <Message {...props}>{children}</Message>;
+const EmptyResult = ({ children, ...props }) => (
+  <StyledEmptyResultMessage {...props}>{children}</StyledEmptyResultMessage>
+);
 
 export default EmptyResult;

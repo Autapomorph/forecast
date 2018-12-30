@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withNamespaces } from 'react-i18next';
+import { toast } from 'react-toastify';
 
 import { UnitsFormatContext } from '../../../store/settings/context';
 import City from './City';
 import Loader from '../../common/messages/Loader';
+import Message from '../../common/messages/Message';
 import {
   fetchCityWeather,
   addCityToFeatured,
@@ -20,9 +22,26 @@ import {
 } from '../../../store/rootSelectors';
 import { OWM_API_CITY_ID_QUERY_PARAM } from '../../../config/weather';
 
-import { StyledSelectedCitySection, StyledSelectedCityError } from './styles';
+import { StyledSelectedCitySection } from './styles';
 
 export class SelectedCity extends Component {
+  toastId = 'cityError';
+
+  componentDidUpdate() {
+    const { t, isLoading, errorMessage } = this.props;
+    const shouldShowToast = !isLoading && errorMessage && !toast.isActive(this.toastId);
+    const shouldDismissToast = !isLoading && !errorMessage && toast.isActive(this.toastId);
+
+    if (shouldShowToast) {
+      toast.error(t(errorMessage), {
+        toastId: this.toastId,
+        autoClose: false,
+      });
+    } else if (shouldDismissToast) {
+      toast.dismiss(this.toastId);
+    }
+  }
+
   fetchCityWeather = cityId => {
     const { _fetchCityWeather } = this.props;
 
@@ -33,7 +52,6 @@ export class SelectedCity extends Component {
 
   render() {
     const {
-      t,
       city,
       isActive,
       isLoading,
@@ -59,7 +77,7 @@ export class SelectedCity extends Component {
     if (errorMessage) {
       return (
         <StyledSelectedCitySection>
-          <StyledSelectedCityError>{t(errorMessage)}</StyledSelectedCityError>
+          <Message>¯\_(ツ)_/¯</Message>
         </StyledSelectedCitySection>
       );
     }

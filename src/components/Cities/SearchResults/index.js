@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withNamespaces } from 'react-i18next';
+import { toast } from 'react-toastify';
 
 import { UnitsFormatContext } from '../../../store/settings/context';
 import CitiesList from './CitiesList';
 import Title from '../../common/Title';
 import Loader from '../../common/messages/Loader';
+import Message from '../../common/messages/Message';
 import EmptyResult from '../../common/messages/EmptyResult';
 import {
   fetchCityWeather,
@@ -23,13 +25,26 @@ import {
 } from '../../../store/rootSelectors';
 import { OWM_API_CITY_ID_QUERY_PARAM } from '../../../config/weather';
 
-import {
-  StyledSearchResultsSection,
-  StyledSearchResultsHeader,
-  StyledSearchResultsError,
-} from './styles';
+import { StyledSearchResultsSection, StyledSearchResultsHeader } from './styles';
 
 export class SearchResults extends Component {
+  toastId = 'cityError';
+
+  componentDidUpdate() {
+    const { t, isLoading, errorMessage } = this.props;
+    const shouldShowToast = !isLoading && errorMessage && !toast.isActive(this.toastId);
+    const shouldDismissToast = !isLoading && !errorMessage && toast.isActive(this.toastId);
+
+    if (shouldShowToast) {
+      toast.error(t(errorMessage), {
+        toastId: this.toastId,
+        autoClose: false,
+      });
+    } else if (shouldDismissToast) {
+      toast.dismiss(this.toastId);
+    }
+  }
+
   fetchCityWeather = cityId => {
     const { _fetchCityWeather } = this.props;
 
@@ -62,14 +77,10 @@ export class SearchResults extends Component {
 
     const loaderBlock = isLoading ? <Loader /> : null;
 
-    const errorBlock = errorMessage ? (
-      <StyledSearchResultsError>{t(errorMessage)}</StyledSearchResultsError>
-    ) : null;
+    const errorBlock = errorMessage ? <Message>¯\_(ツ)_/¯</Message> : null;
 
     const emptyBlock = isLoadedEmpty ? (
-      <EmptyResult>
-        <h2>{t('cities.searchResults.emptyResult')}</h2>
-      </EmptyResult>
+      <EmptyResult>{t('cities.searchResults.emptyResult')}</EmptyResult>
     ) : null;
 
     return (
