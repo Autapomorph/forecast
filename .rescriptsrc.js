@@ -1,1 +1,1 @@
-module.exports = [['use-babel-config', '.babelrc.js']];
+module.exports = [['use-babel-config', 'babel.config.js']];

@@ -6,6 +6,15 @@ module.exports = {
   parser: 'babel-eslint',
   extends: ['airbnb', 'prettier', 'prettier/react', 'jest-enzyme'],
   plugins: ['prettier'],
+  settings: {
+    'import/resolver': {
+      'babel-module': {
+        alias: {
+          '~': './src',
+        },
+      },
+    },
+  },
   rules: {
     'prettier/prettier': 'error',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
