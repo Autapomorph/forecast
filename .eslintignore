@@ -1,6 +1,8 @@
 /build/
 /src/serviceWorker.js
+!.babelrc.js
 !.eslintrc.js
 !.prettierrc.js
 !.stylelintrc.js
 !.stylelintrc-format.js
+!.rescriptsrc.js
