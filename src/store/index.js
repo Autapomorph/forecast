@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import { isProd, isDev } from '../utils';
+import { isProd, isDev } from '~/utils';
 import rootReducer from './rootReducer';
 
 const composeEnhancers = isProd ? compose : composeWithDevTools;

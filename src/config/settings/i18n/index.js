@@ -3,7 +3,7 @@ import langDetector from 'i18next-browser-languagedetector';
 import { reactI18nextModule } from 'react-i18next';
 
 import resources from './locales';
-import removePropByKey from '../../../utils/common/removePropByKey';
+import removePropByKey from '~/utils/common/removePropByKey';
 
 i18n
   .use(langDetector)

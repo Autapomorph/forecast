@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import GeolocationService from '../../services/geolocation';
+import GeolocationService from '~/services/geolocation';
 
 // geolocation actions
 export const fetchGeoLocationRequest = () => ({

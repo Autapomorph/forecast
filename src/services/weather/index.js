@@ -1,5 +1,5 @@
-import i18n from '../../config/settings/i18n';
-import combineQueryParams from '../../utils/url/combineQueryParams';
+import i18n from '~/config/settings/i18n';
+import combineQueryParams from '~/utils/url/combineQueryParams';
 import {
   OWM_API_WEATHER_CITY,
   OWM_API_FORECAST_CITY,
@@ -7,7 +7,7 @@ import {
   OWM_API_KEY,
   OWM_API_KEY_QUERY_PARAM,
   OWM_API_LANG_QUERY_PARAM,
-} from '../../config/weather';
+} from '~/config/weather';
 
 export default class WeatherService {
   static getQueryString = searchParams => {

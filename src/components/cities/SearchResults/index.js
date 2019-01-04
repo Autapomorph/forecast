@@ -3,17 +3,17 @@ import { connect } from 'react-redux';
 import { withNamespaces } from 'react-i18next';
 import { toast } from 'react-toastify';
 
-import { UnitsFormatContext } from '../../../store/settings/context';
+import { UnitsFormatContext } from '~/store/settings/context';
 import CitiesList from './CitiesList';
-import Title from '../../common/Title';
-import Loader from '../../common/messages/Loader';
-import Message from '../../common/messages/Message';
-import EmptyResult from '../../common/messages/EmptyResult';
+import Title from '~/components/common/Title';
+import Loader from '~/components/common/messages/Loader';
+import Message from '~/components/common/messages/Message';
+import EmptyResult from '~/components/common/messages/EmptyResult';
 import {
   fetchCityWeather,
   addCityToFeatured,
   removeCityFromFeatured,
-} from '../../../store/cities/actions';
+} from '~/store/cities/actions';
 import {
   getCities,
   getSearchTerm,
@@ -22,8 +22,8 @@ import {
   getCitiesErrorMessage,
   getIsFeaturedCity,
   getCurrentUnitsFormat,
-} from '../../../store/rootSelectors';
-import { OWM_API_CITY_ID_QUERY_PARAM } from '../../../config/weather';
+} from '~/store/rootSelectors';
+import { OWM_API_CITY_ID_QUERY_PARAM } from '~/config/weather';
 
 import { StyledSearchResultsSection, StyledSearchResultsHeader } from './styles';
 

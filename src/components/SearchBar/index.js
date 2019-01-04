@@ -4,9 +4,9 @@ import { withNamespaces } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-import GeolocationButton from '../common/buttons/GeolocationButton';
-import { fetchCititesByName } from '../../store/cities/actions';
-import { OWM_API_CITY_NAME_QUERY_PARAM } from '../../config/weather';
+import GeolocationButton from '~/components/common/buttons/GeolocationButton';
+import { fetchCititesByName } from '~/store/cities/actions';
+import { OWM_API_CITY_NAME_QUERY_PARAM } from '~/config/weather';
 
 import {
   StyledSearchForm,

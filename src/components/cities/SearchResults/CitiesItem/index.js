@@ -1,12 +1,12 @@
 import React from 'react';
 import { withNamespaces } from 'react-i18next';
 
-import { UnitsFormatContext } from '../../../../store/settings/context';
-import FeaturedButton from '../../../common/buttons/FeaturedButton';
-import CountryFlag from '../../../common/icons/CountryFlag';
-import WeatherIcon from '../../../common/icons/WeatherIcon';
-import convertTemp from '../../../../utils/cityData/temperature';
-import convertSpeed from '../../../../utils/cityData/wind';
+import { UnitsFormatContext } from '~/store/settings/context';
+import FeaturedButton from '~/components/common/buttons/FeaturedButton';
+import CountryFlag from '~/components/common/icons/CountryFlag';
+import WeatherIcon from '~/components/common/icons/WeatherIcon';
+import convertTemp from '~/utils/cityData/temperature';
+import convertSpeed from '~/utils/cityData/wind';
 
 import {
   StyledCitiesItemWrapper,

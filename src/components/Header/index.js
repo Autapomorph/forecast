@@ -1,7 +1,7 @@
 import React from 'react';
 
-import SearchBar from '../SearchBar';
-import SettingsBar from '../settings/SettingsBar';
+import SearchBar from '~/components/SearchBar';
+import SettingsBar from '~/components/settings/SettingsBar';
 
 import { StyledHeader } from './styles';
 

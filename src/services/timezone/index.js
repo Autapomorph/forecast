@@ -1,4 +1,4 @@
-import combineQueryParams from '../../utils/url/combineQueryParams';
+import combineQueryParams from '~/utils/url/combineQueryParams';
 import {
   TZDB_API_TIMEZONE,
   TZDB_API_KEY_QUERY_PARAM,
@@ -8,7 +8,7 @@ import {
   TZDB_API_TIME_QUERY_PARAM,
   TZDB_API_LATITUDE_QUERY_PARAM,
   TZDB_API_LONGITUDE_QUERY_PARAM,
-} from '../../config/timezone';
+} from '~/config/timezone';
 
 export default class TimezoneService {
   static getQueryString = searchParams => {

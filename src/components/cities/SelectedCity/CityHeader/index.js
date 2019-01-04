@@ -1,11 +1,11 @@
 import React from 'react';
 import { withNamespaces } from 'react-i18next';
 
-import Title from '../../../common/Title';
-import RetryButton from '../../../common/buttons/RetryButton';
-import FeaturedButton from '../../../common/buttons/FeaturedButton';
-import CountryFlag from '../../../common/icons/CountryFlag';
-import { toDayMonthHourMinutes } from '../../../../utils/cityData/time/coverters';
+import Title from '~/components/common/Title';
+import RetryButton from '~/components/common/buttons/RetryButton';
+import FeaturedButton from '~/components/common/buttons/FeaturedButton';
+import CountryFlag from '~/components/common/icons/CountryFlag';
+import { toDayMonthHourMinutes } from '~/utils/cityData/time/coverters';
 
 import { StyledCityHeader, StyledTitleButtonsWrapper } from './styles';
 

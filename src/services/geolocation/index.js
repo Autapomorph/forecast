@@ -1,4 +1,4 @@
-import { IPAPI_API } from '../../config/geolocation';
+import { IPAPI_API } from '~/config/geolocation';
 
 export default class GeolocationService {
   static fetchGeolocation = async () =>
