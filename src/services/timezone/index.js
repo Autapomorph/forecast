@@ -1,4 +1,3 @@
-import combineQueryParams from '~/utils/url/combineQueryParams';
 import {
   TZDB_API_TIMEZONE,
   TZDB_API_KEY_QUERY_PARAM,
@@ -9,6 +8,8 @@ import {
   TZDB_API_LATITUDE_QUERY_PARAM,
   TZDB_API_LONGITUDE_QUERY_PARAM,
 } from '~/config/timezone';
+import combineQueryParams from '~/utils/url/combineQueryParams';
+import { isProd } from '~/utils';
 
 export default class TimezoneService {
   static getQueryString = searchParams => {
@@ -43,7 +44,8 @@ export default class TimezoneService {
     const timezoneData = await response.json();
 
     if (timezoneData.status !== 'OK') {
-      throw new Error(timezoneData.message);
+      if (!isProd) throw new Error(timezoneData.message);
+      throw new Error('messages.errors.timezone.fetchFailed');
     }
 
     return timezoneData;

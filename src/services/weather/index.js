@@ -1,5 +1,4 @@
 import i18n from '~/config/settings/i18n';
-import combineQueryParams from '~/utils/url/combineQueryParams';
 import {
   OWM_API_WEATHER_CITY,
   OWM_API_FORECAST_CITY,
@@ -8,6 +7,8 @@ import {
   OWM_API_KEY_QUERY_PARAM,
   OWM_API_LANG_QUERY_PARAM,
 } from '~/config/weather';
+import combineQueryParams from '~/utils/url/combineQueryParams';
+import { isProd } from '~/utils';
 
 export default class WeatherService {
   static getQueryString = searchParams => {
@@ -52,7 +53,8 @@ export default class WeatherService {
     const cityWeatherData = await response.json();
 
     if (Number(cityWeatherData.cod) !== 200) {
-      throw new Error(cityWeatherData.message);
+      if (!isProd) throw new Error(cityWeatherData.message);
+      throw new Error('messages.errors.weather.weatherFetchFailed');
     }
 
     return cityWeatherData;
@@ -70,7 +72,8 @@ export default class WeatherService {
     const cityForecastData = await response.json();
 
     if (Number(cityForecastData.cod) !== 200) {
-      throw new Error(cityForecastData.message);
+      if (!isProd) throw new Error(cityForecastData.message);
+      throw new Error('messages.errors.weather.forecastFetchFailed');
     }
 
     return cityForecastData;
@@ -88,7 +91,8 @@ export default class WeatherService {
     const cititesData = await response.json();
 
     if (Number(cititesData.cod) !== 200) {
-      throw new Error(cititesData.message);
+      if (!isProd) throw new Error(cititesData.message);
+      throw new Error('messages.errors.weather.weatherFetchFailed');
     }
 
     return cititesData;

@@ -1,4 +1,5 @@
 import { IPAPI_API } from '~/config/geolocation';
+import { isProd } from '~/utils';
 
 export default class GeolocationService {
   static fetchGeolocation = async () =>
@@ -27,7 +28,8 @@ export default class GeolocationService {
     const geolocationData = await response.json();
 
     if (geolocationData.error) {
-      throw new Error(geolocationData.reason);
+      if (!isProd) throw new Error(geolocationData.reason);
+      throw new Error('messages.errors.geolocation.geoIPFetchFailed');
     }
 
     return {
