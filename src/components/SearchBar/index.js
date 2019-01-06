@@ -6,7 +6,6 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import GeolocationButton from '~/components/common/buttons/GeolocationButton';
 import { fetchCititesByName } from '~/store/cities/actions';
-import { OWM_API_CITY_NAME_QUERY_PARAM } from '~/config/weather';
 
 import {
   StyledSearchForm,
@@ -50,9 +49,7 @@ export class SearchBar extends Component {
     const { _fetchCititesByName } = this.props;
     const { cityName } = this.state;
 
-    _fetchCititesByName({
-      [OWM_API_CITY_NAME_QUERY_PARAM]: cityName,
-    });
+    _fetchCititesByName(cityName);
 
     this.setState(
       {

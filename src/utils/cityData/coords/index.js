@@ -1,6 +1,6 @@
 export default function getCityCoords(cityData) {
   return {
-    lon: cityData.coord.lon,
-    lat: cityData.coord.lat,
+    longitude: cityData.coord.lon,
+    latitude: cityData.coord.lat,
   };
 }

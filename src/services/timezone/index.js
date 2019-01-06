@@ -4,7 +4,6 @@ import {
   TZDB_API_KEY,
   TZDB_API_FORMAT_QUERY_PARAM,
   TZDB_API_BY_QUERY_PARAM,
-  TZDB_API_TIME_QUERY_PARAM,
   TZDB_API_LATITUDE_QUERY_PARAM,
   TZDB_API_LONGITUDE_QUERY_PARAM,
 } from '~/config/timezone';
@@ -17,10 +16,8 @@ export default class TimezoneService {
       [TZDB_API_KEY_QUERY_PARAM]: TZDB_API_KEY,
       [TZDB_API_FORMAT_QUERY_PARAM]: 'json',
       [TZDB_API_BY_QUERY_PARAM]: 'position',
-      [TZDB_API_LATITUDE_QUERY_PARAM]: searchParams.lat,
-      [TZDB_API_LONGITUDE_QUERY_PARAM]: searchParams.lon,
-      [TZDB_API_TIME_QUERY_PARAM]: searchParams.time,
-      ...searchParams,
+      [TZDB_API_LATITUDE_QUERY_PARAM]: searchParams.latitude,
+      [TZDB_API_LONGITUDE_QUERY_PARAM]: searchParams.longitude,
     });
 
     return queryString;
@@ -44,8 +41,8 @@ export default class TimezoneService {
     const timezoneData = await response.json();
 
     if (timezoneData.status !== 'OK') {
-      if (!isProd) throw new Error(timezoneData.message);
-      throw new Error('messages.errors.timezone.fetchFailed');
+      if (isProd) throw new Error('messages.errors.timezone.fetchFailed');
+      throw new Error(timezoneData.message);
     }
 
     return timezoneData;

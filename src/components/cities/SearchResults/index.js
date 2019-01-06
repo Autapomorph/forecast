@@ -10,7 +10,7 @@ import Loader from '~/components/common/messages/Loader';
 import Message from '~/components/common/messages/Message';
 import EmptyResult from '~/components/common/messages/EmptyResult';
 import {
-  fetchCityWeather,
+  fetchCityWeatherById,
   addCityToFeatured,
   removeCityFromFeatured,
 } from '~/store/cities/actions';
@@ -23,7 +23,6 @@ import {
   getIsFeaturedCity,
   getCurrentUnitsFormat,
 } from '~/store/rootSelectors';
-import { OWM_API_CITY_ID_QUERY_PARAM } from '~/config/weather';
 
 import { StyledSearchResultsSection, StyledSearchResultsHeader } from './styles';
 
@@ -45,12 +44,10 @@ export class SearchResults extends Component {
     }
   }
 
-  fetchCityWeather = cityId => {
-    const { _fetchCityWeather } = this.props;
+  fetchCityById = cityId => {
+    const { _fetchCityWeatherById } = this.props;
 
-    _fetchCityWeather({
-      [OWM_API_CITY_ID_QUERY_PARAM]: cityId,
-    });
+    _fetchCityWeatherById(cityId);
   };
 
   render() {
@@ -98,7 +95,7 @@ export class SearchResults extends Component {
             <CitiesList
               cities={cities}
               checkIfFeatured={checkIfFeatured}
-              fetchCityWeather={this.fetchCityWeather}
+              fetchCity={this.fetchCityById}
               addCityToFeatured={_addCityToFeatured}
               removeCityFromFeatured={_removeCityFromFeatured}
             />
@@ -121,7 +118,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  _fetchCityWeather: fetchCityWeather,
+  _fetchCityWeatherById: fetchCityWeatherById,
   _addCityToFeatured: addCityToFeatured,
   _removeCityFromFeatured: removeCityFromFeatured,
 };

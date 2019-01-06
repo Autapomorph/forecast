@@ -20,7 +20,7 @@ const CitiesItem = ({
   t,
   city,
   isFeatured,
-  fetchCityWeather,
+  fetchCity,
   addCityToFeatured,
   removeCityFromFeatured,
 }) => (
@@ -32,7 +32,7 @@ const CitiesItem = ({
       return (
         <StyledCitiesItemWrapper>
           <StyledCitiesItemHeader>
-            <StyledCitiesItemTitle onClick={() => fetchCityWeather(city.id)}>
+            <StyledCitiesItemTitle onClick={() => fetchCity(city.id)}>
               {`${city.name} `}
               <CountryFlag country={city.country.toLowerCase()} size="1.2em" />
             </StyledCitiesItemTitle>

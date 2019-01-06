@@ -8,23 +8,20 @@ import Title from '~/components/common/Title';
 import TrashButton from '~/components/common/buttons/TrashButton';
 import EmptyResult from '~/components/common/messages/EmptyResult';
 import {
-  fetchCityWeather,
+  fetchCityWeatherById,
   removeCityFromFeatured,
   clearFeaturedCities,
   reorderFeaturedCities,
 } from '~/store/cities/actions';
 import { getFeaturedCities } from '~/store/rootSelectors';
-import { OWM_API_CITY_ID_QUERY_PARAM } from '~/config/weather';
 
 import { StyledFeaturedCitiesSection, StyledFeaturedCitiesHeader } from './styles';
 
 export class FeaturedCities extends Component {
-  fetchCity = cityId => {
-    const { _fetchCityWeather } = this.props;
+  fetchCityById = cityId => {
+    const { _fetchCityWeatherById } = this.props;
 
-    _fetchCityWeather({
-      [OWM_API_CITY_ID_QUERY_PARAM]: cityId,
-    });
+    _fetchCityWeatherById(cityId);
   };
 
   onDragEnd = ({ source, destination }) => {
@@ -60,7 +57,7 @@ export class FeaturedCities extends Component {
           <DragDropContext onDragEnd={this.onDragEnd}>
             <FeaturedCitiesList
               cities={featuredCities}
-              fetchCity={this.fetchCity}
+              fetchCity={this.fetchCityById}
               removeCityFromFeatured={_removeCityFromFeatured}
             />
           </DragDropContext>
@@ -75,7 +72,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  _fetchCityWeather: fetchCityWeather,
+  _fetchCityWeatherById: fetchCityWeatherById,
   _removeCityFromFeatured: removeCityFromFeatured,
   _clearFeaturedCities: clearFeaturedCities,
   _reorderFeaturedCities: reorderFeaturedCities,

@@ -7,7 +7,7 @@ import { StyledCitiesList } from './styles';
 const CitiesList = ({
   cities,
   checkIfFeatured,
-  fetchCityWeather,
+  fetchCity,
   addCityToFeatured,
   removeCityFromFeatured,
 }) => (
@@ -17,7 +17,7 @@ const CitiesList = ({
         key={city.id}
         city={city}
         isFeatured={checkIfFeatured(city.id)}
-        fetchCityWeather={fetchCityWeather}
+        fetchCity={fetchCity}
         addCityToFeatured={addCityToFeatured}
         removeCityFromFeatured={removeCityFromFeatured}
       />

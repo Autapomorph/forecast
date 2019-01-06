@@ -6,9 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationArrow } from '@fortawesome/free-solid-svg-icons';
 
 import { fetchGeolocation, fetchGeolocationByIP } from '~/store/geolocation/actions';
-import { fetchCityWeather } from '~/store/cities/actions';
+import { fetchCityWeatherByPosition } from '~/store/cities/actions';
 import { getIsGeolocationLoading, getGeolocationErrorMessage } from '~/store/rootSelectors';
-import { OWM_API_LATITUDE_QUERY_PARAM, OWM_API_LONGITUDE_QUERY_PARAM } from '~/config/weather';
 
 import { StyledInputButton } from '~/components/SearchBar/styles';
 
@@ -50,13 +49,10 @@ export class GeolocationButton extends Component {
   };
 
   geoLocationSuccess = geoData => {
-    const { _fetchCityWeather } = this.props;
+    const { _fetchCityWeatherByPosition } = this.props;
     const { latitude, longitude } = geoData.coords;
 
-    _fetchCityWeather({
-      [OWM_API_LATITUDE_QUERY_PARAM]: latitude,
-      [OWM_API_LONGITUDE_QUERY_PARAM]: longitude,
-    });
+    _fetchCityWeatherByPosition({ latitude, longitude });
   };
 
   render() {
@@ -78,7 +74,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   _fetchGeolocation: fetchGeolocation,
   _fetchGeolocationByIP: fetchGeolocationByIP,
-  _fetchCityWeather: fetchCityWeather,
+  _fetchCityWeatherByPosition: fetchCityWeatherByPosition,
 };
 
 export default connect(

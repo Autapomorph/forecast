@@ -53,8 +53,8 @@ export default class WeatherService {
     const cityWeatherData = await response.json();
 
     if (Number(cityWeatherData.cod) !== 200) {
-      if (!isProd) throw new Error(cityWeatherData.message);
-      throw new Error('messages.errors.weather.weatherFetchFailed');
+      if (isProd) throw new Error('messages.errors.weather.weatherFetchFailed');
+      throw new Error(cityWeatherData.message);
     }
 
     return cityWeatherData;
@@ -72,8 +72,8 @@ export default class WeatherService {
     const cityForecastData = await response.json();
 
     if (Number(cityForecastData.cod) !== 200) {
-      if (!isProd) throw new Error(cityForecastData.message);
-      throw new Error('messages.errors.weather.forecastFetchFailed');
+      if (isProd) throw new Error('messages.errors.weather.forecastFetchFailed');
+      throw new Error(cityForecastData.message);
     }
 
     return cityForecastData;
@@ -91,8 +91,8 @@ export default class WeatherService {
     const cititesData = await response.json();
 
     if (Number(cititesData.cod) !== 200) {
-      if (!isProd) throw new Error(cititesData.message);
-      throw new Error('messages.errors.weather.weatherFetchFailed');
+      if (isProd) throw new Error('messages.errors.weather.weatherFetchFailed');
+      throw new Error(cititesData.message);
     }
 
     return cititesData;

@@ -1,9 +1,12 @@
+import getCityCoords from './coords';
 import formatTime from './time';
 import formatWind from './wind/formatWind';
 import generateWeatherIcon from './icon/generateWeatherIcon';
 import formatForecastData from './formatForecastData';
 
 export default function formatWeatherData(weatherData, forecastData, timezoneData) {
+  const cityCoords = getCityCoords(weatherData);
+
   const { timeZone, timestamp, sunrise, sunset } = formatTime({
     timestamp: weatherData.dt,
     sunrise: weatherData.sys.sunrise,
@@ -27,10 +30,7 @@ export default function formatWeatherData(weatherData, forecastData, timezoneDat
     id: weatherData.id,
     name: weatherData.name,
     country: weatherData.sys.country,
-    coords: {
-      lon: weatherData.coord.lon,
-      lat: weatherData.coord.lat,
-    },
+    coords: cityCoords,
     forecast,
     weather: {
       timestamp,

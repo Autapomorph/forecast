@@ -28,8 +28,8 @@ export default class GeolocationService {
     const geolocationData = await response.json();
 
     if (geolocationData.error) {
-      if (!isProd) throw new Error(geolocationData.reason);
-      throw new Error('messages.errors.geolocation.geoIPFetchFailed');
+      if (isProd) throw new Error('messages.errors.geolocation.geoIPFetchFailed');
+      throw new Error(geolocationData.reason);
     }
 
     return {
