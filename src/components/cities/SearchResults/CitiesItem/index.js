@@ -1,71 +1,41 @@
 import React from 'react';
-import { withNamespaces } from 'react-i18next';
 
-import { UnitsFormatContext } from '~/store/settings/context';
 import FeaturedButton from '~/components/common/buttons/FeaturedButton';
 import CountryFlag from '~/components/common/icons/CountryFlag';
-import WeatherIcon from '~/components/common/icons/WeatherIcon';
-import convertTemp from '~/utils/cityData/temperature';
-import convertSpeed from '~/utils/cityData/wind';
+import generateCityName from '~/utils/cityData/generateCityName';
 
 import {
   StyledCitiesItemWrapper,
   StyledCitiesItemHeader,
   StyledCitiesItemTitle,
   StyledTitleButtonsWrapper,
-  StyledCitiesItemContent,
 } from './styles';
 
-const CitiesItem = ({
-  t,
-  city,
-  isFeatured,
-  fetchCity,
-  addCityToFeatured,
-  removeCityFromFeatured,
-}) => (
-  <UnitsFormatContext.Consumer>
-    {unitsFormat => {
-      const convertedTemp = convertTemp(city.weather.temp, unitsFormat);
-      const convertedWindSpeed = convertSpeed(city.weather.windSpeed, unitsFormat);
+const CitiesItem = ({ city, isFeatured, fetchCity, addCityToFeatured, removeCityFromFeatured }) => (
+  <StyledCitiesItemWrapper>
+    <StyledCitiesItemHeader>
+      <StyledCitiesItemTitle onClick={() => fetchCity(city.coords)}>
+        {`${generateCityName(city)} `}
+        <CountryFlag country={city.country.toLowerCase()} size="1.2em" />
+      </StyledCitiesItemTitle>
 
-      return (
-        <StyledCitiesItemWrapper>
-          <StyledCitiesItemHeader>
-            <StyledCitiesItemTitle onClick={() => fetchCity(city.id)}>
-              {`${city.name} `}
-              <CountryFlag country={city.country.toLowerCase()} size="1.2em" />
-            </StyledCitiesItemTitle>
-
-            <StyledTitleButtonsWrapper>
-              <FeaturedButton
-                isFeatured={isFeatured}
-                onRemove={() => removeCityFromFeatured(city.id)}
-                onAdd={() =>
-                  addCityToFeatured({
-                    id: city.id,
-                    name: city.name,
-                    country: city.country,
-                    coords: city.coords,
-                  })
-                }
-              />
-            </StyledTitleButtonsWrapper>
-          </StyledCitiesItemHeader>
-
-          <StyledCitiesItemContent>
-            <WeatherIcon icon={city.weather.weatherIcon} />
-            {` ${city.weather.description}`}
-
-            {`, ${convertedTemp}${t(`settings.unitsFormats.temp.${unitsFormat}`)}`}
-
-            {`, ${convertedWindSpeed} ${t(`settings.unitsFormats.speed.${unitsFormat}`)} `}
-            <WeatherIcon wind icon={city.weather.windIcon} />
-          </StyledCitiesItemContent>
-        </StyledCitiesItemWrapper>
-      );
-    }}
-  </UnitsFormatContext.Consumer>
+      <StyledTitleButtonsWrapper>
+        <FeaturedButton
+          isFeatured={isFeatured}
+          onRemove={() => removeCityFromFeatured(city.id)}
+          onAdd={() =>
+            addCityToFeatured({
+              id: city.id,
+              name: city.name,
+              region: city.region,
+              country: city.country,
+              coords: city.coords,
+            })
+          }
+        />
+      </StyledTitleButtonsWrapper>
+    </StyledCitiesItemHeader>
+  </StyledCitiesItemWrapper>
 );
 
-export default withNamespaces()(CitiesItem);
+export default CitiesItem;

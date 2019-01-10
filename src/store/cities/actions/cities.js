@@ -1,10 +1,6 @@
-import uniqBy from 'lodash/uniqBy';
-import keyBy from 'lodash/keyBy';
-
 import * as types from '../actionTypes';
-import WeatherService from '~/services/weather';
-import formatWeatherData from '~/utils/cityData/formatWeatherData';
-import { OWM_API_CITY_NAME_QUERY_PARAM } from '~/config/weather';
+import GeonamesService from '~/services/geonames';
+import formatCities from '~/utils/cityData/formatCities';
 import { getIsAnythingLoading } from '~/store/rootSelectors';
 
 export const fetchCitiesByNameRequest = searchTerm => ({
@@ -28,25 +24,19 @@ export const fetchCitiesByNameFailure = error => ({
   },
 });
 
-export const fetchCitites = searchParams => async (dispatch, getState) => {
+export const fetchCititesByName = searchParams => async (dispatch, getState) => {
   if (getIsAnythingLoading(getState())) {
     return;
   }
 
-  dispatch(fetchCitiesByNameRequest(searchParams[OWM_API_CITY_NAME_QUERY_PARAM]));
+  dispatch(fetchCitiesByNameRequest(searchParams));
 
   try {
-    const rawCitiesData = await WeatherService.fetchCititesByName(searchParams);
-    const citiesData = rawCitiesData.list.map(cityData => formatWeatherData(cityData));
-    const uniqCitiesById = uniqBy(citiesData, 'id');
-    const citiesById = keyBy(uniqCitiesById, 'id');
-    dispatch(fetchCitiesByNameSuccess(citiesById));
+    const rawCitiesData = await GeonamesService.fetchCitiesByName(searchParams);
+    const citiesData = formatCities(rawCitiesData);
+
+    dispatch(fetchCitiesByNameSuccess(citiesData));
   } catch (error) {
     dispatch(fetchCitiesByNameFailure(error));
   }
 };
-
-export const fetchCititesByName = cityName =>
-  fetchCitites({
-    [OWM_API_CITY_NAME_QUERY_PARAM]: cityName,
-  });

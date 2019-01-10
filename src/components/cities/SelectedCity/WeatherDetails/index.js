@@ -3,10 +3,10 @@ import { withNamespaces } from 'react-i18next';
 
 import { UnitsFormatContext } from '~/store/settings/context';
 import WeatherIcon from '~/components/common/icons/WeatherIcon';
-import convertTemp from '~/utils/cityData/temperature';
-import convertPressure from '~/utils/cityData/pressure';
-import convertSpeed from '~/utils/cityData/wind';
-import { toHourMinutes } from '~/utils/cityData/time/coverters';
+import convertTemp from '~/utils/weatherData/temperature';
+import convertPressure from '~/utils/weatherData/pressure';
+import convertSpeed from '~/utils/weatherData/wind';
+import { toHourMinutes } from '~/utils/weatherData/time/coverters';
 
 import {
   StyledWeatherDetailsWrapper,
@@ -21,14 +21,14 @@ const WeatherDetails = ({ t, i18n, city }) => (
       const cityDetailsLang = 'cities.selected.details';
       const convertedTemp = convertTemp(city.weather.temp, unitsFormat);
       const convertedPressure = convertPressure(city.weather.pressure, unitsFormat);
-      const convertedWindSpeed = convertSpeed(city.weather.windSpeed, unitsFormat);
+      const convertedWindSpeed = convertSpeed(city.weather.wind.speed, unitsFormat);
 
       return (
         <StyledWeatherDetailsWrapper>
           <StyledItem>
-            <StyledItemTitle>{t(`${cityDetailsLang}.description`)}:</StyledItemTitle>
+            <StyledItemTitle>{t(`${cityDetailsLang}.summary`)}:</StyledItemTitle>
             <StyledItemDescription>
-              {`${city.weather.description} `}
+              {`${city.weather.summary} `}
               <WeatherIcon icon={city.weather.weatherIcon} size="lg" />
             </StyledItemDescription>
 
@@ -43,9 +43,9 @@ const WeatherDetails = ({ t, i18n, city }) => (
             <StyledItemTitle>{t(`${cityDetailsLang}.wind`)}:</StyledItemTitle>
             <StyledItemDescription>
               {`${convertedWindSpeed} ${t(`settings.unitsFormats.speed.${unitsFormat}`)}, ${t(
-                `wind.${city.weather.windCardDir}`,
+                `wind.${city.weather.wind.cardDir}`,
               )}, `}
-              <WeatherIcon wind icon={city.weather.windIcon} size="lg" />
+              <WeatherIcon wind icon={city.weather.wind.icon} size="lg" />
             </StyledItemDescription>
 
             <StyledItemTitle>{t(`${cityDetailsLang}.pressure`)}:</StyledItemTitle>

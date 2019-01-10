@@ -1,13 +1,8 @@
 import * as types from '../actionTypes';
 import WeatherService from '~/services/weather';
-import TimezoneService from '~/services/timezone';
-import formatWeatherData from '~/utils/cityData/formatWeatherData';
-import getCityCoords from '~/utils/cityData/coords';
-import {
-  OWM_API_CITY_ID_QUERY_PARAM,
-  OWM_API_LATITUDE_QUERY_PARAM,
-  OWM_API_LONGITUDE_QUERY_PARAM,
-} from '~/config/weather';
+import GeonamesService from '~/services/geonames';
+import formatWeather from '~/utils/weatherData/formatWeather';
+import formatCities from '~/utils/cityData/formatCities';
 import { getIsAnythingLoading } from '~/store/rootSelectors';
 
 export const fetchCityWeatherRequest = () => ({
@@ -28,7 +23,7 @@ const fetchCityWeatherFailure = error => ({
   },
 });
 
-export const fetchCityWeather = searchParams => async (dispatch, getState) => {
+export const fetchCityWeatherByPosition = position => async (dispatch, getState) => {
   if (getIsAnythingLoading(getState())) {
     return;
   }
@@ -36,33 +31,16 @@ export const fetchCityWeather = searchParams => async (dispatch, getState) => {
   dispatch(fetchCityWeatherRequest());
 
   try {
-    const [rawCityWeatherData, rawCityForecastData] = await Promise.all([
-      WeatherService.fetchCityWeather(searchParams),
-      WeatherService.fetchCityForecast(searchParams),
+    const [rawCityWeatherData, rawNearbyData] = await Promise.all([
+      WeatherService.fetchCityWeather(position),
+      GeonamesService.fetchNearbyPlace(position),
     ]);
 
-    const timezoneData = await TimezoneService.fetchTimezoneByCoords(
-      getCityCoords(rawCityWeatherData),
-    );
+    const cityWeatherData = formatWeather(rawCityWeatherData);
+    const nearbyData = formatCities(rawNearbyData)[0];
 
-    const cityWeatherData = formatWeatherData(
-      rawCityWeatherData,
-      rawCityForecastData,
-      timezoneData,
-    );
-    dispatch(fetchCityWeatherSuccess(cityWeatherData));
+    dispatch(fetchCityWeatherSuccess({ ...cityWeatherData, ...nearbyData }));
   } catch (error) {
     dispatch(fetchCityWeatherFailure(error));
   }
 };
-
-export const fetchCityWeatherById = cityId =>
-  fetchCityWeather({
-    [OWM_API_CITY_ID_QUERY_PARAM]: cityId,
-  });
-
-export const fetchCityWeatherByPosition = ({ latitude, longitude }) =>
-  fetchCityWeather({
-    [OWM_API_LATITUDE_QUERY_PARAM]: latitude,
-    [OWM_API_LONGITUDE_QUERY_PARAM]: longitude,
-  });

@@ -8,7 +8,7 @@ import City from './City';
 import Loader from '~/components/common/messages/Loader';
 import Message from '~/components/common/messages/Message';
 import {
-  fetchCityWeatherById,
+  fetchCityWeatherByPosition,
   addCityToFeatured,
   removeCityFromFeatured,
 } from '~/store/cities/actions';
@@ -41,10 +41,10 @@ export class SelectedCity extends Component {
     }
   }
 
-  fetchCityById = cityId => {
-    const { _fetchCityWeatherById } = this.props;
+  fetchCityByPosition = position => {
+    const { _fetchCityWeatherByPosition } = this.props;
 
-    _fetchCityWeatherById(cityId);
+    _fetchCityWeatherByPosition(position);
   };
 
   render() {
@@ -85,7 +85,7 @@ export class SelectedCity extends Component {
           <City
             city={city}
             isFeatured={checkIfFeatured(city.id)}
-            refetchCityWeather={() => this.fetchCityById(city.id)}
+            refetchCityWeather={() => this.fetchCityByPosition(city.coords)}
             addCityToFeatured={_addCityToFeatured}
             removeCityFromFeatured={_removeCityFromFeatured}
           />
@@ -106,7 +106,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  _fetchCityWeatherById: fetchCityWeatherById,
+  _fetchCityWeatherByPosition: fetchCityWeatherByPosition,
   _addCityToFeatured: addCityToFeatured,
   _removeCityFromFeatured: removeCityFromFeatured,
 };

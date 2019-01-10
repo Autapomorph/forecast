@@ -6,10 +6,10 @@ import { faTint, faThermometerHalf } from '@fortawesome/free-solid-svg-icons';
 
 import { UnitsFormatContext } from '~/store/settings/context';
 import WeatherIcon from '~/components/common/icons/WeatherIcon';
-import convertTemp from '~/utils/cityData/temperature';
-import convertPressure from '~/utils/cityData/pressure';
-import convertSpeed from '~/utils/cityData/wind';
-import { toDayMonth, toHourMinutes } from '~/utils/cityData/time/coverters';
+import convertTemp from '~/utils/weatherData/temperature';
+import convertPressure from '~/utils/weatherData/pressure';
+import convertSpeed from '~/utils/weatherData/wind';
+import { toDayMonth } from '~/utils/weatherData/time/coverters';
 
 import {
   StyledForecastWrapper,
@@ -54,15 +54,15 @@ const ForecastDetails = ({ t, i18n, city }) => (
             },
           ]}
         >
-          {city.forecast.map(f => {
-            const convertedTemp = convertTemp(f.temp, unitsFormat);
-            const convertedPressure = convertPressure(f.pressure, unitsFormat);
-            const convertedWindSpeed = convertSpeed(f.windSpeed, unitsFormat);
+          {city.dailyForecast.map(day => {
+            const convertedTemp = convertTemp(day.temp, unitsFormat);
+            const convertedPressure = convertPressure(day.pressure, unitsFormat);
+            const convertedWindSpeed = convertSpeed(day.wind.speed, unitsFormat);
 
             return (
-              <StyledForecastItem key={f.timestamp}>
+              <StyledForecastItem key={day.timestamp}>
                 <StyledForecastItemDetail>
-                  <WeatherIcon icon={f.weatherIcon} size="lg" />
+                  <WeatherIcon icon={day.weatherIcon} size="lg" />
                 </StyledForecastItemDetail>
 
                 <StyledForecastItemDetail>
@@ -70,14 +70,14 @@ const ForecastDetails = ({ t, i18n, city }) => (
                 </StyledForecastItemDetail>
 
                 <StyledForecastItemDetail>
-                  <StyledDescription>{f.description}</StyledDescription>
+                  <StyledDescription>{day.summary}</StyledDescription>
                 </StyledForecastItemDetail>
 
                 <StyledItemDetailsList>
                   <StyledIcon>
                     <FontAwesomeIcon icon={faTint} size="lg" />
                   </StyledIcon>
-                  <StyledIconDescription>{`${f.humidity}%`}</StyledIconDescription>
+                  <StyledIconDescription>{`${day.humidity}%`}</StyledIconDescription>
 
                   <StyledIcon>
                     <FontAwesomeIcon icon={faThermometerHalf} size="lg" />
@@ -87,7 +87,7 @@ const ForecastDetails = ({ t, i18n, city }) => (
                   </StyledIconDescription>
 
                   <StyledIcon>
-                    <WeatherIcon wind icon={f.windIcon} size="lg" />
+                    <WeatherIcon wind icon={day.wind.icon} size="lg" />
                   </StyledIcon>
                   <StyledIconDescription>
                     {`${convertedWindSpeed} ${t(`settings.unitsFormats.speed.${unitsFormat}`)}`}
@@ -97,9 +97,7 @@ const ForecastDetails = ({ t, i18n, city }) => (
                 <StyledDivider />
 
                 <StyledForecastItemDetail>
-                  {toDayMonth(f.timestamp, i18n.language)}
-                  <br />
-                  {toHourMinutes(f.timestamp, i18n.language)}
+                  {toDayMonth(day.timestamp, i18n.language)}
                 </StyledForecastItemDetail>
               </StyledForecastItem>
             );

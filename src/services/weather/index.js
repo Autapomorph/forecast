@@ -1,11 +1,9 @@
 import i18n from '~/config/settings/i18n';
 import {
-  OWM_API_WEATHER_CITY,
-  OWM_API_FORECAST_CITY,
-  OWM_API_SEARCH_CITIES,
-  OWM_API_KEY,
-  OWM_API_KEY_QUERY_PARAM,
-  OWM_API_LANG_QUERY_PARAM,
+  DARKSKY_API_FORECAST,
+  DARKSKY_API_KEY,
+  DARKSKY_API_LANG_QUERY_PARAM,
+  DARKSKY_API_UNITS_QUERY_PARAM,
 } from '~/config/weather';
 import combineQueryParams from '~/utils/url/combineQueryParams';
 import { isProd } from '~/utils';
@@ -15,86 +13,36 @@ export default class WeatherService {
     const currentLanguage = i18n.languages[0];
 
     const queryString = combineQueryParams({
-      [OWM_API_KEY_QUERY_PARAM]: OWM_API_KEY,
-      [OWM_API_LANG_QUERY_PARAM]: currentLanguage,
+      [DARKSKY_API_LANG_QUERY_PARAM]: currentLanguage,
+      [DARKSKY_API_UNITS_QUERY_PARAM]: 'si',
       ...searchParams,
     });
 
     return queryString;
   };
 
-  static getAPIWeatherEndpoint = searchParams => {
-    const queryString = WeatherService.getQueryString(searchParams);
+  static getAPIWeatherEndpoint = ({ latitude, longitude }) => {
+    const queryString = WeatherService.getQueryString();
 
-    return `${OWM_API_WEATHER_CITY}?${queryString}`;
+    return `${DARKSKY_API_FORECAST}/${DARKSKY_API_KEY}/${latitude},${longitude}?${queryString}`;
   };
 
-  static getAPIForecastEndpoint = searchParams => {
-    const queryString = WeatherService.getQueryString(searchParams);
+  static fetchCityWeather = async position => {
+    const apiEndpoint = WeatherService.getAPIWeatherEndpoint(position);
 
-    return `${OWM_API_FORECAST_CITY}?${queryString}`;
-  };
-
-  static getAPISearchEndpoint = searchParams => {
-    const queryString = WeatherService.getQueryString(searchParams);
-
-    return `${OWM_API_SEARCH_CITIES}?${queryString}`;
-  };
-
-  static fetchCityWeather = async searchParams => {
-    const apiEndpoint = WeatherService.getAPIWeatherEndpoint(searchParams);
-
-    const response = await fetch(apiEndpoint);
+    const response = await fetch(`https://cors-anywhere.herokuapp.com/${apiEndpoint}`);
 
     if (!response.ok) {
-      throw new Error('messages.errors.weather.weatherFetchFailed');
+      throw new Error('messages.errors.weather.fetchFailed');
     }
 
     const cityWeatherData = await response.json();
 
-    if (Number(cityWeatherData.cod) !== 200) {
-      if (isProd) throw new Error('messages.errors.weather.weatherFetchFailed');
-      throw new Error(cityWeatherData.message);
+    if (cityWeatherData.flags['darksky-unavailable']) {
+      if (isProd) throw new Error('messages.errors.weather.fetchFailed');
+      throw new Error(cityWeatherData.flags['darksky-unavailable']);
     }
 
     return cityWeatherData;
-  };
-
-  static fetchCityForecast = async searchParams => {
-    const apiEndpoint = WeatherService.getAPIForecastEndpoint(searchParams);
-
-    const response = await fetch(apiEndpoint);
-
-    if (!response.ok) {
-      throw new Error('messages.errors.weather.forecastFetchFailed');
-    }
-
-    const cityForecastData = await response.json();
-
-    if (Number(cityForecastData.cod) !== 200) {
-      if (isProd) throw new Error('messages.errors.weather.forecastFetchFailed');
-      throw new Error(cityForecastData.message);
-    }
-
-    return cityForecastData;
-  };
-
-  static fetchCititesByName = async searchParams => {
-    const apiEndpoint = WeatherService.getAPISearchEndpoint(searchParams);
-
-    const response = await fetch(apiEndpoint);
-
-    if (!response.ok) {
-      throw new Error('messages.errors.weather.weatherFetchFailed');
-    }
-
-    const cititesData = await response.json();
-
-    if (Number(cititesData.cod) !== 200) {
-      if (isProd) throw new Error('messages.errors.weather.weatherFetchFailed');
-      throw new Error(cititesData.message);
-    }
-
-    return cititesData;
   };
 }

@@ -5,7 +5,7 @@
   "cities": {
     "selected": {
       "details": {
-        "description": "Description",
+        "summary": "Summary",
         "temperature": "Temperature",
         "pressure": "Pressure",
         "humidity": "Humidity",
@@ -26,17 +26,21 @@
   "messages": {
     "errors": {
       "weather": {
-        "weatherFetchFailed": "Weather fetching failed",
-        "forecastFetchFailed": "Forecast fetching failed"
+        "fetchFailed": "Weather fetching failed"
+      },
+      "geonames": {
+        "search": {
+          "fetchFailed": "Searching failed"
+        },
+        "findNearby": {
+          "fetchFailed": "City data fetching failed"
+        }
       },
       "geolocation": {
         "permissionDenied": "Grant geolocation permission in your browser",
         "positionUnavailable": "Enable geolocation on your device",
         "timeout": "Geolocation has reached timeout",
         "geoIPFetchFailed": "GeoIP fetching failed"
-      },
-      "timezone": {
-        "fetchFailed": "Timezone fetching failed"
       }
     }
   },

@@ -8,7 +8,7 @@ import Title from '~/components/common/Title';
 import TrashButton from '~/components/common/buttons/TrashButton';
 import EmptyResult from '~/components/common/messages/EmptyResult';
 import {
-  fetchCityWeatherById,
+  fetchCityWeatherByPosition,
   removeCityFromFeatured,
   clearFeaturedCities,
   reorderFeaturedCities,
@@ -18,10 +18,10 @@ import { getFeaturedCities } from '~/store/rootSelectors';
 import { StyledFeaturedCitiesSection, StyledFeaturedCitiesHeader } from './styles';
 
 export class FeaturedCities extends Component {
-  fetchCityById = cityId => {
-    const { _fetchCityWeatherById } = this.props;
+  fetchCityByPosition = position => {
+    const { _fetchCityWeatherByPosition } = this.props;
 
-    _fetchCityWeatherById(cityId);
+    _fetchCityWeatherByPosition(position);
   };
 
   onDragEnd = ({ source, destination }) => {
@@ -57,7 +57,7 @@ export class FeaturedCities extends Component {
           <DragDropContext onDragEnd={this.onDragEnd}>
             <FeaturedCitiesList
               cities={featuredCities}
-              fetchCity={this.fetchCityById}
+              fetchCity={this.fetchCityByPosition}
               removeCityFromFeatured={_removeCityFromFeatured}
             />
           </DragDropContext>
@@ -72,7 +72,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  _fetchCityWeatherById: fetchCityWeatherById,
+  _fetchCityWeatherByPosition: fetchCityWeatherByPosition,
   _removeCityFromFeatured: removeCityFromFeatured,
   _clearFeaturedCities: clearFeaturedCities,
   _reorderFeaturedCities: reorderFeaturedCities,

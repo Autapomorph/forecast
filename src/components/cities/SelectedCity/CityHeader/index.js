@@ -5,7 +5,8 @@ import Title from '~/components/common/Title';
 import RetryButton from '~/components/common/buttons/RetryButton';
 import FeaturedButton from '~/components/common/buttons/FeaturedButton';
 import CountryFlag from '~/components/common/icons/CountryFlag';
-import { toDayMonthHourMinutes } from '~/utils/cityData/time/coverters';
+import { toDayMonthHourMinutes } from '~/utils/weatherData/time/coverters';
+import generateCityName from '~/utils/cityData/generateCityName';
 
 import { StyledCityHeader, StyledTitleButtonsWrapper } from './styles';
 
@@ -19,7 +20,7 @@ const CityHeader = ({
 }) => (
   <StyledCityHeader>
     <Title>
-      {`${city.name} `}
+      {`${generateCityName(city)} `}
       <CountryFlag country={city.country.toLowerCase()} />
 
       <br />

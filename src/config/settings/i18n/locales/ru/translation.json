@@ -5,7 +5,7 @@
   "cities": {
     "selected": {
       "details": {
-        "description": "Описание",
+        "summary": "Описание",
         "temperature": "Температура",
         "pressure": "Давление",
         "humidity": "Влажность",
@@ -26,17 +26,21 @@
   "messages": {
     "errors": {
       "weather": {
-        "weatherFetchFailed": "Ошибка загрузки погоды",
-        "forecastFetchFailed": "Ошибка загрузки прогноза погоды"
+        "fetchFailed": "Ошибка загрузки погоды"
+      },
+      "geonames": {
+        "search": {
+          "fetchFailed": "Не удалось выполнить поиск"
+        },
+        "findNearby": {
+          "fetchFailed": "Не удалось загрузить информацию о городе"
+        }
       },
       "geolocation": {
         "permissionDenied": "Разрешите геолокацию в настройках браузера",
         "positionUnavailable": "Включите геолокацию в настройках устройства",
         "timeout": "Таймаут определения местоположения",
         "geoIPFetchFailed": "Не удалось определить местоположение"
-      },
-      "timezone": {
-        "fetchFailed": "Не удалось загрузить часовые пояса"
       }
     }
   },

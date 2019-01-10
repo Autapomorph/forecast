@@ -29,7 +29,7 @@ export const StyledTitleButtonsWrapper = styled.div`
 export const StyledCitiesItemHeader = styled.h4`
   display: flex;
   align-items: center;
-  margin: 0 0 10px 0;
+  margin: 5px 0;
   font-weight: bold;
 
   ${StyledCitiesItemTitle} {

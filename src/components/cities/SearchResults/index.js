@@ -10,7 +10,7 @@ import Loader from '~/components/common/messages/Loader';
 import Message from '~/components/common/messages/Message';
 import EmptyResult from '~/components/common/messages/EmptyResult';
 import {
-  fetchCityWeatherById,
+  fetchCityWeatherByPosition,
   addCityToFeatured,
   removeCityFromFeatured,
 } from '~/store/cities/actions';
@@ -44,10 +44,10 @@ export class SearchResults extends Component {
     }
   }
 
-  fetchCityById = cityId => {
-    const { _fetchCityWeatherById } = this.props;
+  fetchCityByPosition = position => {
+    const { _fetchCityWeatherByPosition } = this.props;
 
-    _fetchCityWeatherById(cityId);
+    _fetchCityWeatherByPosition(position);
   };
 
   render() {
@@ -95,7 +95,7 @@ export class SearchResults extends Component {
             <CitiesList
               cities={cities}
               checkIfFeatured={checkIfFeatured}
-              fetchCity={this.fetchCityById}
+              fetchCity={this.fetchCityByPosition}
               addCityToFeatured={_addCityToFeatured}
               removeCityFromFeatured={_removeCityFromFeatured}
             />
@@ -118,7 +118,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  _fetchCityWeatherById: fetchCityWeatherById,
+  _fetchCityWeatherByPosition: fetchCityWeatherByPosition,
   _addCityToFeatured: addCityToFeatured,
   _removeCityFromFeatured: removeCityFromFeatured,
 };
