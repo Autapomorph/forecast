@@ -1,7 +1,8 @@
 import i18n from '~/config/settings/i18n';
 import {
-  DARKSKY_API_FORECAST,
-  DARKSKY_API_KEY,
+  DARKSKY_API_BASE,
+  DARKSKY_API_QUERY_LATITUDE_PARAM,
+  DARKSKY_API_QUERY_LONGITUDE_PARAM,
   DARKSKY_API_LANG_QUERY_PARAM,
   DARKSKY_API_UNITS_QUERY_PARAM,
 } from '~/config/weather';
@@ -22,15 +23,18 @@ export default class WeatherService {
   };
 
   static getAPIWeatherEndpoint = ({ latitude, longitude }) => {
-    const queryString = WeatherService.getQueryString();
+    const queryString = WeatherService.getQueryString({
+      [DARKSKY_API_QUERY_LATITUDE_PARAM]: latitude,
+      [DARKSKY_API_QUERY_LONGITUDE_PARAM]: longitude,
+    });
 
-    return `${DARKSKY_API_FORECAST}/${DARKSKY_API_KEY}/${latitude},${longitude}?${queryString}`;
+    return `${DARKSKY_API_BASE}?${queryString}`;
   };
 
   static fetchCityWeather = async position => {
     const apiEndpoint = WeatherService.getAPIWeatherEndpoint(position);
 
-    const response = await fetch(`https://cors-anywhere.herokuapp.com/${apiEndpoint}`);
+    const response = await fetch(apiEndpoint);
 
     if (!response.ok) {
       throw new Error('messages.errors.weather.fetchFailed');

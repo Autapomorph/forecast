@@ -12,15 +12,25 @@
       "config": {
         "distDir": "build"
       }
+    },
+    {
+      "src": "src/api/index.js",
+      "use": "@now/node-server"
     }
   ],
+  "env": {
+    "REACT_APP_DARKSKY_API_KEY": "aea106c145b8ecec0014ee08d0c885c1"
+  },
   "build": {
     "env": {
-      "REACT_APP_OWM_API_KEY": "0cc1e365769e7138bbcfd2a60fda214d",
-      "REACT_APP_TZDB_API_KEY": "2F22B5FENMEG"
+      "REACT_APP_HOSTNAME": "autapomorph-forecast.now.sh",
+      "REACT_APP_SECURE": "true",
+      "REACT_APP_GEONAMES_API_KEY": "autapomorph"
     }
   },
   "routes": [
+    { "src": "^/proxy(.*)", "dest": "/src/api/index.js" },
+    { "src": "^/api/(.*)", "dest": "/src/api/index.js" },
     { "src": "^/static/(.*)", "dest": "/static/$1" },
     { "src": "^/images/(.*)", "dest": "/images/$1" },
     { "src": "^/favicon.ico", "dest": "/favicon.ico" },
