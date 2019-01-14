@@ -38,6 +38,7 @@ const CityHeader = ({
           addCityToFeatured({
             id: city.id,
             name: city.name,
+            region: city.region,
             country: city.country,
             coords: city.coords,
           })
