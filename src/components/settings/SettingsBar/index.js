@@ -1,5 +1,5 @@
 import React from 'react';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import Collapsible from 'react-collapsible';
 
 import UnitsFormats from '../UnitsFormats';
@@ -17,4 +17,4 @@ const SettingsBar = ({ t }) => (
   </StyledSettingsBar>
 );
 
-export default withNamespaces()(SettingsBar);
+export default withTranslation()(SettingsBar);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { UnitsFormatContext } from '~/store/settings/context';
 import WeatherIcon from '~/components/common/icons/WeatherIcon';
@@ -70,4 +70,4 @@ const WeatherDetails = ({ t, i18n, city }) => (
   </UnitsFormatContext.Consumer>
 );
 
-export default withNamespaces()(WeatherDetails);
+export default withTranslation()(WeatherDetails);

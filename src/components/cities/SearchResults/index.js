@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 
 import { UnitsFormatContext } from '~/store/settings/context';
@@ -126,4 +126,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(withNamespaces()(SearchResults));
+)(withTranslation()(SearchResults));

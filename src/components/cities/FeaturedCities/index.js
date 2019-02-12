@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { DragDropContext } from 'react-beautiful-dnd';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import FeaturedCitiesList from './FeaturedCitiesList';
 import Title from '~/components/common/Title';
@@ -81,4 +81,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(withNamespaces()(FeaturedCities));
+)(withTranslation()(FeaturedCities));

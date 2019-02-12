@@ -1,5 +1,5 @@
 import React from 'react';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import Slider from 'react-slick';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTint, faThermometerHalf } from '@fortawesome/free-solid-svg-icons';
@@ -108,4 +108,4 @@ const ForecastDetails = ({ t, i18n, city }) => (
   </UnitsFormatContext.Consumer>
 );
 
-export default withNamespaces()(ForecastDetails);
+export default withTranslation()(ForecastDetails);

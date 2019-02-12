@@ -1,5 +1,5 @@
 import React from 'react';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { StyledSwitchButton, StyledLabel, StyledRadioButton, StyledLabelText } from './styles';
 
@@ -18,4 +18,4 @@ const UnitsFormatsButton = ({ t, unitsFormat, checked, handleChange }) => (
   </StyledSwitchButton>
 );
 
-export default withNamespaces()(UnitsFormatsButton);
+export default withTranslation()(UnitsFormatsButton);

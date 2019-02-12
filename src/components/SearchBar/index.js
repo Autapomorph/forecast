@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -90,4 +90,4 @@ const mapDispatchToProps = {
 export default connect(
   null,
   mapDispatchToProps,
-)(withNamespaces()(SearchBar));
+)(withTranslation()(SearchBar));

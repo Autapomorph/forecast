@@ -1,5 +1,5 @@
 import React from 'react';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import Title from '~/components/common/Title';
 import RetryButton from '~/components/common/buttons/RetryButton';
@@ -48,4 +48,4 @@ const CityHeader = ({
   </StyledCityHeader>
 );
 
-export default withNamespaces()(CityHeader);
+export default withTranslation()(CityHeader);
