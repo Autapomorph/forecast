@@ -26,18 +26,16 @@ ShallowWrapper {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
       "componentStyle": ComponentStyle {
-        "componentId": "sc-htpNat",
+        "componentId": "styles__StyledEmptyResultMessage-sc-16npz6u-0",
         "isStatic": true,
         "rules": Array [
-          "
-  margin: 20px 0;
-",
+          "margin:20px 0;",
         ],
       },
-      "displayName": "Styled(Message)",
+      "displayName": "styles__StyledEmptyResultMessage",
       "foldedComponentIds": Array [],
       "render": [Function],
-      "styledComponentId": "sc-htpNat",
+      "styledComponentId": "styles__StyledEmptyResultMessage-sc-16npz6u-0",
       "target": [Function],
       "toString": [Function],
       "warnTooManyClasses": [Function],
@@ -59,18 +57,16 @@ ShallowWrapper {
         "$$typeof": Symbol(react.forward_ref),
         "attrs": Array [],
         "componentStyle": ComponentStyle {
-          "componentId": "sc-htpNat",
+          "componentId": "styles__StyledEmptyResultMessage-sc-16npz6u-0",
           "isStatic": true,
           "rules": Array [
-            "
-  margin: 20px 0;
-",
+            "margin:20px 0;",
           ],
         },
-        "displayName": "Styled(Message)",
+        "displayName": "styles__StyledEmptyResultMessage",
         "foldedComponentIds": Array [],
         "render": [Function],
-        "styledComponentId": "sc-htpNat",
+        "styledComponentId": "styles__StyledEmptyResultMessage-sc-16npz6u-0",
         "target": [Function],
         "toString": [Function],
         "warnTooManyClasses": [Function],

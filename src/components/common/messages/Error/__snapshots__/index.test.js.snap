@@ -26,19 +26,16 @@ ShallowWrapper {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
       "componentStyle": ComponentStyle {
-        "componentId": "sc-htpNat",
+        "componentId": "styles__StyledErrorMessage-jx77c0-0",
         "isStatic": true,
         "rules": Array [
-          "
-  background: var(--bg-error);
-  color: var(--error-text-color);
-",
+          "background:var(--bg-error);color:var(--error-text-color);",
         ],
       },
-      "displayName": "Styled(Message)",
+      "displayName": "styles__StyledErrorMessage",
       "foldedComponentIds": Array [],
       "render": [Function],
-      "styledComponentId": "sc-htpNat",
+      "styledComponentId": "styles__StyledErrorMessage-jx77c0-0",
       "target": [Function],
       "toString": [Function],
       "warnTooManyClasses": [Function],
@@ -60,19 +57,16 @@ ShallowWrapper {
         "$$typeof": Symbol(react.forward_ref),
         "attrs": Array [],
         "componentStyle": ComponentStyle {
-          "componentId": "sc-htpNat",
+          "componentId": "styles__StyledErrorMessage-jx77c0-0",
           "isStatic": true,
           "rules": Array [
-            "
-  background: var(--bg-error);
-  color: var(--error-text-color);
-",
+            "background:var(--bg-error);color:var(--error-text-color);",
           ],
         },
-        "displayName": "Styled(Message)",
+        "displayName": "styles__StyledErrorMessage",
         "foldedComponentIds": Array [],
         "render": [Function],
-        "styledComponentId": "sc-htpNat",
+        "styledComponentId": "styles__StyledErrorMessage-jx77c0-0",
         "target": [Function],
         "toString": [Function],
         "warnTooManyClasses": [Function],
