@@ -1,6 +1,5 @@
-[![Build Status](https://travis-ci.com/Autapomorph/forecast.svg?branch=master)](https://travis-ci.com/Autapomorph/forecast)
-
-# Weather forecast sample app
+# forecast [![Build Status](https://travis-ci.com/Autapomorph/forecast.svg?branch=master)](https://travis-ci.com/Autapomorph/forecast)
+Weather forecast sample app
 
 ## How to run?
 - configure `.env` file (see `.env.example`)
