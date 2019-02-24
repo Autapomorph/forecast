@@ -1,8 +1,8 @@
 import React from 'react';
 
-import FeaturedButton from '~/components/common/buttons/FeaturedButton';
-import CountryFlag from '~/components/common/icons/CountryFlag';
-import generateCityName from '~/utils/cityData/generateCityName';
+import FeaturedButton from '@/components/common/buttons/FeaturedButton';
+import CountryFlag from '@/components/common/icons/CountryFlag';
+import generateCityName from '@/utils/cityData/generateCityName';
 
 import {
   StyledCitiesItemWrapper,

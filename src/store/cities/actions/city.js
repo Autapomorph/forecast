@@ -1,9 +1,9 @@
 import * as types from '../actionTypes';
-import WeatherService from '~/services/weather';
-import GeonamesService from '~/services/geonames';
-import formatWeather from '~/utils/weatherData/formatWeather';
-import formatCities from '~/utils/cityData/formatCities';
-import { getIsAnythingLoading } from '~/store/rootSelectors';
+import WeatherService from '@/services/weather';
+import GeonamesService from '@/services/geonames';
+import formatWeather from '@/utils/weatherData/formatWeather';
+import formatCities from '@/utils/cityData/formatCities';
+import { getIsAnythingLoading } from '@/store/rootSelectors';
 
 export const fetchCityWeatherRequest = () => ({
   type: types.CITY_WEATHER_FETCH_REQUEST,

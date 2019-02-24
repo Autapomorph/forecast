@@ -1,4 +1,4 @@
-import { url as API_BASE } from '~/api/serverConfig';
+import { url as API_BASE } from '@/api/serverConfig';
 
 export const DARKSKY_API_QUERY_LATITUDE_PARAM = `latitude`;
 export const DARKSKY_API_QUERY_LONGITUDE_PARAM = `longitude`;

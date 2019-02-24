@@ -1,12 +1,12 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
 
-import { UnitsFormatContext } from '~/store/settings/context';
-import WeatherIcon from '~/components/common/icons/WeatherIcon';
-import convertTemp from '~/utils/weatherData/temperature';
-import convertPressure from '~/utils/weatherData/pressure';
-import convertSpeed from '~/utils/weatherData/wind';
-import { toHourMinutes } from '~/utils/weatherData/time/coverters';
+import { UnitsFormatContext } from '@/store/settings/context';
+import WeatherIcon from '@/components/common/icons/WeatherIcon';
+import convertTemp from '@/utils/weatherData/temperature';
+import convertPressure from '@/utils/weatherData/pressure';
+import convertSpeed from '@/utils/weatherData/wind';
+import { toHourMinutes } from '@/utils/weatherData/time/coverters';
 
 import {
   StyledWeatherDetailsWrapper,

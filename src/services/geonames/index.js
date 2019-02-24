@@ -1,4 +1,4 @@
-import i18n from '~/config/settings/i18n';
+import i18n from '@/config/settings/i18n';
 import {
   GEONAMES_API_SEARCH,
   GEONAMES_API_FIND_NEARBY,
@@ -13,9 +13,9 @@ import {
   GEONAMES_API_NAME_REQUIRED_QUERY_PARAM,
   GEONAMES_API_FEATURE_CLASS_QUERY_PARAM,
   GEONAMES_API_FEATURE_CODE_QUERY_PARAM,
-} from '~/config/geonames';
-import combineQueryParams from '~/utils/url/combineQueryParams';
-import { isProd } from '~/utils';
+} from '@/config/geonames';
+import combineQueryParams from '@/utils/url/combineQueryParams';
+import { isProd } from '@/utils';
 
 export default class GeonamesService {
   static getQueryString = searchParams => {

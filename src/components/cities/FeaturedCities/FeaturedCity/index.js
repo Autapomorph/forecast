@@ -1,8 +1,8 @@
 import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 
-import CountryFlag from '~/components/common/icons/CountryFlag';
-import generateCityName from '~/utils/cityData/generateCityName';
+import CountryFlag from '@/components/common/icons/CountryFlag';
+import generateCityName from '@/utils/cityData/generateCityName';
 
 import {
   StyledFeaturedCityWrapper,

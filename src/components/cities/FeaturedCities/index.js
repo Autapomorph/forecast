@@ -4,16 +4,16 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import { withTranslation } from 'react-i18next';
 
 import FeaturedCitiesList from './FeaturedCitiesList';
-import Title from '~/components/common/Title';
-import TrashButton from '~/components/common/buttons/TrashButton';
-import EmptyResult from '~/components/common/messages/EmptyResult';
+import Title from '@/components/common/Title';
+import TrashButton from '@/components/common/buttons/TrashButton';
+import EmptyResult from '@/components/common/messages/EmptyResult';
 import {
   fetchCityWeatherByPosition,
   removeCityFromFeatured,
   clearFeaturedCities,
   reorderFeaturedCities,
-} from '~/store/cities/actions';
-import { getFeaturedCities } from '~/store/rootSelectors';
+} from '@/store/cities/actions';
+import { getFeaturedCities } from '@/store/rootSelectors';
 
 import { StyledFeaturedCitiesSection, StyledFeaturedCitiesHeader } from './styles';
 
