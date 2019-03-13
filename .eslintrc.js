@@ -11,7 +11,6 @@ module.exports = {
       'babel-module': {
         alias: {
           '@': './src',
-          src: './src',
         },
       },
     },
