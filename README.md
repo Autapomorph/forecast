@@ -1,13 +1,20 @@
 # forecast [![Build Status](https://travis-ci.com/Autapomorph/forecast.svg?branch=master)](https://travis-ci.com/Autapomorph/forecast)
+
 Weather forecast sample app
 
 ## How to run?
-- configure `.env` file (see `.env.example`)
-- `yarn`
-- `yarn start` or separately run `yarn start:server` and `yarn start:client`
+
+- configure `.env` file
+- `npm i`
+- `npm start` or separately: `npm run start:server` and `npm run start:client`
 
 ## How to build?
-- configure `.env` file (see `.env.example`)
-- `yarn build`
+
+- configure `.env` file
+- `npm run build`
 - `serve -s build`
-- `yarn start:server`
+- `npm run start:server`
+
+## How to test?
+
+- `npm test`
