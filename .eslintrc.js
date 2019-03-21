@@ -3,8 +3,15 @@ module.exports = {
     browser: true,
     jest: true,
   },
-  parser: 'babel-eslint',
-  extends: ['airbnb', 'prettier', 'prettier/react', 'jest-enzyme'],
+  parser: '@typescript-eslint/parser',
+  extends: [
+    'airbnb-typescript',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
+    'prettier/react',
+    'prettier/@typescript-eslint',
+    'jest-enzyme',
+  ],
   plugins: ['prettier'],
   settings: {
     'import/resolver': {
@@ -26,5 +33,7 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/no-noninteractive-element-interactions': 'off',
+    '@typescript-eslint/no-require-imports': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
   },
 };

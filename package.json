@@ -9,7 +9,7 @@
     "build": "rescripts build",
     "now-build": "npm run build",
     "test": "rescripts test --env=jsdom",
-    "lint": "cross-env NODE_ENV=test eslint ./**/*.{js,jsx}",
+    "lint": "cross-env NODE_ENV=test eslint ./**/*.{js,jsx,ts,tsx}",
     "lint:css": "stylelint ./**/*.{css,scss,sass,less} --config .stylelintrc-format.js",
     "lint:sc": "stylelint ./**/*.{js,jsx,ts,tsx}",
     "eject": "react-scripts eject"
@@ -52,12 +52,19 @@
   "devDependencies": {
     "@rescripts/cli": "^0.0.10",
     "@rescripts/rescript-use-babel-config": "^0.0.8",
+    "@types/jest": "^24.0.11",
+    "@types/node": "^11.11.4",
+    "@types/react": "^16.8.8",
+    "@types/react-dom": "^16.8.3",
+    "@types/react-redux": "^7.0.5",
+    "@typescript-eslint/eslint-plugin": "^1.5.0",
+    "@typescript-eslint/parser": "^1.5.0",
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-plugin-styled-components": "^1.10.0",
     "cross-env": "^5.2.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.0",
-    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-typescript": "^1.1.0",
     "eslint-config-jest-enzyme": "^7.0.2",
     "eslint-config-prettier": "^4.1.0",
     "eslint-import-resolver-babel-module": "^5.0.1",
@@ -76,7 +83,8 @@
     "stylelint": "^9.10.1",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-config-styled-components": "^0.1.1",
-    "stylelint-processor-styled-components": "^1.5.2"
+    "stylelint-processor-styled-components": "^1.5.2",
+    "typescript": "^3.3.4000"
   },
   "browserslist": [
     ">0.2%",
@@ -98,7 +106,7 @@
   },
   "lint-staged": {
     "linters": {
-      "*.{js,jsx}": [
+      "*.{js,jsx,ts,tsx}": [
         "prettier --write",
         "stylelint",
         "eslint --max-warnings=0",
@@ -113,6 +121,9 @@
         "prettier --write",
         "git add"
       ]
-    }
+    },
+    "ignore": [
+      "src/serviceWorker.{js,ts}"
+    ]
   }
 }
