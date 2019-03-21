@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import i18n from '@/config/settings/i18n';
+import i18n from '../../config/settings/i18n';
 
 export const changeLanguage = language => {
   i18n.changeLanguage(language.code);

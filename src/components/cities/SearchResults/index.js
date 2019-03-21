@@ -3,17 +3,17 @@ import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 
-import { UnitsFormatContext } from '@/store/settings/context';
+import { UnitsFormatContext } from '../../../store/settings/context';
 import CitiesList from './CitiesList';
-import Title from '@/components/common/Title';
-import Loader from '@/components/common/messages/Loader';
-import Message from '@/components/common/messages/Message';
-import EmptyResult from '@/components/common/messages/EmptyResult';
+import Title from '../../common/Title';
+import Loader from '../../common/messages/Loader';
+import Message from '../../common/messages/Message';
+import EmptyResult from '../../common/messages/EmptyResult';
 import {
   fetchCityWeatherByPosition,
   addCityToFeatured,
   removeCityFromFeatured,
-} from '@/store/cities/actions';
+} from '../../../store/cities/actions';
 import {
   getCities,
   getSearchTerm,
@@ -22,7 +22,7 @@ import {
   getCitiesErrorMessage,
   getIsFeaturedCity,
   getCurrentUnitsFormat,
-} from '@/store/rootSelectors';
+} from '../../../store/rootSelectors';
 
 import { StyledSearchResultsSection, StyledSearchResultsHeader } from './styles';
 

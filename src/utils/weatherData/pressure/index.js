@@ -1,4 +1,4 @@
-import { unitsFormats } from '@/config/settings/unitsFormats';
+import { unitsFormats } from '../../../config/settings/unitsFormats';
 
 import { pascalToMmHg, pascalToInHg } from './converters';
 

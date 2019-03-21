@@ -1,13 +1,13 @@
-import i18n from '@/config/settings/i18n';
+import i18n from '../../config/settings/i18n';
 import {
   DARKSKY_API_BASE,
   DARKSKY_API_QUERY_LATITUDE_PARAM,
   DARKSKY_API_QUERY_LONGITUDE_PARAM,
   DARKSKY_API_LANG_QUERY_PARAM,
   DARKSKY_API_UNITS_QUERY_PARAM,
-} from '@/config/weather';
-import combineQueryParams from '@/utils/url/combineQueryParams';
-import { isProd } from '@/utils';
+} from '../../config/weather';
+import combineQueryParams from '../../utils/url/combineQueryParams';
+import { isProd } from '../../utils';
 
 export default class WeatherService {
   static getQueryString = searchParams => {

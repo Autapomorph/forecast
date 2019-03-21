@@ -5,11 +5,14 @@ import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationArrow } from '@fortawesome/free-solid-svg-icons';
 
-import { fetchGeolocation, fetchGeolocationByIP } from '@/store/geolocation/actions';
-import { fetchCityWeatherByPosition } from '@/store/cities/actions';
-import { getIsGeolocationLoading, getGeolocationErrorMessage } from '@/store/rootSelectors';
+import { fetchGeolocation, fetchGeolocationByIP } from '../../../../store/geolocation/actions';
+import { fetchCityWeatherByPosition } from '../../../../store/cities/actions';
+import {
+  getIsGeolocationLoading,
+  getGeolocationErrorMessage,
+} from '../../../../store/rootSelectors';
 
-import { StyledInputButton } from '@/components/SearchBar/styles';
+import { StyledInputButton } from '../../../SearchBar/styles';
 
 export class GeolocationButton extends Component {
   toastId = 'geoError';

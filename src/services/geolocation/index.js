@@ -1,5 +1,5 @@
-import { IPAPI_API } from '@/config/geolocation';
-import { isProd } from '@/utils';
+import { IPAPI_API } from '../../config/geolocation';
+import { isProd } from '../../utils';
 
 export default class GeolocationService {
   static fetchGeolocation = async () =>

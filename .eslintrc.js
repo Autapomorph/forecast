@@ -13,15 +13,6 @@ module.exports = {
     'jest-enzyme',
   ],
   plugins: ['prettier'],
-  settings: {
-    'import/resolver': {
-      'babel-module': {
-        alias: {
-          '@': './src',
-        },
-      },
-    },
-  },
   rules: {
     'prettier/prettier': 'error',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
@@ -33,7 +24,5 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/no-noninteractive-element-interactions': 'off',
-    '@typescript-eslint/no-require-imports': 'off',
-    '@typescript-eslint/no-var-requires': 'off',
   },
 };

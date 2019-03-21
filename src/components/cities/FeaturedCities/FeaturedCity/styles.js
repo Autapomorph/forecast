@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import ReorderButton from '@/components/common/buttons/ReorderButton';
-import FeaturedButton from '@/components/common/buttons/FeaturedButton';
+import ReorderButton from '../../../common/buttons/ReorderButton';
+import FeaturedButton from '../../../common/buttons/FeaturedButton';
 
 export const StyledFeaturedCityWrapper = styled.li`
   display: flex;

@@ -1,4 +1,4 @@
-import { unitsFormats } from '@/config/settings/unitsFormats';
+import { unitsFormats } from '../../../config/settings/unitsFormats';
 
 import { mpsToKnots } from './converters';
 

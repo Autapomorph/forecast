@@ -1,7 +1,7 @@
 import * as types from '../actionTypes';
-import GeonamesService from '@/services/geonames';
-import formatCities from '@/utils/cityData/formatCities';
-import { getIsAnythingLoading } from '@/store/rootSelectors';
+import GeonamesService from '../../../services/geonames';
+import formatCities from '../../../utils/cityData/formatCities';
+import { getIsAnythingLoading } from '../../rootSelectors';
 
 export const fetchCitiesByNameRequest = searchTerm => ({
   type: types.CITIES_FETCH_REQUEST,

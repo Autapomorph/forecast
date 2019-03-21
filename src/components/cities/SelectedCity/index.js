@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 
-import { UnitsFormatContext } from '@/store/settings/context';
+import { UnitsFormatContext } from '../../../store/settings/context';
 import City from './City';
-import Loader from '@/components/common/messages/Loader';
-import Message from '@/components/common/messages/Message';
+import Loader from '../../common/messages/Loader';
+import Message from '../../common/messages/Message';
 import {
   fetchCityWeatherByPosition,
   addCityToFeatured,
   removeCityFromFeatured,
-} from '@/store/cities/actions';
+} from '../../../store/cities/actions';
 import {
   getSelectedCity,
   getIsSelectedCityActive,
@@ -19,7 +19,7 @@ import {
   getSelectedCityErrorMessage,
   getIsFeaturedCity,
   getCurrentUnitsFormat,
-} from '@/store/rootSelectors';
+} from '../../../store/rootSelectors';
 
 import { StyledSelectedCitySection } from './styles';
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { StyledTitle } from '@/components/common/Title/styles';
+import { StyledTitle } from '../../../common/Title/styles';
 
 export const StyledCityHeader = styled.div`
   grid-area: city-title;
