@@ -12,6 +12,7 @@ module.exports = {
     'prettier/@typescript-eslint',
     'jest-enzyme',
   ],
+
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': 'error',
@@ -24,5 +25,6 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/no-noninteractive-element-interactions': 'off',
+    '@typescript-eslint/interface-name-prefix': 'always',
   },
 };
