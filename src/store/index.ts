@@ -1,4 +1,5 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+/* eslint-disable import/no-extraneous-dependencies */
+import { createStore, applyMiddleware, compose, Middleware } from 'redux';
 import { persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
@@ -7,9 +8,9 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { isProd, isDev } from '../utils';
 import rootReducer from './rootReducer';
 
-const composeEnhancers = isProd ? compose : composeWithDevTools;
+const composeEnhancers: Function = isProd ? compose : composeWithDevTools;
 
-const middlewares = [thunk];
+const middlewares: Middleware[] = [thunk];
 if (isDev) {
   middlewares.push(
     createLogger({

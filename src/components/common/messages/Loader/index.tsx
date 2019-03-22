@@ -3,7 +3,7 @@ import MDSpinner from 'react-md-spinner';
 
 import { StyledLoaderMessage } from './styles';
 
-const Loader = ({ children, ...props }) => (
+const Loader: React.FC = ({ children, ...props }): React.ReactElement => (
   <StyledLoaderMessage {...props}>{children}</StyledLoaderMessage>
 );
 

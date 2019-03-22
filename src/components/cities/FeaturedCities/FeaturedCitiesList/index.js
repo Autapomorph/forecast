@@ -19,7 +19,10 @@ const FeaturedCitiesList = ({ cities, fetchCity, removeCityFromFeatured }) => {
   return (
     <Droppable droppableId="featured-cities">
       {provided => (
-        <StyledFeaturedList ref={provided.innerRef}>{featuredCities}</StyledFeaturedList>
+        <>
+          <StyledFeaturedList ref={provided.innerRef}>{featuredCities}</StyledFeaturedList>
+          {provided.placeholder}
+        </>
       )}
     </Droppable>
   );

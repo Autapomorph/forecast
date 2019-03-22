@@ -9,7 +9,7 @@ import './config/settings/i18n';
 
 const App: React.FC = (): React.ReactElement => (
   <Provider store={store}>
-    <PersistGate loading={Loader} persistor={persistor}>
+    <PersistGate loading={<Loader />} persistor={persistor}>
       <MainLayout />
     </PersistGate>
   </Provider>

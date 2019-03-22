@@ -1,12 +1,14 @@
 import * as types from './actionTypes';
+import { GeolocationState as State } from './types';
 
-export const initialState = {
+export const initialState: State = {
   data: null,
   loading: false,
   errorMessage: null,
 };
 
-export default (state = initialState, action) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default (state = initialState, action: any): State => {
   const { type, payload } = action;
 
   switch (type) {

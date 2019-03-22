@@ -4,6 +4,7 @@ import { initReactI18next } from 'react-i18next';
 
 import resources from './locales';
 import removePropByKey from '../../../utils/common/removePropByKey';
+import { ILocale } from '../../../models';
 
 i18n
   .use(langDetector)
@@ -23,7 +24,9 @@ i18n
 
 export default i18n;
 
-export const defaultLanguage = resources[i18n.languages[0]];
-export const otherLanguages = Object.values(removePropByKey(resources, i18n.languages[0]));
-export const sortedLanguages = [defaultLanguage, ...otherLanguages];
+export const defaultLanguage: ILocale = resources[i18n.languages[0]];
+export const otherLanguages: ILocale[] = Object.values(
+  removePropByKey(resources, i18n.languages[0]),
+);
+export const sortedLanguages: ILocale[] = [defaultLanguage, ...otherLanguages];
 export { sortedLanguages as availableLanguages };

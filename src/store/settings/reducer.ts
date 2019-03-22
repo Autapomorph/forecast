@@ -4,8 +4,9 @@ import storage from 'redux-persist/lib/storage';
 import * as types from './actionTypes';
 import { defaultLanguage } from '../../config/settings/i18n';
 import { defaultUnitsFormat } from '../../config/settings/unitsFormats';
+import { SettingsState as State } from './types';
 
-export const initialState = {
+export const initialState: State = {
   language: defaultLanguage,
   unitsFormat: defaultUnitsFormat,
 };
@@ -17,7 +18,8 @@ const persistConfig = {
   whitelist: ['unitsFormat'],
 };
 
-const reducer = (state = initialState, action) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const reducer = (state = initialState, action: any): State => {
   const { type, payload } = action;
 
   switch (type) {
