@@ -2,12 +2,12 @@ import React from 'react';
 
 import UnitsFormatsButton from '../UnitsFormatsButton';
 /* eslint-disable-next-line import/named */
-import { IUnitsFormats, UnitFormat } from '../../../../models';
+import { UnitFormat } from '../../../../models';
 
 import { StyledUnitsFormatSwitcher } from './styles';
 
 interface IUnitsFormatListProps {
-  unitsFormats: IUnitsFormats;
+  unitsFormats: UnitFormat[];
   selectedUnitsFormat: UnitFormat;
   handleChangeUnitsFormat: (unitFormat: UnitFormat) => void;
 }

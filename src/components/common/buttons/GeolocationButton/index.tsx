@@ -100,7 +100,7 @@ const mapStateToProps = (state: RootState): IPropsFromState => ({
   errorMessage: getGeolocationErrorMessage(state),
 });
 
-const mapDispatchToProps = {
+const mapDispatchToProps: IPropsFromDispatch = {
   _fetchGeolocation: fetchGeolocation,
   _fetchGeolocationByIP: fetchGeolocationByIP,
   _fetchCityWeatherByPosition: fetchCityWeatherByPosition,

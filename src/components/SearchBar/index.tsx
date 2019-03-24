@@ -89,7 +89,7 @@ export class SearchBar extends Component<SearchBarProps> {
   }
 }
 
-const mapDispatchToProps = {
+const mapDispatchToProps: IPropsFromDispatch = {
   _fetchCititesByName: fetchCititesByName,
 };
 
