@@ -1,6 +1,7 @@
-/* eslint-disable import/named */
 import i18n from '../../config/settings/i18n';
+/* eslint-disable-next-line import/named */
 import { SettingsActions as Actions, SettingsActionTypes as Types } from './types';
+/* eslint-disable-next-line import/named */
 import { ILocale, UnitFormat } from '../../models';
 
 export const changeLanguage = (language: ILocale): Actions => {

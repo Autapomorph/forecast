@@ -1,6 +1,8 @@
-/* eslint-disable import/named */
+/* eslint-disable-next-line import/named */
 import { CityActions } from './city';
+/* eslint-disable-next-line import/named */
 import { CitiesActions } from './cities';
+/* eslint-disable-next-line import/named */
 import { FeaturedCitiesActions } from './featuredCities';
 import { ICity, IWeather } from '../../../models';
 

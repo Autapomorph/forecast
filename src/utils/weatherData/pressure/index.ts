@@ -1,5 +1,5 @@
-/* eslint-disable import/named */
 import { unitsFormats } from '../../../config/settings/unitsFormats';
+/* eslint-disable-next-line import/named */
 import { UnitFormat } from '../../../models';
 
 import { pascalToMmHg, pascalToInHg } from './converters';

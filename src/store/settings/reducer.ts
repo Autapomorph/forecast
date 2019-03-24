@@ -1,4 +1,3 @@
-/* eslint-disable import/named */
 import { persistReducer, PersistConfig } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
@@ -6,9 +5,11 @@ import { defaultLanguage } from '../../config/settings/i18n';
 import { defaultUnitsFormat } from '../../config/settings/unitsFormats';
 import {
   SettingsState as State,
+  /* eslint-disable-next-line import/named */
   SettingsActions as Actions,
   SettingsActionTypes as Types,
 } from './types';
+/* eslint-disable-next-line import/named */
 import { ILocale, UnitFormat } from '../../models';
 
 export const initialState: State = {

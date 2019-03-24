@@ -1,4 +1,3 @@
-/* eslint-disable import/named */
 import { Action } from 'redux';
 
 import { IPosition, ICoords } from '../../models';

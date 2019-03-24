@@ -1,4 +1,3 @@
-/* eslint-disable import/named */
 import { Action } from 'redux';
 
 import { CitiesActionTypes as Types } from './actionTypes';

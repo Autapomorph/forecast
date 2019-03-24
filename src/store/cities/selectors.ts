@@ -1,4 +1,3 @@
-/* eslint-disable import/named */
 import { CitiesState as State } from './types';
 import { ICity, IWeather } from '../../models';
 

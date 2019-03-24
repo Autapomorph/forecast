@@ -1,6 +1,6 @@
-/* eslint-disable import/named */
 import {
   GeolocationState as State,
+  /* eslint-disable-next-line import/named */
   GeolocationActions as Actions,
   GeolocationActionTypes as Types,
 } from './types';

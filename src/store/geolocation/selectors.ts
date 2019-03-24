@@ -1,4 +1,3 @@
-/* eslint-disable import/named */
 import { GeolocationState as State } from './types';
 import { ICoords } from '../../models';
 
