@@ -1,8 +1,12 @@
-import { persistReducer } from 'redux-persist';
+/* eslint-disable import/named */
+import { persistReducer, PersistConfig } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import * as types from './actionTypes';
-import { CitiesState as State } from './types';
+import {
+  CitiesState as State,
+  CitiesActions as Actions,
+  CitiesActionTypes as Types,
+} from './types';
 
 export const initialState: State = {
   selectedCity: {
@@ -23,19 +27,16 @@ export const initialState: State = {
   },
 };
 
-const persistConfig = {
+const persistConfig: PersistConfig = {
   version: 1,
   key: 'featuredCities',
   storage,
   whitelist: ['featuredCities'],
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const reducer = (state = initialState, action: any): State => {
-  const { type, payload } = action;
-
-  switch (type) {
-    case types.CITY_WEATHER_FETCH_REQUEST: {
+const reducer = (state = initialState, action: Actions): State => {
+  switch (action.type) {
+    case Types.CITY_WEATHER_FETCH_REQUEST: {
       return {
         ...state,
         selectedCity: {
@@ -51,12 +52,12 @@ const reducer = (state = initialState, action: any): State => {
       };
     }
 
-    case types.CITIES_FETCH_REQUEST: {
+    case Types.CITIES_FETCH_REQUEST: {
       return {
         ...state,
         cities: {
           ...state.cities,
-          searchTerm: payload.searchTerm,
+          searchTerm: action.payload,
           active: true,
           loading: true,
           errorMessage: null,
@@ -68,73 +69,73 @@ const reducer = (state = initialState, action: any): State => {
       };
     }
 
-    case types.CITY_WEATHER_FETCH_SUCCESS: {
+    case Types.CITY_WEATHER_FETCH_SUCCESS: {
       return {
         ...state,
         selectedCity: {
           ...state.selectedCity,
-          data: payload.cityData,
+          data: action.payload,
           loading: false,
           errorMessage: null,
         },
       };
     }
 
-    case types.CITIES_FETCH_SUCCESS: {
+    case Types.CITIES_FETCH_SUCCESS: {
       return {
         ...state,
         cities: {
           ...state.cities,
-          data: payload.cities,
+          data: action.payload,
           loading: false,
           errorMessage: null,
         },
       };
     }
 
-    case types.CITY_WEATHER_FETCH_FAILURE: {
+    case Types.CITY_WEATHER_FETCH_FAILURE: {
       return {
         ...state,
         selectedCity: {
           ...state.selectedCity,
           loading: false,
-          errorMessage: payload.errorMessage,
+          errorMessage: action.payload.message,
         },
       };
     }
 
-    case types.CITIES_FETCH_FAILURE: {
+    case Types.CITIES_FETCH_FAILURE: {
       return {
         ...state,
         cities: {
           ...state.cities,
           loading: false,
-          errorMessage: payload.errorMessage,
+          errorMessage: action.payload.message,
         },
       };
     }
 
-    case types.FEATURED_CITY_ADD: {
+    case Types.FEATURED_CITY_ADD: {
       return {
         ...state,
         featuredCities: {
           ...state.featuredCities,
-          data: [...state.featuredCities.data, payload.city],
+          data: [...state.featuredCities.data, action.payload],
         },
       };
     }
 
-    case types.FEATURED_CITY_REMOVE: {
+    case Types.FEATURED_CITY_REMOVE: {
       return {
         ...state,
         featuredCities: {
           ...state.featuredCities,
-          data: state.featuredCities.data.filter(city => city.id !== payload.cityId),
+          data: state.featuredCities.data.filter(city => city.id !== action.payload),
         },
       };
     }
 
-    case types.FEATURED_CITIES_CLEAR: {
+    case Types.FEATURED_CITIES_CLEAR: {
       return {
         ...state,
         featuredCities: {
@@ -144,8 +145,8 @@ const reducer = (state = initialState, action: any): State => {
       };
     }
 
-    case types.FEATURED_CITIES_REORDER: {
-      const { prevIndex, nextIndex } = payload;
+    case Types.FEATURED_CITIES_REORDER: {
+      const { prevIndex, nextIndex } = action.payload;
 
       const featuredCities = state.featuredCities.data.slice();
       const [removed] = featuredCities.splice(prevIndex, 1);

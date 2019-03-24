@@ -1,5 +1,9 @@
-import * as types from './actionTypes';
-import { GeolocationState as State } from './types';
+/* eslint-disable import/named */
+import {
+  GeolocationState as State,
+  GeolocationActions as Actions,
+  GeolocationActionTypes as Types,
+} from './types';
 
 export const initialState: State = {
   data: null,
@@ -7,12 +11,9 @@ export const initialState: State = {
   errorMessage: null,
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default (state = initialState, action: any): State => {
-  const { type, payload } = action;
-
-  switch (type) {
-    case types.GEOLOCATION_FETCH_REQUEST: {
+export default (state = initialState, action: Actions): State => {
+  switch (action.type) {
+    case Types.GEOLOCATION_FETCH_REQUEST: {
       return {
         ...state,
         loading: true,
@@ -20,20 +21,20 @@ export default (state = initialState, action: any): State => {
       };
     }
 
-    case types.GEOLOCATION_FETCH_SUCCESS: {
+    case Types.GEOLOCATION_FETCH_SUCCESS: {
       return {
         ...state,
-        data: { ...state.data, ...payload },
+        data: { ...state.data, ...action.payload.coords },
         loading: false,
         errorMessage: null,
       };
     }
 
-    case types.GEOLOCATION_FETCH_FAILURE: {
+    case Types.GEOLOCATION_FETCH_FAILURE: {
       return {
         ...state,
         loading: false,
-        errorMessage: payload.errorMessage,
+        errorMessage: action.payload.message,
       };
     }
 

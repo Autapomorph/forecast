@@ -3,7 +3,7 @@ import { isProd } from '../../utils';
 import { IPosition } from '../../models';
 
 export default class GeolocationService {
-  public static fetchGeolocation = (): Promise<Position> =>
+  public static fetchGeolocation = (): Promise<IPosition> =>
     new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(resolve, ({ code }: PositionError) => {
         switch (code) {

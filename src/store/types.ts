@@ -5,7 +5,7 @@ import { GeolocationState } from './geolocation/types';
 import { SettingsState } from './settings/types';
 
 // eslint-disable-next-line import/prefer-default-export
-export interface ApplicationState {
+export interface RootState {
   cities: CitiesState & PersistPartial;
   geolocation: GeolocationState;
   settings: SettingsState & PersistPartial;

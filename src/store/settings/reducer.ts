@@ -1,39 +1,41 @@
-import { persistReducer } from 'redux-persist';
+/* eslint-disable import/named */
+import { persistReducer, PersistConfig } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import * as types from './actionTypes';
 import { defaultLanguage } from '../../config/settings/i18n';
 import { defaultUnitsFormat } from '../../config/settings/unitsFormats';
-import { SettingsState as State } from './types';
+import {
+  SettingsState as State,
+  SettingsActions as Actions,
+  SettingsActionTypes as Types,
+} from './types';
+import { ILocale, UnitFormat } from '../../models';
 
 export const initialState: State = {
   language: defaultLanguage,
   unitsFormat: defaultUnitsFormat,
 };
 
-const persistConfig = {
+const persistConfig: PersistConfig = {
   version: 1,
   key: 'settings',
   storage,
   whitelist: ['unitsFormat'],
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const reducer = (state = initialState, action: any): State => {
-  const { type, payload } = action;
-
-  switch (type) {
-    case types.SETTINGS_CHANGE_LANGUAGE: {
+const reducer = (state = initialState, action: Actions): State => {
+  switch (action.type) {
+    case Types.SETTINGS_CHANGE_LANGUAGE: {
       return {
         ...state,
-        language: payload.language,
+        language: action.payload as ILocale,
       };
     }
 
-    case types.SETTINGS_CHANGE_UNITS_FORMAT: {
+    case Types.SETTINGS_CHANGE_UNITS_FORMAT: {
       return {
         ...state,
-        unitsFormat: payload.unitsFormat,
+        unitsFormat: action.payload as UnitFormat,
       };
     }
 

@@ -2,9 +2,9 @@ import { combineReducers } from 'redux';
 import citiesReducer from './cities/reducer';
 import geolocationReducer from './geolocation/reducer';
 import settingsReducer from './settings/reducer';
-import { ApplicationState } from './types';
+import { RootState } from './types';
 
-const rootReducer = combineReducers<ApplicationState>({
+const rootReducer = combineReducers<RootState>({
   cities: citiesReducer,
   geolocation: geolocationReducer,
   settings: settingsReducer,

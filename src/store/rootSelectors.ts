@@ -2,7 +2,7 @@
 import * as settingsSelectors from './settings/selectors';
 import * as citiesSelectors from './cities/selectors';
 import * as geolocationSelectors from './geolocation/selectors';
-import { ApplicationState as State } from './types';
+import { RootState as State } from './types';
 import { UnitFormat, ILocale, ICity, IWeather } from '../models';
 
 /**

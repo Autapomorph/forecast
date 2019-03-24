@@ -1,7 +1,13 @@
 /* eslint-disable import/named */
-import { ICity, IWeather } from '../../models';
+import { CityActions } from './city';
+import { CitiesActions } from './cities';
+import { FeaturedCitiesActions } from './featuredCities';
+import { ICity, IWeather } from '../../../models';
 
-// eslint-disable-next-line import/prefer-default-export
+export { CitiesActionTypes } from './actionTypes';
+
+export type CitiesActions = CityActions | CitiesActions | FeaturedCitiesActions;
+
 export interface CitiesState {
   readonly selectedCity: {
     data: ICity & IWeather | null;
