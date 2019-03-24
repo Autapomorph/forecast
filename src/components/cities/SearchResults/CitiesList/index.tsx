@@ -1,16 +1,25 @@
 import React from 'react';
 
 import CitiesItem from '../CitiesItem';
+import { ICity, ICoords } from '../../../../models';
 
 import { StyledCitiesList } from './styles';
 
-const CitiesList = ({
+interface ICitiesListProps {
+  cities: ICity[];
+  checkIfFeatured: (cityId: ICity['id']) => boolean;
+  fetchCity: (cityCoords: ICoords) => void;
+  addCityToFeatured: (city: ICity) => void;
+  removeCityFromFeatured: (cityId: ICity['id']) => void;
+}
+
+const CitiesList: React.FC<ICitiesListProps> = ({
   cities,
   checkIfFeatured,
   fetchCity,
   addCityToFeatured,
   removeCityFromFeatured,
-}) => (
+}): React.ReactElement => (
   <StyledCitiesList>
     {Object.values(cities).map(city => (
       <CitiesItem

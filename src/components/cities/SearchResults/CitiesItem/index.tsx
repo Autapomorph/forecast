@@ -3,6 +3,7 @@ import React from 'react';
 import FeaturedButton from '../../../common/buttons/FeaturedButton';
 import CountryFlag from '../../../common/icons/CountryFlag';
 import generateCityName from '../../../../utils/cityData/generateCityName';
+import { ICity, ICoords } from '../../../../models';
 
 import {
   StyledCitiesItemWrapper,
@@ -11,7 +12,21 @@ import {
   StyledTitleButtonsWrapper,
 } from './styles';
 
-const CitiesItem = ({ city, isFeatured, fetchCity, addCityToFeatured, removeCityFromFeatured }) => (
+interface ICitiesItemProps {
+  city: ICity;
+  isFeatured: boolean;
+  fetchCity: (cityCoords: ICoords) => void;
+  addCityToFeatured: (city: ICity) => void;
+  removeCityFromFeatured: (cityId: ICity['id']) => void;
+}
+
+const CitiesItem: React.FC<ICitiesItemProps> = ({
+  city,
+  isFeatured,
+  fetchCity,
+  addCityToFeatured,
+  removeCityFromFeatured,
+}): React.ReactElement => (
   <StyledCitiesItemWrapper>
     <StyledCitiesItemHeader>
       <StyledCitiesItemTitle onClick={() => fetchCity(city.coords)}>
