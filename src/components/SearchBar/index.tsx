@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
+import { withTranslation, WithTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -14,22 +14,28 @@ import {
   StyledInputButton,
 } from './styles';
 
-export class SearchBar extends Component {
-  state = {
+interface IPropsFromDispatch {
+  _fetchCititesByName: (searchParams: string) => void;
+}
+
+type SearchBarProps = IPropsFromDispatch & WithTranslation;
+
+export class SearchBar extends Component<SearchBarProps> {
+  public state = {
     cityName: '',
     isSubmitDisabled: true,
   };
 
-  handleChange = e => {
+  private handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.setState(
       {
-        cityName: e.target.value,
+        cityName: e.currentTarget.value,
       },
       this.validateForm,
     );
   };
 
-  validateForm = () => {
+  private validateForm = () => {
     const { cityName } = this.state;
 
     if (!cityName.trim()) {
@@ -43,7 +49,7 @@ export class SearchBar extends Component {
     }
   };
 
-  handleSubmit = e => {
+  private handleSubmit = (e: React.FormEvent<HTMLFormElement | HTMLButtonElement>) => {
     e.preventDefault();
 
     const { _fetchCititesByName } = this.props;
@@ -59,7 +65,7 @@ export class SearchBar extends Component {
     );
   };
 
-  render() {
+  public render(): React.ReactElement {
     const { t } = this.props;
     const { cityName, isSubmitDisabled } = this.state;
 

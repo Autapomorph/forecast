@@ -23,12 +23,12 @@ import { IPosition, ICoords } from '../../../../models';
 
 import { StyledInputButton } from '../../../SearchBar/styles';
 
-interface PropsFromState {
+interface IPropsFromState {
   isLoading: ReturnType<typeof getIsGeolocationLoading>;
   errorMessage: ReturnType<typeof getGeolocationErrorMessage>;
 }
 
-interface PropsFromDispatch {
+interface IPropsFromDispatch {
   _fetchGeolocation: (
     successCb?: GeolocationSuccessCallback,
     errorCb?: GeolocationFailureCallback,
@@ -42,7 +42,7 @@ interface PropsFromDispatch {
   _fetchCityWeatherByPosition: (coords: ICoords) => void;
 }
 
-type GeolocationButtonProps = PropsFromState & PropsFromDispatch & WithTranslation;
+type GeolocationButtonProps = IPropsFromState & IPropsFromDispatch & WithTranslation;
 
 export class GeolocationButton extends Component<GeolocationButtonProps> {
   private toastId = 'geoError';
@@ -95,7 +95,7 @@ export class GeolocationButton extends Component<GeolocationButtonProps> {
   }
 }
 
-const mapStateToProps = (state: RootState): PropsFromState => ({
+const mapStateToProps = (state: RootState): IPropsFromState => ({
   isLoading: getIsGeolocationLoading(state),
   errorMessage: getGeolocationErrorMessage(state),
 });
