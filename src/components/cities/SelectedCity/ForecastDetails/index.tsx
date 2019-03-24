@@ -1,5 +1,5 @@
 import React from 'react';
-import { withTranslation } from 'react-i18next';
+import { withTranslation, WithTranslation } from 'react-i18next';
 import Slider from 'react-slick';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTint, faThermometerHalf } from '@fortawesome/free-solid-svg-icons';
@@ -10,6 +10,7 @@ import convertTemp from '../../../../utils/weatherData/temperature';
 import convertPressure from '../../../../utils/weatherData/pressure';
 import convertSpeed from '../../../../utils/weatherData/wind';
 import { toDayMonth } from '../../../../utils/weatherData/time/coverters';
+import { ICity, IWeather } from '../../../../models';
 
 import {
   StyledForecastWrapper,
@@ -22,7 +23,15 @@ import {
   StyledDivider,
 } from './styles';
 
-const ForecastDetails = ({ t, i18n, city }) => (
+interface IForecastDetailsProps extends WithTranslation {
+  city: ICity & IWeather;
+}
+
+const ForecastDetails: React.FC<IForecastDetailsProps> = ({
+  t,
+  i18n,
+  city,
+}): React.ReactElement => (
   <UnitsFormatContext.Consumer>
     {unitsFormat => (
       <StyledForecastWrapper>
@@ -60,7 +69,7 @@ const ForecastDetails = ({ t, i18n, city }) => (
             const convertedWindSpeed = convertSpeed(day.wind.speed, unitsFormat);
 
             return (
-              <StyledForecastItem key={day.timestamp}>
+              <StyledForecastItem key={day.timestamp.toString()}>
                 <StyledForecastItemDetail>
                   <WeatherIcon icon={day.weatherIcon} size="lg" />
                 </StyledForecastItemDetail>

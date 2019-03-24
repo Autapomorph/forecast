@@ -48,7 +48,7 @@ export interface IWeatherDaily {
   sunset: DateTime;
   weatherIcon: string;
   summary: string;
-  temp: number | null;
+  temp: number;
   humidity: number;
   cloudiness: number;
   visibility: number;
@@ -65,12 +65,12 @@ export interface IWeather {
     sunset: DateTime;
     weatherIcon: string;
     summary: string;
-    temp: number | null;
+    temp: number;
     humidity: number;
     cloudiness: number;
     visibility: number;
     pressure: number;
     wind: IWindFormatShort;
   };
-  dailyForecast: IWeatherDaily[] | null;
+  dailyForecast: IWeatherDaily[];
 }

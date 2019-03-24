@@ -1,10 +1,16 @@
 import React from 'react';
-import { Props as FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 import { faRedoAlt } from '@fortawesome/free-solid-svg-icons';
+
+import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 
 import { StyledRetryButton } from './styles';
 
-const RetryButton: React.FC<FontAwesomeIconProps> = ({ onClick, ...props }): React.ReactElement => (
+interface IRetryButtonProps {
+  size?: SizeProp;
+  onClick: () => void;
+}
+
+const RetryButton: React.FC<IRetryButtonProps> = ({ onClick, ...props }): React.ReactElement => (
   <StyledRetryButton icon={faRedoAlt} onClick={onClick} {...props} />
 );
 

@@ -1,5 +1,7 @@
-export default function mapDegToCardDir(deg: number): string | null {
-  if (deg === undefined || deg === null || Number.isNaN(deg)) return null;
+export default function mapDegToCardDir(deg: number): string {
+  if (Number.isNaN(deg)) {
+    throw new Error('"deg" param is not a number');
+  }
 
   if (deg >= 360) {
     const rate = Math.floor(deg / 360);

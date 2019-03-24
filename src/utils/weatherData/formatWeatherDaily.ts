@@ -7,9 +7,7 @@ import { IWeatherDailyAPIResponse, IWeatherDaily } from '../../models';
 export default function formatWeatherDaily(
   weatherData: IWeatherDailyAPIResponse[],
   timezone: string,
-): IWeatherDaily[] | null {
-  if (!weatherData) return null;
-
+): IWeatherDaily[] {
   return weatherData.map(day => {
     const { windBearing, windSpeed, windCardDir, windIcon } = formatWind({
       speed: day.windSpeed,

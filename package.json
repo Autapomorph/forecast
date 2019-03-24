@@ -63,6 +63,7 @@
     "@types/react-beautiful-dnd": "^10.1.1",
     "@types/react-dom": "^16.8.3",
     "@types/react-redux": "^7.0.5",
+    "@types/react-slick": "^0.23.3",
     "@types/redux-logger": "^3.0.7",
     "@types/styled-components": "^4.1.12",
     "@typescript-eslint/eslint-plugin": "^1.5.0",

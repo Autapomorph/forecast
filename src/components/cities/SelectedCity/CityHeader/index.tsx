@@ -1,5 +1,5 @@
 import React from 'react';
-import { withTranslation } from 'react-i18next';
+import { withTranslation, WithTranslation } from 'react-i18next';
 
 import Title from '../../../common/Title';
 import RetryButton from '../../../common/buttons/RetryButton';
@@ -7,17 +7,26 @@ import FeaturedButton from '../../../common/buttons/FeaturedButton';
 import CountryFlag from '../../../common/icons/CountryFlag';
 import { toDayMonthHourMinutes } from '../../../../utils/weatherData/time/coverters';
 import generateCityName from '../../../../utils/cityData/generateCityName';
+import { ICity, IWeather } from '../../../../models';
 
 import { StyledCityHeader, StyledTitleButtonsWrapper } from './styles';
 
-const CityHeader = ({
+interface ICityHeaderProps extends WithTranslation {
+  city: ICity & IWeather;
+  isFeatured: boolean;
+  refetchCityWeather: () => void;
+  addCityToFeatured: (city: ICity) => void;
+  removeCityFromFeatured: (cityId: ICity['id']) => void;
+}
+
+const CityHeader: React.FC<ICityHeaderProps> = ({
   i18n,
   city,
   isFeatured,
   refetchCityWeather,
   addCityToFeatured,
   removeCityFromFeatured,
-}) => (
+}): React.ReactElement => (
   <StyledCityHeader>
     <Title>
       {`${generateCityName(city)} `}

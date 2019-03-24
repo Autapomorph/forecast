@@ -3,25 +3,25 @@ import React from 'react';
 import { StyledWeatherIcon } from './styles';
 
 interface IWeatherIconProps {
-  tag: React.ElementType;
+  tag?: React.ElementType;
   icon: string;
-  wind: boolean;
-  fixedWidth: boolean;
-  flip: boolean;
-  rotate: boolean;
-  size: string;
-  className: string;
+  wind?: boolean;
+  fixedWidth?: boolean;
+  flip?: boolean;
+  rotate?: boolean;
+  size?: string;
+  className?: string;
 }
 
 const WeatherIcon: React.FC<IWeatherIconProps> = ({
   tag = 'i',
   icon,
   wind = false,
-  fixedWidth,
-  flip,
-  rotate,
-  size,
-  className,
+  fixedWidth = false,
+  flip = false,
+  rotate = false,
+  size = '1em',
+  className = '',
 }): React.ReactElement => {
   const classNames = ['wi'];
   if (wind || /^wi-/i.test(icon)) {

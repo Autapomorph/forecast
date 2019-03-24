@@ -25,6 +25,4 @@ export interface SettingsState {
   readonly unitsFormat: UnitFormat;
 }
 
-export interface IUnitsFormatContextProps {
-  currentUnitsFormat: UnitFormat;
-}
+export type IUnitsFormatContextProps = UnitFormat;
