@@ -22,38 +22,37 @@ export const fetchGeoLocationFailure = (error: Error): Actions => ({
   error: true,
 });
 
-export const fetchGeolocation = (): ThunkAction<
-  void,
-  RootState,
-  null,
-  Actions
-> => async dispatch => {
+export type GeolocationSuccessCallback = (position: IPosition) => void;
+export type GeolocationFailureCallback = (error: Error) => void;
+
+export const fetchGeolocation = (
+  successCb: GeolocationSuccessCallback = () => {},
+  errorCb: GeolocationFailureCallback = () => {},
+): ThunkAction<void, RootState, null, Actions> => async dispatch => {
   dispatch(fetchGeoLocationRequest());
 
   try {
     const geoData = await GeolocationService.fetchGeolocation();
     dispatch(fetchGeoLocationSuccess(geoData));
-    return geoData;
+    successCb(geoData);
   } catch (error) {
     dispatch(fetchGeoLocationFailure(error));
-    throw new Error(error);
+    errorCb(error);
   }
 };
 
-export const fetchGeolocationByIP = (): ThunkAction<
-  void,
-  RootState,
-  null,
-  Actions
-> => async dispatch => {
+export const fetchGeolocationByIP = (
+  successCb: GeolocationSuccessCallback = () => {},
+  errorCb: GeolocationFailureCallback = () => {},
+): ThunkAction<void, RootState, null, Actions> => async dispatch => {
   dispatch(fetchGeoLocationRequest());
 
   try {
     const geoData = await GeolocationService.fetchGeolocationByIP();
     dispatch(fetchGeoLocationSuccess(geoData));
-    return geoData;
+    successCb(geoData);
   } catch (error) {
     dispatch(fetchGeoLocationFailure(error));
-    throw new Error(error);
+    errorCb(error);
   }
 };
