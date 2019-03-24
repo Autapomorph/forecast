@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
+import { withTranslation, WithTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 
 import { UnitsFormatContext } from '../../../store/settings/context';
@@ -23,19 +23,39 @@ import {
   getIsFeaturedCity,
   getCurrentUnitsFormat,
 } from '../../../store/rootSelectors';
+import { RootState } from '../../../store/types';
+import { ICoords } from '../../../models';
 
 import { StyledSearchResultsSection, StyledSearchResultsHeader } from './styles';
 
-export class SearchResults extends Component {
-  toastId = 'cityError';
+interface IPropsFromState {
+  cities: ReturnType<typeof getCities>;
+  searchTerm: ReturnType<typeof getSearchTerm>;
+  isActive: ReturnType<typeof getIsCitiesActive>;
+  isLoading: ReturnType<typeof getIsCitiesLoading>;
+  errorMessage: ReturnType<typeof getCitiesErrorMessage>;
+  unitsFormat: ReturnType<typeof getCurrentUnitsFormat>;
+  checkIfFeatured: ReturnType<typeof getIsFeaturedCity>;
+}
 
-  componentDidUpdate() {
+interface IPropsFromDispatch {
+  _fetchCityWeatherByPosition: (position: ICoords) => void;
+  _addCityToFeatured: typeof addCityToFeatured;
+  _removeCityFromFeatured: typeof removeCityFromFeatured;
+}
+
+type SearchResultsProps = IPropsFromState & IPropsFromDispatch & WithTranslation;
+
+export class SearchResults extends Component<SearchResultsProps> {
+  private toastId = 'cityError';
+
+  public componentDidUpdate(): void {
     const { t, isLoading, errorMessage } = this.props;
     const shouldShowToast = !isLoading && errorMessage && !toast.isActive(this.toastId);
     const shouldDismissToast = !isLoading && !errorMessage && toast.isActive(this.toastId);
 
     if (shouldShowToast) {
-      toast.error(t(errorMessage), {
+      toast.error(t(errorMessage || ''), {
         toastId: this.toastId,
         autoClose: false,
       });
@@ -44,13 +64,13 @@ export class SearchResults extends Component {
     }
   }
 
-  fetchCityByPosition = position => {
+  private fetchCityByPosition = (position: ICoords) => {
     const { _fetchCityWeatherByPosition } = this.props;
 
     _fetchCityWeatherByPosition(position);
   };
 
-  render() {
+  public render(): React.ReactElement | null {
     const {
       t,
       cities,
@@ -106,7 +126,7 @@ export class SearchResults extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: RootState): IPropsFromState => ({
   cities: getCities(state),
   searchTerm: getSearchTerm(state),
   isActive: getIsCitiesActive(state),
@@ -117,7 +137,7 @@ const mapStateToProps = state => ({
   checkIfFeatured: getIsFeaturedCity(state),
 });
 
-const mapDispatchToProps = {
+const mapDispatchToProps: IPropsFromDispatch = {
   _fetchCityWeatherByPosition: fetchCityWeatherByPosition,
   _addCityToFeatured: addCityToFeatured,
   _removeCityFromFeatured: removeCityFromFeatured,

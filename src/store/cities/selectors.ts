@@ -9,7 +9,7 @@ export const getSelectedCityErrorMessage = (state: State): string | null =>
   state.selectedCity.errorMessage;
 
 // cities selectors
-export const getCities = (state: State): ICity[] | null => state.cities.data;
+export const getCities = (state: State): ICity[] => state.cities.data;
 export const getSearchTerm = (state: State): string => state.cities.searchTerm;
 export const getIsCitiesActive = (state: State): boolean => state.cities.active;
 export const getIsCitiesLoading = (state: State): boolean => state.cities.loading;

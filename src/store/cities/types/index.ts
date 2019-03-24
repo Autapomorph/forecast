@@ -18,7 +18,7 @@ export interface CitiesState {
     errorMessage: string | null;
   };
   readonly cities: {
-    data: ICity[] | null;
+    data: ICity[];
     searchTerm: string;
     active: boolean;
     loading: boolean;

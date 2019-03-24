@@ -16,7 +16,7 @@ export const initialState: State = {
     errorMessage: null,
   },
   cities: {
-    data: null,
+    data: [],
     searchTerm: '',
     active: false,
     loading: false,

@@ -5,8 +5,22 @@ import LanguagesList from './LanguagesList';
 import { getCurrentLanguage } from '../../../store/rootSelectors';
 import { changeLanguage } from '../../../store/settings/actions';
 import { availableLanguages } from '../../../config/settings/i18n';
+import { RootState } from '../../../store/types';
 
-export const Languages = ({ selectedLanguage, _changeLanguage }) => (
+interface IPropsFromState {
+  selectedLanguage: ReturnType<typeof getCurrentLanguage>;
+}
+
+interface IPropsFromDispatch {
+  _changeLanguage: typeof changeLanguage;
+}
+
+type LanguagesProps = IPropsFromState & IPropsFromDispatch;
+
+export const Languages: React.FC<LanguagesProps> = ({
+  selectedLanguage,
+  _changeLanguage,
+}): React.ReactElement => (
   <LanguagesList
     languages={availableLanguages}
     selectedLanguage={selectedLanguage}
@@ -14,11 +28,11 @@ export const Languages = ({ selectedLanguage, _changeLanguage }) => (
   />
 );
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: RootState): IPropsFromState => ({
   selectedLanguage: getCurrentLanguage(state),
 });
 
-const mapDispatchToProps = {
+const mapDispatchToProps: IPropsFromDispatch = {
   _changeLanguage: changeLanguage,
 };
 

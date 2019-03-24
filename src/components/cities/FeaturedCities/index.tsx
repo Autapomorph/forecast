@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { DragDropContext } from 'react-beautiful-dnd';
-import { withTranslation } from 'react-i18next';
+import { DragDropContext, DropResult } from 'react-beautiful-dnd';
+import { withTranslation, WithTranslation } from 'react-i18next';
 
 import FeaturedCitiesList from './FeaturedCitiesList';
 import Title from '../../common/Title';
@@ -14,17 +14,32 @@ import {
   reorderFeaturedCities,
 } from '../../../store/cities/actions';
 import { getFeaturedCities } from '../../../store/rootSelectors';
+import { RootState } from '../../../store/types';
+import { ICoords } from '../../../models';
 
 import { StyledFeaturedCitiesSection, StyledFeaturedCitiesHeader } from './styles';
 
-export class FeaturedCities extends Component {
-  fetchCityByPosition = position => {
+interface IPropsFromState {
+  featuredCities: ReturnType<typeof getFeaturedCities>;
+}
+
+interface IPropsFromDispatch {
+  _fetchCityWeatherByPosition: (position: ICoords) => void;
+  _removeCityFromFeatured: typeof removeCityFromFeatured;
+  _clearFeaturedCities: typeof clearFeaturedCities;
+  _reorderFeaturedCities: typeof reorderFeaturedCities;
+}
+
+type FeaturedCitiesProps = IPropsFromState & IPropsFromDispatch & WithTranslation;
+
+export class FeaturedCities extends Component<FeaturedCitiesProps> {
+  private fetchCityByPosition = (position: ICoords) => {
     const { _fetchCityWeatherByPosition } = this.props;
 
     _fetchCityWeatherByPosition(position);
   };
 
-  onDragEnd = ({ source, destination }) => {
+  private onDragEnd = ({ source, destination }: DropResult) => {
     const { _reorderFeaturedCities } = this.props;
 
     if (!destination) {
@@ -38,7 +53,7 @@ export class FeaturedCities extends Component {
     _reorderFeaturedCities(source.index, destination.index);
   };
 
-  render() {
+  public render(): React.ReactElement {
     const { t, featuredCities, _removeCityFromFeatured, _clearFeaturedCities } = this.props;
 
     const isEmpty = !featuredCities || !Object.keys(featuredCities).length;
@@ -67,11 +82,11 @@ export class FeaturedCities extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: RootState): IPropsFromState => ({
   featuredCities: getFeaturedCities(state),
 });
 
-const mapDispatchToProps = {
+const mapDispatchToProps: IPropsFromDispatch = {
   _fetchCityWeatherByPosition: fetchCityWeatherByPosition,
   _removeCityFromFeatured: removeCityFromFeatured,
   _clearFeaturedCities: clearFeaturedCities,
