@@ -1,14 +1,15 @@
 import React, { Fragment } from 'react';
-import { Props as FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 import { faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
+import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 
 import { StyledFeaturedButton } from './styles';
 
-interface IFeaturedButtonProps extends FontAwesomeIconProps {
+interface IFeaturedButtonProps {
   isFeatured: boolean;
-  onAdd: () => void;
-  onRemove: () => void;
+  size?: SizeProp;
+  onAdd?: () => void;
+  onRemove?: () => void;
 }
 
 const FeaturedButton: React.FC<IFeaturedButtonProps> = ({

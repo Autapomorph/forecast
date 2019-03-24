@@ -2,10 +2,21 @@ import React from 'react';
 import { Droppable } from 'react-beautiful-dnd';
 
 import FeaturedCity from '../FeaturedCity';
+import { ICity, ICoords } from '../../../../models';
 
 import { StyledFeaturedList } from './styles';
 
-const FeaturedCitiesList = ({ cities, fetchCity, removeCityFromFeatured }) => {
+interface IFeaturedCitiesListProps {
+  cities: ICity[];
+  fetchCity: (coords: ICoords) => void;
+  removeCityFromFeatured: (cityId: ICity['id']) => void;
+}
+
+const FeaturedCitiesList: React.FC<IFeaturedCitiesListProps> = ({
+  cities,
+  fetchCity,
+  removeCityFromFeatured,
+}): React.ReactElement => {
   const featuredCities = cities.map((city, index) => (
     <FeaturedCity
       key={city.id}

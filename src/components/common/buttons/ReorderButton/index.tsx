@@ -1,11 +1,12 @@
 import React from 'react';
-import { Props as FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 import { faSort } from '@fortawesome/free-solid-svg-icons';
+import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 
 import { StyledReorderButton } from './styles';
 
-interface IReorderButtonProps extends FontAwesomeIconProps {
+interface IReorderButtonProps {
   isDragging: boolean;
+  size?: SizeProp;
 }
 
 const ReorderButton: React.FC<IReorderButtonProps> = ({

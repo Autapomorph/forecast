@@ -3,6 +3,7 @@ import { Draggable } from 'react-beautiful-dnd';
 
 import CountryFlag from '../../../common/icons/CountryFlag';
 import generateCityName from '../../../../utils/cityData/generateCityName';
+import { ICity, ICoords } from '../../../../models';
 
 import {
   StyledFeaturedCityWrapper,
@@ -11,8 +12,20 @@ import {
   StyledFeaturedButton,
 } from './styles';
 
-const FeaturedCitiesItem = ({ index, city, fetchCity, removeCityFromFeatured }) => (
-  <Draggable draggableId={city.id} index={index}>
+interface IFeaturedCitiesItemProps {
+  index: number;
+  city: ICity;
+  fetchCity: (coords: ICoords) => void;
+  removeCityFromFeatured: (cityId: ICity['id']) => void;
+}
+
+const FeaturedCitiesItem: React.FC<IFeaturedCitiesItemProps> = ({
+  index,
+  city,
+  fetchCity,
+  removeCityFromFeatured,
+}): React.ReactElement => (
+  <Draggable draggableId={city.id.toString()} index={index}>
     {(provided, snapshot) => (
       <StyledFeaturedCityWrapper ref={provided.innerRef} {...provided.draggableProps}>
         <StyledFeaturedCityReorderButton
