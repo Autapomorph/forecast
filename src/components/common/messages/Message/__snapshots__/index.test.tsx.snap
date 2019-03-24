@@ -34,7 +34,7 @@ ShallowWrapper {
         "$$typeof": Symbol(react.forward_ref),
         "attrs": Array [],
         "componentStyle": ComponentStyle {
-          "componentId": "styles__StyledMessageContent-r398k4-1",
+          "componentId": "styles__StyledMessageContent-sc-1lzbw8h-1",
           "isStatic": true,
           "rules": Array [
             "text-align:center;",
@@ -43,7 +43,7 @@ ShallowWrapper {
         "displayName": "styles__StyledMessageContent",
         "foldedComponentIds": Array [],
         "render": [Function],
-        "styledComponentId": "styles__StyledMessageContent-r398k4-1",
+        "styledComponentId": "styles__StyledMessageContent-sc-1lzbw8h-1",
         "target": "span",
         "toString": [Function],
         "warnTooManyClasses": [Function],
@@ -54,7 +54,7 @@ ShallowWrapper {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
       "componentStyle": ComponentStyle {
-        "componentId": "styles__StyledMessageWrapper-r398k4-0",
+        "componentId": "styles__StyledMessageWrapper-sc-1lzbw8h-0",
         "isStatic": true,
         "rules": Array [
           "display:flex;justify-content:center;align-items:center;height:100%;padding:10px;border-radius:5px;font-size:1.3rem;",
@@ -63,7 +63,7 @@ ShallowWrapper {
       "displayName": "styles__StyledMessageWrapper",
       "foldedComponentIds": Array [],
       "render": [Function],
-      "styledComponentId": "styles__StyledMessageWrapper-r398k4-0",
+      "styledComponentId": "styles__StyledMessageWrapper-sc-1lzbw8h-0",
       "target": "div",
       "toString": [Function],
       "warnTooManyClasses": [Function],
@@ -92,7 +92,7 @@ ShallowWrapper {
           "$$typeof": Symbol(react.forward_ref),
           "attrs": Array [],
           "componentStyle": ComponentStyle {
-            "componentId": "styles__StyledMessageContent-r398k4-1",
+            "componentId": "styles__StyledMessageContent-sc-1lzbw8h-1",
             "isStatic": true,
             "rules": Array [
               "text-align:center;",
@@ -101,7 +101,7 @@ ShallowWrapper {
           "displayName": "styles__StyledMessageContent",
           "foldedComponentIds": Array [],
           "render": [Function],
-          "styledComponentId": "styles__StyledMessageContent-r398k4-1",
+          "styledComponentId": "styles__StyledMessageContent-sc-1lzbw8h-1",
           "target": "span",
           "toString": [Function],
           "warnTooManyClasses": [Function],
@@ -112,7 +112,7 @@ ShallowWrapper {
         "$$typeof": Symbol(react.forward_ref),
         "attrs": Array [],
         "componentStyle": ComponentStyle {
-          "componentId": "styles__StyledMessageWrapper-r398k4-0",
+          "componentId": "styles__StyledMessageWrapper-sc-1lzbw8h-0",
           "isStatic": true,
           "rules": Array [
             "display:flex;justify-content:center;align-items:center;height:100%;padding:10px;border-radius:5px;font-size:1.3rem;",
@@ -121,7 +121,7 @@ ShallowWrapper {
         "displayName": "styles__StyledMessageWrapper",
         "foldedComponentIds": Array [],
         "render": [Function],
-        "styledComponentId": "styles__StyledMessageWrapper-r398k4-0",
+        "styledComponentId": "styles__StyledMessageWrapper-sc-1lzbw8h-0",
         "target": "div",
         "toString": [Function],
         "warnTooManyClasses": [Function],

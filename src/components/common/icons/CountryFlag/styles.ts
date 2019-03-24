@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+interface ICountryFlagProps {
+  country: string;
+  size: string;
+}
+
 // eslint-disable-next-line import/prefer-default-export
 export const StyledCountryFlag = styled.span`
   display: inline-block;
@@ -7,8 +12,9 @@ export const StyledCountryFlag = styled.span`
   height: 1em;
   border-radius: 50%;
   vertical-align: sub;
-  font-size: ${({ size }) => size};
-  background-image: ${({ country }) => `url(/images/countries/flags/1x1/${country}.svg)`};
+  font-size: ${({ size }: ICountryFlagProps) => size};
+  background-image: ${({ country }: ICountryFlagProps) =>
+    `url(/images/countries/flags/1x1/${country}.svg)`};
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

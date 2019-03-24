@@ -1,3 +1,5 @@
+import { shallow } from 'enzyme';
+
 import Message from '.';
 
 import { StyledMessageContent } from './styles';

@@ -1,3 +1,5 @@
+import { shallow, mount } from 'enzyme';
+
 import Loader from '.';
 import Message from '../Message';
 

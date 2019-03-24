@@ -2,7 +2,7 @@ import React from 'react';
 
 import { StyledErrorMessage } from './styles';
 
-const Error = ({ children, ...props }) => (
+const Error: React.FC = ({ children, ...props }): React.ReactElement => (
   <StyledErrorMessage {...props}>{children}</StyledErrorMessage>
 );
 

@@ -26,7 +26,7 @@ ShallowWrapper {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
       "componentStyle": ComponentStyle {
-        "componentId": "styles__StyledEmptyResultMessage-sc-16npz6u-0",
+        "componentId": "styles__StyledEmptyResultMessage-sc-1se0uan-0",
         "isStatic": true,
         "rules": Array [
           "margin:20px 0;",
@@ -35,7 +35,7 @@ ShallowWrapper {
       "displayName": "styles__StyledEmptyResultMessage",
       "foldedComponentIds": Array [],
       "render": [Function],
-      "styledComponentId": "styles__StyledEmptyResultMessage-sc-16npz6u-0",
+      "styledComponentId": "styles__StyledEmptyResultMessage-sc-1se0uan-0",
       "target": [Function],
       "toString": [Function],
       "warnTooManyClasses": [Function],
@@ -57,7 +57,7 @@ ShallowWrapper {
         "$$typeof": Symbol(react.forward_ref),
         "attrs": Array [],
         "componentStyle": ComponentStyle {
-          "componentId": "styles__StyledEmptyResultMessage-sc-16npz6u-0",
+          "componentId": "styles__StyledEmptyResultMessage-sc-1se0uan-0",
           "isStatic": true,
           "rules": Array [
             "margin:20px 0;",
@@ -66,7 +66,7 @@ ShallowWrapper {
         "displayName": "styles__StyledEmptyResultMessage",
         "foldedComponentIds": Array [],
         "render": [Function],
-        "styledComponentId": "styles__StyledEmptyResultMessage-sc-16npz6u-0",
+        "styledComponentId": "styles__StyledEmptyResultMessage-sc-1se0uan-0",
         "target": [Function],
         "toString": [Function],
         "warnTooManyClasses": [Function],

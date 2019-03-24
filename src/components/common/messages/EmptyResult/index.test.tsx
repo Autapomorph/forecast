@@ -1,3 +1,5 @@
+import { shallow, mount } from 'enzyme';
+
 import EmptyResult from '.';
 import Message from '../Message';
 

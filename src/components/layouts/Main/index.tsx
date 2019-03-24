@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.min.css';
 
 import { StyledLayoutWrapper, StyledHeaderWrapper, StyledContentWrapper } from './styles';
 
-const MainLayout = () => (
+const MainLayout: React.FC = (): React.ReactElement => (
   <StyledLayoutWrapper>
     <ToastContainer position={toast.POSITION.BOTTOM_CENTER} />
 

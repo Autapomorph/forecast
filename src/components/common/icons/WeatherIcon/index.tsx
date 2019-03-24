@@ -2,7 +2,18 @@ import React from 'react';
 
 import { StyledWeatherIcon } from './styles';
 
-const WeatherIcon = ({
+interface IWeatherIconProps {
+  tag: React.ElementType;
+  icon: string;
+  wind: boolean;
+  fixedWidth: boolean;
+  flip: boolean;
+  rotate: boolean;
+  size: string;
+  className: string;
+}
+
+const WeatherIcon: React.FC<IWeatherIconProps> = ({
   tag = 'i',
   icon,
   wind = false,
@@ -11,7 +22,7 @@ const WeatherIcon = ({
   rotate,
   size,
   className,
-}) => {
+}): React.ReactElement => {
   const classNames = ['wi'];
   if (wind || /^wi-/i.test(icon)) {
     classNames.push(icon);

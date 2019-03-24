@@ -1,9 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Error tests renders properly 1`] = `
+exports[`Loader tests renders properly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Error />,
+  Symbol(enzyme.__unrendered__): <Loader>
+    <MDSpinner
+      color1="rgb(66, 165, 245)"
+      color2="rgb(239, 83, 80)"
+      color3="rgb(253, 216, 53)"
+      color4="rgb(76, 175, 80)"
+      duration={1333}
+      singleColor="#fff"
+      size={28}
+    />
+  </Loader>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],
@@ -18,24 +28,48 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "function",
     "props": Object {
-      "children": undefined,
+      "children": <MDSpinner
+        color1="rgb(66, 165, 245)"
+        color2="rgb(239, 83, 80)"
+        color3="rgb(253, 216, 53)"
+        color4="rgb(76, 175, 80)"
+        duration={1333}
+        singleColor="#fff"
+        size={28}
+      />,
     },
     "ref": null,
-    "rendered": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "color1": "rgb(66, 165, 245)",
+        "color2": "rgb(239, 83, 80)",
+        "color3": "rgb(253, 216, 53)",
+        "color4": "rgb(76, 175, 80)",
+        "duration": 1333,
+        "singleColor": "#fff",
+        "size": 28,
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
     "type": Object {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
       "componentStyle": ComponentStyle {
-        "componentId": "styles__StyledErrorMessage-jx77c0-0",
+        "componentId": "styles__StyledLoaderMessage-p6qlbu-0",
         "isStatic": true,
         "rules": Array [
-          "background:var(--bg-error);color:var(--error-text-color);",
+          "margin:10px 0;font-size:1.5rem;",
         ],
       },
-      "displayName": "styles__StyledErrorMessage",
+      "displayName": "styles__StyledLoaderMessage",
       "foldedComponentIds": Array [],
       "render": [Function],
-      "styledComponentId": "styles__StyledErrorMessage-jx77c0-0",
+      "styledComponentId": "styles__StyledLoaderMessage-p6qlbu-0",
       "target": [Function],
       "toString": [Function],
       "warnTooManyClasses": [Function],
@@ -49,24 +83,48 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
-        "children": undefined,
+        "children": <MDSpinner
+          color1="rgb(66, 165, 245)"
+          color2="rgb(239, 83, 80)"
+          color3="rgb(253, 216, 53)"
+          color4="rgb(76, 175, 80)"
+          duration={1333}
+          singleColor="#fff"
+          size={28}
+        />,
       },
       "ref": null,
-      "rendered": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "color1": "rgb(66, 165, 245)",
+          "color2": "rgb(239, 83, 80)",
+          "color3": "rgb(253, 216, 53)",
+          "color4": "rgb(76, 175, 80)",
+          "duration": 1333,
+          "singleColor": "#fff",
+          "size": 28,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
       "type": Object {
         "$$typeof": Symbol(react.forward_ref),
         "attrs": Array [],
         "componentStyle": ComponentStyle {
-          "componentId": "styles__StyledErrorMessage-jx77c0-0",
+          "componentId": "styles__StyledLoaderMessage-p6qlbu-0",
           "isStatic": true,
           "rules": Array [
-            "background:var(--bg-error);color:var(--error-text-color);",
+            "margin:10px 0;font-size:1.5rem;",
           ],
         },
-        "displayName": "styles__StyledErrorMessage",
+        "displayName": "styles__StyledLoaderMessage",
         "foldedComponentIds": Array [],
         "render": [Function],
-        "styledComponentId": "styles__StyledErrorMessage-jx77c0-0",
+        "styledComponentId": "styles__StyledLoaderMessage-p6qlbu-0",
         "target": [Function],
         "toString": [Function],
         "warnTooManyClasses": [Function],

@@ -1,4 +1,4 @@
-import { CitiesState as State } from './types';
+import { CitiesState as State } from './types/index';
 import { ICity, IWeather } from '../../models';
 
 // city selectors
