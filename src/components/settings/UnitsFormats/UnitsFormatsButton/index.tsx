@@ -1,9 +1,23 @@
 import React from 'react';
-import { withTranslation } from 'react-i18next';
+import { withTranslation, WithTranslation } from 'react-i18next';
+
+/* eslint-disable-next-line import/named */
+import { UnitFormat } from '../../../../models';
 
 import { StyledSwitchButton, StyledLabel, StyledRadioButton, StyledLabelText } from './styles';
 
-const UnitsFormatsButton = ({ t, unitsFormat, checked, handleChange }) => (
+interface IUnitsFormatsButtonProps extends WithTranslation {
+  unitsFormat: UnitFormat;
+  checked: boolean;
+  handleChange: (unitFormat: UnitFormat) => void;
+}
+
+const UnitsFormatsButton: React.FC<IUnitsFormatsButtonProps> = ({
+  t,
+  unitsFormat,
+  checked,
+  handleChange,
+}): React.ReactElement => (
   <StyledSwitchButton checked={checked}>
     <StyledLabel>
       <StyledRadioButton

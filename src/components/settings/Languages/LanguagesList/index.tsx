@@ -1,10 +1,21 @@
 import React from 'react';
 
 import LanguageButton from '../LanguageButton';
+import { ILocale } from '../../../../models';
 
 import { StyledLanguageSwitcher } from './styles';
 
-const LanguageList = ({ languages, selectedLanguage, handleChangeLanguage }) => (
+interface ILanguageListProps {
+  languages: ILocale[];
+  selectedLanguage: ILocale;
+  handleChangeLanguage: (language: ILocale) => void;
+}
+
+const LanguageList: React.FC<ILanguageListProps> = ({
+  languages,
+  selectedLanguage,
+  handleChangeLanguage,
+}): React.ReactElement => (
   <StyledLanguageSwitcher>
     {languages.map(language => (
       <LanguageButton

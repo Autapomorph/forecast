@@ -1,5 +1,9 @@
 import styled, { css } from 'styled-components';
 
+interface ISwitchButtonProps {
+  checked: boolean;
+}
+
 export const StyledSwitchButton = styled.span`
   flex: 1 1 0;
   border: 1px solid var(--light-gray);
@@ -30,7 +34,7 @@ export const StyledSwitchButton = styled.span`
     border-radius: 5px;
   }
 
-  ${/* sc-dec */ ({ checked }) =>
+  ${/* sc-dec */ ({ checked }: ISwitchButtonProps) =>
     checked &&
     css`
       color: var(--bg-violet);

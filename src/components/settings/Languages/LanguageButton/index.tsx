@@ -1,13 +1,25 @@
 import React from 'react';
 
+import { ILocale } from '../../../../models';
+
 import { StyledSwitchButton, StyledLabel, StyledRadioButton, StyledLabelText } from './styles';
 
-const LanguageButton = ({ language, checked, handleChange }) => (
+interface ILanguageButtonProps {
+  language: ILocale;
+  checked: boolean;
+  handleChange: (unitFormat: ILocale) => void;
+}
+
+const LanguageButton: React.FC<ILanguageButtonProps> = ({
+  language,
+  checked,
+  handleChange,
+}): React.ReactElement => (
   <StyledSwitchButton checked={checked}>
     <StyledLabel>
       <StyledRadioButton
         name="language"
-        value={language}
+        value={language.code}
         checked={checked}
         onChange={() => handleChange(language)}
       />
