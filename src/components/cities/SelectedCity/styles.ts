@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface ISelectedCitySectionProps {
-  isLoading: boolean;
+  isLoading?: boolean;
 }
 
 // eslint-disable-next-line import/prefer-default-export

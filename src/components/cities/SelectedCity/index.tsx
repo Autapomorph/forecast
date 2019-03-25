@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
+import { withTranslation, WithTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 
 import { UnitsFormatContext } from '../../../store/settings/context';
@@ -20,19 +20,38 @@ import {
   getIsFeaturedCity,
   getCurrentUnitsFormat,
 } from '../../../store/rootSelectors';
+import { RootState } from '../../../store/types';
+import { ICoords } from '../../../models';
 
 import { StyledSelectedCitySection } from './styles';
 
-export class SelectedCity extends Component {
-  toastId = 'cityError';
+interface IPropsFromState {
+  city: ReturnType<typeof getSelectedCity>;
+  isActive: ReturnType<typeof getIsSelectedCityActive>;
+  isLoading: ReturnType<typeof getIsSelectedCityLoading>;
+  errorMessage: ReturnType<typeof getSelectedCityErrorMessage>;
+  unitsFormat: ReturnType<typeof getCurrentUnitsFormat>;
+  checkIfFeatured: ReturnType<typeof getIsFeaturedCity>;
+}
 
-  componentDidUpdate() {
+interface IPropsFromDispatch {
+  _fetchCityWeatherByPosition: (position: ICoords) => void;
+  _addCityToFeatured: typeof addCityToFeatured;
+  _removeCityFromFeatured: typeof removeCityFromFeatured;
+}
+
+type SelectedCityProps = IPropsFromState & IPropsFromDispatch & WithTranslation;
+
+export class SelectedCity extends Component<SelectedCityProps> {
+  private toastId = 'cityError';
+
+  public componentDidUpdate(): void {
     const { t, isLoading, errorMessage } = this.props;
     const shouldShowToast = !isLoading && errorMessage && !toast.isActive(this.toastId);
     const shouldDismissToast = !isLoading && !errorMessage && toast.isActive(this.toastId);
 
     if (shouldShowToast) {
-      toast.error(t(errorMessage), {
+      toast.error(t(errorMessage || ''), {
         toastId: this.toastId,
         autoClose: false,
       });
@@ -41,13 +60,13 @@ export class SelectedCity extends Component {
     }
   }
 
-  fetchCityByPosition = position => {
+  private fetchCityByPosition = (position: ICoords) => {
     const { _fetchCityWeatherByPosition } = this.props;
 
     _fetchCityWeatherByPosition(position);
   };
 
-  render() {
+  public render(): React.ReactElement | null {
     const {
       city,
       isActive,
@@ -59,7 +78,7 @@ export class SelectedCity extends Component {
       _removeCityFromFeatured,
     } = this.props;
 
-    if (!isActive) {
+    if (!isActive || !city) {
       return null;
     }
 
@@ -95,7 +114,7 @@ export class SelectedCity extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: RootState): IPropsFromState => ({
   city: getSelectedCity(state),
   isActive: getIsSelectedCityActive(state),
   isLoading: getIsSelectedCityLoading(state),
@@ -105,7 +124,7 @@ const mapStateToProps = state => ({
   checkIfFeatured: getIsFeaturedCity(state),
 });
 
-const mapDispatchToProps = {
+const mapDispatchToProps: IPropsFromDispatch = {
   _fetchCityWeatherByPosition: fetchCityWeatherByPosition,
   _addCityToFeatured: addCityToFeatured,
   _removeCityFromFeatured: removeCityFromFeatured,
