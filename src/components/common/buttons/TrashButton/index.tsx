@@ -1,12 +1,11 @@
 import React, { Fragment } from 'react';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import { SizeProp } from '@fortawesome/fontawesome-svg-core';
+import { Props as FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 
 import { StyledTrashButton } from './styles';
 
-interface ITrashButtonProps {
+interface ITrashButtonProps extends Partial<FontAwesomeIconProps> {
   isEmpty: boolean;
-  size?: SizeProp;
   onClick: () => void;
 }
 
