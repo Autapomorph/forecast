@@ -19,7 +19,7 @@ import {
   getGeolocationErrorMessage,
 } from '../../../../store/rootSelectors';
 import { RootState } from '../../../../store/types';
-import { IPosition, ICoords } from '../../../../models';
+import { ICoords } from '../../../../models';
 
 import { StyledInputButton } from '../../../SearchBar/styles';
 
@@ -77,9 +77,9 @@ export class GeolocationButton extends Component<GeolocationButtonProps> {
     _fetchGeolocationByIP(this.geoLocationSuccess);
   };
 
-  private geoLocationSuccess = (geoData: IPosition) => {
+  private geoLocationSuccess = (geoData: ICoords) => {
     const { _fetchCityWeatherByPosition } = this.props;
-    const { latitude, longitude } = geoData.coords;
+    const { latitude, longitude } = geoData;
 
     _fetchCityWeatherByPosition({ latitude, longitude });
   };

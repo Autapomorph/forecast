@@ -24,7 +24,7 @@ export default (state = initialState, action: Actions): State => {
     case Types.GEOLOCATION_FETCH_SUCCESS: {
       return {
         ...state,
-        data: { ...state.data, ...action.payload.coords },
+        data: { ...state.data, ...action.payload },
         loading: false,
         errorMessage: null,
       };

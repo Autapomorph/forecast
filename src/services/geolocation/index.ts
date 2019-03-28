@@ -1,11 +1,17 @@
 import { IPAPI_API } from '../../config/geolocation';
 import { isProd } from '../../utils';
-import { IPosition } from '../../models';
+import { ICoords } from '../../models';
 
 export default class GeolocationService {
-  public static fetchGeolocation = (): Promise<IPosition> =>
+  public static fetchGeolocation = (): Promise<ICoords> =>
     new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(resolve, ({ code }: PositionError) => {
+      const successCb: PositionCallback = (position): void =>
+        resolve({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        });
+
+      const errorCb: PositionErrorCallback = ({ code }: PositionError): void => {
         switch (code) {
           case 1:
             return reject(new Error('messages.errors.geolocation.permissionDenied'));
@@ -16,10 +22,12 @@ export default class GeolocationService {
           default:
             return reject(new Error('messages.errors.geolocation.positionUnavailable'));
         }
-      });
+      };
+
+      navigator.geolocation.getCurrentPosition(successCb, errorCb);
     });
 
-  public static fetchGeolocationByIP = async (): Promise<IPosition> => {
+  public static fetchGeolocationByIP = async (): Promise<ICoords> => {
     const response = await fetch(IPAPI_API);
 
     if (!response.ok) {
@@ -34,10 +42,8 @@ export default class GeolocationService {
     }
 
     return {
-      coords: {
-        latitude: geolocationData.latitude,
-        longitude: geolocationData.longitude,
-      },
+      latitude: geolocationData.latitude,
+      longitude: geolocationData.longitude,
     };
   };
 }

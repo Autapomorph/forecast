@@ -1,6 +1,6 @@
 import { Action } from 'redux';
 
-import { IPosition, ICoords } from '../../models';
+import { ICoords } from '../../models';
 
 export enum GeolocationActionTypes {
   GEOLOCATION_FETCH_REQUEST = '@geolocation/GEOLOCATION_FETCH_REQUEST',
@@ -14,7 +14,7 @@ interface FetchRequestAction extends Action {
 
 interface FetchSuccessAction extends Action {
   type: typeof GeolocationActionTypes.GEOLOCATION_FETCH_SUCCESS;
-  payload: IPosition;
+  payload: ICoords;
   error: false;
 }
 

@@ -4,13 +4,13 @@ import GeolocationService from '../../services/geolocation';
 /* eslint-disable-next-line import/named */
 import { GeolocationActions as Actions, GeolocationActionTypes as Types } from './types';
 import { RootState } from '../types';
-import { IPosition } from '../../models';
+import { ICoords } from '../../models';
 
 export const fetchGeoLocationRequest = (): Actions => ({
   type: Types.GEOLOCATION_FETCH_REQUEST,
 });
 
-export const fetchGeoLocationSuccess = (geoData: IPosition): Actions => ({
+export const fetchGeoLocationSuccess = (geoData: ICoords): Actions => ({
   type: Types.GEOLOCATION_FETCH_SUCCESS,
   payload: geoData,
   error: false,
@@ -22,7 +22,7 @@ export const fetchGeoLocationFailure = (error: Error): Actions => ({
   error: true,
 });
 
-export type GeolocationSuccessCallback = (position: IPosition) => void;
+export type GeolocationSuccessCallback = (position: ICoords) => void;
 export type GeolocationFailureCallback = (error: Error) => void;
 
 export const fetchGeolocation = (
