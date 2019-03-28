@@ -1,10 +1,5 @@
 export default function generateWindIcon(windDir: number, towards: boolean = false): string {
-  if (
-    windDir === null ||
-    windDir === undefined ||
-    typeof windDir !== 'number' ||
-    Number.isNaN(windDir)
-  ) {
+  if (Number.isNaN(windDir)) {
     throw new Error('Invalid wind direction');
   }
 

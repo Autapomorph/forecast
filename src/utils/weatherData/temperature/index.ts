@@ -4,7 +4,7 @@ import { UnitFormat } from '../../../models';
 
 import { kelvinToCelsius, kelvinToFahrenheit } from './converters';
 
-export function convertTemp(degrees: number, scale: UnitFormat): number | null {
+export function convertTemp(degrees: number, scale: UnitFormat): number {
   switch (scale) {
     case unitsFormats.METRIC: {
       return kelvinToCelsius(degrees);

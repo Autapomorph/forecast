@@ -4,7 +4,7 @@ import { UnitFormat } from '../../../models';
 
 import { pascalToMmHg, pascalToInHg } from './converters';
 
-function convertPressure(pressure: number, unit: UnitFormat): number | null {
+function convertPressure(pressure: number, unit: UnitFormat): number {
   switch (unit) {
     case unitsFormats.METRIC: {
       return pascalToMmHg(pressure);

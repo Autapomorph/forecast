@@ -4,7 +4,7 @@ import { IWindFormat } from '../../../models';
 
 interface IWindFormatProps {
   speed: number;
-  bearing?: number;
+  bearing: number;
 }
 
 export default function formatWind({ speed, bearing = 0 }: IWindFormatProps): IWindFormat {
