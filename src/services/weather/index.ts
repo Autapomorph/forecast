@@ -42,7 +42,7 @@ export default class WeatherService {
       throw new Error('messages.errors.weather.fetchFailed');
     }
 
-    const cityWeatherData = await response.json();
+    const cityWeatherData: IWeatherAPIResponse = await response.json();
 
     if (cityWeatherData.flags['darksky-unavailable']) {
       if (isProd) throw new Error('messages.errors.weather.fetchFailed');

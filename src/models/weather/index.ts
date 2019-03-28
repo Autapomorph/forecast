@@ -39,6 +39,9 @@ export interface IWeatherAPIResponse {
   daily: {
     data: IWeatherDailyAPIResponse[];
   };
+  flags: {
+    'darksky-unavailable': string;
+  };
 }
 
 export interface IWeatherDaily {

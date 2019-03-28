@@ -66,7 +66,7 @@ export default class GeonamesService {
       throw new Error('messages.errors.geonames.search.fetchFailed');
     }
 
-    const citiesData = await response.json();
+    const citiesData: ICitiesAPIResponse = await response.json();
 
     if (citiesData.status) {
       if (isProd) throw new Error('messages.errors.geonames.search.fetchFailed');
@@ -85,7 +85,7 @@ export default class GeonamesService {
       throw new Error('messages.errors.geonames.findNearby.fetchFailed');
     }
 
-    const nearbyData = await response.json();
+    const nearbyData: ICitiesAPIResponse = await response.json();
 
     if (nearbyData.status) {
       if (isProd) throw new Error('messages.errors.geonames.findNearby.fetchFailed');

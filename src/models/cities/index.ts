@@ -11,8 +11,11 @@ export interface ICityAPIResponse {
 
 export interface ICitiesAPIResponse {
   geonames: ICityAPIResponse[];
-  // the underlying props aren't used, but exist in the API response model
-  totalResultsCount?: number;
+  totalResultsCount: number;
+  status?: {
+    message: string;
+    value: number;
+  };
 }
 
 export interface ICity {
