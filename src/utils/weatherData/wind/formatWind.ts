@@ -7,15 +7,18 @@ interface IWindFormatProps {
   bearing: number;
 }
 
-export default function formatWind({ speed, bearing = 0 }: IWindFormatProps): IWindFormat {
-  const windIcon = generateWindIcon(bearing);
-  const windCardDir = mapDegToCardDir(bearing);
-  const windSpeed = Math.round(speed);
+export default function formatWind({
+  speed: windSpeed,
+  bearing = 0,
+}: IWindFormatProps): IWindFormat {
+  const icon = generateWindIcon(bearing);
+  const cardDir = mapDegToCardDir(bearing);
+  const speed = Math.round(windSpeed);
 
   return {
-    windBearing: bearing,
-    windSpeed,
-    windCardDir,
-    windIcon,
+    bearing,
+    speed,
+    cardDir,
+    icon,
   };
 }

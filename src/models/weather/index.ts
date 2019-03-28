@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon';
 import { ICoords } from '../geolocation';
-import { IWindFormatShort } from './wind';
+import { IWindFormat } from './wind';
 
 export * from './wind';
 
@@ -56,7 +56,7 @@ export interface IWeatherDaily {
   cloudiness: number;
   visibility: number;
   pressure: number;
-  wind: IWindFormatShort;
+  wind: IWindFormat;
 }
 
 export interface IWeather {
@@ -73,7 +73,7 @@ export interface IWeather {
     cloudiness: number;
     visibility: number;
     pressure: number;
-    wind: IWindFormatShort;
+    wind: IWindFormat;
   };
   dailyForecast: IWeatherDaily[];
 }

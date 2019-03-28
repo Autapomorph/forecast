@@ -10,11 +10,6 @@ export default function formatWeather(weatherData: IWeatherAPIResponse): IWeathe
   const dailyWeather = weatherData.daily;
   const { timezone } = weatherData;
 
-  const { windBearing, windSpeed, windCardDir, windIcon } = formatWind({
-    speed: currentWeather.windSpeed,
-    bearing: currentWeather.windBearing,
-  });
-
   return {
     timezone,
     coords: {
@@ -35,12 +30,10 @@ export default function formatWeather(weatherData: IWeatherAPIResponse): IWeathe
       visibility: currentWeather.visibility,
       pressure: currentWeather.pressure,
 
-      wind: {
-        speed: windSpeed,
-        bearing: windBearing,
-        cardDir: windCardDir,
-        icon: windIcon,
-      },
+      wind: formatWind({
+        speed: currentWeather.windSpeed,
+        bearing: currentWeather.windBearing,
+      }),
     },
     dailyForecast: formatWeatherDaily(weatherData.daily.data, timezone),
   };
