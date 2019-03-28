@@ -6,5 +6,5 @@ export const unitsFormats: IUnitsFormats = {
   IMPERIAL: 'imperial',
 };
 
-export const defaultUnitsFormat: string = unitsFormats.METRIC;
-export const availableUnitsFormats: string[] = [unitsFormats.METRIC, unitsFormats.IMPERIAL];
+export const defaultUnitsFormat = unitsFormats.METRIC;
+export const availableUnitsFormats = [unitsFormats.METRIC, unitsFormats.IMPERIAL];
