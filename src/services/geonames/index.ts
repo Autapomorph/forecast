@@ -16,7 +16,7 @@ import {
 } from '../../config/geonames';
 import combineQueryParams from '../../utils/url/combineQueryParams';
 import { isProd } from '../../utils';
-import { ICitiesAPIResponse, ICoords } from '../../models';
+import { ICitiesAPIRequest, ICitiesAPIResponse, ICoords } from '../../models';
 
 export default class GeonamesService {
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
@@ -38,21 +38,25 @@ export default class GeonamesService {
   };
 
   private static getAPISearchEndpoint = (searchTerm: string): string => {
-    const queryString = GeonamesService.getQueryString({
+    const queryObject: ICitiesAPIRequest = {
       [GEONAMES_API_SEARCH_QUERY_PARAM]: searchTerm,
       [GEONAMES_API_NAME_REQUIRED_QUERY_PARAM]: true,
       [GEONAMES_API_FEATURE_CLASS_QUERY_PARAM]: ['P'],
       [GEONAMES_API_FEATURE_CODE_QUERY_PARAM]: ['PPLC', 'PPLA', 'PPLA2', 'PPLA3', 'PPLA4', 'PPL'],
-    });
+    };
+
+    const queryString = GeonamesService.getQueryString(queryObject);
 
     return `${GEONAMES_API_SEARCH}?${queryString}`;
   };
 
   private static getAPIFindNearbyEndpoint = ({ latitude, longitude }: ICoords): string => {
-    const queryString = GeonamesService.getQueryString({
+    const queryObject: ICitiesAPIRequest = {
       [GEONAMES_API_LATITUDE_QUERY_PARAM]: latitude,
       [GEONAMES_API_LONGITUDE_QUERY_PARAM]: longitude,
-    });
+    };
+
+    const queryString = GeonamesService.getQueryString(queryObject);
 
     return `${GEONAMES_API_FIND_NEARBY}?${queryString}`;
   };

@@ -1,8 +1,52 @@
 import { DateTime } from 'luxon';
-import { ICoords } from '../geolocation';
+
 import { IWindFormat } from './wind';
+import { ICoords } from '../geolocation';
+import * as W from '../../config/weather';
 
 export * from './wind';
+
+export interface IWeather {
+  timezone: string;
+  coords: ICoords;
+  weather: {
+    timestamp: DateTime;
+    sunrise: DateTime;
+    sunset: DateTime;
+    weatherIcon: string;
+    summary: string;
+    temp: number;
+    humidity: number;
+    cloudiness: number;
+    visibility: number;
+    pressure: number;
+    wind: IWindFormat;
+  };
+  dailyForecast: IWeatherDaily[];
+}
+
+export interface IWeatherDaily {
+  timezone: string;
+  timestamp: DateTime;
+  sunrise: DateTime;
+  sunset: DateTime;
+  weatherIcon: string;
+  summary: string;
+  temp: number;
+  humidity: number;
+  cloudiness: number;
+  visibility: number;
+  pressure: number;
+  wind: IWindFormat;
+}
+
+export interface IWeatherAPIRequest {
+  [W.DARKSKY_API_QUERY_LATITUDE_PARAM]?: number;
+  [W.DARKSKY_API_QUERY_LONGITUDE_PARAM]?: number;
+  [W.DARKSKY_API_LANG_QUERY_PARAM]?: string;
+  [W.DARKSKY_API_UNITS_QUERY_PARAM]?: string;
+  [W.DARKSKY_API_EXCLUDE_QUERY_PARAM]?: string | string[];
+}
 
 export interface IWeatherDailyAPIResponse {
   time: number;
@@ -42,38 +86,4 @@ export interface IWeatherAPIResponse {
   flags: {
     'darksky-unavailable': string;
   };
-}
-
-export interface IWeatherDaily {
-  timezone: string;
-  timestamp: DateTime;
-  sunrise: DateTime;
-  sunset: DateTime;
-  weatherIcon: string;
-  summary: string;
-  temp: number;
-  humidity: number;
-  cloudiness: number;
-  visibility: number;
-  pressure: number;
-  wind: IWindFormat;
-}
-
-export interface IWeather {
-  timezone: string;
-  coords: ICoords;
-  weather: {
-    timestamp: DateTime;
-    sunrise: DateTime;
-    sunset: DateTime;
-    weatherIcon: string;
-    summary: string;
-    temp: number;
-    humidity: number;
-    cloudiness: number;
-    visibility: number;
-    pressure: number;
-    wind: IWindFormat;
-  };
-  dailyForecast: IWeatherDaily[];
 }
