@@ -68,20 +68,13 @@ export class GeolocationButton extends Component<GeolocationButtonProps> {
   private fetchGeolocation = () => {
     const { _fetchGeolocation } = this.props;
 
-    _fetchGeolocation(this.geoLocationSuccess);
+    _fetchGeolocation();
   };
 
   private fetchGeolocationByIP = () => {
     const { _fetchGeolocationByIP } = this.props;
 
-    _fetchGeolocationByIP(this.geoLocationSuccess);
-  };
-
-  private geoLocationSuccess = (geoData: ICoords) => {
-    const { _fetchCityWeatherByPosition } = this.props;
-    const { latitude, longitude } = geoData;
-
-    _fetchCityWeatherByPosition({ latitude, longitude });
+    _fetchGeolocationByIP();
   };
 
   public render(): React.ReactElement {

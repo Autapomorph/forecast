@@ -25,34 +25,34 @@ export const fetchGeoLocationFailure = (error: Error): Actions => ({
 export type GeolocationSuccessCallback = (position: ICoords) => void;
 export type GeolocationFailureCallback = (error: Error) => void;
 
-export const fetchGeolocation = (
-  successCb: GeolocationSuccessCallback = () => {},
-  errorCb: GeolocationFailureCallback = () => {},
-): ThunkAction<void, RootState, null, Actions> => async dispatch => {
+export const fetchGeolocation = (): ThunkAction<
+  void,
+  RootState,
+  null,
+  Actions
+> => async dispatch => {
   dispatch(fetchGeoLocationRequest());
 
   try {
     const geoData = await GeolocationService.fetchGeolocation();
     dispatch(fetchGeoLocationSuccess(geoData));
-    successCb(geoData);
   } catch (error) {
     dispatch(fetchGeoLocationFailure(error));
-    errorCb(error);
   }
 };
 
-export const fetchGeolocationByIP = (
-  successCb: GeolocationSuccessCallback = () => {},
-  errorCb: GeolocationFailureCallback = () => {},
-): ThunkAction<void, RootState, null, Actions> => async dispatch => {
+export const fetchGeolocationByIP = (): ThunkAction<
+  void,
+  RootState,
+  null,
+  Actions
+> => async dispatch => {
   dispatch(fetchGeoLocationRequest());
 
   try {
     const geoData = await GeolocationService.fetchGeolocationByIP();
     dispatch(fetchGeoLocationSuccess(geoData));
-    successCb(geoData);
   } catch (error) {
     dispatch(fetchGeoLocationFailure(error));
-    errorCb(error);
   }
 };

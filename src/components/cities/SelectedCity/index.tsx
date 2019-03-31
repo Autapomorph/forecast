@@ -13,9 +13,10 @@ import {
   removeCityFromFeatured,
 } from '../../../store/cities/actions';
 import {
+  getGeoPosition,
   getSelectedCity,
   getIsSelectedCityActive,
-  getIsSelectedCityLoading,
+  getIsAnythingLoading,
   getSelectedCityErrorMessage,
   getIsFeaturedCity,
   getCurrentUnitsFormat,
@@ -26,9 +27,10 @@ import { ICoords } from '../../../models';
 import { StyledSelectedCitySection } from './styles';
 
 interface IPropsFromState {
+  geoPosition: ReturnType<typeof getGeoPosition>;
   city: ReturnType<typeof getSelectedCity>;
   isActive: ReturnType<typeof getIsSelectedCityActive>;
-  isLoading: ReturnType<typeof getIsSelectedCityLoading>;
+  isLoading: ReturnType<typeof getIsAnythingLoading>;
   errorMessage: ReturnType<typeof getSelectedCityErrorMessage>;
   unitsFormat: ReturnType<typeof getCurrentUnitsFormat>;
   checkIfFeatured: ReturnType<typeof getIsFeaturedCity>;
@@ -45,10 +47,14 @@ type SelectedCityProps = IPropsFromState & IPropsFromDispatch & WithTranslation;
 export class SelectedCity extends Component<SelectedCityProps> {
   private toastId = 'cityError';
 
-  public componentDidUpdate(): void {
-    const { t, isLoading, errorMessage } = this.props;
+  public componentDidUpdate(prevProps: SelectedCityProps): void {
+    const { t, geoPosition, isLoading, errorMessage } = this.props;
     const shouldShowToast = !isLoading && errorMessage && !toast.isActive(this.toastId);
     const shouldDismissToast = !isLoading && !errorMessage && toast.isActive(this.toastId);
+
+    if (geoPosition && geoPosition !== prevProps.geoPosition) {
+      this.fetchCityByPosition(geoPosition);
+    }
 
     if (shouldShowToast) {
       toast.error(t(errorMessage || ''), {
@@ -78,7 +84,7 @@ export class SelectedCity extends Component<SelectedCityProps> {
       _removeCityFromFeatured,
     } = this.props;
 
-    if (!isActive || !city) {
+    if (!isActive) {
       return null;
     }
 
@@ -88,6 +94,10 @@ export class SelectedCity extends Component<SelectedCityProps> {
           <Loader />
         </StyledSelectedCitySection>
       );
+    }
+
+    if (!city) {
+      return null;
     }
 
     if (errorMessage) {
@@ -115,13 +125,13 @@ export class SelectedCity extends Component<SelectedCityProps> {
 }
 
 const mapStateToProps = (state: RootState): IPropsFromState => ({
+  geoPosition: getGeoPosition(state),
   city: getSelectedCity(state),
   isActive: getIsSelectedCityActive(state),
-  isLoading: getIsSelectedCityLoading(state),
+  isLoading: getIsAnythingLoading(state),
   errorMessage: getSelectedCityErrorMessage(state),
-  unitsFormat: getCurrentUnitsFormat(state),
-
   checkIfFeatured: getIsFeaturedCity(state),
+  unitsFormat: getCurrentUnitsFormat(state),
 });
 
 const mapDispatchToProps: IPropsFromDispatch = {

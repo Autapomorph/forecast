@@ -3,7 +3,7 @@ import * as citiesSelectors from './cities/selectors';
 import * as geolocationSelectors from './geolocation/selectors';
 import { RootState as State } from './types';
 /* eslint-disable-next-line import/named */
-import { UnitFormat, ILocale, ICity, IWeather } from '../models';
+import { UnitFormat, ILocale, ICity, IWeather, ICoords } from '../models';
 
 /**
  * top-level settings selectors
@@ -43,6 +43,8 @@ export const getIsFeaturedCity = (state: State): ((cityId: number) => boolean) =
 /**
  * top-level geolocation selectors
  */
+export const getGeoPosition = (state: State): ICoords | null =>
+  geolocationSelectors.getGeoPosition(state.geolocation);
 export const getIsGeolocationLoading = (state: State): boolean =>
   geolocationSelectors.getIsLoading(state.geolocation);
 export const getGeolocationErrorMessage = (state: State): string | null =>
