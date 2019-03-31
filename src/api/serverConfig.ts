@@ -4,17 +4,17 @@ dotenv.config();
 
 interface IServerConfig {
   host: string;
-  port: string | null;
+  port: string;
   protocol: string;
   url: string;
 }
 
-const isTest: boolean = process.env.NODE_ENV === 'test';
-const HOSTNAME: string = isTest ? 'localhost' : process.env.REACT_APP_HOSTNAME || '';
-const PORT: string | null = isTest ? '3000' : process.env.REACT_APP_PORT || null;
-const SECURE: string = process.env.REACT_APP_SECURE || '';
-const PROTOCOL: string = SECURE.toLowerCase() === 'true' ? 'https' : 'http';
-const URL: string = `${PROTOCOL}://${HOSTNAME}${PORT ? `:${PORT}` : ''}`;
+const isTest = process.env.NODE_ENV === 'test';
+const HOSTNAME = isTest ? 'localhost' : process.env.REACT_APP_HOSTNAME || '';
+const PORT = isTest ? '3000' : process.env.REACT_APP_PORT || '';
+const SECURE = process.env.REACT_APP_SECURE || '';
+const PROTOCOL = SECURE.toLowerCase() === 'true' ? 'https' : 'http';
+const URL = `${PROTOCOL}://${HOSTNAME}${PORT ? `:${PORT}` : ''}`;
 
 const serverConfig: IServerConfig = {
   host: HOSTNAME,

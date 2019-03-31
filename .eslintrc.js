@@ -27,4 +27,13 @@ module.exports = {
     'jsx-a11y/no-noninteractive-element-interactions': 'off',
     '@typescript-eslint/interface-name-prefix': 'always',
   },
+  overrides: [
+    {
+      files: '**/*.d.ts',
+      rules: {
+        'no-useless-constructor': 'off',
+        '@typescript-eslint/no-useless-constructor': 'error',
+      },
+    },
+  ],
 };

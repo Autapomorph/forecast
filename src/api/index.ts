@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const express = require('express');
-const cors = require('cors');
-const chalk = require('chalk');
-const DarkSky = require('dark-sky');
+import express from 'express';
+import cors from 'cors';
+import chalk from 'chalk';
+import DarkSky from 'dark-sky';
 
-const { port, url } = require('./serverConfig');
+import { port, url } from './serverConfig';
 
 const server = express();
-const darksky = new DarkSky(process.env.REACT_APP_DARKSKY_API_KEY);
+const darksky = new DarkSky(process.env.REACT_APP_DARKSKY_API_KEY || '');
 
 server.use(cors());
 server.enable('trust proxy');
 
-server.get('/proxy', async (req, res) => {
+server.get('/proxy', async (req: express.Request, res: express.Response) => {
   try {
     const { latitude, longitude, lang = 'en', units = 'us' } = req.query;
 
@@ -29,7 +29,7 @@ server.get('/proxy', async (req, res) => {
   }
 });
 
-server.listen(port, error => {
+server.listen(port, (error: string) => {
   if (error) {
     // eslint-disable-next-line no-console
     console.log(chalk.red(error));
