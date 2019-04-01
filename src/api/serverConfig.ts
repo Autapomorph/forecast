@@ -1,3 +1,4 @@
+import url from 'url';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -14,7 +15,11 @@ const HOSTNAME = isTest ? 'localhost' : process.env.REACT_APP_HOSTNAME || '';
 const PORT = isTest ? '3000' : process.env.REACT_APP_PORT || '';
 const SECURE = process.env.REACT_APP_SECURE || '';
 const PROTOCOL = SECURE.toLowerCase() === 'true' ? 'https' : 'http';
-const URL = `${PROTOCOL}://${HOSTNAME}${PORT ? `:${PORT}` : ''}`;
+const URL = url.format({
+  protocol: PROTOCOL,
+  hostname: HOSTNAME,
+  port: PORT,
+});
 
 const serverConfig: IServerConfig = {
   host: HOSTNAME,
