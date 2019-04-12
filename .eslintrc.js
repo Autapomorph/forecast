@@ -26,6 +26,7 @@ module.exports = {
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/no-noninteractive-element-interactions': 'off',
     '@typescript-eslint/interface-name-prefix': 'always',
+    '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true }],
   },
   overrides: [
     {
