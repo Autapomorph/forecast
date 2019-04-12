@@ -14,7 +14,7 @@
       }
     },
     {
-      "src": "src/api/index.js",
+      "src": "src/api/index.ts",
       "use": "@now/node-server"
     }
   ],
@@ -29,19 +29,27 @@
     }
   },
   "routes": [
-    { "src": "^/proxy(.*)", "dest": "/src/api/index.js" },
-    { "src": "^/api/(.*)", "dest": "/src/api/index.js" },
-    { "src": "^/static/(.*)", "dest": "/static/$1" },
+    { "src": "^/proxy(.*)", "dest": "/src/api/index.ts" },
+    { "src": "^/api/(.*)", "dest": "/src/api/index.ts" },
     { "src": "^/images/(.*)", "dest": "/images/$1" },
+    {
+      "src": "^/static/(.*)",
+      "headers": { "cache-control": "s-maxage=31536000,immutable" },
+      "dest": "/static/$1"
+    },
     { "src": "^/favicon.ico", "dest": "/favicon.ico" },
     { "src": "^/asset-manifest.json", "dest": "/asset-manifest.json" },
     { "src": "^/manifest.json", "dest": "/manifest.json" },
+    { "src": "^/precache-manifest.(.*)", "dest": "/precache-manifest.$1" },
     {
       "src": "^/service-worker.js",
       "headers": { "cache-control": "s-maxage=0" },
       "dest": "/service-worker.js"
     },
-    { "src": "^/precache-manifest.(.*)", "dest": "/precache-manifest.$1" },
-    { "src": "^/(.*)", "dest": "/index.html" }
+    {
+      "src": "^/(.*)",
+      "headers": { "cache-control": "s-maxage=0" },
+      "dest": "/index.html"
+    }
   ]
 }
