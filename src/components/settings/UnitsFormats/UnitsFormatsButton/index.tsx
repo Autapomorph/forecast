@@ -1,7 +1,6 @@
 import React from 'react';
 import { withTranslation, WithTranslation } from 'react-i18next';
 
-/* eslint-disable-next-line import/named */
 import { UnitFormat } from '../../../../models';
 
 import { StyledSwitchButton, StyledLabel, StyledRadioButton, StyledLabelText } from './styles';

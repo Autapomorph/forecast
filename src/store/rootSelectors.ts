@@ -2,7 +2,6 @@ import * as settingsSelectors from './settings/selectors';
 import * as citiesSelectors from './cities/selectors';
 import * as geolocationSelectors from './geolocation/selectors';
 import { RootState as State } from './types';
-/* eslint-disable-next-line import/named */
 import { UnitFormat, ILocale, ICity, IWeather, ICoords } from '../models';
 
 /**

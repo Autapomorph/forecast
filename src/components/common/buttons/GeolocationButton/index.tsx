@@ -8,9 +8,7 @@ import { faLocationArrow } from '@fortawesome/free-solid-svg-icons';
 import {
   fetchGeolocation,
   fetchGeolocationByIP,
-  /* eslint-disable-next-line import/named */
   GeolocationSuccessCallback,
-  /* eslint-disable-next-line import/named */
   GeolocationFailureCallback,
 } from '../../../../store/geolocation/actions';
 import { fetchCityWeatherByPosition } from '../../../../store/cities/actions';

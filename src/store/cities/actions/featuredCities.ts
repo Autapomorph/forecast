@@ -1,4 +1,3 @@
-/* eslint-disable-next-line import/named */
 import { CitiesActions as Actions, CitiesActionTypes as Types } from '../types/index';
 import { ICity } from '../../../models';
 

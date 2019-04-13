@@ -3,7 +3,6 @@ import storage from 'redux-persist/lib/storage';
 
 import {
   CitiesState as State,
-  /* eslint-disable-next-line import/named */
   CitiesActions as Actions,
   CitiesActionTypes as Types,
 } from './types';

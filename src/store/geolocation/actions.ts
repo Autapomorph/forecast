@@ -1,7 +1,6 @@
 import { ThunkAction } from 'redux-thunk';
 
 import GeolocationService from '../../services/geolocation';
-/* eslint-disable-next-line import/named */
 import { GeolocationActions as Actions, GeolocationActionTypes as Types } from './types';
 import { RootState } from '../types';
 import { ICoords } from '../../models';

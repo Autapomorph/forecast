@@ -1,6 +1,5 @@
 import { Action } from 'redux';
 
-/* eslint-disable-next-line import/named */
 import { ILocale, UnitFormat } from '../../models';
 
 export enum SettingsActionTypes {

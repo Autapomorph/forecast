@@ -1,7 +1,6 @@
 import React from 'react';
 
 import UnitsFormatsButton from '../UnitsFormatsButton';
-/* eslint-disable-next-line import/named */
 import { UnitFormat } from '../../../../models';
 
 import { StyledUnitsFormatSwitcher } from './styles';

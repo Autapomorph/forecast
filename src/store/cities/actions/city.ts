@@ -5,7 +5,6 @@ import GeonamesService from '../../../services/geonames';
 import formatWeather from '../../../utils/weatherData/formatWeather';
 import formatCities from '../../../utils/cityData/formatCities';
 import { getIsAnythingLoading } from '../../rootSelectors';
-/* eslint-disable-next-line import/named */
 import { CitiesActions as Actions, CitiesActionTypes as Types } from '../types/index';
 import { RootState } from '../../types';
 import { ICity, IWeather, ICoords } from '../../../models';

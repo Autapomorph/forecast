@@ -3,9 +3,7 @@ import { ThunkAction } from 'redux-thunk';
 import GeonamesService from '../../../services/geonames';
 import formatCities from '../../../utils/cityData/formatCities';
 import { getIsAnythingLoading } from '../../rootSelectors';
-/* eslint-disable-next-line import/named */
 import { CitiesActions as Actions, CitiesActionTypes as Types } from '../types/index';
-/* eslint-disable-next-line import/named */
 import { RootState } from '../../types';
 import { ICity } from '../../../models';
 

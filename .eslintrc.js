@@ -12,7 +12,6 @@ module.exports = {
     'prettier/@typescript-eslint',
     'jest-enzyme',
   ],
-
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': 'error',
