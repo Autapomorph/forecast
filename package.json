@@ -6,6 +6,8 @@
     "start": "concurrently 'npm:start:client' 'npm:start:server'",
     "start:client": "rescripts start",
     "start:server": "tsnd --respawn -P tsconfig-server.json src/api/index.ts",
+    "sc": "npm run start:client",
+    "ss": "npm run start:server",
     "build": "rescripts build",
     "now-build": "npm run build",
     "test": "rescripts test --env=jsdom",
