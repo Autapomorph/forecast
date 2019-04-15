@@ -28,16 +28,16 @@ const FeaturedCitiesItem: React.FC<IFeaturedCitiesItemProps> = ({
   <Draggable draggableId={city.id.toString()} index={index}>
     {(provided, snapshot) => (
       <StyledFeaturedCityWrapper ref={provided.innerRef} {...provided.draggableProps}>
+        // @ts-ignore
         <StyledFeaturedCityReorderButton
           isDragging={snapshot.isDragging}
           {...provided.dragHandleProps}
         />
-
         <StyledFeaturedCityTitle onClick={() => fetchCity(city.coords)}>
           {`${generateCityName(city)} `}
           <CountryFlag country={city.country.toLowerCase()} size="1.2em" />
         </StyledFeaturedCityTitle>
-
+        // @ts-ignore
         <StyledFeaturedButton isFeatured onRemove={() => removeCityFromFeatured(city.id)} />
       </StyledFeaturedCityWrapper>
     )}

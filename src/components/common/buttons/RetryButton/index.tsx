@@ -9,6 +9,7 @@ interface IRetryButtonProps extends Partial<FontAwesomeIconProps> {
 }
 
 const RetryButton: React.FC<IRetryButtonProps> = ({ onClick, ...props }): React.ReactElement => (
+  // @ts-ignore
   <StyledRetryButton icon={faRedoAlt} onClick={onClick} {...props} />
 );
 
