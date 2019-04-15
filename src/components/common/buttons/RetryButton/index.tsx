@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { faRedoAlt } from '@fortawesome/free-solid-svg-icons';
 import { Props as FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 
@@ -9,8 +9,12 @@ interface IRetryButtonProps extends Partial<FontAwesomeIconProps> {
 }
 
 const RetryButton: React.FC<IRetryButtonProps> = ({ onClick, ...props }): React.ReactElement => (
-  // @ts-ignore
-  <StyledRetryButton icon={faRedoAlt} onClick={onClick} {...props} />
+  <Fragment>
+    {
+      // @ts-ignore
+      <StyledRetryButton icon={faRedoAlt} onClick={onClick} {...props} />
+    }
+  </Fragment>
 );
 
 export default RetryButton;

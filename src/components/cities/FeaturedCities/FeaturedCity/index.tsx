@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 
 import CountryFlag from '../../../common/icons/CountryFlag';
@@ -28,17 +28,27 @@ const FeaturedCitiesItem: React.FC<IFeaturedCitiesItemProps> = ({
   <Draggable draggableId={city.id.toString()} index={index}>
     {(provided, snapshot) => (
       <StyledFeaturedCityWrapper ref={provided.innerRef} {...provided.draggableProps}>
-        // @ts-ignore
-        <StyledFeaturedCityReorderButton
-          isDragging={snapshot.isDragging}
-          {...provided.dragHandleProps}
-        />
+        <Fragment>
+          {
+            // @ts-ignore
+            <StyledFeaturedCityReorderButton
+              isDragging={snapshot.isDragging}
+              {...provided.dragHandleProps}
+            />
+          }
+        </Fragment>
+
         <StyledFeaturedCityTitle onClick={() => fetchCity(city.coords)}>
           {`${generateCityName(city)} `}
           <CountryFlag country={city.country.toLowerCase()} size="1.2em" />
         </StyledFeaturedCityTitle>
-        // @ts-ignore
-        <StyledFeaturedButton isFeatured onRemove={() => removeCityFromFeatured(city.id)} />
+
+        <Fragment>
+          {
+            // @ts-ignore
+            <StyledFeaturedButton isFeatured onRemove={() => removeCityFromFeatured(city.id)} />
+          }
+        </Fragment>
       </StyledFeaturedCityWrapper>
     )}
   </Draggable>
