@@ -20,6 +20,7 @@ const FeaturedButton: React.FC<IFeaturedButtonProps> = ({
 }): React.ReactElement => (
   <Fragment>
     {isFeatured && (
+      // @ts-ignore
       <StyledFeaturedButton icon={faStarSolid} size={size} onClick={onRemove} {...props} />
     )}
     {!isFeatured && (
