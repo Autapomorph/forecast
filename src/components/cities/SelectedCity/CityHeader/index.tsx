@@ -29,7 +29,7 @@ const CityHeader: React.FC<ICityHeaderProps> = ({
 }): React.ReactElement => (
   <StyledCityHeader>
     <Title>
-      {`${generateCityName(city)} `}
+      {`${generateCityName(city, i18n.language)} `}
       <CountryFlag country={city.country.toLowerCase()} />
 
       <br />

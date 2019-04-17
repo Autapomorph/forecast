@@ -36,7 +36,7 @@ export const getCitiesErrorMessage = (state: State): string | null =>
 
 export const getFeaturedCities = (state: State): ICity[] =>
   citiesSelectors.getFeaturedCities(state.cities);
-export const getIsFeaturedCity = (state: State): ((cityId: number) => boolean) =>
+export const getIsFeaturedCity = (state: State): ((cityId: string) => boolean) =>
   citiesSelectors.getIsFeaturedCity(state.cities);
 
 /**

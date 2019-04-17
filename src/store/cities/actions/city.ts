@@ -1,7 +1,7 @@
 import { ThunkAction } from 'redux-thunk';
 
 import WeatherService from '../../../services/weather';
-import GeonamesService from '../../../services/geonames';
+import AlgoliaService from '../../../services/algolia';
 import formatWeather from '../../../utils/weatherData/formatWeather';
 import formatCities from '../../../utils/cityData/formatCities';
 import { getIsAnythingLoading } from '../../rootSelectors';
@@ -37,7 +37,7 @@ export const fetchCityWeatherByPosition = (
   try {
     const [rawCityWeatherData, rawNearbyData] = await Promise.all([
       WeatherService.fetchCityWeather(position),
-      GeonamesService.fetchNearbyPlace(position),
+      AlgoliaService.fetchNearbyPlace(position),
     ]);
 
     const cityWeatherData = formatWeather(rawCityWeatherData);

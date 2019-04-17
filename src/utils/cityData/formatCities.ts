@@ -1,16 +1,16 @@
 import { ICitiesAPIResponse, ICity } from '../../models';
 
 export default function formatCity(citiesData: ICitiesAPIResponse): ICity[] | null {
-  if (!citiesData || !citiesData.geonames) return null;
+  if (!citiesData || !citiesData.hits) return null;
 
-  const formattedCitiesData = citiesData.geonames.map(city => ({
-    id: city.geonameId,
-    name: city.name,
-    region: city.adminName1,
-    country: city.countryCode,
+  const formattedCitiesData = citiesData.hits.map(city => ({
+    id: city.objectID,
+    name: city.locale_names,
+    region: city.administrative[0],
+    country: city.country_code,
     coords: {
-      latitude: Number(city.lat),
-      longitude: Number(city.lng),
+      latitude: city._geoloc.lat, // eslint-disable-line no-underscore-dangle
+      longitude: city._geoloc.lng, // eslint-disable-line no-underscore-dangle
     },
   }));
 

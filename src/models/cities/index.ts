@@ -1,41 +1,45 @@
-import * as GN from '../../config/geonames';
+import * as AL from '../../config/algolia';
 import { ICoords } from '../geolocation';
 
 export interface ICity {
-  id: number;
-  name: string;
+  id: string;
+  name: {
+    default: string[];
+    [countryCode: string]: string[];
+  };
   region: string;
   country: string;
   coords: ICoords;
 }
 
 export interface ICitiesAPIRequest {
-  [GN.GEONAMES_API_KEY_QUERY_PARAM]?: string;
-  [GN.GEONAMES_API_LANG_QUERY_PARAM]?: string;
-  [GN.GEONAMES_API_STYLE_QUERY_PARAM]?: string;
-  [GN.GEONAMES_API_MAX_ROWS_QUERY_PARAM]?: number;
-  [GN.GEONAMES_API_LATITUDE_QUERY_PARAM]?: number;
-  [GN.GEONAMES_API_LONGITUDE_QUERY_PARAM]?: number;
-  [GN.GEONAMES_API_SEARCH_QUERY_PARAM]?: string;
-  [GN.GEONAMES_API_NAME_REQUIRED_QUERY_PARAM]?: boolean;
-  [GN.GEONAMES_API_FEATURE_CLASS_QUERY_PARAM]?: string[];
-  [GN.GEONAMES_API_FEATURE_CODE_QUERY_PARAM]?: string[];
+  [AL.ALGOLIA_APP_ID_QUERY_PARAM]?: string;
+  [AL.ALGOLIA_API_KEY_QUERY_PARAM]?: string;
+  [AL.ALGOLIA_API_TYPE_QUERY_PARAM]?: string;
+  [AL.ALGOLIA_API_LANG_QUERY_PARAM]?: string;
+  [AL.ALGOLIA_API_AROUND_LAT_LNG_VIA_IP_QUERY_PARAM]?: boolean;
+  [AL.ALGOLIA_API_LATLNG_QUERY_PARAM]?: string;
+  [AL.ALGOLIA_API_SEARCH_QUERY_PARAM]?: string;
 }
 
 export interface ICityAPIResponse {
-  geonameId: number;
-  name: string;
-  adminName1: string;
-  countryCode: string;
-  lat: string;
-  lng: string;
+  objectID: string;
+  locale_names: {
+    default: string[];
+    [countryCode: string]: string[];
+  };
+  administrative: string[];
+  country_code: string;
+  _geoloc: {
+    lat: number;
+    lng: number;
+  };
+  admin_level: number;
 }
 
 export interface ICitiesAPIResponse {
-  geonames: ICityAPIResponse[];
-  totalResultsCount: number;
-  status?: {
-    message: string;
-    value: number;
-  };
+  hits?: ICityAPIResponse[];
+  nbHits?: number;
+  status?: number;
+  message?: string;
 }

@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
+import { withTranslation, WithTranslation } from 'react-i18next';
 
 import CountryFlag from '../../../common/icons/CountryFlag';
 import generateCityName from '../../../../utils/cityData/generateCityName';
@@ -12,7 +13,7 @@ import {
   StyledFeaturedButton,
 } from './styles';
 
-interface IFeaturedCitiesItemProps {
+interface IFeaturedCitiesItemProps extends WithTranslation {
   index: number;
   city: ICity;
   fetchCity: (coords: ICoords) => void;
@@ -20,6 +21,7 @@ interface IFeaturedCitiesItemProps {
 }
 
 const FeaturedCitiesItem: React.FC<IFeaturedCitiesItemProps> = ({
+  i18n,
   index,
   city,
   fetchCity,
@@ -39,7 +41,7 @@ const FeaturedCitiesItem: React.FC<IFeaturedCitiesItemProps> = ({
         </Fragment>
 
         <StyledFeaturedCityTitle onClick={() => fetchCity(city.coords)}>
-          {`${generateCityName(city)} `}
+          {`${generateCityName(city, i18n.language)} `}
           <CountryFlag country={city.country.toLowerCase()} size="1.2em" />
         </StyledFeaturedCityTitle>
 
@@ -54,4 +56,4 @@ const FeaturedCitiesItem: React.FC<IFeaturedCitiesItemProps> = ({
   </Draggable>
 );
 
-export default FeaturedCitiesItem;
+export default withTranslation()(FeaturedCitiesItem);

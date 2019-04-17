@@ -17,6 +17,6 @@ export const getCitiesErrorMessage = (state: State): string | null => state.citi
 
 // featured cities selectors
 export const getFeaturedCities = (state: State): ICity[] => state.featuredCities.data;
-export const getIsFeaturedCity = (state: State): ((cityId: number) => boolean) => (
-  cityId: number,
+export const getIsFeaturedCity = (state: State): ((cityId: string) => boolean) => (
+  cityId: string,
 ): boolean => state.featuredCities.data.some(city => city.id === cityId);

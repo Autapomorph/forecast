@@ -1,4 +1,5 @@
 import React from 'react';
+import { withTranslation, WithTranslation } from 'react-i18next';
 
 import FeaturedButton from '../../../common/buttons/FeaturedButton';
 import CountryFlag from '../../../common/icons/CountryFlag';
@@ -12,7 +13,7 @@ import {
   StyledTitleButtonsWrapper,
 } from './styles';
 
-interface ICitiesItemProps {
+interface ICitiesItemProps extends WithTranslation {
   city: ICity;
   isFeatured: boolean;
   fetchCity: (cityCoords: ICoords) => void;
@@ -21,6 +22,7 @@ interface ICitiesItemProps {
 }
 
 const CitiesItem: React.FC<ICitiesItemProps> = ({
+  i18n,
   city,
   isFeatured,
   fetchCity,
@@ -30,7 +32,7 @@ const CitiesItem: React.FC<ICitiesItemProps> = ({
   <StyledCitiesItemWrapper>
     <StyledCitiesItemHeader>
       <StyledCitiesItemTitle onClick={() => fetchCity(city.coords)}>
-        {`${generateCityName(city)} `}
+        {`${generateCityName(city, i18n.language)} `}
         <CountryFlag country={city.country.toLowerCase()} size="1.2em" />
       </StyledCitiesItemTitle>
 
@@ -53,4 +55,4 @@ const CitiesItem: React.FC<ICitiesItemProps> = ({
   </StyledCitiesItemWrapper>
 );
 
-export default CitiesItem;
+export default withTranslation()(CitiesItem);
