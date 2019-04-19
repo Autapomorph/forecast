@@ -1,4 +1,9 @@
-import { url as API_BASE } from '../../api/serverConfig';
+import config from '../../api/client/config';
+
+const { url, host } = config;
+
+const API_BASE =
+  host.toLowerCase() === 'localhost' ? url.replace(host, window.location.hostname) : url;
 
 export const DARKSKY_API_QUERY_LATITUDE_PARAM = `latitude`;
 export const DARKSKY_API_QUERY_LONGITUDE_PARAM = `longitude`;

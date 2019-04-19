@@ -4,6 +4,7 @@ import GeolocationService from '../../services/geolocation';
 import { GeolocationActions as Actions, GeolocationActionTypes as Types } from './types';
 import { RootState } from '../types';
 import { ICoords } from '../../models';
+import { isProd } from '../../utils';
 
 export const fetchGeoLocationRequest = (): Actions => ({
   type: Types.GEOLOCATION_FETCH_REQUEST,
@@ -52,6 +53,10 @@ export const fetchGeolocationByIP = (): ThunkAction<
     const geoData = await GeolocationService.fetchGeolocationByIP();
     dispatch(fetchGeoLocationSuccess(geoData));
   } catch (error) {
-    dispatch(fetchGeoLocationFailure(error));
+    if (isProd) {
+      dispatch(fetchGeoLocationFailure(new Error('messages.errors.common.fetchFailed')));
+    } else {
+      dispatch(fetchGeoLocationFailure(error));
+    }
   }
 };

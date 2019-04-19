@@ -23,7 +23,6 @@
   },
   "build": {
     "env": {
-      "REACT_APP_HOSTNAME": "autapomorph-forecast.now.sh",
       "REACT_APP_SECURE": "true",
       "REACT_APP_GEONAMES_API_KEY": "autapomorph"
     }
