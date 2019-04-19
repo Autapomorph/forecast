@@ -25,6 +25,9 @@
   },
   "messages": {
     "errors": {
+      "common": {
+        "fetchFailed": "Ошибка загрузки"
+      },
       "weather": {
         "fetchFailed": "Ошибка загрузки погоды"
       },

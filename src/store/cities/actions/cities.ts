@@ -6,6 +6,7 @@ import { getIsAnythingLoading } from '../../rootSelectors';
 import { CitiesActions as Actions, CitiesActionTypes as Types } from '../types/index';
 import { RootState } from '../../types';
 import { ICity } from '../../../models';
+import { isProd } from '../../../utils';
 
 export const fetchCitiesByNameRequest = (searchTerm: string): Actions => ({
   type: Types.CITIES_FETCH_REQUEST,
@@ -41,6 +42,10 @@ export const fetchCititesByName = (
       dispatch(fetchCitiesByNameSuccess(citiesData));
     }
   } catch (error) {
-    dispatch(fetchCitiesByNameFailure(error));
+    if (isProd) {
+      dispatch(fetchCitiesByNameFailure(new Error('messages.errors.common.fetchFailed')));
+    } else {
+      dispatch(fetchCitiesByNameFailure(error));
+    }
   }
 };

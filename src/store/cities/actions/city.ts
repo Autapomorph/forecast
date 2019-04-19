@@ -8,6 +8,7 @@ import { getIsAnythingLoading } from '../../rootSelectors';
 import { CitiesActions as Actions, CitiesActionTypes as Types } from '../types/index';
 import { RootState } from '../../types';
 import { ICity, IWeather, ICoords } from '../../../models';
+import { isProd } from '../../../utils';
 
 export const fetchCityWeatherRequest = (): Actions => ({
   type: Types.CITY_WEATHER_FETCH_REQUEST,
@@ -47,6 +48,10 @@ export const fetchCityWeatherByPosition = (
       dispatch(fetchCityWeatherSuccess({ ...cityWeatherData, ...nearbyData[0] }));
     }
   } catch (error) {
-    dispatch(fetchCityWeatherFailure(error));
+    if (isProd) {
+      dispatch(fetchCityWeatherFailure(new Error('messages.errors.common.fetchFailed')));
+    } else {
+      dispatch(fetchCityWeatherFailure(error));
+    }
   }
 };

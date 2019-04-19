@@ -25,6 +25,9 @@
   },
   "messages": {
     "errors": {
+      "common": {
+        "fetchFailed": "Failed to fetch"
+      },
       "weather": {
         "fetchFailed": "Weather fetching failed"
       },
