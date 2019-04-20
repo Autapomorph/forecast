@@ -1,5 +1,5 @@
 import { persistReducer, PersistConfig } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import localForage from 'localforage';
 
 import {
   CitiesState as State,
@@ -29,7 +29,7 @@ export const initialState: State = {
 const persistConfig: PersistConfig = {
   version: 1,
   key: 'featuredCities',
-  storage,
+  storage: localForage,
   whitelist: ['featuredCities'],
 };
 

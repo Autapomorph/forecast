@@ -33,6 +33,7 @@
     "express": "^4.16.4",
     "i18next": "^15.0.9",
     "i18next-browser-languagedetector": "^3.0.1",
+    "localforage": "^1.7.3",
     "luxon": "^1.12.1",
     "normalize.css": "^8.0.1",
     "qs": "^6.7.0",

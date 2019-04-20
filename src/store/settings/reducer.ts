@@ -1,5 +1,5 @@
 import { persistReducer, PersistConfig } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import localForage from 'localforage';
 
 import { defaultLanguage } from '../../config/settings/i18n';
 import { defaultUnitsFormat } from '../../config/settings/unitsFormats';
@@ -18,7 +18,7 @@ export const initialState: State = {
 const persistConfig: PersistConfig = {
   version: 1,
   key: 'settings',
-  storage,
+  storage: localForage,
   whitelist: ['unitsFormat'],
 };
 
