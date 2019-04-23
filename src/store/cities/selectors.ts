@@ -1,5 +1,5 @@
+import { ICity, IWeather } from 'models';
 import { CitiesState as State } from './types/index';
-import { ICity, IWeather } from '../../models';
 
 // city selectors
 export const getSelectedCity = (state: State): ICity & IWeather | null => state.selectedCity.data;

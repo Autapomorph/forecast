@@ -3,17 +3,8 @@ import { connect } from 'react-redux';
 import { withTranslation, WithTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 
-import { UnitsFormatContext } from '../../../store/settings/context';
-import CitiesList from './CitiesList';
-import Title from '../../common/Title';
-import Loader from '../../common/messages/Loader';
-import Message from '../../common/messages/Message';
-import EmptyResult from '../../common/messages/EmptyResult';
-import {
-  fetchCityWeatherByPosition,
-  addCityToFeatured,
-  removeCityFromFeatured,
-} from '../../../store/cities/actions';
+import { ICoords } from 'models';
+import { RootState } from 'store/types';
 import {
   getCities,
   getSearchTerm,
@@ -22,9 +13,18 @@ import {
   getCitiesErrorMessage,
   getIsFeaturedCity,
   getCurrentUnitsFormat,
-} from '../../../store/rootSelectors';
-import { RootState } from '../../../store/types';
-import { ICoords } from '../../../models';
+} from 'store/rootSelectors';
+import {
+  fetchCityWeatherByPosition,
+  addCityToFeatured,
+  removeCityFromFeatured,
+} from 'store/cities/actions';
+import { UnitsFormatContext } from 'store/settings/context';
+import Title from 'components/common/Title';
+import Loader from 'components/common/messages/Loader';
+import Message from 'components/common/messages/Message';
+import EmptyResult from 'components/common/messages/EmptyResult';
+import CitiesList from './CitiesList';
 
 import { StyledSearchResultsSection, StyledSearchResultsHeader } from './styles';
 

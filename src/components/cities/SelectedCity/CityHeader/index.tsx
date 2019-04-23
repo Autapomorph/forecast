@@ -1,13 +1,13 @@
 import React from 'react';
 import { withTranslation, WithTranslation } from 'react-i18next';
 
-import Title from '../../../common/Title';
-import RetryButton from '../../../common/buttons/RetryButton';
-import FeaturedButton from '../../../common/buttons/FeaturedButton';
-import CountryFlag from '../../../common/icons/CountryFlag';
-import { toDayMonthHourMinutes } from '../../../../utils/weatherData/time/coverters';
-import generateCityName from '../../../../utils/cityData/generateCityName';
-import { ICity, IWeather } from '../../../../models';
+import { ICity, IWeather } from 'models';
+import generateCityName from 'utils/cityData/generateCityName';
+import { toDayMonthHourMinutes } from 'utils/weatherData/time/coverters';
+import Title from 'components/common/Title';
+import CountryFlag from 'components/common/icons/CountryFlag';
+import RetryButton from 'components/common/buttons/RetryButton';
+import FeaturedButton from 'components/common/buttons/FeaturedButton';
 
 import { StyledCityHeader, StyledTitleButtonsWrapper } from './styles';
 

@@ -1,4 +1,5 @@
-import i18n from '../../config/settings/i18n';
+import { ICitiesAPIRequest, ICitiesAPIResponse, ICoords } from 'models';
+import i18n from 'config/settings/i18n';
 import {
   GEONAMES_API_SEARCH,
   GEONAMES_API_FIND_NEARBY,
@@ -13,10 +14,9 @@ import {
   GEONAMES_API_NAME_REQUIRED_QUERY_PARAM,
   GEONAMES_API_FEATURE_CLASS_QUERY_PARAM,
   GEONAMES_API_FEATURE_CODE_QUERY_PARAM,
-} from '../../config/geonames';
-import combineQueryParams from '../../utils/url/combineQueryParams';
-import { isProd } from '../../utils';
-import { ICitiesAPIRequest, ICitiesAPIResponse, ICoords } from '../../models';
+} from 'config/geonames';
+import { isProd } from 'utils';
+import combineQueryParams from 'utils/url/combineQueryParams';
 
 export default class GeonamesService {
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */

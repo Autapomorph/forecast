@@ -4,13 +4,13 @@ import Slider from 'react-slick';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTint, faThermometerHalf } from '@fortawesome/free-solid-svg-icons';
 
-import { UnitsFormatContext } from '../../../../store/settings/context';
-import WeatherIcon from '../../../common/icons/WeatherIcon';
-import convertTemp from '../../../../utils/weatherData/temperature';
-import convertPressure from '../../../../utils/weatherData/pressure';
-import convertSpeed from '../../../../utils/weatherData/wind';
-import { toDayMonth } from '../../../../utils/weatherData/time/coverters';
-import { ICity, IWeather } from '../../../../models';
+import { ICity, IWeather } from 'models';
+import { UnitsFormatContext } from 'store/settings/context';
+import convertSpeed from 'utils/weatherData/wind';
+import convertTemp from 'utils/weatherData/temperature';
+import convertPressure from 'utils/weatherData/pressure';
+import { toDayMonth } from 'utils/weatherData/time/coverters';
+import WeatherIcon from 'components/common/icons/WeatherIcon';
 
 import {
   StyledForecastWrapper,

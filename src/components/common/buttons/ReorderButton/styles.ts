@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import BaseIconButton from '../BaseIconButton';
+import BaseIconButton from 'components/common/buttons/BaseIconButton';
 
 interface IReorderButtonProps {
   isDragging: boolean;

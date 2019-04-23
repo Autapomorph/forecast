@@ -2,8 +2,8 @@ import React from 'react';
 import { withTranslation, WithTranslation } from 'react-i18next';
 import Collapsible from 'react-collapsible';
 
-import UnitsFormats from '../UnitsFormats';
-import Languages from '../Languages';
+import UnitsFormats from 'components/settings/UnitsFormats';
+import Languages from 'components/settings/Languages';
 
 import { StyledSettingsBar, GlobalStyleCollapsible } from './styles';
 

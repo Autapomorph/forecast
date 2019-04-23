@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { RootState } from 'store/types';
+import { getCurrentLanguage } from 'store/rootSelectors';
+import { changeLanguage } from 'store/settings/actions';
+import { availableLanguages } from 'config/settings/i18n';
 import LanguagesList from './LanguagesList';
-import { getCurrentLanguage } from '../../../store/rootSelectors';
-import { changeLanguage } from '../../../store/settings/actions';
-import { availableLanguages } from '../../../config/settings/i18n';
-import { RootState } from '../../../store/types';
 
 interface IPropsFromState {
   selectedLanguage: ReturnType<typeof getCurrentLanguage>;

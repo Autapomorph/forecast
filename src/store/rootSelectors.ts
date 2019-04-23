@@ -1,8 +1,8 @@
+import { UnitFormat, ILocale, ICity, IWeather, ICoords } from 'models';
 import * as settingsSelectors from './settings/selectors';
 import * as citiesSelectors from './cities/selectors';
 import * as geolocationSelectors from './geolocation/selectors';
 import { RootState as State } from './types';
-import { UnitFormat, ILocale, ICity, IWeather, ICoords } from '../models';
 
 /**
  * top-level settings selectors

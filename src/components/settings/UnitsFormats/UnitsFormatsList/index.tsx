@@ -1,7 +1,7 @@
 import React from 'react';
 
+import { UnitFormat } from 'models';
 import UnitsFormatsButton from '../UnitsFormatsButton';
-import { UnitFormat } from '../../../../models';
 
 import { StyledUnitsFormatSwitcher } from './styles';
 

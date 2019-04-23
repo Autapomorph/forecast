@@ -1,7 +1,7 @@
 import React from 'react';
 
+import { ICity, ICoords } from 'models';
 import CitiesItem from '../CitiesItem';
-import { ICity, ICoords } from '../../../../models';
 
 import { StyledCitiesList } from './styles';
 

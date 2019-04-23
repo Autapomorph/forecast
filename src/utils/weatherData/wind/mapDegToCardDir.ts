@@ -1,4 +1,4 @@
-import { WindCardDir as D } from '../../../models/weather/wind';
+import { WindCardDir as D } from 'models/weather/wind';
 
 export default function mapDegToCardDir(deg: number): D {
   if (Number.isNaN(deg)) {

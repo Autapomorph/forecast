@@ -1,6 +1,6 @@
+import { IWindFormat } from 'models';
 import mapDegToCardDir from './mapDegToCardDir';
 import generateWindIcon from './generateWindIcon';
-import { IWindFormat } from '../../../models';
 
 interface IWindFormatProps {
   speed: number;

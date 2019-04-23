@@ -1,9 +1,9 @@
 import React from 'react';
 
+import { ICity, IWeather } from 'models';
 import CityHeader from '../CityHeader';
 import WeatherDetails from '../WeatherDetails';
 import ForecastDetails from '../ForecastDetails';
-import { ICity, IWeather } from '../../../../models';
 
 import { StyledCityWrapper } from './styles';
 

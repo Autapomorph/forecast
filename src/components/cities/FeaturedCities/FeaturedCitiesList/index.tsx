@@ -1,8 +1,8 @@
 import React from 'react';
 import { Droppable } from 'react-beautiful-dnd';
 
+import { ICity, ICoords } from 'models';
 import FeaturedCity from '../FeaturedCity';
-import { ICity, ICoords } from '../../../../models';
 
 import { StyledFeaturedList } from './styles';
 

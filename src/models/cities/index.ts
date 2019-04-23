@@ -1,5 +1,5 @@
-import * as GN from '../../config/geonames';
-import { ICoords } from '../geolocation';
+import { ICoords } from 'models/geolocation';
+import * as GN from 'config/geonames';
 
 export interface ICity {
   id: number;

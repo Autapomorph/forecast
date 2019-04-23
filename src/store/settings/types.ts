@@ -1,6 +1,6 @@
 import { Action } from 'redux';
 
-import { ILocale, UnitFormat } from '../../models';
+import { ILocale, UnitFormat } from 'models';
 
 export enum SettingsActionTypes {
   SETTINGS_CHANGE_LANGUAGE = '@settings/SETTINGS_CHANGE_LANGUAGE',

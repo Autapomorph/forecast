@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ILocale } from '../../../../models';
+import { ILocale } from 'models';
 
 import { StyledSwitchButton, StyledLabel, StyledRadioButton, StyledLabelText } from './styles';
 

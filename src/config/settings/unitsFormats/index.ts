@@ -1,4 +1,4 @@
-import { IUnitsFormats } from '../../../models';
+import { IUnitsFormats } from 'models';
 
 export const unitsFormats: IUnitsFormats = {
   STANDART: 'standart',

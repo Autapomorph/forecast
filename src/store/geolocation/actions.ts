@@ -1,10 +1,10 @@
 import { ThunkAction } from 'redux-thunk';
 
-import GeolocationService from '../../services/geolocation';
+import { ICoords } from 'models';
+import { RootState } from 'store/types';
+import GeolocationService from 'services/geolocation';
+import { isProd } from 'utils';
 import { GeolocationActions as Actions, GeolocationActionTypes as Types } from './types';
-import { RootState } from '../types';
-import { ICoords } from '../../models';
-import { isProd } from '../../utils';
 
 export const fetchGeoLocationRequest = (): Actions => ({
   type: Types.GEOLOCATION_FETCH_REQUEST,

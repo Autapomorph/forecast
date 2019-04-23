@@ -1,7 +1,7 @@
 import { Action } from 'redux';
 
+import { ICity } from 'models';
 import { CitiesActionTypes as Types } from './actionTypes';
-import { ICity } from '../../../models';
 
 interface FetchCitiesRequestAction extends Action {
   type: typeof Types.CITIES_FETCH_REQUEST;

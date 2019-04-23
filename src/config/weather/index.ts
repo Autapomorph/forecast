@@ -1,4 +1,4 @@
-import config from '../../api/client/config';
+import config from 'api/client/config';
 
 const { url, host } = config;
 

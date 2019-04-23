@@ -1,7 +1,7 @@
 import { Action } from 'redux';
 
+import { ICity } from 'models';
 import { CitiesActionTypes as Types } from './actionTypes';
-import { ICity } from '../../../models';
 
 interface AddFeaturedCityAction extends Action {
   type: typeof Types.FEATURED_CITY_ADD;

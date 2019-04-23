@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { RootState } from 'store/types';
+import { getCurrentUnitsFormat } from 'store/rootSelectors';
+import { changeUnitsFormat } from 'store/settings/actions';
+import { availableUnitsFormats } from 'config/settings/unitsFormats';
 import UnitsFormatsList from './UnitsFormatsList';
-import { getCurrentUnitsFormat } from '../../../store/rootSelectors';
-import { changeUnitsFormat } from '../../../store/settings/actions';
-import { availableUnitsFormats } from '../../../config/settings/unitsFormats';
-import { RootState } from '../../../store/types';
 
 interface IPropsFromState {
   selectedUnitsFormat: ReturnType<typeof getCurrentUnitsFormat>;

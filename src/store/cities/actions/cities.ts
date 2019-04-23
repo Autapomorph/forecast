@@ -1,12 +1,12 @@
 import { ThunkAction } from 'redux-thunk';
 
-import GeonamesService from '../../../services/geonames';
-import formatCities from '../../../utils/cityData/formatCities';
-import { getIsAnythingLoading } from '../../rootSelectors';
-import { CitiesActions as Actions, CitiesActionTypes as Types } from '../types/index';
-import { RootState } from '../../types';
-import { ICity } from '../../../models';
-import { isProd } from '../../../utils';
+import { ICity } from 'models';
+import { RootState } from 'store/types';
+import { getIsAnythingLoading } from 'store/rootSelectors';
+import GeonamesService from 'services/geonames';
+import { isProd } from 'utils';
+import formatCities from 'utils/cityData/formatCities';
+import { CitiesActions as Actions, CitiesActionTypes as Types } from '../types';
 
 export const fetchCitiesByNameRequest = (searchTerm: string): Actions => ({
   type: Types.CITIES_FETCH_REQUEST,

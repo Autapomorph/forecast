@@ -2,9 +2,9 @@ import i18n from 'i18next';
 import langDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 
+import { ILocale } from 'models';
+import removePropByKey from 'utils/common/removePropByKey';
 import resources from './locales';
-import removePropByKey from '../../../utils/common/removePropByKey';
-import { ILocale } from '../../../models';
 
 i18n
   .use(langDetector)

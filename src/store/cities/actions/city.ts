@@ -1,14 +1,14 @@
 import { ThunkAction } from 'redux-thunk';
 
-import WeatherService from '../../../services/weather';
-import GeonamesService from '../../../services/geonames';
-import formatWeather from '../../../utils/weatherData/formatWeather';
-import formatCities from '../../../utils/cityData/formatCities';
-import { getIsAnythingLoading } from '../../rootSelectors';
-import { CitiesActions as Actions, CitiesActionTypes as Types } from '../types/index';
-import { RootState } from '../../types';
-import { ICity, IWeather, ICoords } from '../../../models';
-import { isProd } from '../../../utils';
+import { ICity, IWeather, ICoords } from 'models';
+import { RootState } from 'store/types';
+import { getIsAnythingLoading } from 'store/rootSelectors';
+import WeatherService from 'services/weather';
+import GeonamesService from 'services/geonames';
+import { isProd } from 'utils';
+import formatWeather from 'utils/weatherData/formatWeather';
+import formatCities from 'utils/cityData/formatCities';
+import { CitiesActions as Actions, CitiesActionTypes as Types } from '../types';
 
 export const fetchCityWeatherRequest = (): Actions => ({
   type: Types.CITY_WEATHER_FETCH_REQUEST,

@@ -1,5 +1,5 @@
-import { CitiesActions as Actions, CitiesActionTypes as Types } from '../types/index';
-import { ICity } from '../../../models';
+import { ICity } from 'models';
+import { CitiesActions as Actions, CitiesActionTypes as Types } from '../types';
 
 export const addCityToFeatured = (city: ICity): Actions => ({
   type: Types.FEATURED_CITY_ADD,

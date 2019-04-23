@@ -1,6 +1,6 @@
-import { IPAPI_API } from '../../config/geolocation';
-import { isProd } from '../../utils';
-import { ICoords } from '../../models';
+import { ICoords } from 'models';
+import { IPAPI_API } from 'config/geolocation';
+import { isProd } from 'utils';
 
 export default class GeolocationService {
   public static fetchGeolocation = (): Promise<ICoords> =>

@@ -1,13 +1,13 @@
 import React from 'react';
 import { withTranslation, WithTranslation } from 'react-i18next';
 
-import { UnitsFormatContext } from '../../../../store/settings/context';
-import WeatherIcon from '../../../common/icons/WeatherIcon';
-import convertTemp from '../../../../utils/weatherData/temperature';
-import convertPressure from '../../../../utils/weatherData/pressure';
-import convertSpeed from '../../../../utils/weatherData/wind';
-import { toHourMinutes } from '../../../../utils/weatherData/time/coverters';
-import { ICity, IWeather } from '../../../../models';
+import { ICity, IWeather } from 'models';
+import { UnitsFormatContext } from 'store/settings/context';
+import convertSpeed from 'utils/weatherData/wind';
+import convertTemp from 'utils/weatherData/temperature';
+import convertPressure from 'utils/weatherData/pressure';
+import { toHourMinutes } from 'utils/weatherData/time/coverters';
+import WeatherIcon from 'components/common/icons/WeatherIcon';
 
 import {
   StyledWeatherDetailsWrapper,

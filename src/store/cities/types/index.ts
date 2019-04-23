@@ -1,7 +1,7 @@
+import { ICity, IWeather } from 'models';
 import { CityActions } from './city';
 import { CitiesActions } from './cities';
 import { FeaturedCitiesActions } from './featuredCities';
-import { ICity, IWeather } from '../../../models';
 
 export { CitiesActionTypes } from './actionTypes';
 

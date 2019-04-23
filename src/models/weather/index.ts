@@ -1,8 +1,8 @@
 import { DateTime } from 'luxon';
 
+import { ICoords } from 'models/geolocation';
+import * as W from 'config/weather';
 import { IWindFormat } from './wind';
-import { ICoords } from '../geolocation';
-import * as W from '../../config/weather';
 
 export * from './wind';
 

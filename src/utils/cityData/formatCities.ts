@@ -1,4 +1,4 @@
-import { ICitiesAPIResponse, ICity } from '../../models';
+import { ICitiesAPIResponse, ICity } from 'models';
 
 export default function formatCity(citiesData: ICitiesAPIResponse): ICity[] | null {
   if (!citiesData || !citiesData.geonames) return null;

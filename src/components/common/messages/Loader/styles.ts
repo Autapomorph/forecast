@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Message from '../Message';
+import Message from 'components/common/messages/Message';
 
 // eslint-disable-next-line import/prefer-default-export
 export const StyledLoaderMessage = styled(Message)`

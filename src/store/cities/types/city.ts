@@ -1,7 +1,7 @@
 import { Action } from 'redux';
 
+import { ICity, IWeather } from 'models';
 import { CitiesActionTypes as Types } from './actionTypes';
-import { ICity, IWeather } from '../../../models';
 
 interface FetchCityWeatherRequestAction extends Action {
   type: typeof Types.CITY_WEATHER_FETCH_REQUEST;

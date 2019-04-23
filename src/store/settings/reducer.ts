@@ -1,14 +1,14 @@
 import { persistReducer, PersistConfig } from 'redux-persist';
 import localForage from 'localforage';
 
-import { defaultLanguage } from '../../config/settings/i18n';
-import { defaultUnitsFormat } from '../../config/settings/unitsFormats';
+import { ILocale, UnitFormat } from 'models';
+import { defaultLanguage } from 'config/settings/i18n';
+import { defaultUnitsFormat } from 'config/settings/unitsFormats';
 import {
   SettingsState as State,
   SettingsActions as Actions,
   SettingsActionTypes as Types,
 } from './types';
-import { ILocale, UnitFormat } from '../../models';
 
 export const initialState: State = {
   language: defaultLanguage,

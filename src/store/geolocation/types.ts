@@ -1,6 +1,6 @@
 import { Action } from 'redux';
 
-import { ICoords } from '../../models';
+import { ICoords } from 'models';
 
 export enum GeolocationActionTypes {
   GEOLOCATION_FETCH_REQUEST = '@geolocation/GEOLOCATION_FETCH_REQUEST',

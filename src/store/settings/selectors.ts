@@ -1,5 +1,5 @@
+import { ILocale, UnitFormat } from 'models';
 import { SettingsState as State } from './types';
-import { ILocale, UnitFormat } from '../../models';
 
 export const getCurrentLanguage = (state: State): ILocale => state.language;
 

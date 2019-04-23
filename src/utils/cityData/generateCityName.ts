@@ -1,4 +1,4 @@
-import { ICity } from '../../models';
+import { ICity } from 'models';
 
 const generateCityName = (city: ICity): string =>
   `${city.name}${city.region !== city.name ? `, ${city.region}` : ''}`;

@@ -1,5 +1,5 @@
+import { ICoords } from 'models';
 import { GeolocationState as State } from './types';
-import { ICoords } from '../../models';
 
 export const getGeoPosition = (state: State): ICoords | null => state.data;
 export const getIsLoading = (state: State): boolean => state.loading;

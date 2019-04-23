@@ -5,21 +5,18 @@ import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationArrow } from '@fortawesome/free-solid-svg-icons';
 
+import { ICoords } from 'models';
+import { RootState } from 'store/types';
+import { getIsGeolocationLoading, getGeolocationErrorMessage } from 'store/rootSelectors';
 import {
   fetchGeolocation,
   fetchGeolocationByIP,
   GeolocationSuccessCallback,
   GeolocationFailureCallback,
-} from '../../../../store/geolocation/actions';
-import { fetchCityWeatherByPosition } from '../../../../store/cities/actions';
-import {
-  getIsGeolocationLoading,
-  getGeolocationErrorMessage,
-} from '../../../../store/rootSelectors';
-import { RootState } from '../../../../store/types';
-import { ICoords } from '../../../../models';
+} from 'store/geolocation/actions';
+import { fetchCityWeatherByPosition } from 'store/cities/actions';
 
-import { StyledInputButton } from '../../../SearchBar/styles';
+import { StyledInputButton } from 'components/SearchBar/styles';
 
 interface IPropsFromState {
   isLoading: ReturnType<typeof getIsGeolocationLoading>;

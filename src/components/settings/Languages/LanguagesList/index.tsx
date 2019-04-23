@@ -1,7 +1,7 @@
 import React from 'react';
 
+import { ILocale } from 'models';
 import LanguageButton from '../LanguageButton';
-import { ILocale } from '../../../../models';
 
 import { StyledLanguageSwitcher } from './styles';
 

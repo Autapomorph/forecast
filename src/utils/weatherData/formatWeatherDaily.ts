@@ -1,8 +1,8 @@
+import { IWeatherDailyAPIResponse, IWeatherDaily } from 'models';
 import formatTime from './time';
 import formatWind from './wind/formatWind';
 import generateWeatherIcon from './icon/generateWeatherIcon';
 import { celsiusToKelvin } from './temperature/converters';
-import { IWeatherDailyAPIResponse, IWeatherDaily } from '../../models';
 
 export default function formatWeatherDaily(
   weatherData: IWeatherDailyAPIResponse[],

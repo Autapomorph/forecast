@@ -3,19 +3,19 @@ import { connect } from 'react-redux';
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 import { withTranslation, WithTranslation } from 'react-i18next';
 
-import FeaturedCitiesList from './FeaturedCitiesList';
-import Title from '../../common/Title';
-import TrashButton from '../../common/buttons/TrashButton';
-import EmptyResult from '../../common/messages/EmptyResult';
+import { ICoords } from 'models';
+import { RootState } from 'store/types';
+import { getFeaturedCities } from 'store/rootSelectors';
 import {
   fetchCityWeatherByPosition,
   removeCityFromFeatured,
   clearFeaturedCities,
   reorderFeaturedCities,
-} from '../../../store/cities/actions';
-import { getFeaturedCities } from '../../../store/rootSelectors';
-import { RootState } from '../../../store/types';
-import { ICoords } from '../../../models';
+} from 'store/cities/actions';
+import Title from 'components/common/Title';
+import TrashButton from 'components/common/buttons/TrashButton';
+import EmptyResult from 'components/common/messages/EmptyResult';
+import FeaturedCitiesList from './FeaturedCitiesList';
 
 import { StyledFeaturedCitiesSection, StyledFeaturedCitiesHeader } from './styles';
 

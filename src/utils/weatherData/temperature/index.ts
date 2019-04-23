@@ -1,5 +1,5 @@
-import { unitsFormats } from '../../../config/settings/unitsFormats';
-import { UnitFormat } from '../../../models';
+import { UnitFormat } from 'models';
+import { unitsFormats } from 'config/settings/unitsFormats';
 
 import { kelvinToCelsius, kelvinToFahrenheit } from './converters';
 
