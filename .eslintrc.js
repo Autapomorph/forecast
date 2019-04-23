@@ -5,12 +5,13 @@ module.exports = {
   },
   parser: '@typescript-eslint/parser',
   extends: [
+    'react-app',
     'airbnb',
     'plugin:@typescript-eslint/recommended',
     'plugin:import/typescript',
     'plugin:prettier/recommended',
-    'prettier/react',
     'prettier/@typescript-eslint',
+    'prettier/react',
     'jest-enzyme',
   ],
   rules: {
@@ -23,5 +24,12 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true }],
     'no-useless-constructor': 'off',
     '@typescript-eslint/no-useless-constructor': 'error',
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        paths: ['src'],
+      },
+    },
   },
 };
