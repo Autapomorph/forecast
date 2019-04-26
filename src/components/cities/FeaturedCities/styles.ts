@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const StyledFeaturedCitiesSection = styled.section`
   grid-area: featured-cities;

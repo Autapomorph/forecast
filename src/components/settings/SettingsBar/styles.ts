@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components/macro';
 import '@fortawesome/fontawesome-free/css/solid.min.css';
 
 // eslint-disable-next-line import/prefer-default-export

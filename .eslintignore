@@ -1,8 +1,6 @@
 /build/
 /src/serviceWorker.ts
-!babel.config.js
 !.eslintrc.js
 !.prettierrc.js
 !.stylelintrc.js
 !.stylelintrc-format.js
-!.rescriptsrc.js

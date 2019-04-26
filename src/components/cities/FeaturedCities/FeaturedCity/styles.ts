@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 import ReorderButton from 'components/common/buttons/ReorderButton';
 import FeaturedButton from 'components/common/buttons/FeaturedButton';
