@@ -1,5 +1,5 @@
 import React from 'react';
-import { withTranslation, WithTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import { ICity, IWeather } from 'models';
 import generateCityName from 'utils/cityData/generateCityName';
@@ -11,7 +11,7 @@ import FeaturedButton from 'components/common/buttons/FeaturedButton';
 
 import { StyledCityHeader, StyledTitleButtonsWrapper } from './styles';
 
-interface ICityHeaderProps extends WithTranslation {
+interface ICityHeaderProps {
   city: ICity & IWeather;
   isFeatured: boolean;
   refetchCityWeather: () => void;
@@ -20,41 +20,44 @@ interface ICityHeaderProps extends WithTranslation {
 }
 
 const CityHeader: React.FC<ICityHeaderProps> = ({
-  i18n,
   city,
   isFeatured,
   refetchCityWeather,
   addCityToFeatured,
   removeCityFromFeatured,
-}): React.ReactElement => (
-  <StyledCityHeader>
-    <Title>
-      {`${generateCityName(city)} `}
-      <CountryFlag country={city.country.toLowerCase()} />
+}): React.ReactElement => {
+  const { i18n } = useTranslation();
 
-      <br />
-      <Title.Subtitle>
-        {toDayMonthHourMinutes(city.weather.timestamp, i18n.language)}
-      </Title.Subtitle>
-    </Title>
+  return (
+    <StyledCityHeader>
+      <Title>
+        {`${generateCityName(city)} `}
+        <CountryFlag country={city.country.toLowerCase()} />
 
-    <StyledTitleButtonsWrapper>
-      <RetryButton onClick={refetchCityWeather} size="lg" />
-      <FeaturedButton
-        isFeatured={isFeatured}
-        onRemove={() => removeCityFromFeatured(city.id)}
-        onAdd={() =>
-          addCityToFeatured({
-            id: city.id,
-            name: city.name,
-            region: city.region,
-            country: city.country,
-            coords: city.coords,
-          })
-        }
-      />
-    </StyledTitleButtonsWrapper>
-  </StyledCityHeader>
-);
+        <br />
+        <Title.Subtitle>
+          {toDayMonthHourMinutes(city.weather.timestamp, i18n.language)}
+        </Title.Subtitle>
+      </Title>
 
-export default withTranslation()(CityHeader);
+      <StyledTitleButtonsWrapper>
+        <RetryButton onClick={refetchCityWeather} size="lg" />
+        <FeaturedButton
+          isFeatured={isFeatured}
+          onRemove={() => removeCityFromFeatured(city.id)}
+          onAdd={() =>
+            addCityToFeatured({
+              id: city.id,
+              name: city.name,
+              region: city.region,
+              country: city.country,
+              coords: city.coords,
+            })
+          }
+        />
+      </StyledTitleButtonsWrapper>
+    </StyledCityHeader>
+  );
+};
+
+export default CityHeader;

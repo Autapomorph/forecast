@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { withTranslation, WithTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -18,76 +18,49 @@ interface IPropsFromDispatch {
   _fetchCititesByName: (searchParams: string) => void;
 }
 
-type SearchBarProps = IPropsFromDispatch & WithTranslation;
+export const SearchBar: React.FC<IPropsFromDispatch> = ({
+  _fetchCititesByName,
+}): React.ReactElement => {
+  const { t } = useTranslation();
+  const [cityName, setCityName] = useState('');
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
-export class SearchBar extends Component<SearchBarProps> {
-  public state = {
-    cityName: '',
-    isSubmitDisabled: true,
-  };
-
-  private handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState(
-      {
-        cityName: e.currentTarget.value,
-      },
-      this.validateForm,
-    );
-  };
-
-  private validateForm = () => {
-    const { cityName } = this.state;
-
+  useEffect(() => {
     if (!cityName.trim()) {
-      this.setState({
-        isSubmitDisabled: true,
-      });
+      setIsSubmitDisabled(true);
     } else {
-      this.setState({
-        isSubmitDisabled: false,
-      });
+      setIsSubmitDisabled(false);
     }
+  }, [cityName]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setCityName(e.currentTarget.value);
   };
 
-  private handleSubmit = (e: React.FormEvent<HTMLFormElement | HTMLButtonElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement | HTMLButtonElement>): void => {
     e.preventDefault();
-
-    const { _fetchCititesByName } = this.props;
-    const { cityName } = this.state;
-
     _fetchCititesByName(cityName);
-
-    this.setState(
-      {
-        cityName: '',
-      },
-      this.validateForm,
-    );
+    setCityName('');
   };
 
-  public render(): React.ReactElement {
-    const { t } = this.props;
-    const { cityName, isSubmitDisabled } = this.state;
+  return (
+    <StyledSearchForm onSubmit={handleSubmit}>
+      <StyledSearchInput
+        placeholder={t('searchBar.placeholder')}
+        value={cityName}
+        onChange={handleChange}
+      />
 
-    return (
-      <StyledSearchForm onSubmit={this.handleSubmit}>
-        <StyledSearchInput
-          placeholder={t('searchBar.placeholder')}
-          value={cityName}
-          onChange={this.handleChange}
-        />
+      <StyledInputButtonsBlock>
+        <StyledInputButton disabled={isSubmitDisabled} onClick={handleSubmit}>
+          <FontAwesomeIcon icon={faSearch} />
+        </StyledInputButton>
 
-        <StyledInputButtonsBlock>
-          <StyledInputButton disabled={isSubmitDisabled} onClick={this.handleSubmit}>
-            <FontAwesomeIcon icon={faSearch} />
-          </StyledInputButton>
-
-          <GeolocationButton />
-        </StyledInputButtonsBlock>
-      </StyledSearchForm>
-    );
-  }
-}
+        <GeolocationButton />
+      </StyledInputButtonsBlock>
+    </StyledSearchForm>
+  );
+};
 
 const mapDispatchToProps: IPropsFromDispatch = {
   _fetchCititesByName: fetchCititesByName,
@@ -96,4 +69,4 @@ const mapDispatchToProps: IPropsFromDispatch = {
 export default connect(
   null,
   mapDispatchToProps,
-)(withTranslation()(SearchBar));
+)(SearchBar);

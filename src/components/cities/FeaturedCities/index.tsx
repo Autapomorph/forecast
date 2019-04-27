@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
-import { withTranslation, WithTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import { ICoords } from 'models';
 import { RootState } from 'store/types';
@@ -30,18 +30,19 @@ interface IPropsFromDispatch {
   _reorderFeaturedCities: typeof reorderFeaturedCities;
 }
 
-type FeaturedCitiesProps = IPropsFromState & IPropsFromDispatch & WithTranslation;
+type FeaturedCitiesProps = IPropsFromState & IPropsFromDispatch;
 
-export class FeaturedCities extends Component<FeaturedCitiesProps> {
-  private fetchCityByPosition = (position: ICoords) => {
-    const { _fetchCityWeatherByPosition } = this.props;
+export const FeaturedCities: React.FC<FeaturedCitiesProps> = ({
+  featuredCities,
+  _fetchCityWeatherByPosition,
+  _removeCityFromFeatured,
+  _clearFeaturedCities,
+  _reorderFeaturedCities,
+}): React.ReactElement => {
+  const { t } = useTranslation();
+  const isEmpty = !featuredCities || !Object.keys(featuredCities).length;
 
-    _fetchCityWeatherByPosition(position);
-  };
-
-  private onDragEnd = ({ source, destination }: DropResult) => {
-    const { _reorderFeaturedCities } = this.props;
-
+  const onDragEnd = ({ source, destination }: DropResult): void => {
     if (!destination) {
       return;
     }
@@ -53,34 +54,28 @@ export class FeaturedCities extends Component<FeaturedCitiesProps> {
     _reorderFeaturedCities(source.index, destination.index);
   };
 
-  public render(): React.ReactElement {
-    const { t, featuredCities, _removeCityFromFeatured, _clearFeaturedCities } = this.props;
+  return (
+    <StyledFeaturedCitiesSection>
+      <StyledFeaturedCitiesHeader>
+        <Title>{t('cities.featured.title')}</Title>
 
-    const isEmpty = !featuredCities || !Object.keys(featuredCities).length;
+        <TrashButton isEmpty={isEmpty} onClick={_clearFeaturedCities} />
+      </StyledFeaturedCitiesHeader>
 
-    return (
-      <StyledFeaturedCitiesSection>
-        <StyledFeaturedCitiesHeader>
-          <Title>{t('cities.featured.title')}</Title>
+      {isEmpty && <EmptyResult>{t('cities.featured.addToFeatured')}</EmptyResult>}
 
-          <TrashButton isEmpty={isEmpty} onClick={_clearFeaturedCities} />
-        </StyledFeaturedCitiesHeader>
-
-        {isEmpty && <EmptyResult>{t('cities.featured.addToFeatured')}</EmptyResult>}
-
-        {!isEmpty && (
-          <DragDropContext onDragEnd={this.onDragEnd}>
-            <FeaturedCitiesList
-              cities={featuredCities}
-              fetchCity={this.fetchCityByPosition}
-              removeCityFromFeatured={_removeCityFromFeatured}
-            />
-          </DragDropContext>
-        )}
-      </StyledFeaturedCitiesSection>
-    );
-  }
-}
+      {!isEmpty && (
+        <DragDropContext onDragEnd={onDragEnd}>
+          <FeaturedCitiesList
+            cities={featuredCities}
+            fetchCity={_fetchCityWeatherByPosition}
+            removeCityFromFeatured={_removeCityFromFeatured}
+          />
+        </DragDropContext>
+      )}
+    </StyledFeaturedCitiesSection>
+  );
+};
 
 const mapStateToProps = (state: RootState): IPropsFromState => ({
   featuredCities: getFeaturedCities(state),
@@ -96,4 +91,4 @@ const mapDispatchToProps: IPropsFromDispatch = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(withTranslation()(FeaturedCities));
+)(FeaturedCities);

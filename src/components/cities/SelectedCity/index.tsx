@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { withTranslation, WithTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 
 import { ICoords } from 'models';
@@ -42,87 +42,81 @@ interface IPropsFromDispatch {
   _removeCityFromFeatured: typeof removeCityFromFeatured;
 }
 
-type SelectedCityProps = IPropsFromState & IPropsFromDispatch & WithTranslation;
+type SelectedCityProps = IPropsFromState & IPropsFromDispatch;
 
-export class SelectedCity extends Component<SelectedCityProps> {
-  private toastId = 'cityError';
+export const SelectedCity: React.FC<SelectedCityProps> = ({
+  geoPosition,
+  city,
+  isActive,
+  isLoading,
+  errorMessage,
+  checkIfFeatured,
+  unitsFormat,
+  _fetchCityWeatherByPosition,
+  _addCityToFeatured,
+  _removeCityFromFeatured,
+}): React.ReactElement | null => {
+  const { t } = useTranslation();
+  const toastId = 'cityError';
 
-  public componentDidUpdate(prevProps: SelectedCityProps): void {
-    const { t, geoPosition, isLoading, errorMessage } = this.props;
-    const shouldShowToast = !isLoading && errorMessage && !toast.isActive(this.toastId);
-    const shouldDismissToast = !isLoading && !errorMessage && toast.isActive(this.toastId);
-
-    if (geoPosition && geoPosition !== prevProps.geoPosition) {
-      this.fetchCityByPosition(geoPosition);
+  useEffect(() => {
+    if (geoPosition) {
+      _fetchCityWeatherByPosition(geoPosition);
     }
+  }, [geoPosition, _fetchCityWeatherByPosition]);
+
+  useEffect(() => {
+    const shouldShowToast = !isLoading && errorMessage && !toast.isActive(toastId);
+    const shouldDismissToast = !isLoading && !errorMessage && toast.isActive(toastId);
 
     if (shouldShowToast) {
       toast.error(t(errorMessage || ''), {
-        toastId: this.toastId,
+        toastId,
         autoClose: false,
       });
     } else if (shouldDismissToast) {
-      toast.dismiss(this.toastId);
+      toast.dismiss(toastId);
     }
+  });
+
+  if (!isActive) {
+    return null;
   }
 
-  private fetchCityByPosition = (position: ICoords) => {
-    const { _fetchCityWeatherByPosition } = this.props;
-
-    _fetchCityWeatherByPosition(position);
-  };
-
-  public render(): React.ReactElement | null {
-    const {
-      city,
-      isActive,
-      isLoading,
-      errorMessage,
-      unitsFormat,
-      checkIfFeatured,
-      _addCityToFeatured,
-      _removeCityFromFeatured,
-    } = this.props;
-
-    if (!isActive) {
-      return null;
-    }
-
-    if (isLoading) {
-      return (
-        <StyledSelectedCitySection isLoading>
-          <Loader />
-        </StyledSelectedCitySection>
-      );
-    }
-
-    if (!city) {
-      return null;
-    }
-
-    if (errorMessage) {
-      return (
-        <StyledSelectedCitySection>
-          <Message>¯\_(ツ)_/¯</Message>
-        </StyledSelectedCitySection>
-      );
-    }
-
+  if (isLoading) {
     return (
-      <StyledSelectedCitySection>
-        <UnitsFormatContext.Provider value={unitsFormat}>
-          <City
-            city={city}
-            isFeatured={checkIfFeatured(city.id)}
-            refetchCityWeather={() => this.fetchCityByPosition(city.coords)}
-            addCityToFeatured={_addCityToFeatured}
-            removeCityFromFeatured={_removeCityFromFeatured}
-          />
-        </UnitsFormatContext.Provider>
+      <StyledSelectedCitySection isLoading>
+        <Loader />
       </StyledSelectedCitySection>
     );
   }
-}
+
+  if (!city) {
+    return null;
+  }
+
+  if (errorMessage) {
+    return (
+      <StyledSelectedCitySection>
+        <Message>¯\_(ツ)_/¯</Message>
+      </StyledSelectedCitySection>
+    );
+  }
+
+  return (
+    <StyledSelectedCitySection>
+      <UnitsFormatContext.Provider value={unitsFormat}>
+        <City
+          city={city}
+          isFeatured={checkIfFeatured(city.id)}
+          refetchCityWeather={() => _fetchCityWeatherByPosition(city.coords)}
+          addCityToFeatured={_addCityToFeatured}
+          removeCityFromFeatured={_removeCityFromFeatured}
+        />
+      </UnitsFormatContext.Provider>
+    </StyledSelectedCitySection>
+  );
+};
 
 const mapStateToProps = (state: RootState): IPropsFromState => ({
   geoPosition: getGeoPosition(state),
@@ -143,4 +137,4 @@ const mapDispatchToProps: IPropsFromDispatch = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(withTranslation()(SelectedCity));
+)(SelectedCity);

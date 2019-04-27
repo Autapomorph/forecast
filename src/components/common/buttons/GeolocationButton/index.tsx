@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { withTranslation, WithTranslation } from 'react-i18next';
+import useMount from 'react-use/lib/useMount';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationArrow } from '@fortawesome/free-solid-svg-icons';
 
-import { ICoords } from 'models';
 import { RootState } from 'store/types';
 import { getIsGeolocationLoading, getGeolocationErrorMessage } from 'store/rootSelectors';
 import {
@@ -14,7 +14,6 @@ import {
   GeolocationSuccessCallback,
   GeolocationFailureCallback,
 } from 'store/geolocation/actions';
-import { fetchCityWeatherByPosition } from 'store/cities/actions';
 
 import { StyledInputButton } from 'components/SearchBar/styles';
 
@@ -33,55 +32,40 @@ interface IPropsFromDispatch {
     successCb?: GeolocationSuccessCallback,
     errorCb?: GeolocationFailureCallback,
   ) => void;
-
-  _fetchCityWeatherByPosition: (coords: ICoords) => void;
 }
 
-type GeolocationButtonProps = IPropsFromState & IPropsFromDispatch & WithTranslation;
+type GeolocationButtonProps = IPropsFromState & IPropsFromDispatch;
 
-export class GeolocationButton extends Component<GeolocationButtonProps> {
-  private toastId = 'geoError';
+export const GeolocationButton: React.FC<GeolocationButtonProps> = ({
+  isLoading,
+  errorMessage,
+  _fetchGeolocation,
+  _fetchGeolocationByIP,
+}): React.ReactElement => {
+  const { t } = useTranslation();
+  const toastId = 'geoError';
 
-  public componentDidMount(): void {
-    this.fetchGeolocationByIP();
-  }
+  useMount(_fetchGeolocationByIP);
 
-  public componentDidUpdate(): void {
-    const { t, isLoading, errorMessage } = this.props;
-    const shouldShowToast = !isLoading && errorMessage && !toast.isActive(this.toastId);
-    const shouldDismissToast = !isLoading && !errorMessage && toast.isActive(this.toastId);
+  useEffect(() => {
+    const shouldShowToast = !isLoading && errorMessage && !toast.isActive(toastId);
+    const shouldDismissToast = !isLoading && !errorMessage && toast.isActive(toastId);
 
     if (shouldShowToast) {
       toast.error(t(errorMessage || ''), {
-        toastId: this.toastId,
+        toastId,
       });
     } else if (shouldDismissToast) {
-      toast.dismiss(this.toastId);
+      toast.dismiss(toastId);
     }
-  }
+  });
 
-  private fetchGeolocation = () => {
-    const { _fetchGeolocation } = this.props;
-
-    _fetchGeolocation();
-  };
-
-  private fetchGeolocationByIP = () => {
-    const { _fetchGeolocationByIP } = this.props;
-
-    _fetchGeolocationByIP();
-  };
-
-  public render(): React.ReactElement {
-    const { isLoading } = this.props;
-
-    return (
-      <StyledInputButton disabled={isLoading} onClick={this.fetchGeolocation}>
-        <FontAwesomeIcon icon={faLocationArrow} />
-      </StyledInputButton>
-    );
-  }
-}
+  return (
+    <StyledInputButton disabled={isLoading} onClick={() => _fetchGeolocation()}>
+      <FontAwesomeIcon icon={faLocationArrow} />
+    </StyledInputButton>
+  );
+};
 
 const mapStateToProps = (state: RootState): IPropsFromState => ({
   isLoading: getIsGeolocationLoading(state),
@@ -91,10 +75,9 @@ const mapStateToProps = (state: RootState): IPropsFromState => ({
 const mapDispatchToProps: IPropsFromDispatch = {
   _fetchGeolocation: fetchGeolocation,
   _fetchGeolocationByIP: fetchGeolocationByIP,
-  _fetchCityWeatherByPosition: fetchCityWeatherByPosition,
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(withTranslation()(GeolocationButton));
+)(GeolocationButton);

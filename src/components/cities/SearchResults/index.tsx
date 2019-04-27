@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { withTranslation, WithTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 
 import { ICoords } from 'models';
@@ -39,92 +39,82 @@ interface IPropsFromState {
 }
 
 interface IPropsFromDispatch {
-  _fetchCityWeatherByPosition: (position: ICoords) => void;
+  _fetchCityByPosition: (position: ICoords) => void;
   _addCityToFeatured: typeof addCityToFeatured;
   _removeCityFromFeatured: typeof removeCityFromFeatured;
 }
 
-type SearchResultsProps = IPropsFromState & IPropsFromDispatch & WithTranslation;
+type SearchResultsProps = IPropsFromState & IPropsFromDispatch;
 
-export class SearchResults extends Component<SearchResultsProps> {
-  private toastId = 'cityError';
+export const SearchResults: React.FC<SearchResultsProps> = ({
+  cities,
+  searchTerm,
+  isActive,
+  isLoading,
+  errorMessage,
+  unitsFormat,
+  checkIfFeatured,
+  _fetchCityByPosition,
+  _addCityToFeatured,
+  _removeCityFromFeatured,
+}): React.ReactElement | null => {
+  const { t } = useTranslation();
+  const toastId = 'cityError';
 
-  public componentDidUpdate(): void {
-    const { t, isLoading, errorMessage } = this.props;
-    const shouldShowToast = !isLoading && errorMessage && !toast.isActive(this.toastId);
-    const shouldDismissToast = !isLoading && !errorMessage && toast.isActive(this.toastId);
+  useEffect(() => {
+    const shouldShowToast = !isLoading && errorMessage && !toast.isActive(toastId);
+    const shouldDismissToast = !isLoading && !errorMessage && toast.isActive(toastId);
 
     if (shouldShowToast) {
       toast.error(t(errorMessage || ''), {
-        toastId: this.toastId,
+        toastId,
         autoClose: false,
       });
     } else if (shouldDismissToast) {
-      toast.dismiss(this.toastId);
+      toast.dismiss(toastId);
     }
+  });
+
+  if (!isActive) {
+    return null;
   }
 
-  private fetchCityByPosition = (position: ICoords) => {
-    const { _fetchCityWeatherByPosition } = this.props;
+  const isEmpty = !cities || !Object.keys(cities).length;
+  const isLoadedEmpty = !isLoading && !errorMessage && isEmpty;
+  const isLoadedNotEmpty = !isLoading && !errorMessage && !isEmpty;
 
-    _fetchCityWeatherByPosition(position);
-  };
+  const loaderBlock = isLoading ? <Loader /> : null;
 
-  public render(): React.ReactElement | null {
-    const {
-      t,
-      cities,
-      searchTerm,
-      isActive,
-      isLoading,
-      errorMessage,
-      unitsFormat,
-      checkIfFeatured,
-      _addCityToFeatured,
-      _removeCityFromFeatured,
-    } = this.props;
+  const errorBlock = errorMessage ? <Message>¯\_(ツ)_/¯</Message> : null;
 
-    if (!isActive) {
-      return null;
-    }
+  const emptyBlock = isLoadedEmpty ? (
+    <EmptyResult>{t('cities.searchResults.emptyResult')}</EmptyResult>
+  ) : null;
 
-    const isEmpty = !cities || !Object.keys(cities).length;
-    const isLoadedEmpty = !isLoading && !errorMessage && isEmpty;
-    const isLoadedNotEmpty = !isLoading && !errorMessage && !isEmpty;
+  return (
+    <StyledSearchResultsSection isLoading={isLoading}>
+      <StyledSearchResultsHeader>
+        <Title>{t('cities.searchResults.title', { searchTerm })}</Title>
+      </StyledSearchResultsHeader>
 
-    const loaderBlock = isLoading ? <Loader /> : null;
+      {loaderBlock}
+      {errorBlock}
+      {emptyBlock}
 
-    const errorBlock = errorMessage ? <Message>¯\_(ツ)_/¯</Message> : null;
-
-    const emptyBlock = isLoadedEmpty ? (
-      <EmptyResult>{t('cities.searchResults.emptyResult')}</EmptyResult>
-    ) : null;
-
-    return (
-      <StyledSearchResultsSection isLoading={isLoading}>
-        <StyledSearchResultsHeader>
-          <Title>{t('cities.searchResults.title', { searchTerm })}</Title>
-        </StyledSearchResultsHeader>
-
-        {loaderBlock}
-        {errorBlock}
-        {emptyBlock}
-
-        {isLoadedNotEmpty && (
-          <UnitsFormatContext.Provider value={unitsFormat}>
-            <CitiesList
-              cities={cities}
-              checkIfFeatured={checkIfFeatured}
-              fetchCity={this.fetchCityByPosition}
-              addCityToFeatured={_addCityToFeatured}
-              removeCityFromFeatured={_removeCityFromFeatured}
-            />
-          </UnitsFormatContext.Provider>
-        )}
-      </StyledSearchResultsSection>
-    );
-  }
-}
+      {isLoadedNotEmpty && (
+        <UnitsFormatContext.Provider value={unitsFormat}>
+          <CitiesList
+            cities={cities}
+            checkIfFeatured={checkIfFeatured}
+            fetchCity={_fetchCityByPosition}
+            addCityToFeatured={_addCityToFeatured}
+            removeCityFromFeatured={_removeCityFromFeatured}
+          />
+        </UnitsFormatContext.Provider>
+      )}
+    </StyledSearchResultsSection>
+  );
+};
 
 const mapStateToProps = (state: RootState): IPropsFromState => ({
   cities: getCities(state),
@@ -133,12 +123,11 @@ const mapStateToProps = (state: RootState): IPropsFromState => ({
   isLoading: getIsCitiesLoading(state),
   errorMessage: getCitiesErrorMessage(state),
   unitsFormat: getCurrentUnitsFormat(state),
-
   checkIfFeatured: getIsFeaturedCity(state),
 });
 
 const mapDispatchToProps: IPropsFromDispatch = {
-  _fetchCityWeatherByPosition: fetchCityWeatherByPosition,
+  _fetchCityByPosition: fetchCityWeatherByPosition,
   _addCityToFeatured: addCityToFeatured,
   _removeCityFromFeatured: removeCityFromFeatured,
 };
@@ -146,4 +135,4 @@ const mapDispatchToProps: IPropsFromDispatch = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(withTranslation()(SearchResults));
+)(SearchResults);
