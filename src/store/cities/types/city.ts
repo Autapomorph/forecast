@@ -1,7 +1,12 @@
 import { Action } from 'redux';
 
 import { ICity, IWeather } from 'models';
-import { CitiesActionTypes as Types } from './actionTypes';
+
+export enum Types {
+  CITY_WEATHER_FETCH_REQUEST = '@cities/CITY_WEATHER_FETCH_REQUEST',
+  CITY_WEATHER_FETCH_SUCCESS = '@cities/CITY_WEATHER_FETCH_SUCCESS',
+  CITY_WEATHER_FETCH_FAILURE = '@cities/CITY_WEATHER_FETCH_FAILURE',
+}
 
 interface FetchCityWeatherRequestAction extends Action {
   type: typeof Types.CITY_WEATHER_FETCH_REQUEST;
@@ -19,8 +24,7 @@ interface FetchCityWeatherFailureAction extends Action {
   error: true;
 }
 
-// eslint-disable-next-line import/prefer-default-export
-export type CityActions =
+export type Actions =
   | FetchCityWeatherRequestAction
   | FetchCityWeatherSuccessAction
   | FetchCityWeatherFailureAction;

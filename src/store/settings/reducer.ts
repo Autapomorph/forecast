@@ -1,14 +1,9 @@
 import { persistReducer, PersistConfig } from 'redux-persist';
 import localForage from 'localforage';
 
-import { ILocale, UnitFormat } from 'models';
 import { defaultLanguage } from 'config/settings/i18n';
 import { defaultUnitsFormat } from 'config/settings/unitsFormats';
-import {
-  SettingsState as State,
-  SettingsActions as Actions,
-  SettingsActionTypes as Types,
-} from './types';
+import { State, Actions, Types } from './types';
 
 export const initialState: State = {
   language: defaultLanguage,
@@ -27,14 +22,14 @@ const reducer = (state = initialState, action: Actions): State => {
     case Types.SETTINGS_CHANGE_LANGUAGE: {
       return {
         ...state,
-        language: action.payload as ILocale,
+        language: action.payload,
       };
     }
 
     case Types.SETTINGS_CHANGE_UNITS_FORMAT: {
       return {
         ...state,
-        unitsFormat: action.payload as UnitFormat,
+        unitsFormat: action.payload,
       };
     }
 

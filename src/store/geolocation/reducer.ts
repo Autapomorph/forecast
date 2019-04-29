@@ -1,8 +1,4 @@
-import {
-  GeolocationState as State,
-  GeolocationActions as Actions,
-  GeolocationActionTypes as Types,
-} from './types';
+import { State, Actions, Types } from './types';
 
 export const initialState: State = {
   data: null,

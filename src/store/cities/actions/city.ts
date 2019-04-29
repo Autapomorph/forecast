@@ -8,7 +8,7 @@ import GeonamesService from 'services/geonames';
 import { isProd } from 'utils';
 import formatWeather from 'utils/weatherData/formatWeather';
 import formatCities from 'utils/cityData/formatCities';
-import { CitiesActions as Actions, CitiesActionTypes as Types } from '../types';
+import { Actions, Types } from '../types';
 
 export const fetchCityWeatherRequest = (): Actions => ({
   type: Types.CITY_WEATHER_FETCH_REQUEST,

@@ -1,7 +1,12 @@
 import { Action } from 'redux';
 
 import { ICity } from 'models';
-import { CitiesActionTypes as Types } from './actionTypes';
+
+export enum Types {
+  CITIES_FETCH_REQUEST = '@cities/CITIES_FETCH_REQUEST',
+  CITIES_FETCH_SUCCESS = '@cities/CITIES_FETCH_SUCCESS',
+  CITIES_FETCH_FAILURE = '@cities/CITIES_FETCH_FAILURE',
+}
 
 interface FetchCitiesRequestAction extends Action {
   type: typeof Types.CITIES_FETCH_REQUEST;
@@ -20,8 +25,7 @@ interface FetchCitiesFailureAction extends Action {
   error: true;
 }
 
-// eslint-disable-next-line import/prefer-default-export
-export type CitiesActions =
+export type Actions =
   | FetchCitiesRequestAction
   | FetchCitiesSuccessAction
   | FetchCitiesFailureAction;

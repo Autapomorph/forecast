@@ -1,7 +1,13 @@
 import { Action } from 'redux';
 
 import { ICity } from 'models';
-import { CitiesActionTypes as Types } from './actionTypes';
+
+export enum Types {
+  FEATURED_CITY_ADD = '@cities/FEATURED_CITY_ADD',
+  FEATURED_CITY_REMOVE = '@cities/FEATURED_CITY_REMOVE',
+  FEATURED_CITIES_CLEAR = '@cities/FEATURED_CITIES_CLEAR',
+  FEATURED_CITIES_REORDER = '@cities/FEATURED_CITIES_REORDER',
+}
 
 interface AddFeaturedCityAction extends Action {
   type: typeof Types.FEATURED_CITY_ADD;
@@ -25,8 +31,7 @@ interface ReorderFeaturedCitiesAction extends Action {
   };
 }
 
-// eslint-disable-next-line import/prefer-default-export
-export type FeaturedCitiesActions =
+export type Actions =
   | AddFeaturedCityAction
   | RemoveFeaturedCityAction
   | ClearFeaturedCitiesAction

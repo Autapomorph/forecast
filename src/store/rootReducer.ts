@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
-import citiesReducer from './cities/reducer';
-import geolocationReducer from './geolocation/reducer';
-import settingsReducer from './settings/reducer';
 import { RootState } from './types';
+import cities from './cities/reducer';
+import geolocation from './geolocation/reducer';
+import settings from './settings/reducer';
 
 const rootReducer = combineReducers<RootState>({
-  cities: citiesReducer,
-  geolocation: geolocationReducer,
-  settings: settingsReducer,
+  cities,
+  geolocation,
+  settings,
 });
 
 export default rootReducer;

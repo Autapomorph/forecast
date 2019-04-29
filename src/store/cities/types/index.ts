@@ -1,13 +1,28 @@
+import { PersistPartial } from 'redux-persist';
+
 import { ICity, IWeather } from 'models';
-import { CityActions } from './city';
-import { CitiesActions } from './cities';
-import { FeaturedCitiesActions } from './featuredCities';
+import { Actions as CityActions, Types as CityTypes } from './city';
+import { Actions as CitiesActions, Types as CitiesTypes } from './cities';
+import { Actions as FeaturedCitiesActions, Types as FeaturedCitiesTypes } from './featuredCities';
 
-export { CitiesActionTypes } from './actionTypes';
+/**
+ * action types
+ */
+export const Types = {
+  ...CityTypes,
+  ...CitiesTypes,
+  ...FeaturedCitiesTypes,
+};
 
-export type CitiesActions = CityActions | CitiesActions | FeaturedCitiesActions;
+/**
+ * actions
+ */
+export type Actions = CityActions | CitiesActions | FeaturedCitiesActions;
 
-export interface CitiesState {
+/**
+ * state
+ */
+export interface State {
   readonly selectedCity: {
     data: ICity & IWeather | null;
     active: boolean;
@@ -25,3 +40,5 @@ export interface CitiesState {
     data: ICity[];
   };
 }
+
+export type CitiesState = State & PersistPartial;

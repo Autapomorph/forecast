@@ -1,11 +1,7 @@
 import { persistReducer, PersistConfig } from 'redux-persist';
 import localForage from 'localforage';
 
-import {
-  CitiesState as State,
-  CitiesActions as Actions,
-  CitiesActionTypes as Types,
-} from './types';
+import { State, Actions, Types } from './types';
 
 export const initialState: State = {
   selectedCity: {
