@@ -4,13 +4,13 @@ import { ILocale } from 'models';
 
 import { StyledSwitchButton, StyledLabel, StyledRadioButton, StyledLabelText } from './styles';
 
-interface ILanguageButtonProps {
+interface IProps {
   language: ILocale;
   checked: boolean;
   handleChange: (unitFormat: ILocale) => void;
 }
 
-const LanguageButton: React.FC<ILanguageButtonProps> = ({
+const LanguageButton: React.FC<IProps> = ({
   language,
   checked,
   handleChange,

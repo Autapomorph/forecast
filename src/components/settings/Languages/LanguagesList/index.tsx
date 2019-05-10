@@ -5,13 +5,13 @@ import LanguageButton from '../LanguageButton';
 
 import { StyledLanguageSwitcher } from './styles';
 
-interface ILanguageListProps {
+interface IProps {
   languages: ILocale[];
   selectedLanguage: ILocale;
   handleChangeLanguage: (language: ILocale) => void;
 }
 
-const LanguageList: React.FC<ILanguageListProps> = ({
+const LanguageList: React.FC<IProps> = ({
   languages,
   selectedLanguage,
   handleChangeLanguage,

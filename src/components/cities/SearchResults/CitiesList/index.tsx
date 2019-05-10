@@ -5,7 +5,7 @@ import CitiesItem from '../CitiesItem';
 
 import { StyledCitiesList } from './styles';
 
-interface ICitiesListProps {
+interface IProps {
   cities: ICity[];
   checkIfFeatured: (cityId: ICity['id']) => boolean;
   fetchCity: (cityCoords: ICoords) => void;
@@ -13,7 +13,7 @@ interface ICitiesListProps {
   removeCityFromFeatured: (cityId: ICity['id']) => void;
 }
 
-const CitiesList: React.FC<ICitiesListProps> = ({
+const CitiesList: React.FC<IProps> = ({
   cities,
   checkIfFeatured,
   fetchCity,

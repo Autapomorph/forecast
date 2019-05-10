@@ -27,7 +27,7 @@ export const fetchCitiesByNameFailure = (error: Error): Actions => ({
 
 export const fetchCititesByName = (
   searchParams: string,
-): ThunkAction<void, RootState, null, Actions> => async (dispatch, getState) => {
+): ThunkAction<Promise<void>, RootState, null, Actions> => async (dispatch, getState) => {
   if (getIsAnythingLoading(getState())) {
     return;
   }

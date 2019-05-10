@@ -28,7 +28,7 @@ const fetchCityWeatherFailure = (error: Error): Actions => ({
 
 export const fetchCityWeatherByPosition = (
   position: ICoords,
-): ThunkAction<void, RootState, null, Actions> => async (dispatch, getState) => {
+): ThunkAction<Promise<void>, RootState, null, Actions> => async (dispatch, getState) => {
   if (getIsAnythingLoading(getState())) {
     return;
   }

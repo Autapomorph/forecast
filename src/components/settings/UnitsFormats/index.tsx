@@ -15,9 +15,9 @@ interface IPropsFromDispatch {
   _changeUnitsFormat: typeof changeUnitsFormat;
 }
 
-type UnitsFormatsProps = IPropsFromState & IPropsFromDispatch;
+type IProps = IPropsFromState & IPropsFromDispatch;
 
-export const UnitsFormats: React.FC<UnitsFormatsProps> = ({
+export const UnitsFormats: React.FC<IProps> = ({
   selectedUnitsFormat,
   _changeUnitsFormat,
 }): React.ReactElement => (

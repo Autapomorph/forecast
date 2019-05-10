@@ -34,9 +34,9 @@ interface IPropsFromDispatch {
   ) => void;
 }
 
-type GeolocationButtonProps = IPropsFromState & IPropsFromDispatch;
+type IProps = IPropsFromState & IPropsFromDispatch;
 
-export const GeolocationButton: React.FC<GeolocationButtonProps> = ({
+export const GeolocationButton: React.FC<IProps> = ({
   isLoading,
   errorMessage,
   _fetchGeolocation,

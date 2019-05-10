@@ -12,14 +12,14 @@ import {
   StyledFeaturedButton,
 } from './styles';
 
-interface IFeaturedCitiesItemProps {
+interface IProps {
   index: number;
   city: ICity;
   fetchCity: (coords: ICoords) => void;
   removeCityFromFeatured: (cityId: ICity['id']) => void;
 }
 
-const FeaturedCitiesItem: React.FC<IFeaturedCitiesItemProps> = ({
+const FeaturedCitiesItem: React.FC<IProps> = ({
   index,
   city,
   fetchCity,

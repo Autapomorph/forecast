@@ -2,7 +2,7 @@ import React from 'react';
 
 import { StyledWeatherIcon } from './styles';
 
-interface IWeatherIconProps {
+interface IProps {
   tag?: React.ElementType;
   icon: string;
   wind?: boolean;
@@ -13,7 +13,7 @@ interface IWeatherIconProps {
   className?: string;
 }
 
-const WeatherIcon: React.FC<IWeatherIconProps> = ({
+const WeatherIcon: React.FC<IProps> = ({
   tag = 'i',
   icon,
   wind = false,

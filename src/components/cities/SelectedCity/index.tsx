@@ -42,9 +42,9 @@ interface IPropsFromDispatch {
   _removeCityFromFeatured: typeof removeCityFromFeatured;
 }
 
-type SelectedCityProps = IPropsFromState & IPropsFromDispatch;
+type IProps = IPropsFromState & IPropsFromDispatch;
 
-export const SelectedCity: React.FC<SelectedCityProps> = ({
+export const SelectedCity: React.FC<IProps> = ({
   geoPosition,
   city,
   isActive,

@@ -23,11 +23,11 @@ import {
   StyledDivider,
 } from './styles';
 
-interface IForecastDetailsProps {
+interface IProps {
   city: ICity & IWeather;
 }
 
-const ForecastDetails: React.FC<IForecastDetailsProps> = ({ city }): React.ReactElement => {
+const ForecastDetails: React.FC<IProps> = ({ city }): React.ReactElement => {
   const { t, i18n } = useTranslation();
   const unitsFormat = useContext(UnitsFormatContext);
 

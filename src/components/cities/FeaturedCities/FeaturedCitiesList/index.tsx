@@ -6,13 +6,13 @@ import FeaturedCity from '../FeaturedCity';
 
 import { StyledFeaturedList } from './styles';
 
-interface IFeaturedCitiesListProps {
+interface IProps {
   cities: ICity[];
   fetchCity: (coords: ICoords) => void;
   removeCityFromFeatured: (cityId: ICity['id']) => void;
 }
 
-const FeaturedCitiesList: React.FC<IFeaturedCitiesListProps> = ({
+const FeaturedCitiesList: React.FC<IProps> = ({
   cities,
   fetchCity,
   removeCityFromFeatured,

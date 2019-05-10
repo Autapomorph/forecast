@@ -4,12 +4,12 @@ import { Props as FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 
 import { StyledTrashButton } from './styles';
 
-interface ITrashButtonProps extends Partial<FontAwesomeIconProps> {
+interface IProps extends Partial<FontAwesomeIconProps> {
   isEmpty: boolean;
   onClick: () => void;
 }
 
-const TrashButton: React.FC<ITrashButtonProps> = ({
+const TrashButton: React.FC<IProps> = ({
   isEmpty = false,
   size = 'lg',
   onClick = () => {},

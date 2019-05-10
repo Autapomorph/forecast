@@ -12,7 +12,7 @@ import {
   StyledTitleButtonsWrapper,
 } from './styles';
 
-interface ICitiesItemProps {
+interface IProps {
   city: ICity;
   isFeatured: boolean;
   fetchCity: (cityCoords: ICoords) => void;
@@ -20,7 +20,7 @@ interface ICitiesItemProps {
   removeCityFromFeatured: (cityId: ICity['id']) => void;
 }
 
-const CitiesItem: React.FC<ICitiesItemProps> = ({
+const CitiesItem: React.FC<IProps> = ({
   city,
   isFeatured,
   fetchCity,

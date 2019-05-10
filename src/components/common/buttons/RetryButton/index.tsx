@@ -4,11 +4,11 @@ import { Props as FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 
 import { StyledRetryButton } from './styles';
 
-interface IRetryButtonProps extends Partial<FontAwesomeIconProps> {
+interface IProps extends Partial<FontAwesomeIconProps> {
   onClick: (event: React.MouseEvent) => void;
 }
 
-const RetryButton: React.FC<IRetryButtonProps> = ({ onClick, ...props }): React.ReactElement => (
+const RetryButton: React.FC<IProps> = ({ onClick, ...props }): React.ReactElement => (
   <Fragment>
     {
       // @ts-ignore

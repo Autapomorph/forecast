@@ -44,9 +44,9 @@ interface IPropsFromDispatch {
   _removeCityFromFeatured: typeof removeCityFromFeatured;
 }
 
-type SearchResultsProps = IPropsFromState & IPropsFromDispatch;
+type IProps = IPropsFromState & IPropsFromDispatch;
 
-export const SearchResults: React.FC<SearchResultsProps> = ({
+export const SearchResults: React.FC<IProps> = ({
   cities,
   searchTerm,
   isActive,

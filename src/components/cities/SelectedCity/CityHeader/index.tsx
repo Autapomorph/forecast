@@ -11,7 +11,7 @@ import FeaturedButton from 'components/common/buttons/FeaturedButton';
 
 import { StyledCityHeader, StyledTitleButtonsWrapper } from './styles';
 
-interface ICityHeaderProps {
+interface IProps {
   city: ICity & IWeather;
   isFeatured: boolean;
   refetchCityWeather: () => void;
@@ -19,7 +19,7 @@ interface ICityHeaderProps {
   removeCityFromFeatured: (cityId: ICity['id']) => void;
 }
 
-const CityHeader: React.FC<ICityHeaderProps> = ({
+const CityHeader: React.FC<IProps> = ({
   city,
   isFeatured,
   refetchCityWeather,

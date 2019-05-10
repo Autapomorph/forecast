@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+
 import { RootState } from './types';
 import cities from './cities/reducer';
 import geolocation from './geolocation/reducer';

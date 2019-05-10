@@ -16,11 +16,11 @@ import {
   StyledWeatherDetailsItemDescription as StyledItemDescription,
 } from './styles';
 
-interface IWeatherDetailsProps {
+interface IProps {
   city: ICity & IWeather;
 }
 
-const WeatherDetails: React.FC<IWeatherDetailsProps> = ({ city }): React.ReactElement => {
+const WeatherDetails: React.FC<IProps> = ({ city }): React.ReactElement => {
   const { t, i18n } = useTranslation();
   const unitsFormat = useContext(UnitsFormatContext);
 

@@ -15,9 +15,9 @@ interface IPropsFromDispatch {
   _changeLanguage: typeof changeLanguage;
 }
 
-type LanguagesProps = IPropsFromState & IPropsFromDispatch;
+type IProps = IPropsFromState & IPropsFromDispatch;
 
-export const Languages: React.FC<LanguagesProps> = ({
+export const Languages: React.FC<IProps> = ({
   selectedLanguage,
   _changeLanguage,
 }): React.ReactElement => (

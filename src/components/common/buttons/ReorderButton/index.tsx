@@ -4,13 +4,12 @@ import { Props as FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 
 import { StyledReorderButton } from './styles';
 
-interface IReorderButtonProps extends Partial<FontAwesomeIconProps> {
+interface IProps extends Partial<FontAwesomeIconProps> {
   isDragging: boolean;
 }
 
-const ReorderButton: React.FC<IReorderButtonProps> = ({
-  size = 'lg',
-  ...props
-}): React.ReactElement => <StyledReorderButton icon={faSort} size={size} {...props} />;
+const ReorderButton: React.FC<IProps> = ({ size = 'lg', ...props }): React.ReactElement => (
+  <StyledReorderButton icon={faSort} size={size} {...props} />
+);
 
 export default ReorderButton;

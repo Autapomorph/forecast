@@ -7,7 +7,7 @@ import ForecastDetails from '../ForecastDetails';
 
 import { StyledCityWrapper } from './styles';
 
-interface ICityProps {
+interface IProps {
   city: ICity & IWeather;
   isFeatured: boolean;
   refetchCityWeather: () => void;
@@ -15,7 +15,7 @@ interface ICityProps {
   removeCityFromFeatured: (cityId: ICity['id']) => void;
 }
 
-const City: React.FC<ICityProps> = ({
+const City: React.FC<IProps> = ({
   city,
   isFeatured,
   refetchCityWeather,

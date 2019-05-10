@@ -26,7 +26,7 @@ export type GeolocationSuccessCallback = (position: ICoords) => void;
 export type GeolocationFailureCallback = (error: Error) => void;
 
 export const fetchGeolocation = (): ThunkAction<
-  void,
+  Promise<void>,
   RootState,
   null,
   Actions
@@ -42,7 +42,7 @@ export const fetchGeolocation = (): ThunkAction<
 };
 
 export const fetchGeolocationByIP = (): ThunkAction<
-  void,
+  Promise<void>,
   RootState,
   null,
   Actions

@@ -30,9 +30,9 @@ interface IPropsFromDispatch {
   _reorderFeaturedCities: typeof reorderFeaturedCities;
 }
 
-type FeaturedCitiesProps = IPropsFromState & IPropsFromDispatch;
+type IProps = IPropsFromState & IPropsFromDispatch;
 
-export const FeaturedCities: React.FC<FeaturedCitiesProps> = ({
+export const FeaturedCities: React.FC<IProps> = ({
   featuredCities,
   _fetchCityWeatherByPosition,
   _removeCityFromFeatured,

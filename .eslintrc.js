@@ -22,6 +22,7 @@ module.exports = {
     'react/prop-types': 'off',
     '@typescript-eslint/interface-name-prefix': 'always',
     '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true }],
+    '@typescript-eslint/no-object-literal-type-assertion': ['error', { allowAsParameter: true }],
     'no-useless-constructor': 'off',
     '@typescript-eslint/no-useless-constructor': 'error',
   },
