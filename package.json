@@ -5,7 +5,7 @@
   "scripts": {
     "start": "run-p -lns start:client start:server",
     "start:client": "react-scripts start",
-    "start:server": "tsnd --respawn -P tsconfig-server.json src/api/index.ts",
+    "start:server": "tsnd --respawn -P tsconfig.server.json src/api/index.ts",
     "sc": "npm run start:client",
     "ss": "npm run start:server",
     "ss:dev": "cross-env NODE_ENV=development npm run ss",
@@ -17,7 +17,7 @@
     "lint": "run-s -c lint:js lint:styles",
     "lint:js": "eslint src/**/*.{js,jsx,ts,tsx}",
     "lint:styles": "run-s -c lint:sc lint:css",
-    "lint:css": "stylelint src/**/*.{css,scss,sass,less} --config .stylelintrc-format.js",
+    "lint:css": "stylelint src/**/*.{css,scss,sass,less} --config .stylelintrc.css.js",
     "lint:sc": "stylelint src/**/*.{js,jsx,ts,tsx}",
     "eject": "react-scripts eject"
   },
@@ -142,7 +142,7 @@
       ],
       "src/**/*.{css,scss,sass,less}": [
         "prettier --write",
-        "stylelint --fix --config .stylelintrc-format.js",
+        "stylelint --fix --config .stylelintrc.css.js",
         "git add"
       ],
       "src/**/*.{json,md}": [
