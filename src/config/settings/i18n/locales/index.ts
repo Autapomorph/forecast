@@ -1,17 +1,26 @@
+import i18n from 'i18next';
+
 import { ILocales } from '../../../../models';
 import translationEN from './en/translation.json';
 import translationRU from './ru/translation.json';
+
+export const resources: i18n.Resource = {
+  en: {
+    translation: translationEN,
+  },
+  ru: {
+    translation: translationRU,
+  },
+};
 
 const locales: ILocales = {
   en: {
     title: 'english',
     code: 'en-US',
-    translation: translationEN,
   },
   ru: {
     title: 'русский',
     code: 'ru-RU',
-    translation: translationRU,
   },
 };
 

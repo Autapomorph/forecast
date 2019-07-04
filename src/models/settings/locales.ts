@@ -1,12 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import i18n from 'i18next';
-
-export interface ILocale extends i18n.ResourceKey {
+export interface ILocale {
   title: string;
   code: string;
-  translation: Record<string, any>;
 }
 
-export interface ILocales extends i18n.Resource {
+export interface ILocales {
   [language: string]: ILocale;
 }

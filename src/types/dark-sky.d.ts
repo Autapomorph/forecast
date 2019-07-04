@@ -44,6 +44,7 @@ declare module 'dark-sky' {
 
     public units(units: string): DarkSky;
 
+    // eslint-disable-next-line no-underscore-dangle
     private _generateReqUrl(): boolean;
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
