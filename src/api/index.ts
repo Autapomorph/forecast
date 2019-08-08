@@ -13,7 +13,7 @@ const darksky = new DarkSky(process.env.REACT_APP_DARKSKY_API_KEY || '');
 app.use(cors());
 app.enable('trust proxy');
 
-app.get('/proxy', async (req, res) => {
+app.get('/api', async (req, res) => {
   try {
     const { latitude, longitude, lang = 'en', units = 'us' } = req.query;
 

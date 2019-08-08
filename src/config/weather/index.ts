@@ -11,4 +11,4 @@ export const DARKSKY_API_LANG_QUERY_PARAM = `lang`;
 export const DARKSKY_API_UNITS_QUERY_PARAM = `units`;
 export const DARKSKY_API_EXCLUDE_QUERY_PARAM = `exclude`;
 
-export const DARKSKY_API_BASE = `${API_BASE}/proxy`;
+export const DARKSKY_API_BASE = `${API_BASE}/api`;

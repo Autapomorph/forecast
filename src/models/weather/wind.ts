@@ -5,6 +5,7 @@ export interface IWindFormat {
   icon: string;
 }
 
+// eslint-disable-next-line import/prefer-default-export
 export enum WindCardDir {
   N = 'N',
   NNE = 'NNE',

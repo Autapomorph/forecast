@@ -5,6 +5,7 @@ import { ICoords } from 'models';
 /**
  * action types
  */
+// eslint-disable-next-line import/prefer-default-export
 export enum Types {
   GEOLOCATION_FETCH_REQUEST = '@geolocation/GEOLOCATION_FETCH_REQUEST',
   GEOLOCATION_FETCH_SUCCESS = '@geolocation/GEOLOCATION_FETCH_SUCCESS',

@@ -8,6 +8,7 @@ import { Actions as FeaturedCitiesActions, Types as FeaturedCitiesTypes } from '
 /**
  * action types
  */
+// eslint-disable-next-line import/prefer-default-export
 export const Types = {
   ...CityTypes,
   ...CitiesTypes,

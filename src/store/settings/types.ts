@@ -6,6 +6,7 @@ import { ILocale, UnitFormat } from 'models';
 /**
  * action types
  */
+// eslint-disable-next-line import/prefer-default-export
 export enum Types {
   SETTINGS_CHANGE_LANGUAGE = '@settings/SETTINGS_CHANGE_LANGUAGE',
   SETTINGS_CHANGE_UNITS_FORMAT = '@settings/SETTINGS_CHANGE_UNITS_FORMAT',

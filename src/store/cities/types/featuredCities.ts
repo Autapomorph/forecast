@@ -2,6 +2,7 @@ import { Action } from 'redux';
 
 import { ICity } from 'models';
 
+// eslint-disable-next-line import/prefer-default-export
 export enum Types {
   FEATURED_CITY_ADD = '@cities/FEATURED_CITY_ADD',
   FEATURED_CITY_REMOVE = '@cities/FEATURED_CITY_REMOVE',

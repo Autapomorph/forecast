@@ -2,6 +2,7 @@ import { Action } from 'redux';
 
 import { ICity } from 'models';
 
+// eslint-disable-next-line import/prefer-default-export
 export enum Types {
   CITIES_FETCH_REQUEST = '@cities/CITIES_FETCH_REQUEST',
   CITIES_FETCH_SUCCESS = '@cities/CITIES_FETCH_SUCCESS',
