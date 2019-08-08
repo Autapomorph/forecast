@@ -3,29 +3,21 @@ const micromatch = require('micromatch');
 
 module.exports = {
   'src/**/*.{js,jsx,ts,tsx}': filenames => {
-    const match = micromatch.not(filenames, ['src/serviceWorker.{js,ts}']);
+    const match = micromatch.not(filenames, ['src/serviceWorker.{js,ts}']).join(' ');
 
-    return match
-      .map(file => [
-        `prettier --write ${file}`,
-        `stylelint ${file}`,
-        `eslint --max-warnings=0 ${file}`,
-        `git add ${file}`,
-      ])
-      .join(' ');
+    return [
+      `prettier --write ${match}`,
+      `stylelint --fix --config .stylelintrc.css.js ${match}`,
+      `eslint --max-warnings=0 ${match}`,
+      `git add ${match}`,
+    ];
   },
 
-  'src/**/*.{css,scss,sass,less}': filenames => {
-    return filenames
-      .map(file => [
-        `prettier --write ${file}`,
-        `stylelint --fix --config .stylelintrc.css.js ${file}`,
-        `git add ${file}`,
-      ])
-      .join(' ');
-  },
+  'src/**/*.{css,scss,sass,less}': [
+    'prettier --write',
+    'stylelint --fix --config .stylelintrc.css.js',
+    'git add',
+  ],
 
-  'src/**/*.{json,md}': filenames => {
-    return filenames.map(file => [`prettier --write ${file}`, `git add ${file}`]).join(' ');
-  },
+  'src/**/*.{json,md}': [`prettier --write`, `git add`],
 };
