@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 import { Props as FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
@@ -18,25 +18,19 @@ const FeaturedButton: React.FC<IProps> = ({
   onRemove = () => {},
   ...props
 }): React.ReactElement => (
-  <Fragment>
+  <>
     {isFeatured && (
-      <Fragment>
-        {
-          // @ts-ignore
-          <StyledFeaturedButton icon={faStarSolid} size={size} onClick={onRemove} {...props} />
-        }
-      </Fragment>
+      <>
+        <StyledFeaturedButton icon={faStarSolid} size={size} onClick={onRemove} {...props} />
+      </>
     )}
 
     {!isFeatured && (
-      <Fragment>
-        {
-          // @ts-ignore
-          <StyledFeaturedButton icon={faStarRegular} size={size} onClick={onAdd} {...props} />
-        }
-      </Fragment>
+      <>
+        <StyledFeaturedButton icon={faStarRegular} size={size} onClick={onAdd} {...props} />
+      </>
     )}
-  </Fragment>
+  </>
 );
 
 export default FeaturedButton;

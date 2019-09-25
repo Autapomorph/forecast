@@ -1,4 +1,4 @@
-import { PersistPartial } from 'redux-persist';
+import { PersistPartial } from 'redux-persist/es/persistReducer';
 
 import { ICity, IWeather } from 'models';
 import { Actions as CityActions, Types as CityTypes } from './city';

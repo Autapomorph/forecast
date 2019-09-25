@@ -22,7 +22,7 @@ export const initialState: State = {
   },
 };
 
-const persistConfig: PersistConfig = {
+const persistConfig: PersistConfig<State> = {
   version: 1,
   key: 'featuredCities',
   storage: localForage,

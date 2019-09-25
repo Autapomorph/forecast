@@ -10,7 +10,7 @@ export const initialState: State = {
   unitsFormat: defaultUnitsFormat,
 };
 
-const persistConfig: PersistConfig = {
+const persistConfig: PersistConfig<State> = {
   version: 1,
   key: 'settings',
   storage: localForage,

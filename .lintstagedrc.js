@@ -7,17 +7,13 @@ module.exports = {
 
     return [
       `prettier --write ${match}`,
-      `stylelint --fix --config .stylelintrc.css.js ${match}`,
+      `stylelint --fix ${match}`,
       `eslint --max-warnings=0 ${match}`,
       `git add ${match}`,
     ];
   },
 
-  'src/**/*.{css,scss,sass,less}': [
-    'prettier --write',
-    'stylelint --fix --config .stylelintrc.css.js',
-    'git add',
-  ],
+  'src/**/*.{css,scss,sass,less}': ['prettier --write', 'stylelint --fix', 'git add'],
 
   'src/**/*.{json,md}': [`prettier --write`, `git add`],
 };

@@ -1,4 +1,4 @@
-export default function generateWindIcon(windDir: number, towards: boolean = false): string {
+export default function generateWindIcon(windDir: number, towards = false): string {
   if (Number.isNaN(windDir)) {
     throw new Error('Invalid wind direction');
   }
