@@ -62,11 +62,8 @@ export const SearchBar: React.FC<IPropsFromDispatch> = ({
   );
 };
 
-const mapDispatchToProps: IPropsFromDispatch = {
+const mapDispatch: IPropsFromDispatch = {
   _fetchCititesByName: fetchCititesByName,
 };
 
-export default connect(
-  null,
-  mapDispatchToProps,
-)(SearchBar);
+export default connect(null, mapDispatch)(SearchBar);

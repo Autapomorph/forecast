@@ -7,7 +7,7 @@ module.exports = {
 
     return [
       `prettier --write ${match}`,
-      `stylelint --fix ${match}`,
+      `stylelint ${match}`,
       `eslint --max-warnings=0 ${match}`,
       `git add ${match}`,
     ];

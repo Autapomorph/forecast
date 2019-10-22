@@ -14,7 +14,7 @@ export const StyledCountryFlag = styled.span`
   vertical-align: sub;
   font-size: ${({ size }: ICountryFlagProps) => size};
   background-image: ${({ country }: ICountryFlagProps) =>
-    `url(/images/countries/flags/${country}.svg)`};
+    `url(/images/countries/flags/${country}.svg) `};
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

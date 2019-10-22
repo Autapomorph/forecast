@@ -1,10 +1,10 @@
-import i18n from 'i18next';
+import { Resource } from 'i18next';
 
 import { ILocales } from '../../../../models';
 import translationEN from './en/translation.json';
 import translationRU from './ru/translation.json';
 
-export const resources: i18n.Resource = {
+export const resources: Resource = {
   en: {
     translation: translationEN,
   },

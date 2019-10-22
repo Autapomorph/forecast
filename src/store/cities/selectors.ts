@@ -2,7 +2,7 @@ import { ICity, IWeather } from 'models';
 import { State } from './types/index';
 
 // city selectors
-export const getSelectedCity = (state: State): ICity & IWeather | null => state.selectedCity.data;
+export const getSelectedCity = (state: State): (ICity & IWeather) | null => state.selectedCity.data;
 export const getIsSelectedCityActive = (state: State): boolean => state.selectedCity.active;
 export const getIsSelectedCityLoading = (state: State): boolean => state.selectedCity.loading;
 export const getSelectedCityErrorMessage = (state: State): string | null =>

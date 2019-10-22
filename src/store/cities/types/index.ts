@@ -25,7 +25,7 @@ export type Actions = CityActions | CitiesActions | FeaturedCitiesActions;
  */
 export interface State {
   readonly selectedCity: {
-    data: ICity & IWeather | null;
+    data: (ICity & IWeather) | null;
     active: boolean;
     loading: boolean;
     errorMessage: string | null;

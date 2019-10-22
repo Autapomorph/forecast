@@ -67,17 +67,14 @@ export const GeolocationButton: React.FC<IProps> = ({
   );
 };
 
-const mapStateToProps = (state: RootState): IPropsFromState => ({
+const mapState = (state: RootState): IPropsFromState => ({
   isLoading: getIsGeolocationLoading(state),
   errorMessage: getGeolocationErrorMessage(state),
 });
 
-const mapDispatchToProps: IPropsFromDispatch = {
+const mapDispatch: IPropsFromDispatch = {
   _fetchGeolocation: fetchGeolocation,
   _fetchGeolocationByIP: fetchGeolocationByIP,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(GeolocationButton);
+export default connect(mapState, mapDispatch)(GeolocationButton);
