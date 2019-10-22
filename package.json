@@ -2,6 +2,9 @@
   "name": "forecast",
   "version": "0.9.0",
   "private": true,
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "start": "run-p -lns start:client start:server",
     "start:client": "react-scripts start",
