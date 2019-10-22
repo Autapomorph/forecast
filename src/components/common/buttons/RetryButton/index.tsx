@@ -9,9 +9,7 @@ interface IProps extends Partial<FontAwesomeIconProps> {
 }
 
 const RetryButton: React.FC<IProps> = ({ onClick, ...props }): React.ReactElement => (
-  <>
-    <StyledRetryButton icon={faRedoAlt} onClick={onClick} {...props} />
-  </>
+  <StyledRetryButton icon={faRedoAlt} onClick={onClick} {...props} />
 );
 
 export default RetryButton;

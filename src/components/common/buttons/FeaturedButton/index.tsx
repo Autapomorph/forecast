@@ -20,15 +20,11 @@ const FeaturedButton: React.FC<IProps> = ({
 }): React.ReactElement => (
   <>
     {isFeatured && (
-      <>
-        <StyledFeaturedButton icon={faStarSolid} size={size} onClick={onRemove} {...props} />
-      </>
+      <StyledFeaturedButton icon={faStarSolid} size={size} onClick={onRemove} {...props} />
     )}
 
     {!isFeatured && (
-      <>
-        <StyledFeaturedButton icon={faStarRegular} size={size} onClick={onAdd} {...props} />
-      </>
+      <StyledFeaturedButton icon={faStarRegular} size={size} onClick={onAdd} {...props} />
     )}
   </>
 );

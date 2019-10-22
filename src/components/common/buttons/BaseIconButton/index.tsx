@@ -9,9 +9,13 @@ const BaseIconButton: React.FC<FontAwesomeIconProps> = ({
   onClick = () => {},
   ...props
 }): React.ReactElement => (
-  <StyledIconButton {...props}>
-    <FontAwesomeIcon icon={icon} size={size} onClick={onClick} />
-  </StyledIconButton>
+  <>
+    {/*
+    // @ts-ignore */}
+    <StyledIconButton {...props}>
+      <FontAwesomeIcon icon={icon} size={size} onClick={onClick} />
+    </StyledIconButton>
+  </>
 );
 
 export default BaseIconButton;
