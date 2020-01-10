@@ -118,7 +118,7 @@ export const SelectedCity: React.FC<IProps> = ({
   );
 };
 
-const mapStateToProps = (state: RootState): IPropsFromState => ({
+const mapState = (state: RootState): IPropsFromState => ({
   geoPosition: getGeoPosition(state),
   city: getSelectedCity(state),
   isActive: getIsSelectedCityActive(state),
@@ -128,13 +128,10 @@ const mapStateToProps = (state: RootState): IPropsFromState => ({
   unitsFormat: getCurrentUnitsFormat(state),
 });
 
-const mapDispatchToProps: IPropsFromDispatch = {
+const mapDispatch: IPropsFromDispatch = {
   _fetchCityWeatherByPosition: fetchCityWeatherByPosition,
   _addCityToFeatured: addCityToFeatured,
   _removeCityFromFeatured: removeCityFromFeatured,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(SelectedCity);
+export default connect(mapState, mapDispatch)(SelectedCity);

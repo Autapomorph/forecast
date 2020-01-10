@@ -70,4 +70,4 @@ export const StyledInputButton = styled.button.attrs({
 
 export const StyledSearchButton = styled(StyledInputButton).attrs({
   type: 'submit',
-});
+})``;

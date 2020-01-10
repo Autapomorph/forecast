@@ -77,18 +77,15 @@ export const FeaturedCities: React.FC<IProps> = ({
   );
 };
 
-const mapStateToProps = (state: RootState): IPropsFromState => ({
+const mapState = (state: RootState): IPropsFromState => ({
   featuredCities: getFeaturedCities(state),
 });
 
-const mapDispatchToProps: IPropsFromDispatch = {
+const mapDispatch: IPropsFromDispatch = {
   _fetchCityWeatherByPosition: fetchCityWeatherByPosition,
   _removeCityFromFeatured: removeCityFromFeatured,
   _clearFeaturedCities: clearFeaturedCities,
   _reorderFeaturedCities: reorderFeaturedCities,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(FeaturedCities);
+export default connect(mapState, mapDispatch)(FeaturedCities);

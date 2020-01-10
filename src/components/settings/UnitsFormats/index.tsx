@@ -28,15 +28,12 @@ export const UnitsFormats: React.FC<IProps> = ({
   />
 );
 
-const mapStateToProps = (state: RootState): IPropsFromState => ({
+const mapState = (state: RootState): IPropsFromState => ({
   selectedUnitsFormat: getCurrentUnitsFormat(state),
 });
 
-const mapDispatchToProps: IPropsFromDispatch = {
+const mapDispatch: IPropsFromDispatch = {
   _changeUnitsFormat: changeUnitsFormat,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(UnitsFormats);
+export default connect(mapState, mapDispatch)(UnitsFormats);

@@ -116,7 +116,7 @@ export const SearchResults: React.FC<IProps> = ({
   );
 };
 
-const mapStateToProps = (state: RootState): IPropsFromState => ({
+const mapState = (state: RootState): IPropsFromState => ({
   cities: getCities(state),
   searchTerm: getSearchTerm(state),
   isActive: getIsCitiesActive(state),
@@ -126,13 +126,10 @@ const mapStateToProps = (state: RootState): IPropsFromState => ({
   checkIfFeatured: getIsFeaturedCity(state),
 });
 
-const mapDispatchToProps: IPropsFromDispatch = {
+const mapDispatch: IPropsFromDispatch = {
   _fetchCityByPosition: fetchCityWeatherByPosition,
   _addCityToFeatured: addCityToFeatured,
   _removeCityFromFeatured: removeCityFromFeatured,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(SearchResults);
+export default connect(mapState, mapDispatch)(SearchResults);

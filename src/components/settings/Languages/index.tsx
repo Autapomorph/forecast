@@ -28,15 +28,12 @@ export const Languages: React.FC<IProps> = ({
   />
 );
 
-const mapStateToProps = (state: RootState): IPropsFromState => ({
+const mapState = (state: RootState): IPropsFromState => ({
   selectedLanguage: getCurrentLanguage(state),
 });
 
-const mapDispatchToProps: IPropsFromDispatch = {
+const mapDispatch: IPropsFromDispatch = {
   _changeLanguage: changeLanguage,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Languages);
+export default connect(mapState, mapDispatch)(Languages);
