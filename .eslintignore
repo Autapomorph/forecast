@@ -3,4 +3,4 @@
 !.eslintrc.js
 !.prettierrc.js
 !.stylelintrc.js
-!.stylelintrc-format.js
+!.lintstagedrc.js

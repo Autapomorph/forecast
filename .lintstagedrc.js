@@ -1,19 +1,20 @@
-const path = require('path');
-const micromatch = require('micromatch');
+/* eslint-disable import/no-extraneous-dependencies, @typescript-eslint/no-var-requires */
+const { CLIEngine } = require('eslint');
 
 module.exports = {
-  'src/**/*.{js,jsx,ts,tsx}': filenames => {
-    const match = micromatch.not(filenames, ['src/serviceWorker.{js,ts}']).join(' ');
+  '*.{js,jsx,ts,tsx}': filenames => {
+    const filenamesString = filenames.join(' ');
+    const eslintMatch = filenames.filter(file => !new CLIEngine({}).isPathIgnored(file)).join(' ');
 
     return [
-      `prettier --write ${match}`,
-      `stylelint ${match}`,
-      `eslint --max-warnings=0 ${match}`,
-      `git add ${match}`,
+      `prettier --write ${filenamesString}`,
+      `stylelint --fix ${filenamesString}`,
+      `eslint --max-warnings=0 ${eslintMatch}`,
+      `git add ${filenamesString}`,
     ];
   },
 
-  'src/**/*.{css,scss,sass,less}': ['prettier --write', 'stylelint --fix', 'git add'],
+  '*.{css,scss,sass,less}': ['prettier --write', 'stylelint --fix', 'git add'],
 
-  'src/**/*.{json,md}': [`prettier --write`, `git add`],
+  '*.{json,md}': [`prettier --write`, `git add`],
 };
