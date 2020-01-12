@@ -1,8 +1,8 @@
-export interface ILocale {
+export type Locale = {
   title: string;
   code: string;
-}
+};
 
-export interface ILocales {
-  [language: string]: ILocale;
-}
+export type Locales = {
+  [language: string]: Locale;
+};

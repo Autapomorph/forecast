@@ -5,13 +5,13 @@ import { Props as FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 
 import { StyledFeaturedButton } from './styles';
 
-interface IProps extends Partial<FontAwesomeIconProps> {
+type Props = {
   isFeatured: boolean;
   onAdd?: () => void;
   onRemove?: () => void;
-}
+} & Partial<FontAwesomeIconProps>;
 
-const FeaturedButton: React.FC<IProps> = ({
+const FeaturedButton: React.FC<Props> = ({
   isFeatured = false,
   size = 'lg',
   onAdd = () => {},

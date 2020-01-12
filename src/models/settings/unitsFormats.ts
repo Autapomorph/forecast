@@ -1,5 +1,5 @@
 export type UnitFormat = string;
 
-export interface IUnitsFormats {
+export type UnitsFormats = {
   [unitFormat: string]: UnitFormat;
-}
+};

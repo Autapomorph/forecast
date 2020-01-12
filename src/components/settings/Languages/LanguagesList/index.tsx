@@ -1,17 +1,17 @@
 import React from 'react';
 
-import { ILocale } from 'models';
+import { Locale } from 'models';
 import LanguageButton from '../LanguageButton';
 
 import { StyledLanguageSwitcher } from './styles';
 
-interface IProps {
-  languages: ILocale[];
-  selectedLanguage: ILocale;
-  handleChangeLanguage: (language: ILocale) => void;
-}
+type Props = {
+  languages: Locale[];
+  selectedLanguage: Locale;
+  handleChangeLanguage: (language: Locale) => void;
+};
 
-const LanguageList: React.FC<IProps> = ({
+const LanguageList: React.FC<Props> = ({
   languages,
   selectedLanguage,
   handleChangeLanguage,

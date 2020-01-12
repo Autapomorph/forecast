@@ -1,7 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components/macro';
 import '@fortawesome/fontawesome-free/css/solid.min.css';
 
-// eslint-disable-next-line import/prefer-default-export
 export const StyledSettingsBar = styled.div`
   padding: 0 10px;
 `;

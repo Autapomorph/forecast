@@ -1,8 +1,7 @@
 import { Action } from 'redux';
 
-import { ICity } from 'models';
+import { City } from 'models';
 
-// eslint-disable-next-line import/prefer-default-export
 export enum Types {
   FEATURED_CITY_ADD = '@cities/FEATURED_CITY_ADD',
   FEATURED_CITY_REMOVE = '@cities/FEATURED_CITY_REMOVE',
@@ -12,12 +11,12 @@ export enum Types {
 
 interface AddFeaturedCityAction extends Action {
   type: typeof Types.FEATURED_CITY_ADD;
-  payload: ICity;
+  payload: City;
 }
 
 interface RemoveFeaturedCityAction extends Action {
   type: typeof Types.FEATURED_CITY_REMOVE;
-  payload: ICity['id'];
+  payload: City['id'];
 }
 
 interface ClearFeaturedCitiesAction extends Action {

@@ -1,21 +1,21 @@
 import React from 'react';
 
-import { ICity, IWeather } from 'models';
+import { City as TCity, Weather } from 'models';
 import CityHeader from '../CityHeader';
 import WeatherDetails from '../WeatherDetails';
 import ForecastDetails from '../ForecastDetails';
 
 import { StyledCityWrapper } from './styles';
 
-interface IProps {
-  city: ICity & IWeather;
+type Props = {
+  city: TCity & Weather;
   isFeatured: boolean;
   refetchCityWeather: () => void;
-  addCityToFeatured: (city: ICity) => void;
-  removeCityFromFeatured: (cityId: ICity['id']) => void;
-}
+  addCityToFeatured: (city: TCity) => void;
+  removeCityFromFeatured: (cityId: TCity['id']) => void;
+};
 
-const City: React.FC<IProps> = ({
+const City: React.FC<Props> = ({
   city,
   isFeatured,
   refetchCityWeather,

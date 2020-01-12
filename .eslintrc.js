@@ -24,10 +24,24 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/interface-name-prefix': 'off',
-    '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true }],
+    '@typescript-eslint/explicit-function-return-type': 'off',
     'no-useless-constructor': 'off',
     '@typescript-eslint/no-useless-constructor': 'error',
   },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true }],
+      },
+    },
+    {
+      files: ['styles.js', 'styles.ts'],
+      rules: {
+        'import/prefer-default-export': 'off',
+      },
+    },
+  ],
   settings: {
     'import/resolver': {
       node: {

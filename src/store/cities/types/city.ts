@@ -1,8 +1,7 @@
 import { Action } from 'redux';
 
-import { ICity, IWeather } from 'models';
+import { City, Weather } from 'models';
 
-// eslint-disable-next-line import/prefer-default-export
 export enum Types {
   CITY_WEATHER_FETCH_REQUEST = '@cities/CITY_WEATHER_FETCH_REQUEST',
   CITY_WEATHER_FETCH_SUCCESS = '@cities/CITY_WEATHER_FETCH_SUCCESS',
@@ -15,7 +14,7 @@ interface FetchCityWeatherRequestAction extends Action {
 
 interface FetchCityWeatherSuccessAction extends Action {
   type: typeof Types.CITY_WEATHER_FETCH_SUCCESS;
-  payload: ICity & IWeather;
+  payload: City & Weather;
   error: false;
 }
 

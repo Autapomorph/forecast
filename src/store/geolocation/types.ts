@@ -1,11 +1,10 @@
 import { Action } from 'redux';
 
-import { ICoords } from 'models';
+import { Coords } from 'models';
 
 /**
  * action types
  */
-// eslint-disable-next-line import/prefer-default-export
 export enum Types {
   GEOLOCATION_FETCH_REQUEST = '@geolocation/GEOLOCATION_FETCH_REQUEST',
   GEOLOCATION_FETCH_SUCCESS = '@geolocation/GEOLOCATION_FETCH_SUCCESS',
@@ -21,7 +20,7 @@ interface FetchRequestAction extends Action {
 
 interface FetchSuccessAction extends Action {
   type: typeof Types.GEOLOCATION_FETCH_SUCCESS;
-  payload: ICoords;
+  payload: Coords;
   error: false;
 }
 
@@ -36,10 +35,10 @@ export type Actions = FetchRequestAction | FetchSuccessAction | FetchFailureActi
 /**
  * state
  */
-export interface State {
-  readonly data: ICoords | null;
+export type State = {
+  readonly data: Coords | null;
   readonly loading: boolean;
   readonly errorMessage: string | null;
-}
+};
 
 export type GeolocationState = State;

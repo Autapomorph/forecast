@@ -1,8 +1,7 @@
 import { Action } from 'redux';
 
-import { ICity } from 'models';
+import { City } from 'models';
 
-// eslint-disable-next-line import/prefer-default-export
 export enum Types {
   CITIES_FETCH_REQUEST = '@cities/CITIES_FETCH_REQUEST',
   CITIES_FETCH_SUCCESS = '@cities/CITIES_FETCH_SUCCESS',
@@ -16,7 +15,7 @@ interface FetchCitiesRequestAction extends Action {
 
 interface FetchCitiesSuccessAction extends Action {
   type: typeof Types.CITIES_FETCH_SUCCESS;
-  payload: ICity[];
+  payload: City[];
   error: false;
 }
 

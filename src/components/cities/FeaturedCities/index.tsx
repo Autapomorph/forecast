@@ -1,9 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, ConnectedProps } from 'react-redux';
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 import { useTranslation } from 'react-i18next';
 
-import { ICoords } from 'models';
 import { RootState } from 'store/types';
 import { getFeaturedCities } from 'store/rootSelectors';
 import {
@@ -19,20 +18,9 @@ import FeaturedCitiesList from './FeaturedCitiesList';
 
 import { StyledFeaturedCitiesSection, StyledFeaturedCitiesHeader } from './styles';
 
-interface IPropsFromState {
-  featuredCities: ReturnType<typeof getFeaturedCities>;
-}
+type Props = ConnectedProps<typeof connector>;
 
-interface IPropsFromDispatch {
-  _fetchCityWeatherByPosition: (position: ICoords) => void;
-  _removeCityFromFeatured: typeof removeCityFromFeatured;
-  _clearFeaturedCities: typeof clearFeaturedCities;
-  _reorderFeaturedCities: typeof reorderFeaturedCities;
-}
-
-type IProps = IPropsFromState & IPropsFromDispatch;
-
-export const FeaturedCities: React.FC<IProps> = ({
+export const FeaturedCities: React.FC<Props> = ({
   featuredCities,
   _fetchCityWeatherByPosition,
   _removeCityFromFeatured,
@@ -77,15 +65,17 @@ export const FeaturedCities: React.FC<IProps> = ({
   );
 };
 
-const mapState = (state: RootState): IPropsFromState => ({
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+const mapState = (state: RootState) => ({
   featuredCities: getFeaturedCities(state),
 });
 
-const mapDispatch: IPropsFromDispatch = {
+const mapDispatch = {
   _fetchCityWeatherByPosition: fetchCityWeatherByPosition,
   _removeCityFromFeatured: removeCityFromFeatured,
   _clearFeaturedCities: clearFeaturedCities,
   _reorderFeaturedCities: reorderFeaturedCities,
 };
 
-export default connect(mapState, mapDispatch)(FeaturedCities);
+const connector = connect(mapState, mapDispatch);
+export default connector(FeaturedCities);

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ICity, IWeather } from 'models';
+import { City, Weather } from 'models';
 import { UnitsFormatContext } from 'store/settings/context';
 import convertSpeed from 'utils/weatherData/wind';
 import convertTemp from 'utils/weatherData/temperature';
@@ -16,11 +16,11 @@ import {
   StyledWeatherDetailsItemDescription as StyledItemDescription,
 } from './styles';
 
-interface IProps {
-  city: ICity & IWeather;
-}
+type Props = {
+  city: City & Weather;
+};
 
-const WeatherDetails: React.FC<IProps> = ({ city }): React.ReactElement => {
+const WeatherDetails: React.FC<Props> = ({ city }): React.ReactElement => {
   const { t, i18n } = useTranslation();
   const unitsFormat = useContext(UnitsFormatContext);
 

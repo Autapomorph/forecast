@@ -1,9 +1,9 @@
-import { ICoords } from 'models';
+import { Coords } from 'models';
 import { IPAPI_API } from 'config/geolocation';
 import { isProd } from 'utils';
 
 export default class GeolocationService {
-  public static fetchGeolocation = (): Promise<ICoords> =>
+  public static fetchGeolocation = (): Promise<Coords> =>
     new Promise((resolve, reject) => {
       const successCb: PositionCallback = (position): void =>
         resolve({
@@ -27,7 +27,7 @@ export default class GeolocationService {
       navigator.geolocation.getCurrentPosition(successCb, errorCb);
     });
 
-  public static fetchGeolocationByIP = async (): Promise<ICoords> => {
+  public static fetchGeolocationByIP = async (): Promise<Coords> => {
     const response = await fetch(IPAPI_API);
 
     if (!response.ok) {

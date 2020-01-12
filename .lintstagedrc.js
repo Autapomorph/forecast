@@ -8,7 +8,7 @@ module.exports = {
 
     return [
       `prettier --write ${filenamesString}`,
-      `stylelint --fix ${filenamesString}`,
+      `stylelint ${filenamesString}`,
       `eslint --max-warnings=0 ${eslintMatch}`,
       `git add ${filenamesString}`,
     ];

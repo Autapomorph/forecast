@@ -1,11 +1,10 @@
 import styled from 'styled-components/macro';
 
-interface IWeatherIconProps {
+type WeatherIconProps = {
   size: string;
-}
+};
 
-// eslint-disable-next-line import/prefer-default-export
 export const StyledWeatherIcon = styled.i`
-  font-size: ${({ size }: IWeatherIconProps) => size};
+  font-size: ${({ size }: WeatherIconProps) => size};
   vertical-align: middle;
 `;

@@ -1,16 +1,16 @@
-import { IWindFormat } from 'models';
+import { WindFormat } from 'models';
 import mapDegToCardDir from './mapDegToCardDir';
 import generateWindIcon from './generateWindIcon';
 
-interface IWindFormatProps {
+type WindFormatOptions = {
   speed: number;
   bearing: number;
-}
+};
 
 export default function formatWind({
   speed: windSpeed,
   bearing = 0,
-}: IWindFormatProps): IWindFormat {
+}: WindFormatOptions): WindFormat {
   const icon = generateWindIcon(bearing);
   const cardDir = mapDegToCardDir(bearing);
   const speed = Math.round(windSpeed);

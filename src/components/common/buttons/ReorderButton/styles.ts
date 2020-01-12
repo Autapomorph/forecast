@@ -2,11 +2,10 @@ import styled, { css } from 'styled-components/macro';
 
 import BaseIconButton from 'components/common/buttons/BaseIconButton';
 
-interface IReorderButtonProps {
+type ReorderButtonProps = {
   isDragging: boolean;
-}
+};
 
-// eslint-disable-next-line import/prefer-default-export
 export const StyledReorderButton = styled(BaseIconButton)`
   color: var(--gray);
 
@@ -14,7 +13,7 @@ export const StyledReorderButton = styled(BaseIconButton)`
     color: var(--secondary-text-color);
   }
 
-  ${/* sc-dec */ ({ isDragging }: IReorderButtonProps) =>
+  ${/* sc-dec */ ({ isDragging }: ReorderButtonProps) =>
     isDragging &&
     css`
       color: var(--contrast-text-color);

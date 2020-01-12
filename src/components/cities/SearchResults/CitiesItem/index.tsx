@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ICity, ICoords } from 'models';
+import { City, Coords } from 'models';
 import generateCityName from 'utils/cityData/generateCityName';
 import FeaturedButton from 'components/common/buttons/FeaturedButton';
 import CountryFlag from 'components/common/icons/CountryFlag';
@@ -12,15 +12,15 @@ import {
   StyledTitleButtonsWrapper,
 } from './styles';
 
-interface IProps {
-  city: ICity;
+type Props = {
+  city: City;
   isFeatured: boolean;
-  fetchCity: (cityCoords: ICoords) => void;
-  addCityToFeatured: (city: ICity) => void;
-  removeCityFromFeatured: (cityId: ICity['id']) => void;
-}
+  fetchCity: (cityCoords: Coords) => void;
+  addCityToFeatured: (city: City) => void;
+  removeCityFromFeatured: (cityId: City['id']) => void;
+};
 
-const CitiesItem: React.FC<IProps> = ({
+const CitiesItem: React.FC<Props> = ({
   city,
   isFeatured,
   fetchCity,

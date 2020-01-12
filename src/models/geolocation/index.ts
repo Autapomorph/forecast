@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/prefer-default-export
-export interface ICoords extends Partial<Coordinates> {
+export type Coords = {
   latitude: number;
   longitude: number;
-}
+} & Partial<Coordinates>;

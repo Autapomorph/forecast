@@ -1,8 +1,8 @@
 import url from 'url';
 
-import { IServerConfig } from './types';
+import { ServerConfig } from './types';
 
-export default function createConfig(): IServerConfig {
+export default function createConfig(): ServerConfig {
   const HOSTNAME = process.env.REACT_APP_HOSTNAME || 'localhost';
   const PORT = process.env.REACT_APP_PORT || '';
   const PROTOCOL = (process.env.REACT_APP_SECURE || '').toLowerCase() === 'true' ? 'https' : 'http';
@@ -12,7 +12,7 @@ export default function createConfig(): IServerConfig {
     port: PORT,
   });
 
-  const serverConfig: IServerConfig = {
+  const serverConfig: ServerConfig = {
     host: HOSTNAME,
     port: PORT,
     protocol: PROTOCOL,

@@ -1,11 +1,11 @@
-import { IWeatherAPIResponse, IWeather } from 'models';
+import { WeatherAPIResponse, Weather } from 'models';
 import formatWeatherDaily from './formatWeatherDaily';
 import formatTime from './time';
 import formatWind from './wind/formatWind';
 import generateWeatherIcon from './icon/generateWeatherIcon';
 import { celsiusToKelvin } from './temperature/converters';
 
-export default function formatWeather(weatherData: IWeatherAPIResponse): IWeather {
+export default function formatWeather(weatherData: WeatherAPIResponse): Weather {
   const currentWeather = weatherData.currently;
   const dailyWeather = weatherData.daily;
   const { timezone } = weatherData;

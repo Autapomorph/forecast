@@ -2,12 +2,12 @@ import React from 'react';
 
 import { StyledCountryFlag } from './styles';
 
-interface IProps {
+type Props = {
   country: string;
   size?: string;
-}
+};
 
-const CountryFlag: React.FC<IProps> = ({ country, size = '1em' }): React.ReactElement => (
+const CountryFlag: React.FC<Props> = ({ country, size = '1em' }): React.ReactElement => (
   <StyledCountryFlag country={country} size={size} />
 );
 

@@ -1,11 +1,10 @@
-export interface IWindFormat {
+export type WindFormat = {
   bearing: number;
   speed: number;
   cardDir: string;
   icon: string;
-}
+};
 
-// eslint-disable-next-line import/prefer-default-export
 export enum WindCardDir {
   N = 'N',
   NNE = 'NNE',

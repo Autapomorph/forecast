@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { connect, ConnectedProps } from 'react-redux';
 import useMount from 'react-use/lib/useMount';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
@@ -8,35 +8,13 @@ import { faLocationArrow } from '@fortawesome/free-solid-svg-icons';
 
 import { RootState } from 'store/types';
 import { getIsGeolocationLoading, getGeolocationErrorMessage } from 'store/rootSelectors';
-import {
-  fetchGeolocation,
-  fetchGeolocationByIP,
-  GeolocationSuccessCallback,
-  GeolocationFailureCallback,
-} from 'store/geolocation/actions';
+import { fetchGeolocation, fetchGeolocationByIP } from 'store/geolocation/actions';
 
 import { StyledInputButton } from 'components/SearchBar/styles';
 
-interface IPropsFromState {
-  isLoading: ReturnType<typeof getIsGeolocationLoading>;
-  errorMessage: ReturnType<typeof getGeolocationErrorMessage>;
-}
+type Props = ConnectedProps<typeof connector>;
 
-interface IPropsFromDispatch {
-  _fetchGeolocation: (
-    successCb?: GeolocationSuccessCallback,
-    errorCb?: GeolocationFailureCallback,
-  ) => void;
-
-  _fetchGeolocationByIP: (
-    successCb?: GeolocationSuccessCallback,
-    errorCb?: GeolocationFailureCallback,
-  ) => void;
-}
-
-type IProps = IPropsFromState & IPropsFromDispatch;
-
-export const GeolocationButton: React.FC<IProps> = ({
+export const GeolocationButton: React.FC<Props> = ({
   isLoading,
   errorMessage,
   _fetchGeolocation,
@@ -61,20 +39,22 @@ export const GeolocationButton: React.FC<IProps> = ({
   });
 
   return (
-    <StyledInputButton disabled={isLoading} onClick={() => _fetchGeolocation()}>
+    <StyledInputButton disabled={isLoading} onClick={_fetchGeolocation}>
       <FontAwesomeIcon icon={faLocationArrow} />
     </StyledInputButton>
   );
 };
 
-const mapState = (state: RootState): IPropsFromState => ({
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+const mapState = (state: RootState) => ({
   isLoading: getIsGeolocationLoading(state),
   errorMessage: getGeolocationErrorMessage(state),
 });
 
-const mapDispatch: IPropsFromDispatch = {
+const mapDispatch = {
   _fetchGeolocation: fetchGeolocation,
   _fetchGeolocationByIP: fetchGeolocationByIP,
 };
 
-export default connect(mapState, mapDispatch)(GeolocationButton);
+const connector = connect(mapState, mapDispatch);
+export default connector(GeolocationButton);

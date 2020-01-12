@@ -1,6 +1,6 @@
 import { ThunkAction } from 'redux-thunk';
 
-import { ICoords } from 'models';
+import { Coords } from 'models';
 import { RootState } from 'store/types';
 import GeolocationService from 'services/geolocation';
 import { isProd } from 'utils';
@@ -10,7 +10,7 @@ export const fetchGeoLocationRequest = (): Actions => ({
   type: Types.GEOLOCATION_FETCH_REQUEST,
 });
 
-export const fetchGeoLocationSuccess = (geoData: ICoords): Actions => ({
+export const fetchGeoLocationSuccess = (geoData: Coords): Actions => ({
   type: Types.GEOLOCATION_FETCH_SUCCESS,
   payload: geoData,
   error: false,
@@ -22,7 +22,7 @@ export const fetchGeoLocationFailure = (error: Error): Actions => ({
   error: true,
 });
 
-export type GeolocationSuccessCallback = (position: ICoords) => void;
+export type GeolocationSuccessCallback = (position: Coords) => void;
 export type GeolocationFailureCallback = (error: Error) => void;
 
 export const fetchGeolocation = (): ThunkAction<

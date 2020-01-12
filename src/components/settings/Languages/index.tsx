@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, ConnectedProps } from 'react-redux';
 
 import { RootState } from 'store/types';
 import { getCurrentLanguage } from 'store/rootSelectors';
@@ -7,17 +7,9 @@ import { changeLanguage } from 'store/settings/actions';
 import { availableLanguages } from 'config/settings/i18n';
 import LanguagesList from './LanguagesList';
 
-interface IPropsFromState {
-  selectedLanguage: ReturnType<typeof getCurrentLanguage>;
-}
+type Props = ConnectedProps<typeof connector>;
 
-interface IPropsFromDispatch {
-  _changeLanguage: typeof changeLanguage;
-}
-
-type IProps = IPropsFromState & IPropsFromDispatch;
-
-export const Languages: React.FC<IProps> = ({
+export const Languages: React.FC<Props> = ({
   selectedLanguage,
   _changeLanguage,
 }): React.ReactElement => (
@@ -28,12 +20,14 @@ export const Languages: React.FC<IProps> = ({
   />
 );
 
-const mapState = (state: RootState): IPropsFromState => ({
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+const mapState = (state: RootState) => ({
   selectedLanguage: getCurrentLanguage(state),
 });
 
-const mapDispatch: IPropsFromDispatch = {
+const mapDispatch = {
   _changeLanguage: changeLanguage,
 };
 
-export default connect(mapState, mapDispatch)(Languages);
+const connector = connect(mapState, mapDispatch);
+export default connector(Languages);

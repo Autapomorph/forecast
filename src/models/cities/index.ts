@@ -1,15 +1,15 @@
-import { ICoords } from 'models/geolocation';
+import { Coords } from 'models/geolocation';
 import * as GN from 'config/geonames';
 
-export interface ICity {
+export type City = {
   id: number;
   name: string;
   region: string;
   country: string;
-  coords: ICoords;
-}
+  coords: Coords;
+};
 
-export interface ICitiesAPIRequest {
+export type CitiesAPIRequest = {
   [GN.GEONAMES_API_KEY_QUERY_PARAM]?: string;
   [GN.GEONAMES_API_LANG_QUERY_PARAM]?: string;
   [GN.GEONAMES_API_STYLE_QUERY_PARAM]?: string;
@@ -20,22 +20,22 @@ export interface ICitiesAPIRequest {
   [GN.GEONAMES_API_NAME_REQUIRED_QUERY_PARAM]?: boolean;
   [GN.GEONAMES_API_FEATURE_CLASS_QUERY_PARAM]?: string[];
   [GN.GEONAMES_API_FEATURE_CODE_QUERY_PARAM]?: string[];
-}
+};
 
-export interface ICityAPIResponse {
+export type CityAPIResponse = {
   geonameId: number;
   name: string;
   adminName1: string;
   countryCode: string;
   lat: string;
   lng: string;
-}
+};
 
-export interface ICitiesAPIResponse {
-  geonames: ICityAPIResponse[];
+export type CitiesAPIResponse = {
+  geonames: CityAPIResponse[];
   totalResultsCount: number;
   status?: {
     message: string;
     value: number;
   };
-}
+};

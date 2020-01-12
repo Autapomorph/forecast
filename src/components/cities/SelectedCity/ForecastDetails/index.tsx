@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTint, faThermometerHalf } from '@fortawesome/free-solid-svg-icons';
 
-import { ICity, IWeather } from 'models';
+import { City, Weather } from 'models';
 import { UnitsFormatContext } from 'store/settings/context';
 import convertSpeed from 'utils/weatherData/wind';
 import convertTemp from 'utils/weatherData/temperature';
@@ -23,11 +23,11 @@ import {
   StyledDivider,
 } from './styles';
 
-interface IProps {
-  city: ICity & IWeather;
-}
+type Props = {
+  city: City & Weather;
+};
 
-const ForecastDetails: React.FC<IProps> = ({ city }): React.ReactElement => {
+const ForecastDetails: React.FC<Props> = ({ city }): React.ReactElement => {
   const { t, i18n } = useTranslation();
   const unitsFormat = useContext(UnitsFormatContext);
 

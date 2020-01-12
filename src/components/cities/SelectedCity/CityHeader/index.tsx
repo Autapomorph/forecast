@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ICity, IWeather } from 'models';
+import { City, Weather } from 'models';
 import generateCityName from 'utils/cityData/generateCityName';
 import { toDayMonthHourMinutes } from 'utils/weatherData/time/coverters';
 import Title from 'components/common/Title';
@@ -11,15 +11,15 @@ import FeaturedButton from 'components/common/buttons/FeaturedButton';
 
 import { StyledCityHeader, StyledTitleButtonsWrapper } from './styles';
 
-interface IProps {
-  city: ICity & IWeather;
+type Props = {
+  city: City & Weather;
   isFeatured: boolean;
   refetchCityWeather: () => void;
-  addCityToFeatured: (city: ICity) => void;
-  removeCityFromFeatured: (cityId: ICity['id']) => void;
-}
+  addCityToFeatured: (city: City) => void;
+  removeCityFromFeatured: (cityId: City['id']) => void;
+};
 
-const CityHeader: React.FC<IProps> = ({
+const CityHeader: React.FC<Props> = ({
   city,
   isFeatured,
   refetchCityWeather,

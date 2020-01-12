@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components/macro';
 
-interface ISwitchButtonProps {
+type SwitchButtonProps = {
   checked: boolean;
-}
+};
 
 export const StyledSwitchButton = styled.span`
   flex: 1 1 0;
@@ -34,7 +34,7 @@ export const StyledSwitchButton = styled.span`
     border-radius: 5px;
   }
 
-  ${/* sc-dec */ ({ checked }: ISwitchButtonProps) =>
+  ${/* sc-dec */ ({ checked }: SwitchButtonProps) =>
     checked &&
     css`
       color: var(--bg-violet);

@@ -1,6 +1,6 @@
 import { Resource } from 'i18next';
 
-import { ILocales } from '../../../../models';
+import { Locales } from '../../../../models';
 import translationEN from './en/translation.json';
 import translationRU from './ru/translation.json';
 
@@ -13,7 +13,7 @@ export const resources: Resource = {
   },
 };
 
-const locales: ILocales = {
+const locales: Locales = {
   en: {
     title: 'english',
     code: 'en-US',

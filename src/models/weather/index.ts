@@ -1,14 +1,14 @@
 import { DateTime } from 'luxon';
 
-import { ICoords } from 'models/geolocation';
+import { Coords } from 'models/geolocation';
 import * as W from 'config/weather';
-import { IWindFormat } from './wind';
+import { WindFormat } from './wind';
 
 export * from './wind';
 
-export interface IWeather {
+export type Weather = {
   timezone: string;
-  coords: ICoords;
+  coords: Coords;
   weather: {
     timestamp: DateTime;
     sunrise: DateTime;
@@ -20,12 +20,12 @@ export interface IWeather {
     cloudiness: number;
     visibility: number;
     pressure: number;
-    wind: IWindFormat;
+    wind: WindFormat;
   };
-  dailyForecast: IWeatherDaily[];
-}
+  dailyForecast: WeatherDaily[];
+};
 
-export interface IWeatherDaily {
+export type WeatherDaily = {
   timezone: string;
   timestamp: DateTime;
   sunrise: DateTime;
@@ -37,18 +37,18 @@ export interface IWeatherDaily {
   cloudiness: number;
   visibility: number;
   pressure: number;
-  wind: IWindFormat;
-}
+  wind: WindFormat;
+};
 
-export interface IWeatherAPIRequest {
+export type WeatherAPIRequest = {
   [W.DARKSKY_API_QUERY_LATITUDE_PARAM]?: number;
   [W.DARKSKY_API_QUERY_LONGITUDE_PARAM]?: number;
   [W.DARKSKY_API_LANG_QUERY_PARAM]?: string;
   [W.DARKSKY_API_UNITS_QUERY_PARAM]?: string;
   [W.DARKSKY_API_EXCLUDE_QUERY_PARAM]?: string | string[];
-}
+};
 
-export interface IWeatherDailyAPIResponse {
+export type WeatherDailyAPIResponse = {
   time: number;
   sunriseTime: number;
   sunsetTime: number;
@@ -62,9 +62,9 @@ export interface IWeatherDailyAPIResponse {
   pressure: number;
   windSpeed: number;
   windBearing: number;
-}
+};
 
-export interface IWeatherAPIResponse {
+export type WeatherAPIResponse = {
   timezone: string;
   latitude: number;
   longitude: number;
@@ -81,9 +81,9 @@ export interface IWeatherAPIResponse {
     windBearing: number;
   };
   daily: {
-    data: IWeatherDailyAPIResponse[];
+    data: WeatherDailyAPIResponse[];
   };
   flags: {
     'darksky-unavailable': string;
   };
-}
+};

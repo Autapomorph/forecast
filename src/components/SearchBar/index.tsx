@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { connect, ConnectedProps } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -14,13 +14,9 @@ import {
   StyledInputButton,
 } from './styles';
 
-interface IPropsFromDispatch {
-  _fetchCititesByName: (searchParams: string) => void;
-}
+type Props = ConnectedProps<typeof connector>;
 
-export const SearchBar: React.FC<IPropsFromDispatch> = ({
-  _fetchCititesByName,
-}): React.ReactElement => {
+export const SearchBar: React.FC<Props> = ({ _fetchCititesByName }): React.ReactElement => {
   const { t } = useTranslation();
   const [cityName, setCityName] = useState('');
   const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
@@ -62,8 +58,9 @@ export const SearchBar: React.FC<IPropsFromDispatch> = ({
   );
 };
 
-const mapDispatch: IPropsFromDispatch = {
+const mapDispatch = {
   _fetchCititesByName: fetchCititesByName,
 };
 
-export default connect(null, mapDispatch)(SearchBar);
+const connector = connect(null, mapDispatch);
+export default connector(SearchBar);

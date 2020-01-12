@@ -1,6 +1,6 @@
-import { IUnitsFormats } from 'models';
+import { UnitsFormats } from 'models';
 
-export const unitsFormats: IUnitsFormats = {
+export const unitsFormats: UnitsFormats = {
   STANDART: 'standart',
   METRIC: 'metric',
   IMPERIAL: 'imperial',

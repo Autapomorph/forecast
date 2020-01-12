@@ -1,8 +1,8 @@
-import { ILocale, UnitFormat } from 'models';
+import { Locale, UnitFormat } from 'models';
 import i18n from 'config/settings/i18n';
 import { Actions, Types } from './types';
 
-export const changeLanguage = (language: ILocale): Actions => {
+export const changeLanguage = (language: Locale): Actions => {
   i18n.changeLanguage(language.code);
 
   return {

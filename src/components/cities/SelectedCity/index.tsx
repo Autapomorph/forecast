@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { connect, ConnectedProps } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 
-import { ICoords } from 'models';
 import { RootState } from 'store/types';
 import {
   getGeoPosition,
@@ -26,25 +25,9 @@ import City from './City';
 
 import { StyledSelectedCitySection } from './styles';
 
-interface IPropsFromState {
-  geoPosition: ReturnType<typeof getGeoPosition>;
-  city: ReturnType<typeof getSelectedCity>;
-  isActive: ReturnType<typeof getIsSelectedCityActive>;
-  isLoading: ReturnType<typeof getIsAnythingLoading>;
-  errorMessage: ReturnType<typeof getSelectedCityErrorMessage>;
-  unitsFormat: ReturnType<typeof getCurrentUnitsFormat>;
-  checkIfFeatured: ReturnType<typeof getIsFeaturedCity>;
-}
+type Props = ConnectedProps<typeof connector>;
 
-interface IPropsFromDispatch {
-  _fetchCityWeatherByPosition: (position: ICoords) => void;
-  _addCityToFeatured: typeof addCityToFeatured;
-  _removeCityFromFeatured: typeof removeCityFromFeatured;
-}
-
-type IProps = IPropsFromState & IPropsFromDispatch;
-
-export const SelectedCity: React.FC<IProps> = ({
+export const SelectedCity: React.FC<Props> = ({
   geoPosition,
   city,
   isActive,
@@ -118,7 +101,8 @@ export const SelectedCity: React.FC<IProps> = ({
   );
 };
 
-const mapState = (state: RootState): IPropsFromState => ({
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+const mapState = (state: RootState) => ({
   geoPosition: getGeoPosition(state),
   city: getSelectedCity(state),
   isActive: getIsSelectedCityActive(state),
@@ -128,10 +112,11 @@ const mapState = (state: RootState): IPropsFromState => ({
   unitsFormat: getCurrentUnitsFormat(state),
 });
 
-const mapDispatch: IPropsFromDispatch = {
+const mapDispatch = {
   _fetchCityWeatherByPosition: fetchCityWeatherByPosition,
   _addCityToFeatured: addCityToFeatured,
   _removeCityFromFeatured: removeCityFromFeatured,
 };
 
-export default connect(mapState, mapDispatch)(SelectedCity);
+const connector = connect(mapState, mapDispatch);
+export default connector(SelectedCity);

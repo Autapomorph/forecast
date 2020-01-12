@@ -1,7 +1,6 @@
-// eslint-disable-next-line import/prefer-default-export
-export interface IServerConfig {
+export type ServerConfig = {
   host: string;
   port: string;
   protocol: string;
   url: string;
-}
+};

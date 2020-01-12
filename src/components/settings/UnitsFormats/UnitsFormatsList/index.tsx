@@ -5,13 +5,13 @@ import UnitsFormatsButton from '../UnitsFormatsButton';
 
 import { StyledUnitsFormatSwitcher } from './styles';
 
-interface IProps {
+type Props = {
   unitsFormats: UnitFormat[];
   selectedUnitsFormat: UnitFormat;
   handleChangeUnitsFormat: (unitFormat: UnitFormat) => void;
-}
+};
 
-const UnitsFormatList: React.FC<IProps> = ({
+const UnitsFormatList: React.FC<Props> = ({
   unitsFormats,
   selectedUnitsFormat,
   handleChangeUnitsFormat,

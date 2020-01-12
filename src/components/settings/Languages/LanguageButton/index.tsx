@@ -1,16 +1,16 @@
 import React from 'react';
 
-import { ILocale } from 'models';
+import { Locale } from 'models';
 
 import { StyledSwitchButton, StyledLabel, StyledRadioButton, StyledLabelText } from './styles';
 
-interface IProps {
-  language: ILocale;
+type Props = {
+  language: Locale;
   checked: boolean;
-  handleChange: (unitFormat: ILocale) => void;
-}
+  handleChange: (unitFormat: Locale) => void;
+};
 
-const LanguageButton: React.FC<IProps> = ({
+const LanguageButton: React.FC<Props> = ({
   language,
   checked,
   handleChange,

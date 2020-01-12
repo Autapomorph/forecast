@@ -1,4 +1,4 @@
-import { IWeatherAPIRequest, IWeatherAPIResponse, ICoords } from 'models';
+import { WeatherAPIRequest, WeatherAPIResponse, Coords } from 'models';
 import i18n from 'config/settings/i18n';
 import {
   DARKSKY_API_BASE,
@@ -15,7 +15,7 @@ export default class WeatherService {
   private static getQueryString = (searchParams: Record<string, any>): string => {
     const currentLanguage = i18n.languages[0];
 
-    const queryObject: IWeatherAPIRequest = {
+    const queryObject: WeatherAPIRequest = {
       [DARKSKY_API_LANG_QUERY_PARAM]: currentLanguage,
       [DARKSKY_API_UNITS_QUERY_PARAM]: 'si',
       ...searchParams,
@@ -26,8 +26,8 @@ export default class WeatherService {
     return queryString;
   };
 
-  private static getAPIWeatherEndpoint = ({ latitude, longitude }: ICoords): string => {
-    const queryObject: IWeatherAPIRequest = {
+  private static getAPWeatherEndpoint = ({ latitude, longitude }: Coords): string => {
+    const queryObject: WeatherAPIRequest = {
       [DARKSKY_API_QUERY_LATITUDE_PARAM]: latitude,
       [DARKSKY_API_QUERY_LONGITUDE_PARAM]: longitude,
     };
@@ -37,8 +37,8 @@ export default class WeatherService {
     return `${DARKSKY_API_BASE}?${queryString}`;
   };
 
-  public static fetchCityWeather = async (position: ICoords): Promise<IWeatherAPIResponse> => {
-    const apiEndpoint = WeatherService.getAPIWeatherEndpoint(position);
+  public static fetchCityWeather = async (position: Coords): Promise<WeatherAPIResponse> => {
+    const apiEndpoint = WeatherService.getAPWeatherEndpoint(position);
 
     const response = await fetch(apiEndpoint);
 
@@ -46,7 +46,7 @@ export default class WeatherService {
       throw new Error('messages.errors.weather.fetchFailed');
     }
 
-    const cityWeatherData: IWeatherAPIResponse = await response.json();
+    const cityWeatherData: WeatherAPIResponse = await response.json();
 
     if (cityWeatherData.flags['darksky-unavailable']) {
       if (isProd) throw new Error('messages.errors.weather.fetchFailed');

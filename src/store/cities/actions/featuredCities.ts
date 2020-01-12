@@ -1,12 +1,12 @@
-import { ICity } from 'models';
+import { City } from 'models';
 import { Actions, Types } from '../types';
 
-export const addCityToFeatured = (city: ICity): Actions => ({
+export const addCityToFeatured = (city: City): Actions => ({
   type: Types.FEATURED_CITY_ADD,
   payload: city,
 });
 
-export const removeCityFromFeatured = (cityId: ICity['id']): Actions => ({
+export const removeCityFromFeatured = (cityId: City['id']): Actions => ({
   type: Types.FEATURED_CITY_REMOVE,
   payload: cityId,
 });

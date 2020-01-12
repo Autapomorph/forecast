@@ -1,6 +1,6 @@
 import { ThunkAction } from 'redux-thunk';
 
-import { ICity, IWeather, ICoords } from 'models';
+import { City, Weather, Coords } from 'models';
 import { RootState } from 'store/types';
 import { getIsAnythingLoading } from 'store/rootSelectors';
 import WeatherService from 'services/weather';
@@ -14,7 +14,7 @@ export const fetchCityWeatherRequest = (): Actions => ({
   type: Types.CITY_WEATHER_FETCH_REQUEST,
 });
 
-export const fetchCityWeatherSuccess = (cityData: ICity & IWeather): Actions => ({
+export const fetchCityWeatherSuccess = (cityData: City & Weather): Actions => ({
   type: Types.CITY_WEATHER_FETCH_SUCCESS,
   payload: cityData,
   error: false,
@@ -27,7 +27,7 @@ const fetchCityWeatherFailure = (error: Error): Actions => ({
 });
 
 export const fetchCityWeatherByPosition = (
-  position: ICoords,
+  position: Coords,
 ): ThunkAction<Promise<void>, RootState, null, Actions> => async (dispatch, getState) => {
   if (getIsAnythingLoading(getState())) {
     return;

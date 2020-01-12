@@ -1,6 +1,6 @@
 import { PersistPartial } from 'redux-persist/es/persistReducer';
 
-import { ICity, IWeather } from 'models';
+import { City, Weather } from 'models';
 import { Actions as CityActions, Types as CityTypes } from './city';
 import { Actions as CitiesActions, Types as CitiesTypes } from './cities';
 import { Actions as FeaturedCitiesActions, Types as FeaturedCitiesTypes } from './featuredCities';
@@ -8,7 +8,6 @@ import { Actions as FeaturedCitiesActions, Types as FeaturedCitiesTypes } from '
 /**
  * action types
  */
-// eslint-disable-next-line import/prefer-default-export
 export const Types = {
   ...CityTypes,
   ...CitiesTypes,
@@ -23,23 +22,23 @@ export type Actions = CityActions | CitiesActions | FeaturedCitiesActions;
 /**
  * state
  */
-export interface State {
+export type State = {
   readonly selectedCity: {
-    data: (ICity & IWeather) | null;
+    data: (City & Weather) | null;
     active: boolean;
     loading: boolean;
     errorMessage: string | null;
   };
   readonly cities: {
-    data: ICity[];
+    data: City[];
     searchTerm: string;
     active: boolean;
     loading: boolean;
     errorMessage: string | null;
   };
   readonly featuredCities: {
-    data: ICity[];
+    data: City[];
   };
-}
+};
 
 export type CitiesState = State & PersistPartial;

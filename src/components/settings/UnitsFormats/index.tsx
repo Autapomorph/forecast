@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, ConnectedProps } from 'react-redux';
 
 import { RootState } from 'store/types';
 import { getCurrentUnitsFormat } from 'store/rootSelectors';
@@ -7,17 +7,9 @@ import { changeUnitsFormat } from 'store/settings/actions';
 import { availableUnitsFormats } from 'config/settings/unitsFormats';
 import UnitsFormatsList from './UnitsFormatsList';
 
-interface IPropsFromState {
-  selectedUnitsFormat: ReturnType<typeof getCurrentUnitsFormat>;
-}
+type Props = ConnectedProps<typeof connector>;
 
-interface IPropsFromDispatch {
-  _changeUnitsFormat: typeof changeUnitsFormat;
-}
-
-type IProps = IPropsFromState & IPropsFromDispatch;
-
-export const UnitsFormats: React.FC<IProps> = ({
+export const UnitsFormats: React.FC<Props> = ({
   selectedUnitsFormat,
   _changeUnitsFormat,
 }): React.ReactElement => (
@@ -28,12 +20,14 @@ export const UnitsFormats: React.FC<IProps> = ({
   />
 );
 
-const mapState = (state: RootState): IPropsFromState => ({
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+const mapState = (state: RootState) => ({
   selectedUnitsFormat: getCurrentUnitsFormat(state),
 });
 
-const mapDispatch: IPropsFromDispatch = {
+const mapDispatch = {
   _changeUnitsFormat: changeUnitsFormat,
 };
 
-export default connect(mapState, mapDispatch)(UnitsFormats);
+const connector = connect(mapState, mapDispatch);
+export default connector(UnitsFormats);

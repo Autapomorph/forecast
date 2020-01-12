@@ -1,13 +1,13 @@
-import { IWeatherDailyAPIResponse, IWeatherDaily } from 'models';
+import { WeatherDailyAPIResponse, WeatherDaily } from 'models';
 import formatTime from './time';
 import formatWind from './wind/formatWind';
 import generateWeatherIcon from './icon/generateWeatherIcon';
 import { celsiusToKelvin } from './temperature/converters';
 
 export default function formatWeatherDaily(
-  weatherData: IWeatherDailyAPIResponse[],
+  weatherData: WeatherDailyAPIResponse[],
   timezone: string,
-): IWeatherDaily[] {
+): WeatherDaily[] {
   return weatherData.map(day => ({
     timezone,
     timestamp: formatTime(day.time, timezone),

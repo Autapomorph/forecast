@@ -1,6 +1,6 @@
 import { ThunkAction } from 'redux-thunk';
 
-import { ICity } from 'models';
+import { City } from 'models';
 import { RootState } from 'store/types';
 import { getIsAnythingLoading } from 'store/rootSelectors';
 import GeonamesService from 'services/geonames';
@@ -13,7 +13,7 @@ export const fetchCitiesByNameRequest = (searchTerm: string): Actions => ({
   payload: searchTerm,
 });
 
-export const fetchCitiesByNameSuccess = (cities: ICity[]): Actions => ({
+export const fetchCitiesByNameSuccess = (cities: City[]): Actions => ({
   type: Types.CITIES_FETCH_SUCCESS,
   payload: cities,
   error: false,

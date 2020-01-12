@@ -1,19 +1,19 @@
 import React from 'react';
 
-import { ICity, ICoords } from 'models';
+import { City, Coords } from 'models';
 import CitiesItem from '../CitiesItem';
 
 import { StyledCitiesList } from './styles';
 
-interface IProps {
-  cities: ICity[];
-  checkIfFeatured: (cityId: ICity['id']) => boolean;
-  fetchCity: (cityCoords: ICoords) => void;
-  addCityToFeatured: (city: ICity) => void;
-  removeCityFromFeatured: (cityId: ICity['id']) => void;
-}
+type Props = {
+  cities: City[];
+  checkIfFeatured: (cityId: City['id']) => boolean;
+  fetchCity: (cityCoords: Coords) => void;
+  addCityToFeatured: (city: City) => void;
+  removeCityFromFeatured: (cityId: City['id']) => void;
+};
 
-const CitiesList: React.FC<IProps> = ({
+const CitiesList: React.FC<Props> = ({
   cities,
   checkIfFeatured,
   fetchCity,

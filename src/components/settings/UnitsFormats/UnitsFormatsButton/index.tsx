@@ -5,13 +5,13 @@ import { UnitFormat } from 'models';
 
 import { StyledSwitchButton, StyledLabel, StyledRadioButton, StyledLabelText } from './styles';
 
-interface IProps {
+type Props = {
   unitsFormat: UnitFormat;
   checked: boolean;
   handleChange: (unitFormat: UnitFormat) => void;
-}
+};
 
-const UnitsFormatsButton: React.FC<IProps> = ({
+const UnitsFormatsButton: React.FC<Props> = ({
   unitsFormat,
   checked,
   handleChange,

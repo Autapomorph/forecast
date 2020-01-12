@@ -4,11 +4,11 @@ import { Props as FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 
 import { StyledRetryButton } from './styles';
 
-interface IProps extends Partial<FontAwesomeIconProps> {
+type Props = {
   onClick: (event: React.MouseEvent) => void;
-}
+} & Partial<FontAwesomeIconProps>;
 
-const RetryButton: React.FC<IProps> = ({ onClick, ...props }): React.ReactElement => (
+const RetryButton: React.FC<Props> = ({ onClick, ...props }): React.ReactElement => (
   <StyledRetryButton icon={faRedoAlt} onClick={onClick} {...props} />
 );
 

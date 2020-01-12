@@ -1,7 +1,7 @@
 import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 
-import { ICity, ICoords } from 'models';
+import { City, Coords } from 'models';
 import generateCityName from 'utils/cityData/generateCityName';
 import CountryFlag from 'components/common/icons/CountryFlag';
 
@@ -12,14 +12,14 @@ import {
   StyledFeaturedButton,
 } from './styles';
 
-interface IProps {
+type Props = {
   index: number;
-  city: ICity;
-  fetchCity: (coords: ICoords) => void;
-  removeCityFromFeatured: (cityId: ICity['id']) => void;
-}
+  city: City;
+  fetchCity: (coords: Coords) => void;
+  removeCityFromFeatured: (cityId: City['id']) => void;
+};
 
-const FeaturedCitiesItem: React.FC<IProps> = ({
+const FeaturedCitiesItem: React.FC<Props> = ({
   index,
   city,
   fetchCity,

@@ -1,4 +1,4 @@
-import { ICitiesAPIRequest, ICitiesAPIResponse, ICoords } from 'models';
+import { CitiesAPIRequest, CitiesAPIResponse, Coords } from 'models';
 import i18n from 'config/settings/i18n';
 import {
   GEONAMES_API_SEARCH,
@@ -38,7 +38,7 @@ export default class GeonamesService {
   };
 
   private static getAPISearchEndpoint = (searchTerm: string): string => {
-    const queryObject: ICitiesAPIRequest = {
+    const queryObject: CitiesAPIRequest = {
       [GEONAMES_API_SEARCH_QUERY_PARAM]: searchTerm,
       [GEONAMES_API_NAME_REQUIRED_QUERY_PARAM]: true,
       [GEONAMES_API_FEATURE_CLASS_QUERY_PARAM]: ['P'],
@@ -50,8 +50,8 @@ export default class GeonamesService {
     return `${GEONAMES_API_SEARCH}?${queryString}`;
   };
 
-  private static getAPIFindNearbyEndpoint = ({ latitude, longitude }: ICoords): string => {
-    const queryObject: ICitiesAPIRequest = {
+  private static getAPIFindNearbyEndpoint = ({ latitude, longitude }: Coords): string => {
+    const queryObject: CitiesAPIRequest = {
       [GEONAMES_API_LATITUDE_QUERY_PARAM]: latitude,
       [GEONAMES_API_LONGITUDE_QUERY_PARAM]: longitude,
     };
@@ -61,7 +61,7 @@ export default class GeonamesService {
     return `${GEONAMES_API_FIND_NEARBY}?${queryString}`;
   };
 
-  public static fetchCitiesByName = async (searchTerm: string): Promise<ICitiesAPIResponse> => {
+  public static fetchCitiesByName = async (searchTerm: string): Promise<CitiesAPIResponse> => {
     const apiEndpoint = GeonamesService.getAPISearchEndpoint(searchTerm);
 
     const response = await fetch(apiEndpoint);
@@ -70,7 +70,7 @@ export default class GeonamesService {
       throw new Error('messages.errors.geonames.search.fetchFailed');
     }
 
-    const citiesData: ICitiesAPIResponse = await response.json();
+    const citiesData: CitiesAPIResponse = await response.json();
 
     if (citiesData.status) {
       if (isProd) throw new Error('messages.errors.geonames.search.fetchFailed');
@@ -80,7 +80,7 @@ export default class GeonamesService {
     return citiesData;
   };
 
-  public static fetchNearbyPlace = async (position: ICoords): Promise<ICitiesAPIResponse> => {
+  public static fetchNearbyPlace = async (position: Coords): Promise<CitiesAPIResponse> => {
     const apiEndpoint = GeonamesService.getAPIFindNearbyEndpoint(position);
 
     const response = await fetch(apiEndpoint);
@@ -89,7 +89,7 @@ export default class GeonamesService {
       throw new Error('messages.errors.geonames.findNearby.fetchFailed');
     }
 
-    const nearbyData: ICitiesAPIResponse = await response.json();
+    const nearbyData: CitiesAPIResponse = await response.json();
 
     if (nearbyData.status) {
       if (isProd) throw new Error('messages.errors.geonames.findNearby.fetchFailed');
