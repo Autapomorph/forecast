@@ -1,7 +1,7 @@
 import styled, { createGlobalStyle } from 'styled-components/macro';
 import '@fortawesome/fontawesome-free/css/solid.min.css';
 
-export const StyledSettingsBar = styled.div`
+export const SettingsBar = styled.div`
   padding: 0 10px;
 `;
 

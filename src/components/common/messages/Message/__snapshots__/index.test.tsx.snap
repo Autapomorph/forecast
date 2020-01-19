@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Message tests renders properly 1`] = `
-<styles__StyledMessageWrapper>
-  <styles__StyledMessageContent />
-</styles__StyledMessageWrapper>
+<styles__MessageWrapper>
+  <styles__MessageContent />
+</styles__MessageWrapper>
 `;

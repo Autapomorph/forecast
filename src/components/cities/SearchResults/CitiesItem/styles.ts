@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 
-export const StyledCitiesItemWrapper = styled.div`
+export const CitiesItemWrapper = styled.div`
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid var(--light-gray);
@@ -14,11 +14,11 @@ export const StyledCitiesItemWrapper = styled.div`
   }
 `;
 
-export const StyledCitiesItemTitle = styled.span`
+export const CitiesItemTitle = styled.span`
   cursor: pointer;
 `;
 
-export const StyledTitleButtonsWrapper = styled.div`
+export const TitleButtonsWrapper = styled.div`
   flex-shrink: 0;
 
   > :not(:last-child) {
@@ -26,17 +26,17 @@ export const StyledTitleButtonsWrapper = styled.div`
   }
 `;
 
-export const StyledCitiesItemHeader = styled.h4`
+export const CitiesItemHeader = styled.h4`
   display: flex;
   align-items: center;
   margin: 5px 0;
   font-weight: bold;
 
-  ${StyledCitiesItemTitle} {
+  ${CitiesItemTitle} {
     flex-grow: 1;
   }
 `;
 
-export const StyledCitiesItemContent = styled.p`
+export const CitiesItemContent = styled.p`
   margin: 10px 0 0 0;
 `;

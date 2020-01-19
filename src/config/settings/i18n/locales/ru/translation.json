@@ -11,7 +11,12 @@
         "humidity": "Влажность",
         "wind": "Ветер",
         "cloudiness": "Облачность",
-        "daytime": "День"
+        "daytime": "День",
+        "daylength": "Долгота дня",
+        "sunrise": "Восход",
+        "sunset": "Заход",
+        "hours": "ч",
+        "minutes": "м"
       }
     },
     "searchResults": {

@@ -18,6 +18,7 @@
   "build": {
     "env": {
       "REACT_APP_GEONAMES_API_KEY": "autapomorph",
+      "REACT_APP_IPSTACK_API_KEY": "9e2e2d532ffec3f9a47b39fe2e3bc8cd",
       "REACT_APP_SECURE": "true"
     }
   },

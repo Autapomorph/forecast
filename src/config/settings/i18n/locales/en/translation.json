@@ -11,7 +11,12 @@
         "humidity": "Humidity",
         "wind": "Wind",
         "cloudiness": "Cloudiness",
-        "daytime": "Daytime"
+        "daytime": "Daytime",
+        "daylength": "Day length",
+        "sunrise": "Sunrise",
+        "sunset": "Sunset",
+        "hours": "h",
+        "minutes": "m"
       }
     },
     "searchResults": {

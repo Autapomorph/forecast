@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 
-export const StyledIconButton = styled.span`
+export const IconButton = styled.span`
   cursor: pointer;
 
   :hover {

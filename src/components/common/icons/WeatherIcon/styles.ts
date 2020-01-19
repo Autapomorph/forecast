@@ -4,7 +4,7 @@ type WeatherIconProps = {
   size: string;
 };
 
-export const StyledWeatherIcon = styled.i`
+export const WeatherIcon = styled.i`
   font-size: ${({ size }: WeatherIconProps) => size};
-  vertical-align: middle;
+  vertical-align: text-bottom;
 `;

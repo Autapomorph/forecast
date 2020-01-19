@@ -6,15 +6,10 @@ import { UnitsFormatContext } from 'store/settings/context';
 import convertSpeed from 'utils/weatherData/wind';
 import convertTemp from 'utils/weatherData/temperature';
 import convertPressure from 'utils/weatherData/pressure';
-import { toHourMinutes } from 'utils/weatherData/time/coverters';
+import { toHourMinutes, getDurationHourMinutes } from 'utils/weatherData/time/coverters';
 import WeatherIcon from 'components/common/icons/WeatherIcon';
 
-import {
-  StyledWeatherDetailsWrapper,
-  StyledWeatherDetailsItem as StyledItem,
-  StyledWeatherDetailsItemTitle as StyledItemTitle,
-  StyledWeatherDetailsItemDescription as StyledItemDescription,
-} from './styles';
+import * as S from './styles';
 
 type Props = {
   city: City & Weather;
@@ -23,54 +18,68 @@ type Props = {
 const WeatherDetails: React.FC<Props> = ({ city }): React.ReactElement => {
   const { t, i18n } = useTranslation();
   const unitsFormat = useContext(UnitsFormatContext);
+  const tC = (key: string, options?: object): string =>
+    t(`cities.selected.details.${key}`, options);
+  const tS = (key: string, options?: object): string => t(`settings.unitsFormats.${key}`, options);
 
-  const cityDetailsLang = 'cities.selected.details';
   const convertedTemp = convertTemp(city.weather.temp, unitsFormat);
   const convertedPressure = convertPressure(city.weather.pressure, unitsFormat);
   const convertedWindSpeed = convertSpeed(city.weather.wind.speed, unitsFormat);
 
   return (
-    <StyledWeatherDetailsWrapper>
-      <StyledItem>
-        <StyledItemTitle>{t(`${cityDetailsLang}.summary`)}:</StyledItemTitle>
-        <StyledItemDescription>
-          {`${city.weather.summary} `}
-          <WeatherIcon icon={city.weather.weatherIcon} size="lg" />
-        </StyledItemDescription>
+    <S.WeatherDetailsWrapper>
+      <S.Item>
+        <S.ItemTitle>{tC('summary')}:</S.ItemTitle>
+        <S.ItemDescription>
+          {`${city.weather.summary}`}
+          <span style={{ marginLeft: '0.3em' }}>
+            <WeatherIcon icon={city.weather.weatherIcon} size="lg" />
+          </span>
+        </S.ItemDescription>
 
-        <StyledItemTitle>{t(`${cityDetailsLang}.temperature`)}:</StyledItemTitle>
-        <StyledItemDescription>
-          {`${convertedTemp}${t(`settings.unitsFormats.temp.${unitsFormat}`)}`}
-        </StyledItemDescription>
+        <S.ItemTitle>{tC('temperature')}:</S.ItemTitle>
+        <S.ItemDescription>{`${convertedTemp}${tS(`temp.${unitsFormat}`)}`}</S.ItemDescription>
 
-        <StyledItemTitle>{t(`${cityDetailsLang}.cloudiness`)}:</StyledItemTitle>
-        <StyledItemDescription>{`${city.weather.cloudiness}%`}</StyledItemDescription>
+        <S.ItemTitle>{tC('cloudiness')}:</S.ItemTitle>
+        <S.ItemDescription>{`${city.weather.cloudiness}%`}</S.ItemDescription>
 
-        <StyledItemTitle>{t(`${cityDetailsLang}.wind`)}:</StyledItemTitle>
-        <StyledItemDescription>
-          {`${convertedWindSpeed} ${t(`settings.unitsFormats.speed.${unitsFormat}`)}, ${t(
+        <S.ItemTitle>{tC('wind')}:</S.ItemTitle>
+        <S.ItemDescription>
+          {`${convertedWindSpeed} ${tS(`speed.${unitsFormat}`)}, ${t(
             `wind.${city.weather.wind.cardDir}`,
-          )}, `}
-          <WeatherIcon wind icon={city.weather.wind.icon} size="lg" />
-        </StyledItemDescription>
+          )}`}
+          <span style={{ marginLeft: '0.3em' }}>
+            <WeatherIcon wind icon={city.weather.wind.icon} size="lg" />
+          </span>
+        </S.ItemDescription>
 
-        <StyledItemTitle>{t(`${cityDetailsLang}.pressure`)}:</StyledItemTitle>
-        <StyledItemDescription>
-          {`${convertedPressure}${t(`settings.unitsFormats.pressure.${unitsFormat}`)}`}
-        </StyledItemDescription>
+        <S.ItemTitle>{tC('pressure')}:</S.ItemTitle>
+        <S.ItemDescription>
+          {`${convertedPressure}${tS(`pressure.${unitsFormat}`)}`}
+        </S.ItemDescription>
 
-        <StyledItemTitle>{t(`${cityDetailsLang}.humidity`)}:</StyledItemTitle>
-        <StyledItemDescription>{`${city.weather.humidity}%`}</StyledItemDescription>
+        <S.ItemTitle>{tC('humidity')}:</S.ItemTitle>
+        <S.ItemDescription>{`${city.weather.humidity}%`}</S.ItemDescription>
 
-        <StyledItemTitle>{t(`${cityDetailsLang}.daytime`)}:</StyledItemTitle>
-        <StyledItemDescription>
+        <S.ItemTitle>{tC('daytime')}:</S.ItemTitle>
+        <S.ItemDescription>
           {`${toHourMinutes(city.weather.sunrise, i18n.language)} — ${toHourMinutes(
             city.weather.sunset,
             i18n.language,
           )}`}
-        </StyledItemDescription>
-      </StyledItem>
-    </StyledWeatherDetailsWrapper>
+        </S.ItemDescription>
+
+        <S.ItemTitle>{tC('daylength')}:</S.ItemTitle>
+        <S.ItemDescription>
+          {getDurationHourMinutes(
+            city.weather.sunrise,
+            city.weather.sunset,
+            tC('hours'),
+            tC('minutes'),
+          )}
+        </S.ItemDescription>
+      </S.Item>
+    </S.WeatherDetailsWrapper>
   );
 };
 

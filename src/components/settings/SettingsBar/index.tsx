@@ -5,19 +5,19 @@ import Collapsible from 'react-collapsible';
 import UnitsFormats from 'components/settings/UnitsFormats';
 import Languages from 'components/settings/Languages';
 
-import { StyledSettingsBar, GlobalStyleCollapsible } from './styles';
+import * as S from './styles';
 
 const SettingsBar: React.FC = (): React.ReactElement => {
   const { t } = useTranslation();
 
   return (
-    <StyledSettingsBar>
-      <GlobalStyleCollapsible />
+    <S.SettingsBar>
+      <S.GlobalStyleCollapsible />
       <Collapsible trigger={t('settings.title')}>
         <Languages />
         <UnitsFormats />
       </Collapsible>
-    </StyledSettingsBar>
+    </S.SettingsBar>
   );
 };
 

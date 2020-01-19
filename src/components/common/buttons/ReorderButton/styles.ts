@@ -6,7 +6,7 @@ type ReorderButtonProps = {
   isDragging: boolean;
 };
 
-export const StyledReorderButton = styled(BaseIconButton)`
+export const ReorderButton = styled(BaseIconButton)`
   color: var(--gray);
 
   :hover {

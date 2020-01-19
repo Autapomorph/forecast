@@ -7,12 +7,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import GeolocationButton from 'components/common/buttons/GeolocationButton';
 import { fetchCititesByName } from 'store/cities/actions';
 
-import {
-  StyledSearchForm,
-  StyledSearchInput,
-  StyledInputButtonsBlock,
-  StyledInputButton,
-} from './styles';
+import * as S from './styles';
 
 type Props = ConnectedProps<typeof connector>;
 
@@ -40,21 +35,21 @@ export const SearchBar: React.FC<Props> = ({ _fetchCititesByName }): React.React
   };
 
   return (
-    <StyledSearchForm onSubmit={handleSubmit}>
-      <StyledSearchInput
+    <S.SearchForm onSubmit={handleSubmit}>
+      <S.SearchInput
         placeholder={t('searchBar.placeholder')}
         value={cityName}
         onChange={handleChange}
       />
 
-      <StyledInputButtonsBlock>
-        <StyledInputButton disabled={isSubmitDisabled} onClick={handleSubmit}>
+      <S.InputButtonsBlock>
+        <S.InputButton disabled={isSubmitDisabled} onClick={handleSubmit}>
           <FontAwesomeIcon icon={faSearch} />
-        </StyledInputButton>
+        </S.InputButton>
 
         <GeolocationButton />
-      </StyledInputButtonsBlock>
-    </StyledSearchForm>
+      </S.InputButtonsBlock>
+    </S.SearchForm>
   );
 };
 

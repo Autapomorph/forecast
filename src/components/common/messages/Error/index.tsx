@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { StyledErrorMessage } from './styles';
+import * as S from './styles';
 
 const Error: React.FC = ({ children, ...props }): React.ReactElement => (
-  <StyledErrorMessage {...props}>{children}</StyledErrorMessage>
+  <S.ErrorMessage {...props}>{children}</S.ErrorMessage>
 );
 
 export default Error;

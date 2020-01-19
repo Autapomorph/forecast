@@ -1,15 +1,16 @@
 import React from 'react';
 import { faRedoAlt } from '@fortawesome/free-solid-svg-icons';
-import { Props as FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
+import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 
-import { StyledRetryButton } from './styles';
+import * as S from './styles';
 
 type Props = {
   onClick: (event: React.MouseEvent) => void;
-} & Partial<FontAwesomeIconProps>;
+  size?: SizeProp;
+};
 
-const RetryButton: React.FC<Props> = ({ onClick, ...props }): React.ReactElement => (
-  <StyledRetryButton icon={faRedoAlt} onClick={onClick} {...props} />
+const RetryButton: React.FC<Props> = ({ size, onClick, ...props }): React.ReactElement => (
+  <S.RetryButton icon={faRedoAlt} size={size} onClick={onClick} {...props} />
 );
 
 export default RetryButton;

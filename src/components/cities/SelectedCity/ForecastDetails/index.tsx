@@ -9,19 +9,10 @@ import { UnitsFormatContext } from 'store/settings/context';
 import convertSpeed from 'utils/weatherData/wind';
 import convertTemp from 'utils/weatherData/temperature';
 import convertPressure from 'utils/weatherData/pressure';
-import { toDayMonth } from 'utils/weatherData/time/coverters';
+import { toDayMonth, toHourMinutes } from 'utils/weatherData/time/coverters';
 import WeatherIcon from 'components/common/icons/WeatherIcon';
 
-import {
-  StyledForecastWrapper,
-  StyledForecastItem,
-  StyledForecastItemDetail,
-  StyledDescription,
-  StyledItemDetailsList,
-  StyledIcon,
-  StyledIconDescription,
-  StyledDivider,
-} from './styles';
+import * as S from './styles';
 
 type Props = {
   city: City & Weather;
@@ -30,9 +21,10 @@ type Props = {
 const ForecastDetails: React.FC<Props> = ({ city }): React.ReactElement => {
   const { t, i18n } = useTranslation();
   const unitsFormat = useContext(UnitsFormatContext);
+  const tS = (key: string, options?: object): string => t(`settings.unitsFormats.${key}`, options);
 
   return (
-    <StyledForecastWrapper>
+    <S.ForecastWrapper>
       <Slider
         infinite={false}
         slidesToShow={5}
@@ -67,50 +59,60 @@ const ForecastDetails: React.FC<Props> = ({ city }): React.ReactElement => {
           const convertedWindSpeed = convertSpeed(day.wind.speed, unitsFormat);
 
           return (
-            <StyledForecastItem key={day.timestamp.toString()}>
-              <StyledForecastItemDetail>
+            <S.Item key={day.timestamp.toString()}>
+              <S.ItemDetail>
                 <WeatherIcon icon={day.weatherIcon} size="lg" />
-              </StyledForecastItemDetail>
+              </S.ItemDetail>
 
-              <StyledForecastItemDetail>
-                {`${convertedTemp}${t(`settings.unitsFormats.temp.${unitsFormat}`)}`}
-              </StyledForecastItemDetail>
+              <S.ItemDetail>{`${convertedTemp}${tS(`temp.${unitsFormat}`)}`}</S.ItemDetail>
 
-              <StyledForecastItemDetail>
-                <StyledDescription>{day.summary}</StyledDescription>
-              </StyledForecastItemDetail>
+              <S.ItemDetail>
+                <S.Description>{day.summary}</S.Description>
+              </S.ItemDetail>
 
-              <StyledItemDetailsList>
-                <StyledIcon>
+              <S.ItemDetailsList>
+                <S.Icon>
                   <FontAwesomeIcon icon={faTint} size="lg" />
-                </StyledIcon>
-                <StyledIconDescription>{`${day.humidity}%`}</StyledIconDescription>
+                </S.Icon>
+                <S.IconDescription>{`${day.humidity}%`}</S.IconDescription>
 
-                <StyledIcon>
+                <S.Icon>
                   <FontAwesomeIcon icon={faThermometerHalf} size="lg" />
-                </StyledIcon>
-                <StyledIconDescription>
-                  {`${convertedPressure}${t(`settings.unitsFormats.pressure.${unitsFormat}`)}`}
-                </StyledIconDescription>
+                </S.Icon>
+                <S.IconDescription>
+                  {`${convertedPressure}${tS(`pressure.${unitsFormat}`)}`}
+                </S.IconDescription>
 
-                <StyledIcon>
+                <S.Icon>
                   <WeatherIcon wind icon={day.wind.icon} size="lg" />
-                </StyledIcon>
-                <StyledIconDescription>
-                  {`${convertedWindSpeed} ${t(`settings.unitsFormats.speed.${unitsFormat}`)}`}
-                </StyledIconDescription>
-              </StyledItemDetailsList>
+                </S.Icon>
+                <S.IconDescription>
+                  {`${convertedWindSpeed} ${tS(`speed.${unitsFormat}`)}`}
+                </S.IconDescription>
 
-              <StyledDivider />
+                <S.Icon>
+                  <WeatherIcon icon="sunrise" />
+                </S.Icon>
+                <S.IconDescription>
+                  {`${toHourMinutes(day.sunrise, i18n.language)}`}
+                </S.IconDescription>
 
-              <StyledForecastItemDetail>
-                {toDayMonth(day.timestamp, i18n.language)}
-              </StyledForecastItemDetail>
-            </StyledForecastItem>
+                <S.Icon>
+                  <WeatherIcon icon="sunset" />
+                </S.Icon>
+                <S.IconDescription>
+                  {`${toHourMinutes(day.sunset, i18n.language)}`}
+                </S.IconDescription>
+              </S.ItemDetailsList>
+
+              <S.Divider />
+
+              <S.ItemDetail>{toDayMonth(day.timestamp, i18n.language)}</S.ItemDetail>
+            </S.Item>
           );
         })}
       </Slider>
-    </StyledForecastWrapper>
+    </S.ForecastWrapper>
   );
 };
 

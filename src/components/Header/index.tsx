@@ -3,13 +3,13 @@ import React from 'react';
 import SearchBar from 'components/SearchBar';
 import SettingsBar from 'components/settings/SettingsBar';
 
-import { StyledHeader } from './styles';
+import * as S from './styles';
 
 const Header: React.FC = (): React.ReactElement => (
-  <StyledHeader>
+  <S.Header>
     <SearchBar />
     <SettingsBar />
-  </StyledHeader>
+  </S.Header>
 );
 
 export default Header;

@@ -25,7 +25,7 @@ import Message from 'components/common/messages/Message';
 import EmptyResult from 'components/common/messages/EmptyResult';
 import CitiesList from './CitiesList';
 
-import { StyledSearchResultsSection, StyledSearchResultsHeader } from './styles';
+import * as S from './styles';
 
 type Props = ConnectedProps<typeof connector>;
 
@@ -42,6 +42,7 @@ export const SearchResults: React.FC<Props> = ({
   _removeCityFromFeatured,
 }): React.ReactElement | null => {
   const { t } = useTranslation();
+  const tC = (key: string, options?: object): string => t(`cities.searchResults.${key}`, options);
   const toastId = 'cityError';
 
   useEffect(() => {
@@ -70,15 +71,13 @@ export const SearchResults: React.FC<Props> = ({
 
   const errorBlock = errorMessage ? <Message>¯\_(ツ)_/¯</Message> : null;
 
-  const emptyBlock = isLoadedEmpty ? (
-    <EmptyResult>{t('cities.searchResults.emptyResult')}</EmptyResult>
-  ) : null;
+  const emptyBlock = isLoadedEmpty ? <EmptyResult>{tC('emptyResult')}</EmptyResult> : null;
 
   return (
-    <StyledSearchResultsSection isLoading={isLoading}>
-      <StyledSearchResultsHeader>
-        <Title>{t('cities.searchResults.title', { searchTerm })}</Title>
-      </StyledSearchResultsHeader>
+    <S.SearchResultsSection isLoading={isLoading}>
+      <S.SearchResultsHeader>
+        <Title>{tC('title', { searchTerm })}</Title>
+      </S.SearchResultsHeader>
 
       {loaderBlock}
       {errorBlock}
@@ -95,7 +94,7 @@ export const SearchResults: React.FC<Props> = ({
           />
         </UnitsFormatContext.Provider>
       )}
-    </StyledSearchResultsSection>
+    </S.SearchResultsSection>
   );
 };
 

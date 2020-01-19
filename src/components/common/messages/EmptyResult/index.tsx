@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { StyledEmptyResultMessage } from './styles';
+import * as S from './styles';
 
 const EmptyResult: React.FC = ({ children, ...props }): React.ReactElement => (
-  <StyledEmptyResultMessage {...props}>{children}</StyledEmptyResultMessage>
+  <S.EmptyResultMessage {...props}>{children}</S.EmptyResultMessage>
 );
 
 export default EmptyResult;

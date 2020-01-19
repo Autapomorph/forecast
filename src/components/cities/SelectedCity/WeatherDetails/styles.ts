@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 
-export const StyledWeatherDetailsWrapper = styled.div`
+export const WeatherDetailsWrapper = styled.div`
   grid-area: city-weather;
   margin-top: 12px;
 
@@ -9,19 +9,19 @@ export const StyledWeatherDetailsWrapper = styled.div`
   }
 `;
 
-export const StyledWeatherDetailsItem = styled.dl`
+export const Item = styled.dl`
   display: grid;
   grid-template-columns: [wd-title] fit-content(50%) [wd-desc] auto;
   grid-gap: 5px 20px;
   align-items: baseline;
 `;
 
-export const StyledWeatherDetailsItemTitle = styled.dt`
+export const ItemTitle = styled.dt`
   grid-column: wd-title;
   margin: 0;
 `;
 
-export const StyledWeatherDetailsItemDescription = styled.dd`
+export const ItemDescription = styled.dd`
   grid-column: wd-desc;
   margin: 0;
 `;

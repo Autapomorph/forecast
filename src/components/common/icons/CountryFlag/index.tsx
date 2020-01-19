@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyledCountryFlag } from './styles';
+import * as S from './styles';
 
 type Props = {
   country: string;
@@ -8,7 +8,7 @@ type Props = {
 };
 
 const CountryFlag: React.FC<Props> = ({ country, size = '1em' }): React.ReactElement => (
-  <StyledCountryFlag country={country} size={size} />
+  <S.CountryFlag country={country} size={size} />
 );
 
 export default CountryFlag;

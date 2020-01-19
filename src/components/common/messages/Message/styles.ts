@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 
-export const StyledMessageWrapper = styled.div`
+export const MessageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,6 +10,6 @@ export const StyledMessageWrapper = styled.div`
   font-size: 1.3rem;
 `;
 
-export const StyledMessageContent = styled.span`
+export const MessageContent = styled.span`
   text-align: center;
 `;

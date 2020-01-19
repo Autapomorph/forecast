@@ -23,7 +23,7 @@ import Loader from 'components/common/messages/Loader';
 import Message from 'components/common/messages/Message';
 import City from './City';
 
-import { StyledSelectedCitySection } from './styles';
+import * as S from './styles';
 
 type Props = ConnectedProps<typeof connector>;
 
@@ -68,9 +68,9 @@ export const SelectedCity: React.FC<Props> = ({
 
   if (isLoading) {
     return (
-      <StyledSelectedCitySection isLoading>
+      <S.SelectedCitySection isLoading>
         <Loader />
-      </StyledSelectedCitySection>
+      </S.SelectedCitySection>
     );
   }
 
@@ -80,14 +80,14 @@ export const SelectedCity: React.FC<Props> = ({
 
   if (errorMessage) {
     return (
-      <StyledSelectedCitySection>
+      <S.SelectedCitySection>
         <Message>¯\_(ツ)_/¯</Message>
-      </StyledSelectedCitySection>
+      </S.SelectedCitySection>
     );
   }
 
   return (
-    <StyledSelectedCitySection>
+    <S.SelectedCitySection>
       <UnitsFormatContext.Provider value={unitsFormat}>
         <City
           city={city}
@@ -97,7 +97,7 @@ export const SelectedCity: React.FC<Props> = ({
           removeCityFromFeatured={_removeCityFromFeatured}
         />
       </UnitsFormatContext.Provider>
-    </StyledSelectedCitySection>
+    </S.SelectedCitySection>
   );
 };
 

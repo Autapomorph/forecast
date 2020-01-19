@@ -4,7 +4,7 @@ type SelectedCitySectionProps = {
   isLoading?: boolean;
 };
 
-export const StyledSelectedCitySection = styled.section`
+export const SelectedCitySection = styled.section`
   grid-area: cities;
   padding: 0 10px;
   margin-bottom: ${({ isLoading }: SelectedCitySectionProps) => (isLoading ? '0' : '20px')};

@@ -2,7 +2,7 @@ import styled from 'styled-components/macro';
 
 import BaseIconButton from 'components/common/buttons/BaseIconButton';
 
-export const StyledFeaturedButton = styled(BaseIconButton)`
+export const FeaturedButton = styled(BaseIconButton)`
   color: var(--yellow);
 
   :hover {

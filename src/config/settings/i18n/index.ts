@@ -3,7 +3,7 @@ import langDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 
 import { Locale } from 'models';
-import removePropByKey from 'utils/common/removePropByKey';
+import omitProps from 'utils/common/omitProps';
 import locales, { resources } from './locales';
 
 i18n
@@ -24,6 +24,6 @@ i18n
 export default i18n;
 
 export const defaultLanguage: Locale = locales[i18n.languages[0]];
-export const otherLanguages: Locale[] = Object.values(removePropByKey(locales, i18n.languages[0]));
+export const otherLanguages: Locale[] = Object.values(omitProps(locales, i18n.languages[0]));
 export const sortedLanguages: Locale[] = [defaultLanguage, ...otherLanguages];
 export { sortedLanguages as availableLanguages };

@@ -1,5 +1,6 @@
-export const IPAPI_API_BASE = `ipapi.co`;
-export const IPAPI_API_PROTOCOL = `https://`;
-export const IPAPI_API_JSON = `json`;
+export const HOSTNAME = `api.ipstack.com`;
+export const PROTOCOL = `http://`;
+export const API_KEY = process.env.REACT_APP_IPSTACK_API_KEY || '';
 
-export const IPAPI_API = `${IPAPI_API_PROTOCOL}${IPAPI_API_BASE}/${IPAPI_API_JSON}`;
+export const API_BASE = `${PROTOCOL}${HOSTNAME}`;
+export const API_CHECK = `${API_BASE}/check?access_key=${API_KEY}`;

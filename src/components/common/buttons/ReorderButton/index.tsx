@@ -1,15 +1,16 @@
 import React from 'react';
 import { faSort } from '@fortawesome/free-solid-svg-icons';
-import { Props as FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
+import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 
-import { StyledReorderButton } from './styles';
+import * as S from './styles';
 
 type Props = {
   isDragging: boolean;
-} & Partial<FontAwesomeIconProps>;
+  size?: SizeProp;
+};
 
-const ReorderButton: React.FC<Props> = ({ size = 'lg', ...props }): React.ReactElement => (
-  <StyledReorderButton icon={faSort} size={size} {...props} />
+const ReorderButton: React.FC<Props> = ({ size, ...props }): React.ReactElement => (
+  <S.ReorderButton icon={faSort} size={size} {...props} />
 );
 
 export default ReorderButton;

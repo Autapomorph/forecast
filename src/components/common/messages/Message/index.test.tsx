@@ -2,7 +2,7 @@ import { shallow } from 'enzyme';
 
 import Message from '.';
 
-import { StyledMessageContent } from './styles';
+import * as S from './styles';
 
 describe('Message tests', () => {
   it('renders properly', () => {
@@ -15,6 +15,6 @@ describe('Message tests', () => {
     const text = 'text';
     const wrapper = shallow(<Message>{text}</Message>);
 
-    expect(wrapper.find(StyledMessageContent).text()).toEqual(text);
+    expect(wrapper.find(S.MessageContent).text()).toEqual(text);
   });
 });

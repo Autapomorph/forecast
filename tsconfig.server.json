@@ -2,13 +2,9 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "moduleResolution": "node",
     "esModuleInterop": true,
+    "strict": true,
     "noEmit": true,
-    "noUnusedLocals": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noUnusedParameters": true
+    "typeRoots": ["node_modules/@types", "src/typings"]
   }
 }

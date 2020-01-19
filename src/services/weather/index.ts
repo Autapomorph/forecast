@@ -1,23 +1,21 @@
-import { WeatherAPIRequest, WeatherAPIResponse, Coords } from 'models';
+import { Coords } from 'models';
 import i18n from 'config/settings/i18n';
-import {
-  DARKSKY_API_BASE,
-  DARKSKY_API_QUERY_LATITUDE_PARAM,
-  DARKSKY_API_QUERY_LONGITUDE_PARAM,
-  DARKSKY_API_LANG_QUERY_PARAM,
-  DARKSKY_API_UNITS_QUERY_PARAM,
-} from 'config/weather';
+import { DARKSKY_API_BASE } from 'config/weather';
 import { isProd } from 'utils';
 import combineQueryParams from 'utils/url/combineQueryParams';
+import {
+  RequestObject as WeatherAPIRequest,
+  ResponseObject as WeatherAPIResponse,
+  SupportedLanguage,
+} from 'dark-sky';
 
 export default class WeatherService {
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-  private static getQueryString = (searchParams: Record<string, any>): string => {
+  private static getQueryString = (searchParams: WeatherAPIRequest): string => {
     const currentLanguage = i18n.languages[0];
 
     const queryObject: WeatherAPIRequest = {
-      [DARKSKY_API_LANG_QUERY_PARAM]: currentLanguage,
-      [DARKSKY_API_UNITS_QUERY_PARAM]: 'si',
+      lang: currentLanguage as SupportedLanguage,
+      units: 'si',
       ...searchParams,
     };
 
@@ -26,10 +24,10 @@ export default class WeatherService {
     return queryString;
   };
 
-  private static getAPWeatherEndpoint = ({ latitude, longitude }: Coords): string => {
+  private static getEndpoint = ({ latitude, longitude }: Coords): string => {
     const queryObject: WeatherAPIRequest = {
-      [DARKSKY_API_QUERY_LATITUDE_PARAM]: latitude,
-      [DARKSKY_API_QUERY_LONGITUDE_PARAM]: longitude,
+      latitude,
+      longitude,
     };
 
     const queryString = WeatherService.getQueryString(queryObject);
@@ -37,8 +35,8 @@ export default class WeatherService {
     return `${DARKSKY_API_BASE}?${queryString}`;
   };
 
-  public static fetchCityWeather = async (position: Coords): Promise<WeatherAPIResponse> => {
-    const apiEndpoint = WeatherService.getAPWeatherEndpoint(position);
+  public static request = async (position: Coords): Promise<WeatherAPIResponse> => {
+    const apiEndpoint = WeatherService.getEndpoint(position);
 
     const response = await fetch(apiEndpoint);
 
@@ -48,9 +46,9 @@ export default class WeatherService {
 
     const cityWeatherData: WeatherAPIResponse = await response.json();
 
-    if (cityWeatherData.flags['darksky-unavailable']) {
+    if (cityWeatherData.flags?.['darksky-unavailable']) {
       if (isProd) throw new Error('messages.errors.weather.fetchFailed');
-      throw new Error(cityWeatherData.flags['darksky-unavailable']);
+      throw new Error('darksky-unavailable');
     }
 
     return cityWeatherData;

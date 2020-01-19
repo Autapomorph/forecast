@@ -3,7 +3,7 @@ import React from 'react';
 import { Locale } from 'models';
 import LanguageButton from '../LanguageButton';
 
-import { StyledLanguageSwitcher } from './styles';
+import * as S from './styles';
 
 type Props = {
   languages: Locale[];
@@ -16,7 +16,7 @@ const LanguageList: React.FC<Props> = ({
   selectedLanguage,
   handleChangeLanguage,
 }): React.ReactElement => (
-  <StyledLanguageSwitcher>
+  <S.LanguageSwitcher>
     {languages.map(language => (
       <LanguageButton
         key={language.code}
@@ -25,7 +25,7 @@ const LanguageList: React.FC<Props> = ({
         handleChange={handleChangeLanguage}
       />
     ))}
-  </StyledLanguageSwitcher>
+  </S.LanguageSwitcher>
 );
 
 export default LanguageList;

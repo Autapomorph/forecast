@@ -9,8 +9,9 @@ import { faLocationArrow } from '@fortawesome/free-solid-svg-icons';
 import { RootState } from 'store/types';
 import { getIsGeolocationLoading, getGeolocationErrorMessage } from 'store/rootSelectors';
 import { fetchGeolocation, fetchGeolocationByIP } from 'store/geolocation/actions';
+import checkGeolocationPermission from 'utils/geolocation/checkPermission';
 
-import { StyledInputButton } from 'components/SearchBar/styles';
+import * as S from 'components/SearchBar/styles';
 
 type Props = ConnectedProps<typeof connector>;
 
@@ -23,7 +24,11 @@ export const GeolocationButton: React.FC<Props> = ({
   const { t } = useTranslation();
   const toastId = 'geoError';
 
-  useMount(_fetchGeolocationByIP);
+  useMount(() => {
+    checkGeolocationPermission()
+      .then(_fetchGeolocation)
+      .catch(_fetchGeolocationByIP);
+  });
 
   useEffect(() => {
     const shouldShowToast = !isLoading && errorMessage && !toast.isActive(toastId);
@@ -39,9 +44,9 @@ export const GeolocationButton: React.FC<Props> = ({
   });
 
   return (
-    <StyledInputButton disabled={isLoading} onClick={_fetchGeolocation}>
+    <S.InputButton disabled={isLoading} onClick={_fetchGeolocation}>
       <FontAwesomeIcon icon={faLocationArrow} />
-    </StyledInputButton>
+    </S.InputButton>
   );
 };
 

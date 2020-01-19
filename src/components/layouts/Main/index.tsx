@@ -8,22 +8,22 @@ import FeaturedCities from 'components/cities/FeaturedCities';
 
 import 'react-toastify/dist/ReactToastify.min.css';
 
-import { StyledLayoutWrapper, StyledHeaderWrapper, StyledContentWrapper } from './styles';
+import * as S from './styles';
 
 const MainLayout: React.FC = (): React.ReactElement => (
-  <StyledLayoutWrapper>
+  <S.LayoutWrapper>
     <ToastContainer position={toast.POSITION.BOTTOM_CENTER} />
 
-    <StyledHeaderWrapper>
+    <S.HeaderWrapper>
       <Header />
-    </StyledHeaderWrapper>
+    </S.HeaderWrapper>
 
-    <StyledContentWrapper>
+    <S.ContentWrapper>
       <SelectedCity />
       <SearchResults />
       <FeaturedCities />
-    </StyledContentWrapper>
-  </StyledLayoutWrapper>
+    </S.ContentWrapper>
+  </S.LayoutWrapper>
 );
 
 export default MainLayout;

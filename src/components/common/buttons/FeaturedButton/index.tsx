@@ -1,30 +1,31 @@
 import React from 'react';
 import { faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
-import { Props as FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
+import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 
-import { StyledFeaturedButton } from './styles';
+import * as S from './styles';
 
 type Props = {
   isFeatured: boolean;
   onAdd?: () => void;
   onRemove?: () => void;
-} & Partial<FontAwesomeIconProps>;
+  size?: SizeProp;
+};
 
 const FeaturedButton: React.FC<Props> = ({
   isFeatured = false,
-  size = 'lg',
-  onAdd = () => {},
-  onRemove = () => {},
+  size,
+  onAdd,
+  onRemove,
   ...props
 }): React.ReactElement => (
   <>
     {isFeatured && (
-      <StyledFeaturedButton icon={faStarSolid} size={size} onClick={onRemove} {...props} />
+      <S.FeaturedButton icon={faStarSolid} size={size} onClick={onRemove} {...props} />
     )}
 
     {!isFeatured && (
-      <StyledFeaturedButton icon={faStarRegular} size={size} onClick={onAdd} {...props} />
+      <S.FeaturedButton icon={faStarRegular} size={size} onClick={onAdd} {...props} />
     )}
   </>
 );

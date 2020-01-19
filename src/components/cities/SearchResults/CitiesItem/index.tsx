@@ -5,12 +5,7 @@ import generateCityName from 'utils/cityData/generateCityName';
 import FeaturedButton from 'components/common/buttons/FeaturedButton';
 import CountryFlag from 'components/common/icons/CountryFlag';
 
-import {
-  StyledCitiesItemWrapper,
-  StyledCitiesItemHeader,
-  StyledCitiesItemTitle,
-  StyledTitleButtonsWrapper,
-} from './styles';
+import * as S from './styles';
 
 type Props = {
   city: City;
@@ -27,14 +22,14 @@ const CitiesItem: React.FC<Props> = ({
   addCityToFeatured,
   removeCityFromFeatured,
 }): React.ReactElement => (
-  <StyledCitiesItemWrapper>
-    <StyledCitiesItemHeader>
-      <StyledCitiesItemTitle onClick={() => fetchCity(city.coords)}>
+  <S.CitiesItemWrapper>
+    <S.CitiesItemHeader>
+      <S.CitiesItemTitle onClick={() => fetchCity(city.coords)}>
         {`${generateCityName(city)} `}
         <CountryFlag country={city.country.toLowerCase()} size="1.2em" />
-      </StyledCitiesItemTitle>
+      </S.CitiesItemTitle>
 
-      <StyledTitleButtonsWrapper>
+      <S.TitleButtonsWrapper>
         <FeaturedButton
           isFeatured={isFeatured}
           onRemove={() => removeCityFromFeatured(city.id)}
@@ -48,9 +43,9 @@ const CitiesItem: React.FC<Props> = ({
             })
           }
         />
-      </StyledTitleButtonsWrapper>
-    </StyledCitiesItemHeader>
-  </StyledCitiesItemWrapper>
+      </S.TitleButtonsWrapper>
+    </S.CitiesItemHeader>
+  </S.CitiesItemWrapper>
 );
 
 export default CitiesItem;

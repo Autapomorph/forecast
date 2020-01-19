@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 
-export const StyledLayoutWrapper = styled.div`
+export const LayoutWrapper = styled.div`
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto auto;
@@ -21,11 +21,11 @@ export const StyledLayoutWrapper = styled.div`
   }
 `;
 
-export const StyledHeaderWrapper = styled.header`
+export const HeaderWrapper = styled.header`
   grid-area: header;
 `;
 
-export const StyledContentWrapper = styled.main`
+export const ContentWrapper = styled.main`
   display: grid;
   grid-area: main;
   grid-template-columns: 1fr;

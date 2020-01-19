@@ -1,9 +1,9 @@
 import styled from 'styled-components/macro';
 
 import ReorderButton from 'components/common/buttons/ReorderButton';
-import FeaturedButton from 'components/common/buttons/FeaturedButton';
+import CFeaturedButton from 'components/common/buttons/FeaturedButton';
 
-export const StyledFeaturedCityWrapper = styled.li`
+export const FeaturedCityWrapper = styled.li`
   display: flex;
   align-items: center;
   min-height: 50px;
@@ -15,13 +15,13 @@ export const StyledFeaturedCityWrapper = styled.li`
   font-weight: bold;
 `;
 
-export const StyledFeaturedCityTitle = styled.span`
+export const FeaturedCityTitle = styled.span`
   flex-grow: 1;
   padding: 15px 0;
   cursor: pointer;
 `;
 
-export const StyledFeaturedCityReorderButton = styled(ReorderButton)`
+export const FeaturedCityReorderButton = styled(ReorderButton)`
   display: flex;
   align-self: stretch;
   align-items: center;
@@ -30,7 +30,7 @@ export const StyledFeaturedCityReorderButton = styled(ReorderButton)`
   padding-right: 8px;
 `;
 
-export const StyledFeaturedButton = styled(FeaturedButton)`
+export const FeaturedButton = styled(CFeaturedButton)`
   flex-shrink: 0;
   padding-left: 8px;
   padding-right: 10px;

@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 
-export const StyledForecastWrapper = styled.div`
+export const ForecastWrapper = styled.div`
   grid-area: city-forecast;
   max-width: calc(100% - 25px * 2);
   margin: 30px auto 0;
@@ -10,24 +10,24 @@ export const StyledForecastWrapper = styled.div`
   }
 `;
 
-export const StyledForecastItem = styled.div`
+export const Item = styled.div`
   outline: none;
 `;
 
-export const StyledForecastItemDetail = styled.div`
+export const ItemDetail = styled.div`
   display: flex;
   flex-direction: column;
   padding-right: 10px;
   margin-top: 5px;
 `;
 
-export const StyledDescription = styled.div`
+export const Description = styled.div`
   height: 4.6em;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
 
-export const StyledItemDetailsList = styled.dl`
+export const ItemDetailsList = styled.dl`
   display: grid;
   grid-template-columns: [fd-icon] fit-content(20%) [fd-desc] auto;
   grid-gap: 5px;
@@ -37,7 +37,7 @@ export const StyledItemDetailsList = styled.dl`
   color: var(--light-gray);
 `;
 
-export const StyledIcon = styled.dt`
+export const Icon = styled.dt`
   grid-column: fd-icon;
   display: flex;
   justify-content: center;
@@ -45,7 +45,7 @@ export const StyledIcon = styled.dt`
   margin: 0;
 `;
 
-export const StyledIconDescription = styled.dd`
+export const IconDescription = styled.dd`
   grid-column: fd-desc;
   display: flex;
   justify-content: flex-start;
@@ -53,7 +53,7 @@ export const StyledIconDescription = styled.dd`
   margin: 0;
 `;
 
-export const StyledDivider = styled.hr`
+export const Divider = styled.hr`
   border: 0;
   border-top: 1px solid var(--gray);
   margin: 5px 0;

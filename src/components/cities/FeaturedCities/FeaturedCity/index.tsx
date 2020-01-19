@@ -5,12 +5,7 @@ import { City, Coords } from 'models';
 import generateCityName from 'utils/cityData/generateCityName';
 import CountryFlag from 'components/common/icons/CountryFlag';
 
-import {
-  StyledFeaturedCityWrapper,
-  StyledFeaturedCityTitle,
-  StyledFeaturedCityReorderButton,
-  StyledFeaturedButton,
-} from './styles';
+import * as S from './styles';
 
 type Props = {
   index: number;
@@ -27,19 +22,19 @@ const FeaturedCitiesItem: React.FC<Props> = ({
 }): React.ReactElement => (
   <Draggable draggableId={city.id.toString()} index={index}>
     {(provided, snapshot) => (
-      <StyledFeaturedCityWrapper ref={provided.innerRef} {...provided.draggableProps}>
-        <StyledFeaturedCityReorderButton
+      <S.FeaturedCityWrapper ref={provided.innerRef} {...provided.draggableProps}>
+        <S.FeaturedCityReorderButton
           isDragging={snapshot.isDragging}
           {...provided.dragHandleProps}
         />
 
-        <StyledFeaturedCityTitle onClick={() => fetchCity(city.coords)}>
+        <S.FeaturedCityTitle onClick={() => fetchCity(city.coords)}>
           {`${generateCityName(city)} `}
           <CountryFlag country={city.country.toLowerCase()} size="1.2em" />
-        </StyledFeaturedCityTitle>
+        </S.FeaturedCityTitle>
 
-        <StyledFeaturedButton isFeatured onRemove={() => removeCityFromFeatured(city.id)} />
-      </StyledFeaturedCityWrapper>
+        <S.FeaturedButton isFeatured onRemove={() => removeCityFromFeatured(city.id)} />
+      </S.FeaturedCityWrapper>
     )}
   </Draggable>
 );

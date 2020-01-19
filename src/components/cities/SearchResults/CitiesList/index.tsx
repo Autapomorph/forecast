@@ -3,7 +3,7 @@ import React from 'react';
 import { City, Coords } from 'models';
 import CitiesItem from '../CitiesItem';
 
-import { StyledCitiesList } from './styles';
+import * as S from './styles';
 
 type Props = {
   cities: City[];
@@ -20,7 +20,7 @@ const CitiesList: React.FC<Props> = ({
   addCityToFeatured,
   removeCityFromFeatured,
 }): React.ReactElement => (
-  <StyledCitiesList>
+  <S.CitiesList>
     {Object.values(cities).map(city => (
       <CitiesItem
         key={city.id}
@@ -31,7 +31,7 @@ const CitiesList: React.FC<Props> = ({
         removeCityFromFeatured={removeCityFromFeatured}
       />
     ))}
-  </StyledCitiesList>
+  </S.CitiesList>
 );
 
 export default CitiesList;

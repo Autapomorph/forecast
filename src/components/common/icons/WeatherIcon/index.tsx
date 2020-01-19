@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyledWeatherIcon } from './styles';
+import * as S from './styles';
 
 type Props = {
   tag?: React.ElementType;
@@ -59,7 +59,7 @@ const WeatherIcon: React.FC<Props> = ({
       break;
   }
 
-  return <StyledWeatherIcon as={tag} className={classNames.join(' ')} size={fontSize} />;
+  return <S.WeatherIcon as={tag} className={classNames.join(' ')} size={fontSize} />;
 };
 
 export default WeatherIcon;

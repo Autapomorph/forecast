@@ -4,7 +4,7 @@ type SwitchButtonProps = {
   checked: boolean;
 };
 
-export const StyledSwitchButton = styled.span`
+export const SwitchButton = styled.span`
   flex: 1 1 0;
   border: 1px solid var(--light-gray);
   background: var(--white);
@@ -47,7 +47,7 @@ export const StyledSwitchButton = styled.span`
     `}
 `;
 
-export const StyledLabel = styled.label`
+export const Label = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,11 +57,11 @@ export const StyledLabel = styled.label`
   cursor: pointer;
 `;
 
-export const StyledLabelText = styled.span`
+export const LabelText = styled.span`
   overflow: hidden;
 `;
 
-export const StyledRadioButton = styled.input.attrs({
+export const RadioButton = styled.input.attrs({
   type: 'radio',
 })`
   display: none;

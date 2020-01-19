@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { StyledMessageWrapper, StyledMessageContent } from './styles';
+import * as S from './styles';
 
 const Message: React.FC = ({ children, ...props }): React.ReactElement => (
-  <StyledMessageWrapper {...props}>
-    <StyledMessageContent>{children}</StyledMessageContent>
-  </StyledMessageWrapper>
+  <S.MessageWrapper {...props}>
+    <S.MessageContent>{children}</S.MessageContent>
+  </S.MessageWrapper>
 );
 
 export default Message;

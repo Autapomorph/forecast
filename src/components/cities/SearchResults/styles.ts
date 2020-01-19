@@ -4,13 +4,13 @@ type SearchResultsSectionProps = {
   isLoading: boolean;
 };
 
-export const StyledSearchResultsSection = styled.section`
+export const SearchResultsSection = styled.section`
   grid-area: cities;
   padding: 0 10px;
   margin-bottom: ${({ isLoading }: SearchResultsSectionProps) => (isLoading ? '0' : '20px')};
 `;
 
-export const StyledSearchResultsHeader = styled.div`
+export const SearchResultsHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

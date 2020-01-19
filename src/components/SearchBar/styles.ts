@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components/macro';
 
-export const StyledSearchForm = styled.form`
+export const SearchForm = styled.form`
   display: flex;
   width: 100%;
   padding: 0 10px;
   margin-bottom: 15px;
 `;
 
-export const StyledSearchInput = styled.input.attrs({
+export const SearchInput = styled.input.attrs({
   type: 'text',
 })`
   flex-grow: 1;
@@ -26,12 +26,12 @@ export const StyledSearchInput = styled.input.attrs({
   }
 `;
 
-export const StyledInputButtonsBlock = styled.div`
+export const InputButtonsBlock = styled.div`
   display: flex;
   flex-direction: row;
 `;
 
-export const StyledInputButton = styled.button.attrs({
+export const InputButton = styled.button.attrs({
   type: 'button',
 })`
   display: flex;
@@ -68,6 +68,6 @@ export const StyledInputButton = styled.button.attrs({
     `}
 `;
 
-export const StyledSearchButton = styled(StyledInputButton).attrs({
+export const SearchButton = styled(InputButton).attrs({
   type: 'submit',
 })``;

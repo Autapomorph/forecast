@@ -1,6 +1,12 @@
 {
-  "short_name": "Forecast",
-  "name": "Forecast",
+  "name": "Forecaster",
+  "short_name": "Forecaster",
+  "description": "Weather in your place",
+  "categories": ["weather"],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#1b3040",
+  "background_color": "#1b3040",
   "icons": [
     {
       "src": "favicon.ico",
@@ -17,9 +23,5 @@
       "type": "image/png",
       "sizes": "512x512"
     }
-  ],
-  "start_url": "./index.html",
-  "display": "standalone",
-  "theme_color": "#1b3040",
-  "background_color": "#1b3040"
+  ]
 }

@@ -9,7 +9,7 @@ import CountryFlag from 'components/common/icons/CountryFlag';
 import RetryButton from 'components/common/buttons/RetryButton';
 import FeaturedButton from 'components/common/buttons/FeaturedButton';
 
-import { StyledCityHeader, StyledTitleButtonsWrapper } from './styles';
+import * as S from './styles';
 
 type Props = {
   city: City & Weather;
@@ -29,7 +29,7 @@ const CityHeader: React.FC<Props> = ({
   const { i18n } = useTranslation();
 
   return (
-    <StyledCityHeader>
+    <S.CityHeader>
       <Title>
         {`${generateCityName(city)} `}
         <CountryFlag country={city.country.toLowerCase()} />
@@ -40,8 +40,8 @@ const CityHeader: React.FC<Props> = ({
         </Title.Subtitle>
       </Title>
 
-      <StyledTitleButtonsWrapper>
-        <RetryButton onClick={refetchCityWeather} size="lg" />
+      <S.TitleButtonsWrapper>
+        <RetryButton onClick={refetchCityWeather} />
         <FeaturedButton
           isFeatured={isFeatured}
           onRemove={() => removeCityFromFeatured(city.id)}
@@ -55,8 +55,8 @@ const CityHeader: React.FC<Props> = ({
             })
           }
         />
-      </StyledTitleButtonsWrapper>
-    </StyledCityHeader>
+      </S.TitleButtonsWrapper>
+    </S.CityHeader>
   );
 };
 

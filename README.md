@@ -18,7 +18,3 @@ Weather forecast sample app
 ## How to test?
 
 - `npm test`
-
-## Troubleshooting
-
-**If you get error while fetching cities and/or weather, please try to use VPN**

@@ -8,7 +8,6 @@ export function toDayMonthHourMinutes(timestamp: DateTime, locale: string): stri
     hour: 'numeric',
     minute: '2-digit',
   };
-
   return timestamp.setLocale(locale).toLocaleString(dateTimeFormatOptions);
 }
 
@@ -18,12 +17,20 @@ export function toDayMonth(timestamp: DateTime, locale: string): string {
     month: 'short',
     weekday: 'short',
   };
-
   return timestamp.setLocale(locale).toLocaleString(dateTimeFormatOptions);
 }
 
 export function toHourMinutes(timestamp: DateTime, locale: string): string {
-  const dateTimeFormatOptions: DateTimeFormatOptions = DateTime.TIME_SIMPLE;
-
+  const dateTimeFormatOptions = DateTime.TIME_SIMPLE;
   return timestamp.setLocale(locale).toLocaleString(dateTimeFormatOptions);
+}
+
+export function getDurationHourMinutes(
+  startT: DateTime,
+  endT: DateTime,
+  hoursSymbol: string,
+  minutesSymbol: string,
+): string {
+  const duration = endT.minus({ hours: startT.hour, minutes: startT.minute });
+  return duration.toFormat(`H'${hoursSymbol}' m'${minutesSymbol}'`);
 }

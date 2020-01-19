@@ -4,7 +4,7 @@ import { Droppable } from 'react-beautiful-dnd';
 import { City, Coords } from 'models';
 import FeaturedCity from '../FeaturedCity';
 
-import { StyledFeaturedList } from './styles';
+import * as S from './styles';
 
 type Props = {
   cities: City[];
@@ -31,7 +31,7 @@ const FeaturedCitiesList: React.FC<Props> = ({
     <Droppable droppableId="featured-cities">
       {provided => (
         <>
-          <StyledFeaturedList ref={provided.innerRef}>{featuredCities}</StyledFeaturedList>
+          <S.FeaturedList ref={provided.innerRef}>{featuredCities}</S.FeaturedList>
           {provided.placeholder}
         </>
       )}

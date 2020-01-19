@@ -1,21 +1,24 @@
 import React from 'react';
-import { FontAwesomeIcon, Props as FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconProp, SizeProp } from '@fortawesome/fontawesome-svg-core';
 
-import { StyledIconButton } from './styles';
+import * as S from './styles';
 
-const BaseIconButton: React.FC<FontAwesomeIconProps> = ({
+type Props = {
+  icon: IconProp;
+  size?: SizeProp;
+  onClick?: (event: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
+};
+
+const BaseIconButton: React.FC<Props> = ({
   icon,
-  size,
-  onClick = () => {},
+  size = 'lg',
+  onClick,
   ...props
 }): React.ReactElement => (
-  <>
-    {/*
-    // @ts-ignore */}
-    <StyledIconButton {...props}>
-      <FontAwesomeIcon icon={icon} size={size} onClick={onClick} />
-    </StyledIconButton>
-  </>
+  <S.IconButton {...props}>
+    <FontAwesomeIcon icon={icon} size={size} onClick={onClick} />
+  </S.IconButton>
 );
 
 export default BaseIconButton;

@@ -37,8 +37,8 @@ export const fetchCityWeatherByPosition = (
 
   try {
     const [rawCityWeatherData, rawNearbyData] = await Promise.all([
-      WeatherService.fetchCityWeather(position),
-      GeonamesService.fetchNearbyPlace(position),
+      WeatherService.request(position),
+      GeonamesService.request(position),
     ]);
 
     const cityWeatherData = formatWeather(rawCityWeatherData);

@@ -1,17 +1,17 @@
 import { Coords } from 'models';
-import { IPAPI_API } from 'config/geolocation';
+import { API_CHECK } from 'config/geolocation';
 import { isProd } from 'utils';
 
 export default class GeolocationService {
   public static fetchGeolocation = (): Promise<Coords> =>
     new Promise((resolve, reject) => {
-      const successCb: PositionCallback = (position): void =>
+      const onSuccess: PositionCallback = (position): void =>
         resolve({
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
         });
 
-      const errorCb: PositionErrorCallback = ({ code }: PositionError): void => {
+      const onError: PositionErrorCallback = ({ code }: PositionError): void => {
         switch (code) {
           case 1:
             return reject(new Error('messages.errors.geolocation.permissionDenied'));
@@ -24,11 +24,11 @@ export default class GeolocationService {
         }
       };
 
-      navigator.geolocation.getCurrentPosition(successCb, errorCb);
+      navigator.geolocation.getCurrentPosition(onSuccess, onError);
     });
 
   public static fetchGeolocationByIP = async (): Promise<Coords> => {
-    const response = await fetch(IPAPI_API);
+    const response = await fetch(API_CHECK);
 
     if (!response.ok) {
       throw new Error('messages.errors.geolocation.geoIPFetchFailed');

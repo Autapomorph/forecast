@@ -15,30 +15,29 @@ module.exports = {
     'jest-enzyme',
   ],
   rules: {
+    'no-prototype-builtins': 'off',
+    'spaced-comment': ['error', 'always', { markers: ['/'] }],
     'import/extensions': 'off',
-    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'import/no-named-as-default': 'off',
-    'react/jsx-one-expression-per-line': 'off',
-    'react/jsx-filename-extension': 'off',
+    'import/prefer-default-export': 'off',
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'react/prop-types': 'off',
+    'react/jsx-filename-extension': 'off',
     'react/jsx-props-no-spreading': 'off',
-    '@typescript-eslint/no-empty-function': 'off',
-    '@typescript-eslint/interface-name-prefix': 'off',
+    'react/jsx-one-expression-per-line': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
-    'no-useless-constructor': 'off',
-    '@typescript-eslint/no-useless-constructor': 'error',
   },
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
       rules: {
+        'no-useless-constructor': 'off',
+        '@typescript-eslint/no-useless-constructor': 'error',
         '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true }],
-      },
-    },
-    {
-      files: ['styles.js', 'styles.ts'],
-      rules: {
-        'import/prefer-default-export': 'off',
+        '@typescript-eslint/no-empty-function': [
+          'error',
+          { allow: ['protected-constructors', 'private-constructors'] },
+        ],
       },
     },
   ],

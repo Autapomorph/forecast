@@ -5,7 +5,7 @@ type CountryFlagProps = {
   size: string;
 };
 
-export const StyledCountryFlag = styled.span`
+export const CountryFlag = styled.span`
   display: inline-block;
   width: 1em;
   height: 1em;

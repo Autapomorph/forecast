@@ -35,7 +35,7 @@ export const fetchCititesByName = (
   dispatch(fetchCitiesByNameRequest(searchParams));
 
   try {
-    const rawCitiesData = await GeonamesService.fetchCitiesByName(searchParams);
+    const rawCitiesData = await GeonamesService.request(searchParams);
     const citiesData = formatCities(rawCitiesData);
 
     if (citiesData) {

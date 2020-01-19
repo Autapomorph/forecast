@@ -16,7 +16,7 @@ import TrashButton from 'components/common/buttons/TrashButton';
 import EmptyResult from 'components/common/messages/EmptyResult';
 import FeaturedCitiesList from './FeaturedCitiesList';
 
-import { StyledFeaturedCitiesSection, StyledFeaturedCitiesHeader } from './styles';
+import * as S from './styles';
 
 type Props = ConnectedProps<typeof connector>;
 
@@ -28,6 +28,7 @@ export const FeaturedCities: React.FC<Props> = ({
   _reorderFeaturedCities,
 }): React.ReactElement => {
   const { t } = useTranslation();
+  const tC = (key: string, options?: object): string => t(`cities.featured.${key}`, options);
   const isEmpty = !featuredCities || !Object.keys(featuredCities).length;
 
   const onDragEnd = ({ source, destination }: DropResult): void => {
@@ -43,14 +44,14 @@ export const FeaturedCities: React.FC<Props> = ({
   };
 
   return (
-    <StyledFeaturedCitiesSection>
-      <StyledFeaturedCitiesHeader>
-        <Title>{t('cities.featured.title')}</Title>
+    <S.FeaturedCitiesSection>
+      <S.FeaturedCitiesHeader>
+        <Title>{tC('title')}</Title>
 
         <TrashButton isEmpty={isEmpty} onClick={_clearFeaturedCities} />
-      </StyledFeaturedCitiesHeader>
+      </S.FeaturedCitiesHeader>
 
-      {isEmpty && <EmptyResult>{t('cities.featured.addToFeatured')}</EmptyResult>}
+      {isEmpty && <EmptyResult>{tC('addToFeatured')}</EmptyResult>}
 
       {!isEmpty && (
         <DragDropContext onDragEnd={onDragEnd}>
@@ -61,7 +62,7 @@ export const FeaturedCities: React.FC<Props> = ({
           />
         </DragDropContext>
       )}
-    </StyledFeaturedCitiesSection>
+    </S.FeaturedCitiesSection>
   );
 };
 

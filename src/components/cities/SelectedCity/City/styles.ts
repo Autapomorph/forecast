@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 
-export const StyledCityWrapper = styled.div`
+export const CityWrapper = styled.div`
   @media screen and (min-width: 600px) {
     display: grid;
     grid-template-columns: 1fr 1.5fr;

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Locale } from 'models';
 
-import { StyledSwitchButton, StyledLabel, StyledRadioButton, StyledLabelText } from './styles';
+import * as S from './styles';
 
 type Props = {
   language: Locale;
@@ -15,18 +15,18 @@ const LanguageButton: React.FC<Props> = ({
   checked,
   handleChange,
 }): React.ReactElement => (
-  <StyledSwitchButton checked={checked}>
-    <StyledLabel>
-      <StyledRadioButton
+  <S.SwitchButton checked={checked}>
+    <S.Label>
+      <S.RadioButton
         name="language"
         value={language.code}
         checked={checked}
         onChange={() => handleChange(language)}
       />
 
-      <StyledLabelText>{language.title}</StyledLabelText>
-    </StyledLabel>
-  </StyledSwitchButton>
+      <S.LabelText>{language.title}</S.LabelText>
+    </S.Label>
+  </S.SwitchButton>
 );
 
 export default LanguageButton;

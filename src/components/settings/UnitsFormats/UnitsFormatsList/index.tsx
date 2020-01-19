@@ -3,7 +3,7 @@ import React from 'react';
 import { UnitFormat } from 'models';
 import UnitsFormatsButton from '../UnitsFormatsButton';
 
-import { StyledUnitsFormatSwitcher } from './styles';
+import * as S from './styles';
 
 type Props = {
   unitsFormats: UnitFormat[];
@@ -16,7 +16,7 @@ const UnitsFormatList: React.FC<Props> = ({
   selectedUnitsFormat,
   handleChangeUnitsFormat,
 }): React.ReactElement => (
-  <StyledUnitsFormatSwitcher>
+  <S.UnitsFormatSwitcher>
     {Object.values(unitsFormats).map(unitsFormat => (
       <UnitsFormatsButton
         key={unitsFormat}
@@ -25,7 +25,7 @@ const UnitsFormatList: React.FC<Props> = ({
         handleChange={handleChangeUnitsFormat}
       />
     ))}
-  </StyledUnitsFormatSwitcher>
+  </S.UnitsFormatSwitcher>
 );
 
 export default UnitsFormatList;

@@ -5,7 +5,7 @@ import CityHeader from '../CityHeader';
 import WeatherDetails from '../WeatherDetails';
 import ForecastDetails from '../ForecastDetails';
 
-import { StyledCityWrapper } from './styles';
+import * as S from './styles';
 
 type Props = {
   city: TCity & Weather;
@@ -22,7 +22,7 @@ const City: React.FC<Props> = ({
   addCityToFeatured,
   removeCityFromFeatured,
 }): React.ReactElement => (
-  <StyledCityWrapper>
+  <S.CityWrapper>
     <CityHeader
       city={city}
       isFeatured={isFeatured}
@@ -32,7 +32,7 @@ const City: React.FC<Props> = ({
     />
     <WeatherDetails city={city} />
     <ForecastDetails city={city} />
-  </StyledCityWrapper>
+  </S.CityWrapper>
 );
 
 export default City;

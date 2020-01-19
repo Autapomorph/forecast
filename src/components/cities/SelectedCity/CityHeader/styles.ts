@@ -1,17 +1,17 @@
 import styled from 'styled-components/macro';
 
-import { StyledTitle } from 'components/common/Title/styles';
+import { Title } from 'components/common/Title/styles';
 
-export const StyledCityHeader = styled.div`
+export const CityHeader = styled.div`
   grid-area: city-title;
   display: flex;
 
-  ${StyledTitle} {
+  ${Title} {
     flex-grow: 1;
   }
 `;
 
-export const StyledTitleButtonsWrapper = styled.div`
+export const TitleButtonsWrapper = styled.div`
   flex-shrink: 0;
 
   > :not(:last-child) {
