@@ -10,11 +10,10 @@ module.exports = {
       `prettier --write ${filenamesString}`,
       `stylelint ${filenamesString}`,
       `eslint --max-warnings=0 ${eslintMatch}`,
-      `git add ${filenamesString}`,
     ];
   },
 
-  '*.{css,scss,sass,less}': ['prettier --write', 'stylelint --fix', 'git add'],
+  '*.{css,scss,sass,less}': ['prettier --write', 'stylelint --fix'],
 
-  '*.{json,md}': [`prettier --write`, `git add`],
+  '*.{json,md}': [`prettier --write`],
 };
