@@ -2,7 +2,7 @@ module.exports = {
   extends: [
     'stylelint-config-standard',
     'stylelint-config-styled-components',
-    'stylelint-config-prettier',
+    'stylelint-prettier/recommended',
   ],
   rules: {
     'declaration-empty-line-before': 'never',
