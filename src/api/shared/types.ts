@@ -1,5 +1,5 @@
 export type ServerConfig = {
-  host: string;
+  hostname: string;
   port: string;
   protocol: string;
   url: string;

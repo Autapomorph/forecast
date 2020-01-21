@@ -4,11 +4,12 @@ import chalk from 'chalk';
 import DarkSky from 'dark-sky';
 
 import config from './server/config';
+import { API_KEY as DARKSKY_API_KEY } from './shared/weather';
 
 const { url, port } = config;
 
 const app = express();
-const darksky = new DarkSky(process.env.REACT_APP_DARKSKY_API_KEY || '');
+const darksky = new DarkSky(DARKSKY_API_KEY);
 
 app.use(cors());
 app.enable('trust proxy');

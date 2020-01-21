@@ -13,7 +13,7 @@ export default function createConfig(): ServerConfig {
   });
 
   const serverConfig: ServerConfig = {
-    host: HOSTNAME,
+    hostname: HOSTNAME,
     port: PORT,
     protocol: PROTOCOL,
     url: URL,

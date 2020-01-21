@@ -1,5 +1,5 @@
-import { Coords } from 'models';
-import { API_CHECK } from 'config/geolocation';
+import { Coords, IPGeolocationResponseObject } from 'models';
+import { IPDATA_API } from 'config/geolocation';
 import { isProd } from 'utils';
 
 export default class GeolocationService {
@@ -28,17 +28,17 @@ export default class GeolocationService {
     });
 
   public static fetchGeolocationByIP = async (): Promise<Coords> => {
-    const response = await fetch(API_CHECK);
+    const response = await fetch(IPDATA_API);
 
     if (!response.ok) {
       throw new Error('messages.errors.geolocation.geoIPFetchFailed');
     }
 
-    const geolocationData = await response.json();
+    const geolocationData: IPGeolocationResponseObject = await response.json();
 
-    if (geolocationData.error) {
+    if (geolocationData.message) {
       if (isProd) throw new Error('messages.errors.geolocation.geoIPFetchFailed');
-      throw new Error(geolocationData.reason);
+      throw new Error(geolocationData.message);
     }
 
     return {

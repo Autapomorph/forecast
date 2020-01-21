@@ -2,7 +2,7 @@
   "name": "forecast",
   "description": "Weather in your place",
   "version": "0.9.0",
-  "homepage": "https://github.com/Autapomorph/forecast",
+  "homepage": "https://forecaster.now.sh/",
   "author": "Autapomorph (https://github.com/Autapomorph)",
   "repository": {
     "type": "git",
@@ -75,6 +75,7 @@
     "@types/jest": "^24.9.0",
     "@types/luxon": "^1.21.0",
     "@types/node": "^13.1.8",
+    "@types/node-fetch": "^2.5.4",
     "@types/qs": "^6.9.0",
     "@types/react": "^16.9.17",
     "@types/react-beautiful-dnd": "^11.0.4",
