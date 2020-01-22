@@ -3,7 +3,7 @@ import { ThunkAction } from 'redux-thunk';
 import { City } from 'models';
 import { RootState } from 'store/types';
 import { getIsAnythingLoading } from 'store/rootSelectors';
-import GeonamesService from 'services/geonames';
+import citiesService from 'services/cities';
 import { isProd } from 'utils';
 import formatCities from 'utils/cityData/formatCities';
 import { Actions, Types } from '../types';
@@ -35,7 +35,7 @@ export const fetchCititesByName = (
   dispatch(fetchCitiesByNameRequest(searchParams));
 
   try {
-    const rawCitiesData = await GeonamesService.request(searchParams);
+    const rawCitiesData = await citiesService.request(searchParams);
     const citiesData = formatCities(rawCitiesData);
 
     if (citiesData) {

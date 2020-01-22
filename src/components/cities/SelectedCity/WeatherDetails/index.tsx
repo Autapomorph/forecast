@@ -61,7 +61,7 @@ const WeatherDetails: React.FC<Props> = ({ city }): React.ReactElement => {
         <S.ItemTitle>{tC('humidity')}:</S.ItemTitle>
         <S.ItemDescription>{`${city.weather.humidity}%`}</S.ItemDescription>
 
-        <S.ItemTitle>{tC('daytime')}:</S.ItemTitle>
+        <S.ItemTitle>{tC('daylightHours')}:</S.ItemTitle>
         <S.ItemDescription>
           {`${toHourMinutes(city.weather.sunrise, i18n.language)} — ${toHourMinutes(
             city.weather.sunset,
@@ -69,7 +69,7 @@ const WeatherDetails: React.FC<Props> = ({ city }): React.ReactElement => {
           )}`}
         </S.ItemDescription>
 
-        <S.ItemTitle>{tC('daylength')}:</S.ItemTitle>
+        <S.ItemTitle />
         <S.ItemDescription>
           {getDurationHourMinutes(
             city.weather.sunrise,

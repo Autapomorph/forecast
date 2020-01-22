@@ -1,8 +1,8 @@
-import qs from 'qs';
+import qs, { IStringifyOptions } from 'qs';
 
 export default function combineQueryParams(
   queryParams: object,
-  options?: qs.IStringifyOptions,
+  options?: IStringifyOptions,
 ): string {
-  return qs.stringify(queryParams, { encode: false, ...options });
+  return qs.stringify(queryParams, { ...options, encode: false });
 }

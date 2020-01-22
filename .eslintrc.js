@@ -16,6 +16,7 @@ module.exports = {
   ],
   rules: {
     'no-prototype-builtins': 'off',
+    'class-methods-use-this': 'off',
     'spaced-comment': ['error', 'always', { markers: ['/'] }],
     'import/extensions': 'off',
     'import/no-named-as-default': 'off',

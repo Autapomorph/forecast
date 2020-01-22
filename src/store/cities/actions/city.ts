@@ -3,8 +3,8 @@ import { ThunkAction } from 'redux-thunk';
 import { City, Weather, Coords } from 'models';
 import { RootState } from 'store/types';
 import { getIsAnythingLoading } from 'store/rootSelectors';
-import WeatherService from 'services/weather';
-import GeonamesService from 'services/geonames';
+import weatherService from 'services/weather';
+import citiesService from 'services/cities';
 import { isProd } from 'utils';
 import formatWeather from 'utils/weatherData/formatWeather';
 import formatCities from 'utils/cityData/formatCities';
@@ -37,8 +37,8 @@ export const fetchCityWeatherByPosition = (
 
   try {
     const [rawCityWeatherData, rawNearbyData] = await Promise.all([
-      WeatherService.request(position),
-      GeonamesService.request(position),
+      weatherService.request(position),
+      citiesService.request(position),
     ]);
 
     const cityWeatherData = formatWeather(rawCityWeatherData);

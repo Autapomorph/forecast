@@ -11,8 +11,7 @@
         "humidity": "Humidity",
         "wind": "Wind",
         "cloudiness": "Cloudiness",
-        "daytime": "Daytime",
-        "daylength": "Day length",
+        "daylightHours": "Daylight hours",
         "sunrise": "Sunrise",
         "sunset": "Sunset",
         "hours": "h",
@@ -36,7 +35,7 @@
       "weather": {
         "fetchFailed": "Weather fetching failed"
       },
-      "geonames": {
+      "cities": {
         "search": {
           "fetchFailed": "Searching failed"
         },

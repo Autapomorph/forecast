@@ -11,8 +11,7 @@
         "humidity": "Влажность",
         "wind": "Ветер",
         "cloudiness": "Облачность",
-        "daytime": "День",
-        "daylength": "Долгота дня",
+        "daylightHours": "Световой день",
         "sunrise": "Восход",
         "sunset": "Заход",
         "hours": "ч",
@@ -36,7 +35,7 @@
       "weather": {
         "fetchFailed": "Ошибка загрузки погоды"
       },
-      "geonames": {
+      "cities": {
         "search": {
           "fetchFailed": "Не удалось выполнить поиск"
         },

@@ -1,10 +1,10 @@
+import Service from 'services';
 import { Coords, IPGeolocationResponseObject } from 'models';
-import { IPDATA_API } from 'config/geolocation';
-import { isProd } from 'utils';
+import { API_GEOIP } from 'config/geolocation';
 
-export default class GeolocationService {
-  public static fetchGeolocation = (): Promise<Coords> =>
-    new Promise((resolve, reject) => {
+class GeolocationService extends Service {
+  public fetchGeolocation(): Promise<Coords> {
+    return new Promise((resolve, reject) => {
       const onSuccess: PositionCallback = (position): void =>
         resolve({
           latitude: position.coords.latitude,
@@ -26,24 +26,23 @@ export default class GeolocationService {
 
       navigator.geolocation.getCurrentPosition(onSuccess, onError);
     });
+  }
 
-  public static fetchGeolocationByIP = async (): Promise<Coords> => {
-    const response = await fetch(IPDATA_API);
+  public async fetchGeolocationByIP(): Promise<Coords> {
+    let geolocationData: IPGeolocationResponseObject;
+    const apiEndpoint = API_GEOIP;
 
-    if (!response.ok) {
+    try {
+      geolocationData = await this.fetch(apiEndpoint);
+    } catch {
       throw new Error('messages.errors.geolocation.geoIPFetchFailed');
-    }
-
-    const geolocationData: IPGeolocationResponseObject = await response.json();
-
-    if (geolocationData.message) {
-      if (isProd) throw new Error('messages.errors.geolocation.geoIPFetchFailed');
-      throw new Error(geolocationData.message);
     }
 
     return {
       latitude: geolocationData.latitude,
       longitude: geolocationData.longitude,
     };
-  };
+  }
 }
+
+export default new GeolocationService();

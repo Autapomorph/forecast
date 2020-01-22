@@ -6,7 +6,7 @@ export function toDayMonthHourMinutes(timestamp: DateTime, locale: string): stri
     month: 'short',
     weekday: 'short',
     hour: 'numeric',
-    minute: '2-digit',
+    minute: 'numeric',
   };
   return timestamp.setLocale(locale).toLocaleString(dateTimeFormatOptions);
 }

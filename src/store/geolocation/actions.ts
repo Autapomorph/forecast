@@ -2,7 +2,7 @@ import { ThunkAction } from 'redux-thunk';
 
 import { Coords } from 'models';
 import { RootState } from 'store/types';
-import GeolocationService from 'services/geolocation';
+import geolocationService from 'services/geolocation';
 import { isProd } from 'utils';
 import { Actions, Types } from './types';
 
@@ -34,7 +34,7 @@ export const fetchGeolocation = (): ThunkAction<
   dispatch(fetchGeoLocationRequest());
 
   try {
-    const geoData = await GeolocationService.fetchGeolocation();
+    const geoData = await geolocationService.fetchGeolocation();
     dispatch(fetchGeoLocationSuccess(geoData));
   } catch (error) {
     dispatch(fetchGeoLocationFailure(error));
@@ -50,7 +50,7 @@ export const fetchGeolocationByIP = (): ThunkAction<
   dispatch(fetchGeoLocationRequest());
 
   try {
-    const geoData = await GeolocationService.fetchGeolocationByIP();
+    const geoData = await geolocationService.fetchGeolocationByIP();
     dispatch(fetchGeoLocationSuccess(geoData));
   } catch (error) {
     if (isProd) {
