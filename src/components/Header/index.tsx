@@ -5,7 +5,7 @@ import SettingsBar from 'components/settings/SettingsBar';
 
 import * as S from './styles';
 
-const Header: React.FC = (): React.ReactElement => (
+const Header = (): React.ReactElement => (
   <S.Header>
     <SearchBar />
     <SettingsBar />

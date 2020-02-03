@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components/macro';
 
 import BaseIconButton from 'components/common/buttons/BaseIconButton';
 
-type ReorderButtonProps = {
+type Props = {
   isDragging: boolean;
 };
 
@@ -13,7 +13,7 @@ export const ReorderButton = styled(BaseIconButton)`
     color: var(--secondary-text-color);
   }
 
-  ${/* sc-dec */ ({ isDragging }: ReorderButtonProps) =>
+  ${({ isDragging }: Props) =>
     isDragging &&
     css`
       color: var(--contrast-text-color);

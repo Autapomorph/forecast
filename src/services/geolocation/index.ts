@@ -1,5 +1,5 @@
 import Service from 'services';
-import { Coords, IPGeolocationResponseObject } from 'models';
+import { Coords, GeoIPAPIResponse } from 'models';
 import { API_GEOIP } from 'config/geolocation';
 
 class GeolocationService extends Service {
@@ -29,7 +29,7 @@ class GeolocationService extends Service {
   }
 
   public async fetchGeolocationByIP(): Promise<Coords> {
-    let geolocationData: IPGeolocationResponseObject;
+    let geolocationData: GeoIPAPIResponse;
     const apiEndpoint = API_GEOIP;
 
     try {

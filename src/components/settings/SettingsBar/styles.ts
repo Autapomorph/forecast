@@ -1,11 +1,9 @@
-import styled, { createGlobalStyle } from 'styled-components/macro';
+import styled from 'styled-components/macro';
 import '@fortawesome/fontawesome-free/css/solid.min.css';
 
 export const SettingsBar = styled.div`
   padding: 0 10px;
-`;
 
-export const GlobalStyleCollapsible = createGlobalStyle`
   .Collapsible {
     border-radius: 5px;
     background: var(--white);

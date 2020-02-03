@@ -2,6 +2,8 @@
 
 exports[`Message tests renders properly 1`] = `
 <styles__MessageWrapper>
-  <styles__MessageContent />
+  <styles__MessageContent>
+    Test
+  </styles__MessageContent>
 </styles__MessageWrapper>
 `;

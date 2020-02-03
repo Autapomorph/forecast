@@ -1,9 +1,11 @@
-import { PersistPartial } from 'redux-persist/es/persistReducer';
-
-import { City, Weather } from 'models';
-import { Actions as CityActions, Types as CityTypes } from './city';
-import { Actions as CitiesActions, Types as CitiesTypes } from './cities';
-import { Actions as FeaturedCitiesActions, Types as FeaturedCitiesTypes } from './featuredCities';
+import { State as ActiveState } from './active';
+import { State as CityState, Actions as CityActions, Types as CityTypes } from './city';
+import { State as CitiesState, Actions as CitiesActions, Types as CitiesTypes } from './cities';
+import {
+  State as FeaturedState,
+  Actions as FeaturedActions,
+  Types as FeaturedTypes,
+} from './featured';
 
 /**
  * action types
@@ -11,34 +13,20 @@ import { Actions as FeaturedCitiesActions, Types as FeaturedCitiesTypes } from '
 export const Types = {
   ...CityTypes,
   ...CitiesTypes,
-  ...FeaturedCitiesTypes,
+  ...FeaturedTypes,
 };
 
 /**
  * actions
  */
-export type Actions = CityActions | CitiesActions | FeaturedCitiesActions;
+export type Actions = CityActions | CitiesActions | FeaturedActions;
 
 /**
  * state
  */
 export type State = {
-  readonly selectedCity: {
-    data: (City & Weather) | null;
-    active: boolean;
-    loading: boolean;
-    errorMessage: string | null;
-  };
-  readonly cities: {
-    data: City[];
-    searchTerm: string;
-    active: boolean;
-    loading: boolean;
-    errorMessage: string | null;
-  };
-  readonly featuredCities: {
-    data: City[];
-  };
+  readonly active: ActiveState;
+  readonly city: CityState;
+  readonly cities: CitiesState;
+  readonly featured: FeaturedState;
 };
-
-export type CitiesState = State & PersistPartial;

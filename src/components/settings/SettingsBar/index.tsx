@@ -7,12 +7,11 @@ import Languages from 'components/settings/Languages';
 
 import * as S from './styles';
 
-const SettingsBar: React.FC = (): React.ReactElement => {
+const SettingsBar = (): React.ReactElement => {
   const { t } = useTranslation();
 
   return (
     <S.SettingsBar>
-      <S.GlobalStyleCollapsible />
       <Collapsible trigger={t('settings.title')}>
         <Languages />
         <UnitsFormats />

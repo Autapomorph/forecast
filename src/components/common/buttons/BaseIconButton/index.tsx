@@ -10,12 +10,7 @@ type Props = {
   onClick?: (event: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
 };
 
-const BaseIconButton: React.FC<Props> = ({
-  icon,
-  size = 'lg',
-  onClick,
-  ...props
-}): React.ReactElement => (
+const BaseIconButton = ({ icon, size = 'lg', onClick, ...props }: Props): React.ReactElement => (
   <S.IconButton {...props}>
     <FontAwesomeIcon icon={icon} size={size} onClick={onClick} />
   </S.IconButton>

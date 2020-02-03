@@ -32,6 +32,7 @@ module.exports = {
     {
       files: ['*.ts', '*.tsx'],
       rules: {
+        'no-dupe-class-members': 'off',
         'no-useless-constructor': 'off',
         '@typescript-eslint/no-useless-constructor': 'error',
         '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true }],

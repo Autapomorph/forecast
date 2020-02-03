@@ -1,8 +1,2 @@
-export type Coords = {
-  latitude: number;
-  longitude: number;
-} & Partial<Coordinates>;
-
-export type IPGeolocationResponseObject = Coords & {
-  message?: string;
-};
+export * from './coords';
+export * from './api';

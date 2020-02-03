@@ -1,12 +1,14 @@
 version: 2.1
-jobs:
-  build:
+
+executors:
+  node:
     docker:
       - image: circleci/node:13.7
+
+commands:
+  install-deps:
     steps:
       - checkout
-
-      # Install and cache dependencies
       - restore_cache:
           keys:
             - v1-npm-deps-{{ checksum "package-lock.json" }}
@@ -16,23 +18,36 @@ jobs:
           key: v1-npm-deps-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
-
-      # linting
+jobs:
+  lint:
+    executor: node
+    steps:
+      - install-deps
       - run:
           name: Lint
           command: npm run lint
 
-      # testing
+  test:
+    executor: node
+    steps:
+      - install-deps
       - run:
           name: Install jest-junit
           command: npm i -D jest-junit
       - run:
           name: Test
+          command: npm test -- --ci --coverage --reporters=default --reporters=jest-junit
           environment:
             JEST_JUNIT_OUTPUT_DIR: coverage/test-results/jest
-          command: npm test -- --ci --coverage --reporters=default --reporters=jest-junit
       - store_artifacts:
           path: coverage
           destination: coverage
       - store_test_results:
           path: coverage/test-results
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - lint
+      - test

@@ -40,5 +40,3 @@ export type State = {
   readonly loading: boolean;
   readonly errorMessage: string | null;
 };
-
-export type GeolocationState = State;

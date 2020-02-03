@@ -9,7 +9,7 @@ type Props = {
   size?: SizeProp;
 };
 
-const RetryButton: React.FC<Props> = ({ size, onClick, ...props }): React.ReactElement => (
+const RetryButton = ({ size, onClick, ...props }: Props): React.ReactElement => (
   <S.RetryButton icon={faRedoAlt} size={size} onClick={onClick} {...props} />
 );
 

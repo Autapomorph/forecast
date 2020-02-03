@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components/macro';
 
-type SwitchButtonProps = {
+type Props = {
   checked: boolean;
 };
 
@@ -34,7 +34,7 @@ export const SwitchButton = styled.span`
     border-radius: 5px;
   }
 
-  ${/* sc-dec */ ({ checked }: SwitchButtonProps) =>
+  ${({ checked }: Props) =>
     checked &&
     css`
       color: var(--bg-violet);

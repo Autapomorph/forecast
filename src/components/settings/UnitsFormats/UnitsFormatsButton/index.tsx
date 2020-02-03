@@ -11,11 +11,7 @@ type Props = {
   handleChange: (unitFormat: UnitFormat) => void;
 };
 
-const UnitsFormatsButton: React.FC<Props> = ({
-  unitsFormat,
-  checked,
-  handleChange,
-}): React.ReactElement => {
+const UnitsFormatsButton = ({ unitsFormat, checked, handleChange }: Props): React.ReactElement => {
   const { t } = useTranslation();
   const tS = (key: string, options?: object): string => t(`settings.unitsFormats.${key}`, options);
 

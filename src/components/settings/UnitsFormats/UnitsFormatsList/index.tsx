@@ -11,11 +11,11 @@ type Props = {
   handleChangeUnitsFormat: (unitFormat: UnitFormat) => void;
 };
 
-const UnitsFormatList: React.FC<Props> = ({
+const UnitsFormatList = ({
   unitsFormats,
   selectedUnitsFormat,
   handleChangeUnitsFormat,
-}): React.ReactElement => (
+}: Props): React.ReactElement => (
   <S.UnitsFormatSwitcher>
     {Object.values(unitsFormats).map(unitsFormat => (
       <UnitsFormatsButton

@@ -17,24 +17,29 @@ export const getCurrentUnitsFormat = (state: State): TgetCurrentUnitsFormat =>
 /**
  * top-level cities selectors
  */
-type TGetSelectedCity = ReturnType<typeof cities.getSelectedCity>;
-export const getSelectedCity = (state: State): TGetSelectedCity =>
-  cities.getSelectedCity(state.cities);
+type TGetCity = ReturnType<typeof cities.getCity>;
+export const getCity = (state: State): TGetCity => cities.getCity(state.cities);
 
-type TGetIsSelectedCityActive = ReturnType<typeof cities.getIsSelectedCityActive>;
-export const getIsSelectedCityActive = (state: State): TGetIsSelectedCityActive =>
-  cities.getIsSelectedCityActive(state.cities);
+type TGetIsCityActive = ReturnType<typeof cities.getIsCityActive>;
+export const getIsCityActive = (state: State): TGetIsCityActive =>
+  cities.getIsCityActive(state.cities);
 
-type TGetIsSelectedCityLoading = ReturnType<typeof cities.getIsSelectedCityLoading>;
-export const getIsSelectedCityLoading = (state: State): TGetIsSelectedCityLoading =>
-  cities.getIsSelectedCityLoading(state.cities);
+type TGetIsCityLoading = ReturnType<typeof cities.getIsCityLoading>;
+export const getIsCityLoading = (state: State): TGetIsCityLoading =>
+  cities.getIsCityLoading(state.cities);
 
-type TGetSelectedCityErrorMessage = ReturnType<typeof cities.getSelectedCityErrorMessage>;
-export const getSelectedCityErrorMessage = (state: State): TGetSelectedCityErrorMessage =>
-  cities.getSelectedCityErrorMessage(state.cities);
+type TGetCityErrorMessage = ReturnType<typeof cities.getCityErrorMessage>;
+export const getCityErrorMessage = (state: State): TGetCityErrorMessage =>
+  cities.getCityErrorMessage(state.cities);
 
 type TGetCities = ReturnType<typeof cities.getCities>;
 export const getCities = (state: State): TGetCities => cities.getCities(state.cities);
+
+type TGetTotalCount = ReturnType<typeof cities.getTotalCount>;
+export const getTotalCount = (state: State): TGetTotalCount => cities.getTotalCount(state.cities);
+
+type TGetOffset = ReturnType<typeof cities.getOffset>;
+export const getOffset = (state: State): TGetOffset => cities.getOffset(state.cities);
 
 type TGetSearchTerm = ReturnType<typeof cities.getSearchTerm>;
 export const getSearchTerm = (state: State): TGetSearchTerm => cities.getSearchTerm(state.cities);
@@ -51,13 +56,11 @@ type TGetCitiesErrorMessage = ReturnType<typeof cities.getCitiesErrorMessage>;
 export const getCitiesErrorMessage = (state: State): TGetCitiesErrorMessage =>
   cities.getCitiesErrorMessage(state.cities);
 
-type TGetFeaturedCities = ReturnType<typeof cities.getFeaturedCities>;
-export const getFeaturedCities = (state: State): TGetFeaturedCities =>
-  cities.getFeaturedCities(state.cities);
+type TGetFeatured = ReturnType<typeof cities.getFeatured>;
+export const getFeatured = (state: State): TGetFeatured => cities.getFeatured(state.cities);
 
-type TGetIsFeaturedCity = ReturnType<typeof cities.getIsFeaturedCity>;
-export const getIsFeaturedCity = (state: State): TGetIsFeaturedCity =>
-  cities.getIsFeaturedCity(state.cities);
+type TGetIsFeatured = ReturnType<typeof cities.getIsFeatured>;
+export const getIsFeatured = (state: State): TGetIsFeatured => cities.getIsFeatured(state.cities);
 
 /**
  * top-level geolocation selectors
@@ -78,7 +81,7 @@ export const getGeolocationErrorMessage = (state: State): TGetGeolocationErrorMe
  * top-level common selectors
  */
 type TGetIsAnythingLoading = ReturnType<
-  typeof getIsGeolocationLoading | typeof getIsSelectedCityLoading | typeof getIsCitiesLoading
+  typeof getIsGeolocationLoading | typeof getIsCityLoading | typeof getIsCitiesLoading
 >;
 export const getIsAnythingLoading = (state: State): TGetIsAnythingLoading =>
-  getIsGeolocationLoading(state) || getIsSelectedCityLoading(state) || getIsCitiesLoading(state);
+  getIsGeolocationLoading(state) || getIsCityLoading(state) || getIsCitiesLoading(state);

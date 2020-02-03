@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import useMount from 'react-use/lib/useMount';
-import { useTranslation } from 'react-i18next';
-import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationArrow } from '@fortawesome/free-solid-svg-icons';
 
@@ -10,19 +8,26 @@ import { RootState } from 'store/types';
 import { getIsGeolocationLoading, getGeolocationErrorMessage } from 'store/rootSelectors';
 import { fetchGeolocation, fetchGeolocationByIP } from 'store/geolocation/actions';
 import checkGeolocationPermission from 'utils/geolocation/checkPermission';
+import useToast from 'utils/hooks/useToast';
 
 import * as S from 'components/SearchBar/styles';
 
-type Props = ConnectedProps<typeof connector>;
+type Props = ConnectedProps<typeof connector> & {
+  onClick?: () => void;
+};
 
-export const GeolocationButton: React.FC<Props> = ({
+export const GeolocationButton = ({
   isLoading,
   errorMessage,
+  onClick,
   _fetchGeolocation,
   _fetchGeolocationByIP,
-}): React.ReactElement => {
-  const { t } = useTranslation();
-  const toastId = 'geoError';
+}: Props): React.ReactElement => {
+  useToast({
+    toastId: 'geoError',
+    isLoading,
+    errorMessage,
+  });
 
   useMount(() => {
     checkGeolocationPermission()
@@ -30,21 +35,14 @@ export const GeolocationButton: React.FC<Props> = ({
       .catch(_fetchGeolocationByIP);
   });
 
-  useEffect(() => {
-    const shouldShowToast = !isLoading && errorMessage && !toast.isActive(toastId);
-    const shouldDismissToast = !isLoading && !errorMessage && toast.isActive(toastId);
-
-    if (shouldShowToast) {
-      toast.error(t(errorMessage || ''), {
-        toastId,
-      });
-    } else if (shouldDismissToast) {
-      toast.dismiss(toastId);
-    }
-  });
+  const handleClick = (): void => {
+    _fetchGeolocation();
+    // eslint-disable-next-line no-unused-expressions
+    onClick?.();
+  };
 
   return (
-    <S.InputButton disabled={isLoading} onClick={_fetchGeolocation}>
+    <S.InputButton disabled={isLoading} onClick={handleClick}>
       <FontAwesomeIcon icon={faLocationArrow} />
     </S.InputButton>
   );

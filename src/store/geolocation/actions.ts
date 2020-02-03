@@ -6,17 +6,17 @@ import geolocationService from 'services/geolocation';
 import { isProd } from 'utils';
 import { Actions, Types } from './types';
 
-export const fetchGeoLocationRequest = (): Actions => ({
+const fetchGeoLocationRequest = (): Actions => ({
   type: Types.GEOLOCATION_FETCH_REQUEST,
 });
 
-export const fetchGeoLocationSuccess = (geoData: Coords): Actions => ({
+const fetchGeoLocationSuccess = (geoData: Coords): Actions => ({
   type: Types.GEOLOCATION_FETCH_SUCCESS,
   payload: geoData,
   error: false,
 });
 
-export const fetchGeoLocationFailure = (error: Error): Actions => ({
+const fetchGeoLocationFailure = (error: Error): Actions => ({
   type: Types.GEOLOCATION_FETCH_FAILURE,
   payload: error,
   error: true,

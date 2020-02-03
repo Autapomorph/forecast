@@ -7,7 +7,7 @@ import Loader from 'components/common/messages/Loader';
 import store, { persistor } from 'store';
 import 'config/settings/i18n';
 
-const App: React.FC = (): React.ReactElement => (
+const App = (): React.ReactElement => (
   <Provider store={store}>
     <PersistGate loading={<Loader />} persistor={persistor}>
       <MainLayout />

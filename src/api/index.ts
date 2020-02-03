@@ -3,8 +3,9 @@ import cors from 'cors';
 import chalk from 'chalk';
 import DarkSky from 'dark-sky';
 
-import config from './server/config';
-import { API_KEY as DARKSKY_API_KEY } from './shared/weather';
+import './config/dotEnv';
+import config from './config';
+import { API_KEY as DARKSKY_API_KEY } from './config/weather';
 
 const { url, port } = config;
 
@@ -18,14 +19,14 @@ app.get('/api', async (req, res) => {
   try {
     const { latitude, longitude, lang = 'en', units = 'us' } = req.query;
 
-    const forecast = await darksky
+    const weatherData = await darksky
       .latitude(latitude)
       .longitude(longitude)
       .language(lang)
       .units(units)
       .get();
 
-    res.status(200).json(forecast);
+    res.status(200).json(weatherData);
   } catch (error) {
     res.send(error);
   }

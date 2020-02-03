@@ -43,6 +43,7 @@ export const InputButton = styled.button.attrs({
   background: var(--light-gray);
   color: var(--contrast-text-color);
   font-size: 1.5rem;
+  transition: 0.3s;
   cursor: pointer;
 
   :last-child {
@@ -54,7 +55,7 @@ export const InputButton = styled.button.attrs({
     background: var(--gray);
   }
 
-  ${/* sc-dec */ ({ disabled }) =>
+  ${({ disabled }) =>
     disabled &&
     css`
       background: var(--light-gray);
@@ -71,3 +72,32 @@ export const InputButton = styled.button.attrs({
 export const SearchButton = styled(InputButton).attrs({
   type: 'submit',
 })``;
+
+export const ClearButton = styled(InputButton)`
+  border: 0;
+  background: var(--white);
+  color: var(--secondary-text-color);
+  outline: none;
+
+  :hover {
+    background: var(--white);
+    color: var(--contrast-text-color);
+  }
+
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      cursor: default;
+    `}
+
+  svg {
+    opacity: 1;
+    transition: 0.3s;
+
+    ${({ disabled }) =>
+      disabled &&
+      css`
+        opacity: 0;
+      `}
+  }
+`;

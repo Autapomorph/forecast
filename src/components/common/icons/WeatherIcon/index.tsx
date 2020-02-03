@@ -13,7 +13,7 @@ type Props = {
   className?: string;
 };
 
-const WeatherIcon: React.FC<Props> = ({
+const WeatherIcon = ({
   tag = 'i',
   icon,
   wind = false,
@@ -22,7 +22,7 @@ const WeatherIcon: React.FC<Props> = ({
   rotate = false,
   size = '1em',
   className = '',
-}): React.ReactElement => {
+}: Props): React.ReactElement => {
   const classNames = ['wi'];
   if (wind || /^wi-/i.test(icon)) {
     classNames.push(icon);

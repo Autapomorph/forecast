@@ -32,16 +32,16 @@ class WeatherService extends Service {
   }
 
   public async request(position: Coords): Promise<WeatherAPIResponse> {
-    let cityWeatherData: WeatherAPIResponse;
+    let weatherData: WeatherAPIResponse;
     const apiEndpoint = this.getEndpoint(position);
 
     try {
-      cityWeatherData = await super.fetch(apiEndpoint);
+      weatherData = await super.fetch(apiEndpoint);
     } catch {
       throw new Error('messages.errors.weather.fetchFailed');
     }
 
-    return cityWeatherData;
+    return weatherData;
   }
 }
 

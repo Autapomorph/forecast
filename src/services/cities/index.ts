@@ -11,19 +11,20 @@ class CitiesService extends Service {
       username: API_KEY,
       lang: currentLanguage,
       style: 'medium',
-      maxRows: 8,
       ...searchParams,
     };
 
     return super.getQueryString(queryObject, { arrayFormat: 'repeat' });
   }
 
-  private getSearchEndpoint(searchTerm: string): string {
+  private getSearchEndpoint(searchTerm: string, offset: number): string {
     const queryObject: Partial<CitiesAPIRequest> = {
       q: searchTerm,
       isNameRequired: true,
       featureClass: ['P'],
       featureCode: ['PPLC', 'PPLA', 'PPLA2', 'PPLA3', 'PPLA4', 'PPL'],
+      maxRows: 8,
+      startRow: offset,
     };
 
     const queryString = this.getQueryString(queryObject);
@@ -40,9 +41,9 @@ class CitiesService extends Service {
     return `${API_FIND_NEARBY}?${queryString}`;
   }
 
-  private async fetchCitiesByName(searchTerm: string): Promise<CitiesAPIResponse> {
+  private async fetchCitiesByName(searchTerm: string, offset: number): Promise<CitiesAPIResponse> {
     let citiesData: CitiesAPIResponse;
-    const apiEndpoint = this.getSearchEndpoint(searchTerm);
+    const apiEndpoint = this.getSearchEndpoint(searchTerm, offset);
 
     try {
       citiesData = await this.fetch(apiEndpoint);
@@ -66,11 +67,25 @@ class CitiesService extends Service {
     return nearbyData;
   }
 
-  public request(requestParam: Coords | string): Promise<CitiesAPIResponse> {
-    if (typeof requestParam === 'string') {
-      return this.fetchCitiesByName(requestParam);
+  /* eslint-disable lines-between-class-members */
+  public request(coords: Coords): Promise<CitiesAPIResponse>;
+  public request(searchTerm: string, offset: number): Promise<CitiesAPIResponse>;
+  public request(requestParam: Coords | string, offset?: number): Promise<CitiesAPIResponse> {
+    if (typeof requestParam === 'string' && typeof offset !== 'undefined') {
+      return this.fetchCitiesByName(requestParam, offset);
     }
-    return this.fetchNearbyPlace(requestParam);
+
+    if (
+      typeof requestParam !== 'string' &&
+      'latitude' in (requestParam as Coords) &&
+      'longitude' in (requestParam as Coords)
+    ) {
+      return this.fetchNearbyPlace(requestParam);
+    }
+
+    throw new TypeError('`requestParam` must be a string or Coords type');
   }
+  /* eslint-enable lines-between-class-members */
 }
+
 export default new CitiesService();

@@ -6,52 +6,52 @@ import { getIsAnythingLoading } from 'store/rootSelectors';
 import weatherService from 'services/weather';
 import citiesService from 'services/cities';
 import { isProd } from 'utils';
-import formatWeather from 'utils/weatherData/formatWeather';
-import formatCities from 'utils/cityData/formatCities';
+import formatWeather from 'utils/weather/format';
+import formatCities from 'utils/city/format';
 import { Actions, Types } from '../types';
 
-export const fetchCityWeatherRequest = (): Actions => ({
-  type: Types.CITY_WEATHER_FETCH_REQUEST,
+const fetchWeatherRequest = (): Actions => ({
+  type: Types.WEATHER_FETCH_REQUEST,
 });
 
-export const fetchCityWeatherSuccess = (cityData: City & Weather): Actions => ({
-  type: Types.CITY_WEATHER_FETCH_SUCCESS,
-  payload: cityData,
+const fetchWeatherSuccess = (city: City & Weather): Actions => ({
+  type: Types.WEATHER_FETCH_SUCCESS,
+  payload: city,
   error: false,
 });
 
-const fetchCityWeatherFailure = (error: Error): Actions => ({
-  type: Types.CITY_WEATHER_FETCH_FAILURE,
+const fetchWeatherFailure = (error: Error): Actions => ({
+  type: Types.WEATHER_FETCH_FAILURE,
   payload: error,
   error: true,
 });
 
-export const fetchCityWeatherByPosition = (
+export const fetchWeatherByPosition = (
   position: Coords,
 ): ThunkAction<Promise<void>, RootState, null, Actions> => async (dispatch, getState) => {
   if (getIsAnythingLoading(getState())) {
     return;
   }
 
-  dispatch(fetchCityWeatherRequest());
+  dispatch(fetchWeatherRequest());
 
   try {
-    const [rawCityWeatherData, rawNearbyData] = await Promise.all([
+    const [rawWeatherData, rawNearbyData] = await Promise.all([
       weatherService.request(position),
       citiesService.request(position),
     ]);
 
-    const cityWeatherData = formatWeather(rawCityWeatherData);
+    const weatherData = formatWeather(rawWeatherData);
     const nearbyData = formatCities(rawNearbyData);
 
     if (nearbyData) {
-      dispatch(fetchCityWeatherSuccess({ ...cityWeatherData, ...nearbyData[0] }));
+      dispatch(fetchWeatherSuccess({ ...weatherData, ...nearbyData[0] }));
     }
   } catch (error) {
     if (isProd) {
-      dispatch(fetchCityWeatherFailure(new Error('messages.errors.common.fetchFailed')));
+      dispatch(fetchWeatherFailure(new Error('messages.errors.common.fetchFailed')));
     } else {
-      dispatch(fetchCityWeatherFailure(error));
+      dispatch(fetchWeatherFailure(error));
     }
   }
 };

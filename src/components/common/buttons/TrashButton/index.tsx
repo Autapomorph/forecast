@@ -10,12 +10,7 @@ type Props = {
   size?: SizeProp;
 };
 
-const TrashButton: React.FC<Props> = ({
-  isEmpty = false,
-  size,
-  onClick,
-  ...props
-}): React.ReactElement => (
+const TrashButton = ({ isEmpty = false, size, onClick, ...props }: Props): React.ReactElement => (
   <>{!isEmpty && <S.TrashButton icon={faTrashAlt} onClick={onClick} size={size} {...props} />}</>
 );
 

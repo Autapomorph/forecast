@@ -2,7 +2,11 @@ import React from 'react';
 
 import * as S from './styles';
 
-const Error: React.FC = ({ children, ...props }): React.ReactElement => (
+type Props = {
+  children: React.ReactNode;
+};
+
+const Error = ({ children, ...props }: Props): React.ReactElement => (
   <S.ErrorMessage {...props}>{children}</S.ErrorMessage>
 );
 

@@ -18,7 +18,7 @@
   "build": {
     "env": {
       "REACT_APP_CITIES_API_KEY": "autapomorph",
-      "REACT_APP_GEOIP_API_KEY": "227ad3821563e381d1b1f2ccd5603a6287115efa8cc92d8b6d57d263",
+      "REACT_APP_GEOIP_API_KEY": "10b88b00ec284861b853353074b76bcf",
       "REACT_APP_SECURE": "true"
     }
   },

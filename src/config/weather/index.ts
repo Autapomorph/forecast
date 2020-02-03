@@ -1,4 +1,4 @@
-import config from 'api/client/config';
+import config from 'api/config';
 import { isLocalhost } from 'utils';
 
 const { url, hostname } = config;

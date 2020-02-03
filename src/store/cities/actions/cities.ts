@@ -5,21 +5,21 @@ import { RootState } from 'store/types';
 import { getIsAnythingLoading } from 'store/rootSelectors';
 import citiesService from 'services/cities';
 import { isProd } from 'utils';
-import formatCities from 'utils/cityData/formatCities';
+import format from 'utils/city/format';
 import { Actions, Types } from '../types';
 
-export const fetchCitiesByNameRequest = (searchTerm: string): Actions => ({
+const fetchCitiesByNameRequest = (searchTerm: string, offset: number): Actions => ({
   type: Types.CITIES_FETCH_REQUEST,
-  payload: searchTerm,
+  payload: { searchTerm, offset },
 });
 
-export const fetchCitiesByNameSuccess = (cities: City[]): Actions => ({
+const fetchCitiesByNameSuccess = (cities: City[], totalCount: number): Actions => ({
   type: Types.CITIES_FETCH_SUCCESS,
-  payload: cities,
+  payload: { cities, totalCount },
   error: false,
 });
 
-export const fetchCitiesByNameFailure = (error: Error): Actions => ({
+const fetchCitiesByNameFailure = (error: Error): Actions => ({
   type: Types.CITIES_FETCH_FAILURE,
   payload: error,
   error: true,
@@ -27,19 +27,21 @@ export const fetchCitiesByNameFailure = (error: Error): Actions => ({
 
 export const fetchCititesByName = (
   searchParams: string,
+  offset = 0,
 ): ThunkAction<Promise<void>, RootState, null, Actions> => async (dispatch, getState) => {
   if (getIsAnythingLoading(getState())) {
     return;
   }
 
-  dispatch(fetchCitiesByNameRequest(searchParams));
+  dispatch(fetchCitiesByNameRequest(searchParams, offset));
 
   try {
-    const rawCitiesData = await citiesService.request(searchParams);
-    const citiesData = formatCities(rawCitiesData);
+    const rawCitiesData = await citiesService.request(searchParams, offset);
+    const citiesData = format(rawCitiesData);
+    const citiesTotalCount = rawCitiesData.totalResultsCount;
 
     if (citiesData) {
-      dispatch(fetchCitiesByNameSuccess(citiesData));
+      dispatch(fetchCitiesByNameSuccess(citiesData, citiesTotalCount));
     }
   } catch (error) {
     if (isProd) {

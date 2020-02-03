@@ -9,10 +9,10 @@ import UnitsFormatsList from './UnitsFormatsList';
 
 type Props = ConnectedProps<typeof connector>;
 
-export const UnitsFormats: React.FC<Props> = ({
+export const UnitsFormats = ({
   selectedUnitsFormat,
   _changeUnitsFormat,
-}): React.ReactElement => (
+}: Props): React.ReactElement => (
   <UnitsFormatsList
     unitsFormats={availableUnitsFormats}
     selectedUnitsFormat={selectedUnitsFormat}

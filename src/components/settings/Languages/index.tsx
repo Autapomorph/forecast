@@ -9,10 +9,7 @@ import LanguagesList from './LanguagesList';
 
 type Props = ConnectedProps<typeof connector>;
 
-export const Languages: React.FC<Props> = ({
-  selectedLanguage,
-  _changeLanguage,
-}): React.ReactElement => (
+export const Languages = ({ selectedLanguage, _changeLanguage }: Props): React.ReactElement => (
   <LanguagesList
     languages={availableLanguages}
     selectedLanguage={selectedLanguage}

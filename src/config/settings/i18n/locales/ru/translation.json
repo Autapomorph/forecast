@@ -1,9 +1,9 @@
 {
   "searchBar": {
-    "placeholder": "Введите город"
+    "placeholder": "Город"
   },
   "cities": {
-    "selected": {
+    "city": {
       "details": {
         "summary": "Описание",
         "temperature": "Температура",
@@ -18,7 +18,7 @@
         "minutes": "м"
       }
     },
-    "searchResults": {
+    "cities": {
       "title": "Результаты поиска по запросу «{{searchTerm}}»",
       "emptyResult": "Города не найдены"
     },

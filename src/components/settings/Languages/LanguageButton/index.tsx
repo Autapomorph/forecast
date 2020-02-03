@@ -10,11 +10,7 @@ type Props = {
   handleChange: (unitFormat: Locale) => void;
 };
 
-const LanguageButton: React.FC<Props> = ({
-  language,
-  checked,
-  handleChange,
-}): React.ReactElement => (
+const LanguageButton = ({ language, checked, handleChange }: Props): React.ReactElement => (
   <S.SwitchButton checked={checked}>
     <S.Label>
       <S.RadioButton

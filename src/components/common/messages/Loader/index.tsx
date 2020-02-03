@@ -3,7 +3,11 @@ import MDSpinner from 'react-md-spinner';
 
 import * as S from './styles';
 
-const Loader: React.FC = ({ children, ...props }): React.ReactElement => (
+type Props = {
+  children: React.ReactNode;
+};
+
+const Loader = ({ children, ...props }: Props): React.ReactElement => (
   <S.LoaderMessage {...props}>{children}</S.LoaderMessage>
 );
 

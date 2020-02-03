@@ -3,28 +3,34 @@ import { Action } from 'redux';
 import { City, Weather } from 'models';
 
 export enum Types {
-  CITY_WEATHER_FETCH_REQUEST = '@cities/CITY_WEATHER_FETCH_REQUEST',
-  CITY_WEATHER_FETCH_SUCCESS = '@cities/CITY_WEATHER_FETCH_SUCCESS',
-  CITY_WEATHER_FETCH_FAILURE = '@cities/CITY_WEATHER_FETCH_FAILURE',
+  WEATHER_FETCH_REQUEST = '@cities/WEATHER_FETCH_REQUEST',
+  WEATHER_FETCH_SUCCESS = '@cities/WEATHER_FETCH_SUCCESS',
+  WEATHER_FETCH_FAILURE = '@cities/WEATHER_FETCH_FAILURE',
 }
 
-interface FetchCityWeatherRequestAction extends Action {
-  type: typeof Types.CITY_WEATHER_FETCH_REQUEST;
+export type State = {
+  readonly data: (City & Weather) | null;
+  readonly loading: boolean;
+  readonly errorMessage: string | null;
+};
+
+interface FetchWeatherRequestAction extends Action {
+  type: typeof Types.WEATHER_FETCH_REQUEST;
 }
 
-interface FetchCityWeatherSuccessAction extends Action {
-  type: typeof Types.CITY_WEATHER_FETCH_SUCCESS;
+interface FetchWeatherSuccessAction extends Action {
+  type: typeof Types.WEATHER_FETCH_SUCCESS;
   payload: City & Weather;
   error: false;
 }
 
-interface FetchCityWeatherFailureAction extends Action {
-  type: typeof Types.CITY_WEATHER_FETCH_FAILURE;
+interface FetchWeatherFailureAction extends Action {
+  type: typeof Types.WEATHER_FETCH_FAILURE;
   payload: Error;
   error: true;
 }
 
 export type Actions =
-  | FetchCityWeatherRequestAction
-  | FetchCityWeatherSuccessAction
-  | FetchCityWeatherFailureAction;
+  | FetchWeatherRequestAction
+  | FetchWeatherSuccessAction
+  | FetchWeatherFailureAction;

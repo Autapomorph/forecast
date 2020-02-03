@@ -7,7 +7,7 @@ import * as S from './styles';
 
 describe('Message tests', () => {
   it('renders properly', () => {
-    const wrapper = shallow(<Message />);
+    const wrapper = shallow(<Message>Test</Message>);
 
     expect(wrapper).toMatchSnapshot();
   });

@@ -7,7 +7,7 @@ type Props = {
   size?: string;
 };
 
-const CountryFlag: React.FC<Props> = ({ country, size = '1em' }): React.ReactElement => (
+const CountryFlag = ({ country, size = '1em' }: Props): React.ReactElement => (
   <S.CountryFlag country={country} size={size} />
 );
 

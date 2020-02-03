@@ -1,9 +1,9 @@
 {
   "searchBar": {
-    "placeholder": "Type city here"
+    "placeholder": "City"
   },
   "cities": {
-    "selected": {
+    "city": {
       "details": {
         "summary": "Summary",
         "temperature": "Temperature",
@@ -18,7 +18,7 @@
         "minutes": "m"
       }
     },
-    "searchResults": {
+    "cities": {
       "title": "Results found for «{{searchTerm}}»",
       "emptyResult": "No cities found"
     },

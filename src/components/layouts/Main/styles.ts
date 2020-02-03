@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 export const LayoutWrapper = styled.div`
   display: grid;
@@ -32,5 +33,5 @@ export const ContentWrapper = styled.main`
   grid-template-rows: auto auto;
   grid-template-areas:
     'cities'
-    'featured-cities';
+    'featured';
 `;

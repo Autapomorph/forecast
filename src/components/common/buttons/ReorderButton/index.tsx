@@ -9,7 +9,7 @@ type Props = {
   size?: SizeProp;
 };
 
-const ReorderButton: React.FC<Props> = ({ size, ...props }): React.ReactElement => (
+const ReorderButton = ({ size, ...props }: Props): React.ReactElement => (
   <S.ReorderButton icon={faSort} size={size} {...props} />
 );
 

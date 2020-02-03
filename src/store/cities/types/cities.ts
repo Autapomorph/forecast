@@ -8,14 +8,29 @@ export enum Types {
   CITIES_FETCH_FAILURE = '@cities/CITIES_FETCH_FAILURE',
 }
 
+export type State = {
+  readonly data: City[];
+  readonly totalCount: number;
+  readonly offset: number;
+  readonly searchTerm: string;
+  readonly loading: boolean;
+  readonly errorMessage: string | null;
+};
+
 interface FetchCitiesRequestAction extends Action {
   type: typeof Types.CITIES_FETCH_REQUEST;
-  payload: string;
+  payload: {
+    searchTerm: string;
+    offset: number;
+  };
 }
 
 interface FetchCitiesSuccessAction extends Action {
   type: typeof Types.CITIES_FETCH_SUCCESS;
-  payload: City[];
+  payload: {
+    cities: City[];
+    totalCount: number;
+  };
   error: false;
 }
 

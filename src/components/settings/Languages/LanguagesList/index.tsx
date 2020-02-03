@@ -11,11 +11,11 @@ type Props = {
   handleChangeLanguage: (language: Locale) => void;
 };
 
-const LanguageList: React.FC<Props> = ({
+const LanguageList = ({
   languages,
   selectedLanguage,
   handleChangeLanguage,
-}): React.ReactElement => (
+}: Props): React.ReactElement => (
   <S.LanguageSwitcher>
     {languages.map(language => (
       <LanguageButton

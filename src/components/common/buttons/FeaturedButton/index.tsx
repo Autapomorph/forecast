@@ -12,13 +12,13 @@ type Props = {
   size?: SizeProp;
 };
 
-const FeaturedButton: React.FC<Props> = ({
+const FeaturedButton = ({
   isFeatured = false,
   size,
   onAdd,
   onRemove,
   ...props
-}): React.ReactElement => (
+}: Props): React.ReactElement => (
   <>
     {isFeatured && (
       <S.FeaturedButton icon={faStarSolid} size={size} onClick={onRemove} {...props} />
