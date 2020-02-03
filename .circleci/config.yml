@@ -9,11 +9,11 @@ jobs:
       # Install and cache dependencies
       - restore_cache:
           keys:
-            - npm-deps-{{ checksum "package-lock.json" }}
-            - npm-deps-
+            - v1-npm-deps-{{ checksum "package-lock.json" }}
+            - v1-npm-deps-
       - run: npm install
       - save_cache:
-          key: npm-deps-{{ checksum "package-lock.json" }}
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
 
@@ -23,7 +23,6 @@ jobs:
           command: npm run lint
 
       # testing
-      - run:
       - run:
           name: Install jest-junit
           command: npm i -D jest-junit
