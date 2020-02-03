@@ -1,4 +1,4 @@
-# forecast [![Build Status](https://travis-ci.com/Autapomorph/forecast.svg?branch=master)](https://travis-ci.com/Autapomorph/forecast)
+# forecast [![CircleCI](https://circleci.com/gh/Autapomorph/forecast.svg?style=svg)](https://circleci.com/gh/Autapomorph/forecast)
 
 Weather forecast sample app
 
