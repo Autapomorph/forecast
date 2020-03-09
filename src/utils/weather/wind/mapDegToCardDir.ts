@@ -1,9 +1,17 @@
 import { WindCardDir as D } from 'models/weather/wind';
 
-export default function mapDegToCardDir(deg: number): D {
-  if (Number.isNaN(deg)) {
-    throw new TypeError('`deg` param is not a number');
+function checkDegrees(degrees: number): void {
+  if (Number.isNaN(degrees)) {
+    throw new TypeError('`degrees` param is not a number');
   }
+
+  if (degrees < 0) {
+    throw new RangeError('`degrees` param is below zero');
+  }
+}
+
+export default function mapDegToCardDir(deg: number): D {
+  checkDegrees(deg);
 
   if (deg >= 360) {
     const rate = Math.floor(deg / 360);

@@ -1,5 +1,5 @@
-export type UnitFormat = string;
+export type UnitsFormat = string;
 
 export type UnitsFormats = {
-  [unitFormat: string]: UnitFormat;
+  [UnitsFormat: string]: UnitsFormat;
 };

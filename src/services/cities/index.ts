@@ -1,6 +1,6 @@
 import Service from 'services';
 import { CitiesAPIRequest, CitiesAPIResponse, Coords } from 'models';
-import i18n from 'config/settings/i18n';
+import i18n from 'config/i18n';
 import { API_SEARCH, API_FIND_NEARBY, API_KEY } from 'config/cities';
 
 class CitiesService extends Service {

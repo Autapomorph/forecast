@@ -7,10 +7,6 @@ const generateName = (city: City): string => {
     name += `, ${city.region}`;
   }
 
-  if (city.countryName) {
-    name += `, ${city.countryName}`;
-  }
-
   return name;
 };
 

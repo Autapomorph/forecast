@@ -18,7 +18,7 @@ const useToast = (options: Options): void => {
     const shouldDismissToast = !isLoading && !errorMessage && toast.isActive(toastId);
 
     if (shouldShowToast) {
-      toast.error(t(errorMessage || ''), {
+      toast.error(t(errorMessage ?? ''), {
         toastId,
         autoClose,
       });

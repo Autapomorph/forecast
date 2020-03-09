@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UnitsFormats tests renders properly 1`] = `
+<styles__SettingContainer>
+  <styles__SettingTitle>
+    Units
+  </styles__SettingTitle>
+  <styles__SettingContent>
+    <Select
+      onChange={[Function]}
+      options={
+        Array [
+          Object {
+            "label": "Metric",
+            "value": "metric",
+          },
+          Object {
+            "label": "Imperial",
+            "value": "imperial",
+          },
+        ]
+      }
+      value={
+        Object {
+          "label": "settings.unitsFormats.type.format1",
+          "value": "format1",
+        }
+      }
+    />
+  </styles__SettingContent>
+</styles__SettingContainer>
+`;

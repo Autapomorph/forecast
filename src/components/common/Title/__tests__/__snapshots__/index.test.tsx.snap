@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title tests renders properly 1`] = `
+<styles__Title>
+  Test
+</styles__Title>
+`;
+
+exports[`Title tests should render SubTitle 1`] = `
+<styles__Subtitle>
+  text
+</styles__Subtitle>
+`;
+
+exports[`Title tests should render children 1`] = `
+<styles__Title>
+  text
+</styles__Title>
+`;

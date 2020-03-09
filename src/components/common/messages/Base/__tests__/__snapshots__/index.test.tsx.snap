@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message tests renders properly 1`] = `
+<styles__MessageWrapper>
+  <styles__MessageContent>
+    Test
+  </styles__MessageContent>
+</styles__MessageWrapper>
+`;
+
+exports[`Message tests should render children 1`] = `
+<styles__MessageWrapper>
+  <styles__MessageContent>
+    text
+  </styles__MessageContent>
+</styles__MessageWrapper>
+`;

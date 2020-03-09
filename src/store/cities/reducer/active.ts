@@ -3,7 +3,7 @@ import { Types, Actions } from 'store/cities/types';
 
 export const initialState: State = 'city';
 
-const reducer = (state = initialState, action: Actions): State => {
+const reducer = (state: State = initialState, action: Actions): State => {
   switch (action.type) {
     case Types.WEATHER_FETCH_REQUEST: {
       return 'city';

@@ -26,6 +26,7 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/jsx-one-expression-per-line': 'off',
+    '@typescript-eslint/ban-ts-ignore': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
   },
   overrides: [

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WeatherIcon tests renders properly 1`] = `
+<styles__WeatherIcon
+  className="wi wi-north"
+/>
+`;
+
+exports[`WeatherIcon tests should preserve passed class 1`] = `
+<styles__WeatherIcon
+  className="wi wi-north class"
+/>
+`;
+
+exports[`WeatherIcon tests should render with fixedWidth class 1`] = `
+<styles__WeatherIcon
+  className="wi wi-north wi-fw"
+/>
+`;
+
+exports[`WeatherIcon tests should render with flip class 1`] = `
+<styles__WeatherIcon
+  className="wi wi-north wi-flip-horizontal"
+/>
+`;
+
+exports[`WeatherIcon tests should render with icon class 1`] = `
+<styles__WeatherIcon
+  className="wi wi-north"
+/>
+`;
+
+exports[`WeatherIcon tests should render with rotate class 1`] = `
+<styles__WeatherIcon
+  className="wi wi-north wi-rotate-90"
+/>
+`;
+
+exports[`WeatherIcon tests should render with wind class 1`] = `
+<styles__WeatherIcon
+  className="wi north wi-wind"
+/>
+`;

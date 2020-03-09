@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header tests renders properly 1`] = `
+<styles__Header>
+  <Connect(SearchBar) />
+</styles__Header>
+`;

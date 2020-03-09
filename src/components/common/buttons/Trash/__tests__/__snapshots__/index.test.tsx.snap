@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TrashButton tests renders properly 1`] = `
+<Fragment>
+  <styles__TrashButton
+    icon={
+      Object {
+        "icon": Array [
+          448,
+          512,
+          Array [],
+          "f2ed",
+          "M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z",
+        ],
+        "iconName": "trash-alt",
+        "prefix": "fas",
+      }
+    }
+  />
+</Fragment>
+`;
+
+exports[`TrashButton tests should not render FontAwesomeIcon if empty 1`] = `
+<TrashButton
+  isEmpty={true}
+/>
+`;
+
+exports[`TrashButton tests should render FontAwesomeIcon if not empty 1`] = `
+.c1 {
+  padding: 5px;
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.c1:hover {
+  color: var(--white-dark);
+}
+
+.c0 {
+  color: var(--red);
+}
+
+.c0:hover {
+  color: var(--red-dark);
+}
+
+<TrashButton
+  isEmpty={false}
+>
+  <styles__TrashButton
+    icon={
+      Object {
+        "icon": Array [
+          448,
+          512,
+          Array [],
+          "f2ed",
+          "M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z",
+        ],
+        "iconName": "trash-alt",
+        "prefix": "fas",
+      }
+    }
+  >
+    <BaseIconButton
+      className="c0"
+      icon={
+        Object {
+          "icon": Array [
+            448,
+            512,
+            Array [],
+            "f2ed",
+            "M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z",
+          ],
+          "iconName": "trash-alt",
+          "prefix": "fas",
+        }
+      }
+    >
+      <styles__IconButton
+        className="c0"
+        onClick={[Function]}
+      >
+        <button
+          className="c1 c0"
+          onClick={[Function]}
+          type="button"
+        >
+          <FontAwesomeIcon
+            border={false}
+            className=""
+            fixedWidth={false}
+            flip={null}
+            icon={
+              Object {
+                "icon": Array [
+                  448,
+                  512,
+                  Array [],
+                  "f2ed",
+                  "M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z",
+                ],
+                "iconName": "trash-alt",
+                "prefix": "fas",
+              }
+            }
+            inverse={false}
+            listItem={false}
+            mask={null}
+            pull={null}
+            pulse={false}
+            rotation={null}
+            size="lg"
+            spin={false}
+            swapOpacity={false}
+            symbol={false}
+            title=""
+            transform={null}
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-trash-alt fa-w-14 fa-lg "
+              data-icon="trash-alt"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </FontAwesomeIcon>
+        </button>
+      </styles__IconButton>
+    </BaseIconButton>
+  </styles__TrashButton>
+</TrashButton>
+`;

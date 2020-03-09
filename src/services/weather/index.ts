@@ -1,6 +1,6 @@
 import Service from 'services';
 import { Coords } from 'models';
-import i18n from 'config/settings/i18n';
+import i18n from 'config/i18n';
 import { API_WEATHER_BASE } from 'config/weather';
 import {
   RequestObject as WeatherAPIRequest,

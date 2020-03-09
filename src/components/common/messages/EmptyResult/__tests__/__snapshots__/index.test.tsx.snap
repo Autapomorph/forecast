@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmptyResult tests renders properly 1`] = `
+<styles__EmptyResultMessage>
+  Test
+</styles__EmptyResultMessage>
+`;
+
+exports[`EmptyResult tests should render children 1`] = `
+<styles__EmptyResultMessage>
+  text
+</styles__EmptyResultMessage>
+`;

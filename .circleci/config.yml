@@ -32,11 +32,8 @@ jobs:
     steps:
       - install-deps
       - run:
-          name: Install jest-junit
-          command: npm i -D jest-junit
-      - run:
           name: Test
-          command: npm test -- --ci --coverage --reporters=default --reporters=jest-junit
+          command: npm test -- --maxWorkers=2 --coverage --reporters=default --reporters=jest-junit
           environment:
             JEST_JUNIT_OUTPUT_DIR: coverage/test-results/jest
       - store_artifacts:

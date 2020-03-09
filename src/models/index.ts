@@ -1,3 +1,4 @@
+export * from './theme';
 export * from './settings';
 export * from './geolocation';
 export * from './cities';

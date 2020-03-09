@@ -1,0 +1,578 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FeaturedItem tests renders properly 1`] = `
+.c6 {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  vertical-align: middle;
+  background-image: url(/images/countries/flags/countrycode.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.c5 {
+  margin-right: 0.3em;
+}
+
+.c3 {
+  padding: 5px;
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.c3:hover {
+  color: var(--white-dark);
+}
+
+.c2 {
+  color: var(--gray-light-lighter);
+}
+
+.c2:hover {
+  color: var(--gray);
+}
+
+.c8 {
+  color: var(--yellow);
+}
+
+.c8:hover {
+  color: var(--yellow-dark);
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 50px;
+  margin-bottom: 15px;
+  border: 1px solid;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.c4 {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  padding: 15px 0;
+  cursor: pointer;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  padding-left: 10px;
+  padding-right: 8px;
+}
+
+.c7 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+<DragDropContext
+  onDragEnd={[MockFunction]}
+>
+  <ErrorBoundary>
+    <App
+      contextId="0"
+      dragHandleUsageInstructions="
+  Press space bar to start a drag.
+  When dragging you can use the arrow keys to move the item around and escape to cancel.
+  Some screen readers may require you to be in focus mode or to use your pass through key
+"
+      onDragEnd={[MockFunction]}
+      setCallbacks={[Function]}
+    >
+      <Provider
+        context={
+          Object {
+            "$$typeof": Symbol(react.context),
+            "Consumer": Object {
+              "$$typeof": Symbol(react.context),
+              "_calculateChangedBits": null,
+              "_context": [Circular],
+            },
+            "Provider": Object {
+              "$$typeof": Symbol(react.provider),
+              "_context": [Circular],
+            },
+            "_calculateChangedBits": null,
+            "_currentRenderer": Object {},
+            "_currentRenderer2": null,
+            "_currentValue": null,
+            "_currentValue2": null,
+            "_threadCount": 0,
+          }
+        }
+        store={
+          Object {
+            "dispatch": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+            Symbol(observable): [Function],
+          }
+        }
+      >
+        <ConnectFunction
+          direction="vertical"
+          droppableId="featured"
+          getContainerForClone={[Function]}
+          ignoreContainerClipping={false}
+          isCombineEnabled={false}
+          isDropDisabled={false}
+          mode="standard"
+          renderClone={null}
+          type="DEFAULT"
+        >
+          <Droppable
+            direction="vertical"
+            droppableId="featured"
+            getContainerForClone={[Function]}
+            ignoreContainerClipping={false}
+            isCombineEnabled={false}
+            isDropDisabled={false}
+            mode="standard"
+            placeholder={null}
+            renderClone={null}
+            shouldAnimatePlaceholder={false}
+            snapshot={
+              Object {
+                "draggingFromThisWith": null,
+                "draggingOverWith": null,
+                "isDraggingOver": false,
+                "isUsingPlaceholder": false,
+              }
+            }
+            type="DEFAULT"
+            updateViewportMaxScroll={[Function]}
+            useClone={null}
+          >
+            <FeaturedItem
+              city={
+                Object {
+                  "coords": Object {
+                    "latitude": 0,
+                    "longitude": 0,
+                  },
+                  "countryCode": "countryCode",
+                  "countryName": "countryName",
+                  "id": 0,
+                  "name": "name",
+                  "region": "region",
+                }
+              }
+              fetchCity={[MockFunction]}
+              index={0}
+              removeFromFeatured={[MockFunction]}
+            >
+              <PublicDraggable
+                disableInteractiveElementBlocking={true}
+                draggableId="0"
+                index={0}
+              >
+                <PrivateDraggable
+                  canDragInteractiveElements={true}
+                  disableInteractiveElementBlocking={true}
+                  draggableId="0"
+                  index={0}
+                  isClone={false}
+                  isEnabled={true}
+                  shouldRespectForcePress={false}
+                >
+                  <Connect(Draggable)
+                    canDragInteractiveElements={true}
+                    disableInteractiveElementBlocking={true}
+                    draggableId="0"
+                    index={0}
+                    isClone={false}
+                    isEnabled={true}
+                    shouldRespectForcePress={false}
+                  >
+                    <Draggable
+                      canDragInteractiveElements={true}
+                      disableInteractiveElementBlocking={true}
+                      draggableId="0"
+                      dropAnimationFinished={[Function]}
+                      index={0}
+                      isClone={false}
+                      isEnabled={true}
+                      mapped={
+                        Object {
+                          "combineTargetFor": null,
+                          "offset": Object {
+                            "x": 0,
+                            "y": 0,
+                          },
+                          "shouldAnimateDisplacement": true,
+                          "snapshot": Object {
+                            "combineTargetFor": null,
+                            "combineWith": null,
+                            "draggingOver": null,
+                            "dropAnimation": null,
+                            "isClone": false,
+                            "isDragging": false,
+                            "isDropAnimating": false,
+                            "mode": null,
+                          },
+                          "type": "SECONDARY",
+                        }
+                      }
+                      shouldRespectForcePress={false}
+                    >
+                      <styles__FeaturedItemWrapper
+                        data-rbd-draggable-context-id="0"
+                        data-rbd-draggable-id="0"
+                        onTransitionEnd={null}
+                        style={
+                          Object {
+                            "transform": null,
+                            "transition": null,
+                          }
+                        }
+                      >
+                        <li
+                          className="c0"
+                          data-rbd-draggable-context-id="0"
+                          data-rbd-draggable-id="0"
+                          onTransitionEnd={null}
+                          style={
+                            Object {
+                              "transform": null,
+                              "transition": null,
+                            }
+                          }
+                        >
+                          <styles__FeaturedItemReorderButton
+                            aria-describedby="rbd-hidden-text-0-hidden-text-0"
+                            data-rbd-drag-handle-context-id="0"
+                            data-rbd-drag-handle-draggable-id="0"
+                            draggable={false}
+                            isDragging={false}
+                            onDragStart={[Function]}
+                            role="button"
+                            tabIndex={0}
+                          >
+                            <ReorderButton
+                              aria-describedby="rbd-hidden-text-0-hidden-text-0"
+                              className="c1"
+                              data-rbd-drag-handle-context-id="0"
+                              data-rbd-drag-handle-draggable-id="0"
+                              draggable={false}
+                              isDragging={false}
+                              onDragStart={[Function]}
+                              role="button"
+                              tabIndex={0}
+                            >
+                              <styles__ReorderButton
+                                aria-describedby="rbd-hidden-text-0-hidden-text-0"
+                                className="c1"
+                                data-rbd-drag-handle-context-id="0"
+                                data-rbd-drag-handle-draggable-id="0"
+                                draggable={false}
+                                icon={
+                                  Object {
+                                    "icon": Array [
+                                      320,
+                                      512,
+                                      Array [],
+                                      "f0dc",
+                                      "M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z",
+                                    ],
+                                    "iconName": "sort",
+                                    "prefix": "fas",
+                                  }
+                                }
+                                isDragging={false}
+                                onDragStart={[Function]}
+                                role="button"
+                                tabIndex={0}
+                              >
+                                <BaseIconButton
+                                  aria-describedby="rbd-hidden-text-0-hidden-text-0"
+                                  className="c2 c1"
+                                  data-rbd-drag-handle-context-id="0"
+                                  data-rbd-drag-handle-draggable-id="0"
+                                  draggable={false}
+                                  icon={
+                                    Object {
+                                      "icon": Array [
+                                        320,
+                                        512,
+                                        Array [],
+                                        "f0dc",
+                                        "M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z",
+                                      ],
+                                      "iconName": "sort",
+                                      "prefix": "fas",
+                                    }
+                                  }
+                                  isDragging={false}
+                                  onDragStart={[Function]}
+                                  role="button"
+                                  tabIndex={0}
+                                >
+                                  <styles__IconButton
+                                    aria-describedby="rbd-hidden-text-0-hidden-text-0"
+                                    className="c2 c1"
+                                    data-rbd-drag-handle-context-id="0"
+                                    data-rbd-drag-handle-draggable-id="0"
+                                    draggable={false}
+                                    isDragging={false}
+                                    onClick={[Function]}
+                                    onDragStart={[Function]}
+                                    role="button"
+                                    tabIndex={0}
+                                  >
+                                    <button
+                                      aria-describedby="rbd-hidden-text-0-hidden-text-0"
+                                      className="c3 c2 c1"
+                                      data-rbd-drag-handle-context-id="0"
+                                      data-rbd-drag-handle-draggable-id="0"
+                                      draggable={false}
+                                      onClick={[Function]}
+                                      onDragStart={[Function]}
+                                      role="button"
+                                      tabIndex={0}
+                                      type="button"
+                                    >
+                                      <FontAwesomeIcon
+                                        border={false}
+                                        className=""
+                                        fixedWidth={false}
+                                        flip={null}
+                                        icon={
+                                          Object {
+                                            "icon": Array [
+                                              320,
+                                              512,
+                                              Array [],
+                                              "f0dc",
+                                              "M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z",
+                                            ],
+                                            "iconName": "sort",
+                                            "prefix": "fas",
+                                          }
+                                        }
+                                        inverse={false}
+                                        listItem={false}
+                                        mask={null}
+                                        pull={null}
+                                        pulse={false}
+                                        rotation={null}
+                                        size="lg"
+                                        spin={false}
+                                        swapOpacity={false}
+                                        symbol={false}
+                                        title=""
+                                        transform={null}
+                                      >
+                                        <svg
+                                          aria-hidden="true"
+                                          className="svg-inline--fa fa-sort fa-w-10 fa-lg "
+                                          data-icon="sort"
+                                          data-prefix="fas"
+                                          focusable="false"
+                                          role="img"
+                                          style={Object {}}
+                                          viewBox="0 0 320 512"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z"
+                                            fill="currentColor"
+                                            style={Object {}}
+                                          />
+                                        </svg>
+                                      </FontAwesomeIcon>
+                                    </button>
+                                  </styles__IconButton>
+                                </BaseIconButton>
+                              </styles__ReorderButton>
+                            </ReorderButton>
+                          </styles__FeaturedItemReorderButton>
+                          <styles__FeaturedItemTitle
+                            onClick={[Function]}
+                          >
+                            <span
+                              className="c4"
+                              onClick={[Function]}
+                            >
+                              <span>
+                                name, region, 
+                              </span>
+                              <span
+                                style={
+                                  Object {
+                                    "whiteSpace": "nowrap",
+                                  }
+                                }
+                              >
+                                countryName
+                                <MarginRight__MarginRightDelimeter>
+                                  <span
+                                    className="c5"
+                                  />
+                                </MarginRight__MarginRightDelimeter>
+                                <CountryFlag
+                                  country="countrycode"
+                                >
+                                  <styles__CountryFlag
+                                    country="countrycode"
+                                  >
+                                    <span
+                                      className="c6"
+                                    />
+                                  </styles__CountryFlag>
+                                </CountryFlag>
+                              </span>
+                            </span>
+                          </styles__FeaturedItemTitle>
+                          <styles__FeaturedButton
+                            isFeatured={true}
+                            onRemove={[Function]}
+                          >
+                            <FeaturedButton
+                              className="c7"
+                              isFeatured={true}
+                              onRemove={[Function]}
+                            >
+                              <styles__FeaturedButton
+                                className="c7"
+                                icon={
+                                  Object {
+                                    "icon": Array [
+                                      576,
+                                      512,
+                                      Array [],
+                                      "f005",
+                                      "M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z",
+                                    ],
+                                    "iconName": "star",
+                                    "prefix": "fas",
+                                  }
+                                }
+                                onClick={[Function]}
+                              >
+                                <BaseIconButton
+                                  className="c8 c7"
+                                  icon={
+                                    Object {
+                                      "icon": Array [
+                                        576,
+                                        512,
+                                        Array [],
+                                        "f005",
+                                        "M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z",
+                                      ],
+                                      "iconName": "star",
+                                      "prefix": "fas",
+                                    }
+                                  }
+                                  onClick={[Function]}
+                                >
+                                  <styles__IconButton
+                                    className="c8 c7"
+                                    onClick={[Function]}
+                                  >
+                                    <button
+                                      className="c3 c8 c7"
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      <FontAwesomeIcon
+                                        border={false}
+                                        className=""
+                                        fixedWidth={false}
+                                        flip={null}
+                                        icon={
+                                          Object {
+                                            "icon": Array [
+                                              576,
+                                              512,
+                                              Array [],
+                                              "f005",
+                                              "M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z",
+                                            ],
+                                            "iconName": "star",
+                                            "prefix": "fas",
+                                          }
+                                        }
+                                        inverse={false}
+                                        listItem={false}
+                                        mask={null}
+                                        pull={null}
+                                        pulse={false}
+                                        rotation={null}
+                                        size="lg"
+                                        spin={false}
+                                        swapOpacity={false}
+                                        symbol={false}
+                                        title=""
+                                        transform={null}
+                                      >
+                                        <svg
+                                          aria-hidden="true"
+                                          className="svg-inline--fa fa-star fa-w-18 fa-lg "
+                                          data-icon="star"
+                                          data-prefix="fas"
+                                          focusable="false"
+                                          role="img"
+                                          style={Object {}}
+                                          viewBox="0 0 576 512"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                                            fill="currentColor"
+                                            style={Object {}}
+                                          />
+                                        </svg>
+                                      </FontAwesomeIcon>
+                                    </button>
+                                  </styles__IconButton>
+                                </BaseIconButton>
+                              </styles__FeaturedButton>
+                            </FeaturedButton>
+                          </styles__FeaturedButton>
+                        </li>
+                      </styles__FeaturedItemWrapper>
+                    </Draggable>
+                  </Connect(Draggable)>
+                </PrivateDraggable>
+              </PublicDraggable>
+            </FeaturedItem>
+          </Droppable>
+        </ConnectFunction>
+      </Provider>
+    </App>
+  </ErrorBoundary>
+</DragDropContext>
+`;

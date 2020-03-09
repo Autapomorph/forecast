@@ -1,0 +1,110 @@
+{
+  "app": {
+    "name": "Forecaster",
+    "description": "Прогноз погоды в Вашем городе",
+    "keywords": "погода,прогноз",
+    "title": "Погода в Вашем городе"
+  },
+  "searchBar": {
+    "placeholder": "Город"
+  },
+  "cities": {
+    "city": {
+      "details": {
+        "summary": "Описание",
+        "temperature": "Температура",
+        "pressure": "Давление",
+        "humidity": "Влажность",
+        "wind": "Ветер",
+        "cloudiness": "Облачность",
+        "daylightHours": "Световой день",
+        "sunrise": "Восход",
+        "sunset": "Заход",
+        "hours": "ч",
+        "minutes": "м"
+      }
+    },
+    "cities": {
+      "title": "Результаты поиска по запросу «{{searchTerm}}»",
+      "emptyResult": "Города не найдены"
+    },
+    "featured": {
+      "title": "Избранное",
+      "addToFeatured": "Добавьте города в избранное"
+    }
+  },
+  "messages": {
+    "errors": {
+      "common": {
+        "fetchFailed": "Ошибка загрузки"
+      },
+      "weather": {
+        "fetchFailed": "Ошибка загрузки погоды"
+      },
+      "cities": {
+        "search": {
+          "fetchFailed": "Не удалось выполнить поиск"
+        },
+        "findNearby": {
+          "fetchFailed": "Не удалось загрузить информацию о городе"
+        }
+      },
+      "geolocation": {
+        "permissionDenied": "Разрешите геолокацию в настройках браузера",
+        "positionUnavailable": "Включите геолокацию в настройках устройства",
+        "timeout": "Таймаут определения местоположения",
+        "geoIPFetchFailed": "Не удалось определить местоположение"
+      }
+    }
+  },
+  "settings": {
+    "title": "Настройки",
+    "themes": {
+      "title": "Тема",
+      "type": {
+        "light": "Светлая",
+        "dark": "Темная"
+      }
+    },
+    "languages": {
+      "title": "Язык"
+    },
+    "unitsFormats": {
+      "title": "Формат",
+      "type": {
+        "metric": "Метрический",
+        "imperial": "Имперский"
+      },
+      "temp": {
+        "metric": "℃",
+        "imperial": "℉"
+      },
+      "pressure": {
+        "metric": " мм",
+        "imperial": "\""
+      },
+      "speed": {
+        "metric": "м/с",
+        "imperial": "уз"
+      }
+    }
+  },
+  "wind": {
+    "N": "С",
+    "NNE": "ССВ",
+    "NE": "СВ",
+    "ENE": "ВСВ",
+    "E": "В",
+    "ESE": "ВЮВ",
+    "SE": "ЮВ",
+    "SSE": "ЮЮВ",
+    "S": "Ю",
+    "SSW": "ЮЮЗ",
+    "SW": "ЮЗ",
+    "WSW": "ЗЮЗ",
+    "W": "З",
+    "WNW": "ЗСЗ",
+    "NW": "СЗ",
+    "NNW": "ССЗ"
+  }
+}

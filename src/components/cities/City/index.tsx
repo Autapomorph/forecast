@@ -12,11 +12,11 @@ import {
   getCurrentUnitsFormat,
 } from 'store/rootSelectors';
 import { fetchWeatherByPosition, addToFeatured, removeFromFeatured } from 'store/cities/actions';
-import { UnitsFormatContext } from 'store/settings/context';
+import UnitsFormatContext from 'context/unitsFormat';
 import Loader from 'components/common/messages/Loader';
-import Message from 'components/common/messages/Message';
+import Message from 'components/common/messages/Base';
 import useToast from 'utils/hooks/useToast';
-import CityDetails from './CityDetails';
+import Details from './Details';
 
 import * as S from './styles';
 
@@ -74,7 +74,7 @@ export const City = ({
   return (
     <S.CitySection>
       <UnitsFormatContext.Provider value={unitsFormat}>
-        <CityDetails
+        <Details
           city={city}
           isFeatured={checkIfFeatured(city.id)}
           refetchWeather={() => _fetchWeatherByPosition(city.coords)}

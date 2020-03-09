@@ -1,46 +1,28 @@
 :root {
-  /* common colors */
-  --black: #000;
-  --black-transparent: rgba(0, 0, 0, 0.1);
   --white: #fff;
-  --white-transparent: rgba(255, 255, 255, 0.001);
-  --gray: #d2d5d6;
-  --light-gray: #eceff1;
-  --blue: #2196f3;
-  --light-blue: #f1fcff;
-  --dark-blue: #1b3040;
-  --orange: #ff6d00;
-  --lighter-orange: #ff761c;
-  --light-orange: #ff9d1b;
-  --dark-orange: #d64d08;
+  --white-darker: #eceff1;
+  --white-dark: #e8eaed;
+  --white-dark-darker: #dadee0;
+  --gray-light-lighter: #d2d5d6;
+  --gray-light: #ccc;
+  --gray-lighter: #b3b3b3;
+  --gray-a9: #a9a9a9;
+  --gray: #8b9497;
+  --gray-darker: #6b6a6a;
+  --gray-dark: #5f6368;
+  --gray-dark-darker: #4a4a4a;
+  --black-40: #404040;
+  --black-37: #373737;
+  --black-30: #303030;
+  --black-24: #242424;
+  --black-24-75A: rgba(24, 24, 24, 0.75);
+  --black-20: #202020;
   --yellow: #ffc107;
-  --dark-yellow: #ffa000;
+  --yellow-dark: #ffa000;
   --red: #f44336;
-  --dark-red: #d32f2f;
-
-  /* gradients */
-  --bg-gradient: linear-gradient(to bottom right, var(--bg-violet), var(--bg-aquamarine));
-
-  /* background colors */
-  --bg-violet: #9438f9;
-  --bg-aquamarine: #4cc6a2;
-  --bg-light-blue: #f3f7fa;
-  --bg-success: #d4edda;
-  --bg-error: #f8d7da;
-
-  /* text colors */
-  --base-text-color: #fff;
-  --secondary-text-color: #8b9497;
-  --contrast-text-color: #4a4a4a;
-  --disabled-text-color: #8b9497;
-  --success-text-color: #155724;
-  --error-text-color: #721c24;
-
-  /* border colors */
-  --border-success: #155724;
-  --border-error: #721c24;
-
-  /* shadow colors */
-  --shadow-blue: rgba(91, 137, 164, 0.25);
-  --shadow-light-blue: rgba(91, 137, 164, 0.1);
+  --red-dark: #d32f2f;
+  --violet: #9438f9;
+  --violet-light: #ab59f2;
+  --aquamarine: #4cc6a2;
+  --violet-aquamarine: linear-gradient(to bottom right, var(--violet), var(--aquamarine));
 }

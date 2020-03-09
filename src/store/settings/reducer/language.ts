@@ -1,4 +1,4 @@
-import { defaultLanguage } from 'config/settings/i18n';
+import { defaultLanguage } from 'config/i18n';
 import { State } from 'store/settings/types/language';
 import { Actions, Types } from 'store/settings/types';
 

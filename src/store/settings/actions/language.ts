@@ -10,7 +10,7 @@ import {
   getSearchTerm,
 } from 'store/rootSelectors';
 import { fetchCititesByName, fetchWeatherByPosition } from 'store/cities/actions';
-import i18n from 'config/settings/i18n';
+import i18n from 'config/i18n';
 import { Actions, Types } from '../types';
 
 export const changeLanguage = (language: Locale): ThunkAction<void, RootState, null, Actions> => (
@@ -32,10 +32,8 @@ export const changeLanguage = (language: Locale): ThunkAction<void, RootState, n
   });
 
   if (isCityActive && city?.coords) {
-    dispatch(fetchWeatherByPosition(city?.coords));
-  }
-
-  if (isCitiesActive && searchTerm) {
+    dispatch(fetchWeatherByPosition(city.coords));
+  } else if (isCitiesActive && searchTerm) {
     dispatch(fetchCititesByName(searchTerm, offset));
   }
 };

@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CitiesList tests renders properly 1`] = `
+<styles__CitiesList>
+  <CitiesItem
+    addToFeatured={[MockFunction]}
+    city={
+      Object {
+        "coords": Object {
+          "latitude": 0,
+          "longitude": 0,
+        },
+        "countryCode": "countryCode",
+        "countryName": "countryName",
+        "id": 0,
+        "name": "name",
+        "region": "region",
+      }
+    }
+    fetchCity={[MockFunction]}
+    key="0"
+    removeFromFeatured={[MockFunction]}
+  />
+  <CitiesItem
+    addToFeatured={[MockFunction]}
+    city={
+      Object {
+        "coords": Object {
+          "latitude": 0,
+          "longitude": 0,
+        },
+        "countryCode": "countryCode2",
+        "countryName": "countryName2",
+        "id": 1,
+        "name": "name2",
+        "region": "region2",
+      }
+    }
+    fetchCity={[MockFunction]}
+    key="1"
+    removeFromFeatured={[MockFunction]}
+  />
+</styles__CitiesList>
+`;
+
+exports[`CitiesList tests should render CitiesItem 1`] = `
+<styles__CitiesList>
+  <CitiesItem
+    addToFeatured={[MockFunction]}
+    city={
+      Object {
+        "coords": Object {
+          "latitude": 0,
+          "longitude": 0,
+        },
+        "countryCode": "countryCode",
+        "countryName": "countryName",
+        "id": 0,
+        "name": "name",
+        "region": "region",
+      }
+    }
+    fetchCity={[MockFunction]}
+    key="0"
+    removeFromFeatured={[MockFunction]}
+  />
+  <CitiesItem
+    addToFeatured={[MockFunction]}
+    city={
+      Object {
+        "coords": Object {
+          "latitude": 0,
+          "longitude": 0,
+        },
+        "countryCode": "countryCode2",
+        "countryName": "countryName2",
+        "id": 1,
+        "name": "name2",
+        "region": "region2",
+      }
+    }
+    fetchCity={[MockFunction]}
+    key="1"
+    removeFromFeatured={[MockFunction]}
+  />
+</styles__CitiesList>
+`;

@@ -24,8 +24,8 @@ export default function formatCurrent(
     summary: normalize(current.summary ?? ''),
 
     temp: celsiusToKelvin(current.temperature ?? 0),
-    humidity: Math.round(current.humidity ?? 0 * 100),
-    cloudiness: Math.round(current.cloudCover ?? 0 * 100),
+    humidity: Math.round((current.humidity ?? 0) * 100),
+    cloudiness: Math.round((current.cloudCover ?? 0) * 100),
     visibility: current.visibility ?? 0,
     pressure: current.pressure ?? 0,
 

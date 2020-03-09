@@ -12,9 +12,9 @@ import {
   reorderFeatured,
 } from 'store/cities/actions';
 import Title from 'components/common/Title';
-import TrashButton from 'components/common/buttons/TrashButton';
+import TrashButton from 'components/common/buttons/Trash';
 import EmptyResult from 'components/common/messages/EmptyResult';
-import FeaturedList from './FeaturedList';
+import List from './List';
 
 import * as S from './styles';
 
@@ -55,7 +55,7 @@ export const Featured = ({
 
       {!isEmpty && (
         <DragDropContext onDragEnd={onDragEnd}>
-          <FeaturedList
+          <List
             cities={cities}
             fetchCity={_fetchWeatherByPosition}
             removeFromFeatured={_removeFromFeatured}

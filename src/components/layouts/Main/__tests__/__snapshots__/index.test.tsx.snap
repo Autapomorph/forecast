@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainLayout tests renders properly 1`] = `
+<styles__LayoutWrapper>
+  <ToastContainer
+    autoClose={5000}
+    bodyClassName={null}
+    className={null}
+    closeButton={
+      <CloseButton
+        ariaLabel="close"
+      />
+    }
+    closeOnClick={true}
+    draggable={true}
+    draggablePercent={80}
+    hideProgressBar={false}
+    newestOnTop={false}
+    pauseOnFocusLoss={true}
+    pauseOnHover={true}
+    position="bottom-center"
+    progressClassName={null}
+    progressStyle={null}
+    role="alert"
+    rtl={false}
+    style={null}
+    toastClassName={null}
+    transition={[Function]}
+  />
+  <styles__HeaderWrapper>
+    <Header />
+  </styles__HeaderWrapper>
+  <styles__ContentWrapper>
+    <Connect(City) />
+    <Connect(Cities) />
+    <Connect(Featured) />
+    <Modal
+      close={[Function]}
+      isOpen={false}
+    />
+  </styles__ContentWrapper>
+</styles__LayoutWrapper>
+`;

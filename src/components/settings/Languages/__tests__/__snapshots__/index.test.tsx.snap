@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Languages tests renders properly 1`] = `
+<styles__SettingContainer>
+  <styles__SettingTitle>
+    Language
+  </styles__SettingTitle>
+  <styles__SettingContent>
+    <Select
+      onChange={[Function]}
+      options={
+        Array [
+          Object {
+            "label": "English",
+            "value": Object {
+              "code": "en-US",
+              "title": "English",
+            },
+          },
+          Object {
+            "label": "Русский",
+            "value": Object {
+              "code": "ru-RU",
+              "title": "Русский",
+            },
+          },
+        ]
+      }
+      value={
+        Object {
+          "label": "title",
+          "value": Object {
+            "code": "code",
+            "title": "title",
+          },
+        }
+      }
+    />
+  </styles__SettingContent>
+</styles__SettingContainer>
+`;

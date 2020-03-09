@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faTimes, faSlidersH } from '@fortawesome/free-solid-svg-icons';
 
-import GeolocationButton from 'components/common/buttons/GeolocationButton';
+import GeolocationButton from 'components/SearchBar/GeolocationButton';
 import { fetchCititesByName } from 'store/cities/actions';
+import ModalContext from 'context/settingsModal';
 
 import * as S from './styles';
 
@@ -15,15 +16,10 @@ export const SearchBar = ({ _fetchCititesByName }: Props): React.ReactElement =>
   const { t } = useTranslation();
   const inputRef = useRef<HTMLInputElement>(null);
   const [cityName, setCityName] = useState('');
-  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
+  const modalContext = useContext(ModalContext);
 
-  useEffect(() => {
-    if (!cityName.trim()) {
-      setIsSubmitDisabled(true);
-    } else {
-      setIsSubmitDisabled(false);
-    }
-  }, [cityName]);
+  const isSubmitDisabled = !cityName.trim();
+  const isClearDisabled = !cityName.length;
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement | HTMLButtonElement>): void => {
     e.preventDefault();
@@ -47,11 +43,15 @@ export const SearchBar = ({ _fetchCititesByName }: Props): React.ReactElement =>
         onChange={e => setCityName(e.target.value)}
       />
 
-      <S.ClearButton onClick={handleClear} disabled={!cityName.length}>
+      <S.ClearButton onClick={handleClear} disabled={isClearDisabled}>
         <FontAwesomeIcon icon={faTimes} />
       </S.ClearButton>
 
       <S.InputButtonsBlock>
+        <S.SettingsButton disabled={modalContext.isOpen} onClick={modalContext.open}>
+          <FontAwesomeIcon icon={faSlidersH} />
+        </S.SettingsButton>
+
         <S.SearchButton disabled={isSubmitDisabled}>
           <FontAwesomeIcon icon={faSearch} />
         </S.SearchButton>

@@ -5,6 +5,7 @@ module.exports = {
     'stylelint-prettier/recommended',
   ],
   rules: {
+    'value-keyword-case': null,
     'declaration-empty-line-before': 'never',
   },
 };

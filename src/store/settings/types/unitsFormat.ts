@@ -1,6 +1,6 @@
 import { Action } from 'redux';
 
-import { UnitFormat } from 'models';
+import { UnitsFormat } from 'models';
 
 /**
  * action types
@@ -14,7 +14,7 @@ export enum Types {
  */
 interface ChangeUnitsFormatAction extends Action {
   type: typeof Types.SETTINGS_CHANGE_UNITS_FORMAT;
-  payload: UnitFormat;
+  payload: UnitsFormat;
 }
 
 export type Actions = ChangeUnitsFormatAction;
@@ -22,9 +22,9 @@ export type Actions = ChangeUnitsFormatAction;
 /**
  * state
  */
-export type State = UnitFormat;
+export type State = UnitsFormat;
 
 /**
  * context
  */
-export type UnitsFormatContext = UnitFormat;
+export type UnitsFormatContext = UnitsFormat;

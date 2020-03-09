@@ -22,7 +22,9 @@ const reducer = (state = initialState, action: Actions): State => {
 
       const featured = state.slice();
       const [removed] = featured.splice(prevIndex, 1);
-      featured.splice(nextIndex, 0, removed);
+      if (removed !== undefined) {
+        featured.splice(nextIndex, 0, removed);
+      }
 
       return featured;
     }

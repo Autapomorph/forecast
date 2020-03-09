@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseIconButton tests renders properly 1`] = `
+<styles__IconButton
+  onClick={[Function]}
+>
+  <FontAwesomeIcon
+    border={false}
+    className=""
+    fixedWidth={false}
+    flip={null}
+    icon="ufo"
+    inverse={false}
+    listItem={false}
+    mask={null}
+    pull={null}
+    pulse={false}
+    rotation={null}
+    size="lg"
+    spin={false}
+    swapOpacity={false}
+    symbol={false}
+    title=""
+    transform={null}
+  />
+</styles__IconButton>
+`;
+
+exports[`BaseIconButton tests should render FontAwesomeIcon 1`] = `
+<styles__IconButton
+  onClick={[Function]}
+>
+  <FontAwesomeIcon
+    border={false}
+    className=""
+    fixedWidth={false}
+    flip={null}
+    icon="ufo"
+    inverse={false}
+    listItem={false}
+    mask={null}
+    pull={null}
+    pulse={false}
+    rotation={null}
+    size="lg"
+    spin={false}
+    swapOpacity={false}
+    symbol={false}
+    title=""
+    transform={null}
+  />
+</styles__IconButton>
+`;

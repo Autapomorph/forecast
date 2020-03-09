@@ -21,8 +21,8 @@ export default function formatDaily(
     summary: normalize(day.summary ?? ''),
 
     temp: celsiusToKelvin(((day.temperatureLow ?? 0) + (day.temperatureHigh ?? 0)) / 2),
-    humidity: Math.round(day.humidity ?? 0 * 100),
-    cloudiness: Math.round(day.cloudCover ?? 0 * 100),
+    humidity: Math.round((day.humidity ?? 0) * 100),
+    cloudiness: Math.round((day.cloudCover ?? 0) * 100),
     visibility: day.visibility ?? 0,
     pressure: day.pressure ?? 0,
 

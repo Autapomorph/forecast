@@ -1,4 +1,4 @@
-import { defaultUnitsFormat } from 'config/settings/unitsFormats';
+import { defaultUnitsFormat } from 'config/unitsFormats';
 import { State } from 'store/settings/types/unitsFormat';
 import { Actions, Types } from 'store/settings/types';
 

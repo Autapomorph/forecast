@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components/macro';
 
+import { ThemeProp } from 'models';
+
 export const SearchForm = styled.form`
   display: flex;
   width: 100%;
@@ -11,24 +13,30 @@ export const SearchInput = styled.input.attrs({
   type: 'text',
 })`
   flex-grow: 1;
-  background: var(--white);
+  background: ${({ theme }: ThemeProp) => theme.inputBg};
+  color: ${({ theme }: ThemeProp) => theme.inputColor};
   padding: 10px;
-  border: 1px solid var(--light-gray);
+  border: 1px solid ${({ theme }: ThemeProp) => theme.borderColor};
   border-right: 0;
   border-radius: 5px 0 0 5px;
   font-size: 1.3rem;
-  line-height: 1.2;
+  line-height: 1.3;
   outline: none;
 
+  ::placeholder {
+    color: ${({ theme }: ThemeProp) => theme.inputPlaceholderColor};
+  }
+
   ::selection {
-    background: var(--bg-violet);
-    color: var(--base-text-color);
+    background: ${({ theme }: ThemeProp) => theme.inputSelectionBg};
+    color: ${({ theme }: ThemeProp) => theme.inputSelectionColor};
   }
 `;
 
 export const InputButtonsBlock = styled.div`
   display: flex;
   flex-direction: row;
+  flex-shrink: 0;
 `;
 
 export const InputButton = styled.button.attrs({
@@ -37,51 +45,57 @@ export const InputButton = styled.button.attrs({
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
   padding: 5px 10px;
-  border: 0;
-  border-right: 1px solid var(--gray);
-  background: var(--light-gray);
-  color: var(--contrast-text-color);
+  border: none;
+  border-right: 1px solid ${({ theme }: ThemeProp) => theme.menuItemBorderColor};
+  background: ${({ theme }: ThemeProp) => theme.menuItemBg};
+  color: ${({ theme }: ThemeProp) => theme.menuItemColor};
   font-size: 1.5rem;
   transition: 0.3s;
   cursor: pointer;
 
   :last-child {
-    border: 0;
+    border: none;
     border-radius: 0 5px 5px 0;
   }
 
   :hover {
-    background: var(--gray);
+    background: ${({ theme }: ThemeProp) => theme.menuItemHoverBg};
   }
 
   ${({ disabled }) =>
     disabled &&
     css`
-      background: var(--light-gray);
-      color: var(--disabled-text-color);
+      background: ${({ theme }: ThemeProp) => theme.menuItemDisabledBg};
+      color: ${({ theme }: ThemeProp) => theme.menuItemDisabledColor};
       cursor: default;
 
       :hover {
-        background: var(--light-gray);
-        color: var(--disabled-text-color);
+        background: ${({ theme }: ThemeProp) => theme.menuItemDisabledBg};
+        color: ${({ theme }: ThemeProp) => theme.menuItemDisabledColor};
       }
     `}
 `;
+
+export const SettingsButton = styled(InputButton)``;
 
 export const SearchButton = styled(InputButton).attrs({
   type: 'submit',
 })``;
 
 export const ClearButton = styled(InputButton)`
-  border: 0;
-  background: var(--white);
-  color: var(--secondary-text-color);
+  border: none;
+  border-top: 1px solid ${({ theme }: ThemeProp) => theme.borderColor};
+  border-bottom: 1px solid ${({ theme }: ThemeProp) => theme.borderColor};
+  background: ${({ theme }: ThemeProp) => theme.menuClearButtonBg};
+  color: ${({ theme }: ThemeProp) => theme.menuClearButtonColor};
   outline: none;
+  transition: none;
 
   :hover {
-    background: var(--white);
-    color: var(--contrast-text-color);
+    background: ${({ theme }: ThemeProp) => theme.menuClearButtonBg};
+    color: ${({ theme }: ThemeProp) => theme.menuClearButtonHoverColor};
   }
 
   ${({ disabled }) =>

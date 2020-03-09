@@ -7,6 +7,7 @@ import { RootState } from 'store/types';
 import {
   getCities,
   getTotalCount,
+  getOffset,
   getSearchTerm,
   getIsCitiesActive,
   getIsCitiesLoading,
@@ -20,14 +21,14 @@ import {
   addToFeatured,
   removeFromFeatured,
 } from 'store/cities/actions';
-import { UnitsFormatContext } from 'store/settings/context';
+import UnitsFormatContext from 'context/unitsFormat';
 import Title from 'components/common/Title';
 import Loader from 'components/common/messages/Loader';
-import Message from 'components/common/messages/Message';
+import Message from 'components/common/messages/Base';
 import EmptyResult from 'components/common/messages/EmptyResult';
 import useToast from 'utils/hooks/useToast';
-import CitiesList from './CitiesList';
-import CitiesPagination from './CitiesPagination';
+import List from './List';
+import Pagination from './Pagination';
 
 import * as S from './styles';
 
@@ -36,6 +37,7 @@ type Props = ConnectedProps<typeof connector>;
 export const Cities = ({
   cities,
   totalCount,
+  offset,
   searchTerm,
   isActive,
   isLoading,
@@ -64,6 +66,12 @@ export const Cities = ({
   }, [currentPage]);
 
   useUpdateEffect(() => {
+    if (offset === 0) {
+      setCurrentPage(0);
+    }
+  }, [offset]);
+
+  useUpdateEffect(() => {
     setCurrentPage(0);
   }, [searchTerm]);
 
@@ -86,14 +94,14 @@ export const Cities = ({
 
       {isLoadedNotEmpty && (
         <UnitsFormatContext.Provider value={unitsFormat}>
-          <CitiesList
+          <List
             cities={cities}
             checkIfFeatured={checkIfFeatured}
             fetchCity={_fetchCityByPosition}
             addToFeatured={_addToFeatured}
             removeFromFeatured={_removeFromFeatured}
           />
-          <CitiesPagination
+          <Pagination
             total={totalCount}
             perPage={perPage}
             currentPage={currentPage}
@@ -109,6 +117,7 @@ export const Cities = ({
 const mapState = (state: RootState) => ({
   cities: getCities(state),
   totalCount: getTotalCount(state),
+  offset: getOffset(state),
   searchTerm: getSearchTerm(state),
   isActive: getIsCitiesActive(state),
   isLoading: getIsCitiesLoading(state),

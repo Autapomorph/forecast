@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CitiesItem tests renders properly 1`] = `
+<styles__CitiesItemWrapper>
+  <styles__CitiesItemTitle
+    onClick={[Function]}
+  >
+    <span>
+      name, region, 
+    </span>
+    <span
+      style={
+        Object {
+          "whiteSpace": "nowrap",
+        }
+      }
+    >
+      countryName
+      <MarginRight__MarginRightDelimeter />
+      <CountryFlag
+        country="countrycode"
+      />
+    </span>
+  </styles__CitiesItemTitle>
+  <styles__TitleButtonsWrapper>
+    <FeaturedButton
+      isFeatured={false}
+      onAdd={[Function]}
+      onRemove={[Function]}
+    />
+  </styles__TitleButtonsWrapper>
+</styles__CitiesItemWrapper>
+`;
