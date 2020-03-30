@@ -30,9 +30,7 @@ export const GeolocationButton = ({
   });
 
   useMount(() => {
-    checkGeolocationPermission()
-      .then(_fetchGeolocation)
-      .catch(_fetchGeolocationByIP);
+    checkGeolocationPermission().then(_fetchGeolocation).catch(_fetchGeolocationByIP);
   });
 
   const handleClick = (): void => {
