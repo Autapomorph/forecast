@@ -1,6 +1,5 @@
 {
-  "builds": [
-    {
+  "builds": [{
       "src": "package.json",
       "use": "@now/static-build",
       "config": {
@@ -12,15 +11,8 @@
       "use": "@now/node-server"
     }
   ],
-  "env": {
-    "REACT_APP_WEATHER_API_KEY": "aea106c145b8ecec0014ee08d0c885c1"
-  },
-  "build": {
-    "env": {
-      "REACT_APP_CITIES_API_KEY": "autapomorph",
-      "REACT_APP_GEOIP_API_KEY": "10b88b00ec284861b853353074b76bcf",
-      "REACT_APP_SECURE": "true"
-    }
-  },
-  "routes": [{ "src": "^/api(.*)", "dest": "/src/api/index.ts" }]
+  "routes": [{
+    "src": "^/api(.*)",
+    "dest": "/src/api/index.ts"
+  }]
 }
