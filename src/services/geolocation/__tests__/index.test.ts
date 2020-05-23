@@ -3,6 +3,7 @@ import fetchMock from 'fetch-mock';
 import { API_GEOIP } from 'config/geolocation';
 import geolocationService from '..';
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 const setGetCurrentPosition = (getCurrentPosition: Function): void => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (global as any).navigator.geolocation = {

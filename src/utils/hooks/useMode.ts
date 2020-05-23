@@ -4,6 +4,11 @@ const useMode = (): [string, () => void] => {
   const localStorageItem = 'mode';
   const [mode, setMode] = useState('light');
 
+  const saveMode = (themeMode: string): void => {
+    window.localStorage.setItem(localStorageItem, themeMode);
+    setMode(themeMode);
+  };
+
   useLayoutEffect(() => {
     const savedMode = window.localStorage.getItem(localStorageItem);
 
@@ -15,11 +20,6 @@ const useMode = (): [string, () => void] => {
       saveMode('light');
     }
   }, []);
-
-  const saveMode = (themeMode: string): void => {
-    window.localStorage.setItem(localStorageItem, themeMode);
-    setMode(themeMode);
-  };
 
   const toggleMode = (): void => {
     switch (mode) {

@@ -71,6 +71,7 @@ export const InputButton = styled.button.attrs({
       color: ${({ theme }: ThemeProp) => theme.menuItemDisabledColor};
       cursor: default;
 
+      /* stylelint-disable-next-line no-duplicate-selectors */
       :hover {
         background: ${({ theme }: ThemeProp) => theme.menuItemDisabledBg};
         color: ${({ theme }: ThemeProp) => theme.menuItemDisabledColor};

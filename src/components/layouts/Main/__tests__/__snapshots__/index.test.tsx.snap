@@ -4,13 +4,7 @@ exports[`MainLayout tests renders properly 1`] = `
 <styles__LayoutWrapper>
   <ToastContainer
     autoClose={5000}
-    bodyClassName={null}
-    className={null}
-    closeButton={
-      <CloseButton
-        ariaLabel="close"
-      />
-    }
+    closeButton={[Function]}
     closeOnClick={true}
     draggable={true}
     draggablePercent={80}
@@ -19,12 +13,8 @@ exports[`MainLayout tests renders properly 1`] = `
     pauseOnFocusLoss={true}
     pauseOnHover={true}
     position="bottom-center"
-    progressClassName={null}
-    progressStyle={null}
     role="alert"
     rtl={false}
-    style={null}
-    toastClassName={null}
     transition={[Function]}
   />
   <styles__HeaderWrapper>

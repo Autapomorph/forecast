@@ -19,8 +19,10 @@ type Props = {
 const CurrentDetails = ({ city }: Props): React.ReactElement => {
   const { t, i18n } = useTranslation();
   const unitsFormat = useContext(UnitsFormatContext);
-  const tC = (key: string, options?: object): string => t(`cities.city.details.${key}`, options);
-  const tS = (key: string, options?: object): string => t(`settings.unitsFormats.${key}`, options);
+  const tC = (key: string, options?: Record<string, unknown>): string =>
+    t(`cities.city.details.${key}`, options);
+  const tS = (key: string, options?: Record<string, unknown>): string =>
+    t(`settings.unitsFormats.${key}`, options);
 
   const convertedTemp = convertTemp(city.current.temp, unitsFormat);
   const convertedPressure = convertPressure(city.current.pressure, unitsFormat);

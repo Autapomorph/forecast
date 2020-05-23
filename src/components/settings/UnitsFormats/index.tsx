@@ -11,6 +11,7 @@ import Select from 'components/settings/Select';
 
 import * as S from 'components/settings/Modal/styles';
 
+// eslint-disable-next-line no-use-before-define
 type Props = ConnectedProps<typeof connector>;
 
 export const UnitsFormats = ({

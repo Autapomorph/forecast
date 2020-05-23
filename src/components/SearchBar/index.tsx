@@ -10,6 +10,7 @@ import ModalContext from 'context/settingsModal';
 
 import * as S from './styles';
 
+// eslint-disable-next-line no-use-before-define
 type Props = ConnectedProps<typeof connector>;
 
 export const SearchBar = ({ _fetchCititesByName }: Props): React.ReactElement => {

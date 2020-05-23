@@ -21,7 +21,8 @@ type Props = {
 const DailyDetails = ({ city }: Props): React.ReactElement => {
   const unitsFormat = useContext(UnitsFormatContext);
   const { t, i18n } = useTranslation();
-  const tS = (key: string, options?: object): string => t(`settings.unitsFormats.${key}`, options);
+  const tS = (key: string, options?: Record<string, unknown>): string =>
+    t(`settings.unitsFormats.${key}`, options);
 
   const descriptionElements = useRef(city.daily.map(() => React.createRef<HTMLDivElement>()));
   useLayoutEffect(() => {

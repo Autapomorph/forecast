@@ -15,7 +15,7 @@ const MainLayout = (): React.ReactElement => {
 
   return (
     <S.LayoutWrapper>
-      <ToastContainer position={toast.POSITION.BOTTOM_CENTER} />
+      <ToastContainer position={toast.POSITION.BOTTOM_CENTER as 'bottom-center'} />
 
       <S.HeaderWrapper>
         <Header />

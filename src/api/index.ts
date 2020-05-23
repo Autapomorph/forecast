@@ -20,10 +20,10 @@ app.get('/api', async (req, res) => {
     const { latitude, longitude, lang = 'en', units = 'us' } = req.query;
 
     const weatherData = await darksky
-      .latitude(latitude)
-      .longitude(longitude)
-      .language(lang)
-      .units(units)
+      .latitude(latitude as string | number)
+      .longitude(longitude as string | number)
+      .language(lang as string)
+      .units(units as string)
       .get();
 
     res.status(200).json(weatherData);

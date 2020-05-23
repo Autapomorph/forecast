@@ -32,6 +32,7 @@ import Pagination from './Pagination';
 
 import * as S from './styles';
 
+// eslint-disable-next-line no-use-before-define
 type Props = ConnectedProps<typeof connector>;
 
 export const Cities = ({
@@ -52,7 +53,8 @@ export const Cities = ({
   const [currentPage, setCurrentPage] = useState(0);
   const perPage = 8;
   const { t } = useTranslation();
-  const tC = (key: string, options?: object): string => t(`cities.cities.${key}`, options);
+  const tC = (key: string, options?: Record<string, unknown>): string =>
+    t(`cities.cities.${key}`, options);
 
   useToast({
     toastId: 'cityError',

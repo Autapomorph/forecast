@@ -12,6 +12,7 @@ import useToast from 'utils/hooks/useToast';
 
 import * as S from 'components/SearchBar/styles';
 
+// eslint-disable-next-line no-use-before-define
 type Props = ConnectedProps<typeof connector> & {
   onClick?: () => void;
 };

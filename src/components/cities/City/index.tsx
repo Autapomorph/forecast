@@ -20,6 +20,7 @@ import Details from './Details';
 
 import * as S from './styles';
 
+// eslint-disable-next-line no-use-before-define
 type Props = ConnectedProps<typeof connector>;
 
 export const City = ({

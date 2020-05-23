@@ -18,6 +18,7 @@ import List from './List';
 
 import * as S from './styles';
 
+// eslint-disable-next-line no-use-before-define
 type Props = ConnectedProps<typeof connector>;
 
 export const Featured = ({
@@ -28,7 +29,8 @@ export const Featured = ({
   _reorderFeatured,
 }: Props): React.ReactElement => {
   const { t } = useTranslation();
-  const tC = (key: string, options?: object): string => t(`cities.featured.${key}`, options);
+  const tC = (key: string, options?: Record<string, unknown>): string =>
+    t(`cities.featured.${key}`, options);
   const isEmpty = !cities || !Object.keys(cities).length;
 
   const onDragEnd = ({ source, destination }: DropResult): void => {
